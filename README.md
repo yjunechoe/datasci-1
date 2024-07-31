@@ -1,7 +1,9 @@
 # datasci
-LING0700 | PSYCH2314
+
+LING0700 | PSYCH2314 Data Science for Studying Language and the Mind
 
 ## Schedule
+
 | Week | Begins |  Topic | Reading | Practice | Due this week |
 | -  | -- |  ------- | --- | --- | ---- |
 | 1 | Aug 26 | R Basics | Ch1 R4DS<br>Ch1 TM | Lab 1 | |

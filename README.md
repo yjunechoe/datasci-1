@@ -1,6 +1,7 @@
 LING0700/PSYCH2314 Data Science for Studying Language and the Mind
 
-<toc>
+- [Schedule](#schedule)
+- [Syllabus](#syllabus)
 
 ## Schedule
 
@@ -23,3 +24,7 @@ LING0700/PSYCH2314 Data Science for Studying Language and the Mind
 | 15 | Dec 2 | Multilevel models | | Lab 10 |  |
 | 16 | Dec 9 | Last day of classes (no class) | |  | Problem set 6 |
 | 17 | TBD | Final exam (optional) | 
+
+## Syllabus 
+
+

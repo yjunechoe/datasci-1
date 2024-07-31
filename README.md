@@ -1,8 +1,6 @@
----
-layout: default
----
-
 LING0700/PSYCH2314 Data Science for Studying Language and the Mind
+
+<toc>
 
 ## Schedule
 

@@ -1,7 +1,15 @@
-LING0700/PSYCH2314 Data Science for Studying Language and the Mind
+
+<center><h1>LING0700/PSYCH2314 Data Science for Studying Language and the Mind</h1></center>
+
+Welcome to Data Science for Studying Language and the Mind! 
+
 
 - [Schedule](#schedule)
 - [Syllabus](#syllabus)
+
+## Syllabus 
+
+**Lectures**: Tuesdaysa nd 
 
 ## Schedule
 

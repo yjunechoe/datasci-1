@@ -1,4 +1,5 @@
 
+<center><h1>LING0700/PSYCH2314, Fall 20214</h1></center>
 <center><h1>LING0700/PSYCH2314 Data Science for Studying Language and the Mind</h1></center>
 
 Welcome to Data Science for Studying Language and the Mind! 

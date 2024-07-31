@@ -3,7 +3,5 @@ author:
   name: Katie Schuler
   email: kathryn.schuler@gmail.com
 description: "Data sci for Lang & Mind"
-links: 
-- title: Section
-  url: /section/
-  external: true
+theme: jekyll-theme-cayman
+

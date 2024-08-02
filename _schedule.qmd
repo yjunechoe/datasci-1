@@ -2,7 +2,7 @@
 
 | Week | Begins |  Topic | Practice | Due on Monday  |
 | -  | -- |  ------- | --- | ---- |
-| 1 | Aug 26 | [R Basics](notes/week-01-r-basics.qmd) |  Lab 1 | |
+| 1 | Aug 26 | R Basics |  Lab 1 | |
 | 2 | Sep 2 | Data import and tidy |  Lab 2 |  |
 | 3 | Sep 9 | Data visualization |  Lab 3 | Problem set 1 |
 | 4 | Sep 16 | Sampling distribution |  Lab 4 |  | 

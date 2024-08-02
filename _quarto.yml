@@ -72,7 +72,7 @@ format:
   html:
     toc: true
     toc-location: right
-    theme: lumen
+    theme: default
     fontsize: 1em
     grid:
       sidebar-width: 350px

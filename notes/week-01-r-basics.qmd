@@ -4,7 +4,6 @@ date:   2023-08-31
 author: 
     - Katie Schuler
     - June Choe
-bread-crumbs: true
 format:
     html: default
     pdf: default

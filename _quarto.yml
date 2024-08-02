@@ -18,18 +18,18 @@ website:
     contents: 
       - text: Syllabus
         href: index.qmd
-      - text: Resources
-        href: resources.qmd
-      - section: Materials
-        href: materials.qmd
-        contents: 
-          - text: Lecture notes
-            href: materials.qmd#lecture-notes
-          - text: Problem sets 
-            href: materials.qmd#problem-sets
+      # - text: Resources
+      #   href: resources.qmd
+      # - section: Materials
+      #   href: materials.qmd
+      #   contents: 
+      #     - text: Lecture notes
+      #       href: materials.qmd#lecture-notes
+      #     - text: Problem sets 
+      #       href: materials.qmd#problem-sets
 
-      - text: Schedule
-        href: schedule.qmd
+      # - text: Schedule
+      #   href: schedule.qmd
       # - section: Notes
       #   contents: notes/*
       # - section: Problem sets 
@@ -71,7 +71,7 @@ website:
 format:
   html:
     toc: true
-    toc-location: right
+    toc-location: left
     theme: default
     fontsize: 1em
     grid:

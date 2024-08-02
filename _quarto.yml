@@ -1,0 +1,74 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Data Science for Lang & Mind"
+  sidebar:
+    style: "docked"
+    search: true
+    type: "dark"
+    tools:
+    - icon: bar-chart-fill
+      href: https://twitter.com
+    - icon: chat
+      href: https://code 
+    - icon: journal-code
+      href: colab.com
+    contents: 
+      - text: Syllabus
+        href: index.qmd
+      - text: Schedule
+        href: schedule.qmd
+      # - section: Notes
+      #   contents: notes/*
+      # - section: Problem sets 
+      #   contents: psets/*
+      # - section: Exams
+      #   contents: exams/*
+      # - section: Labs
+      #   contents: labs/*
+    #   - text: Resources
+    #     href: index.qmd#resources
+    #   - text: Materials
+    #     href: index.qmd#materials
+    #   - text: Schedule 
+    #     href: index.qmd#schedule
+    # - part: "Data science with R"
+    #   chapters:
+    #     - notes/hello-world.qmd
+    #     - notes/r-basics.qmd
+    #     - notes/data-importing.qmd
+    #     - notes/data-wrangling.qmd
+    #     - notes/data-visualization.qmd
+    # - part: Basic stats
+    #   chapters: 
+    #   - notes/sampling-distribution.qmd
+    #   - notes/hypothesis-testing.qmd
+    # - part: Model building
+    #   chapters: 
+    #     - notes/model-specification.qmd
+    #     - notes/model-fitting.qmd
+    #     - notes/model-reliability.qmd
+    #     - notes/model-accuracy.qmd
+    # - part: More advanced
+    #   chapters:
+    #     - notes/classification.qmd
+    #     - notes/inference.qmd
+    #     - notes/mixed-effects-models.qmd
+    #     - references.qmd
+
+format:
+  html:
+    toc: true
+    toc-location: left
+    theme: defult
+    fontsize: 0.9em
+    grid:
+      sidebar-width: 350px
+  pdf:
+    documentclass: scrartcl
+    papersize: letter
+    toc: false
+    number-sections: false
+    highlight-style: github

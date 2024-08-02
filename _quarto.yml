@@ -3,21 +3,31 @@ project:
   output-dir: docs
 
 website:
-  title: "Data Science for Lang & Mind"
+  title: "DataSci for Lang & Mind"
   sidebar:
     style: "docked"
     search: true
     type: "dark"
-    tools:
-    - icon: bar-chart-fill
-      href: https://twitter.com
-    - icon: chat
-      href: https://code 
-    - icon: journal-code
-      href: colab.com
+    # tools:
+    # - icon: bar-chart-fill
+    #   href: https://twitter.com
+    # - icon: chat
+    #   href: https://code 
+    # - icon: journal-code
+    #   href: colab.com
     contents: 
       - text: Syllabus
         href: index.qmd
+      - text: Resources
+        href: resources.qmd
+      - section: Materials
+        href: materials.qmd
+        contents: 
+          - text: Lecture notes
+            href: materials.qmd#lecture-notes
+          - text: Problem sets 
+            href: materials.qmd#problem-sets
+
       - text: Schedule
         href: schedule.qmd
       # - section: Notes
@@ -61,9 +71,9 @@ website:
 format:
   html:
     toc: true
-    toc-location: left
-    theme: defult
-    fontsize: 0.9em
+    toc-location: right
+    theme: lumen
+    fontsize: 1em
     grid:
       sidebar-width: 350px
   pdf:

@@ -1,0 +1,273 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, sharp corners, interior hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, enhanced]}{\end{tcolorbox}}\fi
+
+\hypertarget{materials}{%
+\subsection{Materials}\label{materials}}
+
+\hypertarget{lecture-notes}{%
+\subsubsection{Lecture notes}\label{lecture-notes}}
+
+Lecture notes include Katie's lecture notes and additional resources
+from each week, including slides, demos, and further reading.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{notes/week-01-r-basics.qmd}{Week 1: R Basics}
+\item
+  Week 2: Data visualization
+\item
+  Week 3: Data wrangling
+\item
+  Week 4: Sampling distribution
+\item
+  Week 5: Hypothesis testing
+\item
+  Week 6: Exam 1 review
+\item
+  Week 7: Model specification
+\item
+  Week 8: Model fitting
+\item
+  Week 9: Model accuracy
+\item
+  Week 10: Model reliability
+\item
+  Week 11: Classification
+\item
+  Week 12: Inference
+\item
+  Week 13: Exam 2 review
+\item
+  WeeK 15: Multilevel Models
+\end{itemize}
+
+\hypertarget{problem-sets}{%
+\subsubsection{Problem sets}\label{problem-sets}}
+
+There are 6 problem sets, due to Gradescope by noon on the following
+Mondays. You may request an extension of up to 3 days for any reason.
+After solutions are posted, late problem sets can still be submitted for
+half credit (50\%). If you submit all 6 problem sets, we will drop your
+lowest.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{}{Problem set 1} due Sep 9
+\item
+  Problem set 2 due Sep 23
+\item
+  Problem set 3 due Oct 14
+\item
+  Problem set 4 due Oct 28
+\item
+  Problem set 5 due Nov 11
+\item
+  Problem set 6 due Dec 9
+\end{itemize}
+
+\hypertarget{exams}{%
+\subsubsection{Exams}\label{exams}}
+
+There are 2 midterm exams, taken in class on the following dates. Exams
+cannot be rescheduled, except in cases of genuine conflict or emergency
+(documentation and a
+\href{https://srfs.upenn.edu/student-records/course-action-notices}{Course
+Action Notice} are required). However, you can submit any missed exam by
+the end of the semester for half credit (50\%). You may also replace
+your lowest midterm exam score with the optional final exam.
+
+\begin{itemize}
+\tightlist
+\item
+  Exam 1 in class Tuesday Oct 1
+\item
+  Exam 2 in class Thursday Nov 21
+\item
+  Final exam (optional) TBD
+\end{itemize}
+
+\hypertarget{lab-exercises}{%
+\subsubsection{Lab exercises}\label{lab-exercises}}
+
+Lab exercises are intended for practice and are not graded.
+
+\begin{itemize}
+\tightlist
+\item
+  Lab 1 on Aug 29 or 30
+\item
+  Lab 2 on Sep 5 or 6
+\item
+  Lab 3 on Sep 12 or 13
+\item
+  Lab 4 on Sep 19 or 20
+\item
+  Lab 5 on Oct 10 or 11
+\item
+  Lab 6 on Oct 17 or 18
+\item
+  Lab 7 on Oct 24 or 25
+\item
+  Lab 8 on Nov 1 or 2
+\item
+  Lab 9 on Nov 8 or 9
+\item
+  Lab 10 on Dec 5 or 6
+\end{itemize}
+
+
+
+\end{document}

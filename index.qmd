@@ -2,7 +2,8 @@
 title: Data Science for studying language and the mind
 subtitle: Fall 2024
 format:
-    html: default
+    html: 
+        toc: false
     pdf: default
 ---
 

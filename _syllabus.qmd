@@ -4,11 +4,11 @@
 
 **Prerequisites**: There are *no prerequisites beyond high school algebra*. No prior programming or statistics experience is necessary, though you will still enjoy this course if you already have a little. Students who have taken several computer science or statistics classes should look for a more advanced course.
 
-**Lectures**: Tuesdays and Thursdays from 12 - 1:29pm in TBD.
-
 **Instructor**: [Dr. Katie Schuler (she/her)](https://kathrynschuler.com)
 
 **TAs**: Brittany Zykoski and Wesley Lincoln 
+
+**Lectures**: Tuesdays and Thursdays from 12 - 1:29pm in TBD.
 
 **Labs**: Hands-on practice and exam prep guided by TAs.
 
@@ -30,11 +30,14 @@
 
 **Collaboration**: Collaboration on problem sets is highly encouraged! If you collaborate, you need to write your own code/solutions, name your collaborators, and cite any outside sources you consulted (you don't need to cite the course material).
 
+
+
 **Accomodations**: We will support any accommodations arranged through Disability Services via the [Weingarten Center](https://weingartencenter.universitylife.upenn.edu/disability-services/). Please make arrangements as soon as possible (1-2 weeks in advance).
 
 **Extra credit**: There is no extra credit in the course. However, students can submit any missed problem set or exam by the end of the semester for half credit (50%).  To ensure fair treatment, all students will receive a 1% "bonus" to their final course grade: 92.54% will become 93.54%.
 
 **Regrade requests** Regrade requests should be submitted through Gradescope within one week of receiving your graded assignment. Please explain why you believe there was a grading mistake, given the posted solutions and rubric
+
 
 
 

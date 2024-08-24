@@ -10,7 +10,7 @@
 <meta name="author" content="June Choe">
 <meta name="dcterms.date" content="2023-08-31">
 
-<title>DataSci for Lang &amp; Mind - R basics</title>
+<title>DataSci for Lang &amp; Mind - Week 1: R basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -198,7 +198,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basics" id="toc-basics" class="nav-link active" data-scroll-target="#basics">Basics</a></li>
+  <li><a href="#hello-world" id="toc-hello-world" class="nav-link active" data-scroll-target="#hello-world">Hello, World!</a>
+  <ul class="collapse">
+  <li><a href="#what-is-data-science" id="toc-what-is-data-science" class="nav-link" data-scroll-target="#what-is-data-science">What is data science?</a></li>
+  <li><a href="#data-science-workflow" id="toc-data-science-workflow" class="nav-link" data-scroll-target="#data-science-workflow">Data science workflow</a></li>
+  <li><a href="#overview-of-the-course" id="toc-overview-of-the-course" class="nav-link" data-scroll-target="#overview-of-the-course">Overview of the course</a></li>
+  <li><a href="#syllabus-briefly" id="toc-syllabus-briefly" class="nav-link" data-scroll-target="#syllabus-briefly">Syllabus, briefly</a></li>
+  <li><a href="#why-r" id="toc-why-r" class="nav-link" data-scroll-target="#why-r">Why R?</a></li>
+  </ul></li>
+  <li><a href="#google-colab" id="toc-google-colab" class="nav-link" data-scroll-target="#google-colab">Google Colab</a></li>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R Basics</a>
+  <ul class="collapse">
+  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics">Basics</a></li>
   <li><a href="#important-functions" id="toc-important-functions" class="nav-link" data-scroll-target="#important-functions">Important functions</a></li>
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
   <li><a href="#operations" id="toc-operations" class="nav-link" data-scroll-target="#operations">Operations</a></li>
@@ -206,6 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#subsetting" id="toc-subsetting" class="nav-link" data-scroll-target="#subsetting">Subsetting</a></li>
   <li><a href="#built-in-functions" id="toc-built-in-functions" class="nav-link" data-scroll-target="#built-in-functions">Built-in functions</a></li>
   <li><a href="#programming-in-r" id="toc-programming-in-r" class="nav-link" data-scroll-target="#programming-in-r">Programming in R</a></li>
+  </ul></li>
   <li><a href="#further-reading-and-references" id="toc-further-reading-and-references" class="nav-link" data-scroll-target="#further-reading-and-references">Further reading and references</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="week-01-r-basics.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -215,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R basics</h1>
+<h1 class="title">Week 1: R basics</h1>
 </div>
 
 
@@ -243,8 +255,145 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="basics" class="level2">
-<h2 class="anchored" data-anchor-id="basics">Basics</h2>
+<section id="hello-world" class="level2">
+<h2 class="anchored" data-anchor-id="hello-world">Hello, World!</h2>
+<section id="what-is-data-science" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-data-science">What is data science?</h3>
+<blockquote class="blockquote">
+<p>Data are descriptions of the world around us, collected through observation and stored on computers. Computers enable us to infer properties of the world from these descriptions. Data science is the discipline of drawing conclusions from data using computation.</p>
+<p>– <em>Computational and Inferential Thinking: The Foundations of Data Science</em></p>
+</blockquote>
+<p>Data science is about making decisions based on incomplete information. This concept is not new – brains (especially human brains!) love doing this. To illustrate, what do you see in the following image?</p>
+<!-- ![from Kok & de Lange (2014)^[Kok, P., & de Lange, F. P. (2014). Shape perception simultaneously up-and downregulates neural activity in the primary visual cortex. Current Biology, 24(13), 1531-1535.]](/include/figures/visual-illusion.png){##fig-visualillusion fig-align="left" width=25%} -->
+<p>Did you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>While the underlying concept is not new, the computational tools we use are <em>relatively</em> new. And we have a lot more data!</p>
+<!-- ![from https://www.domo.com/data-never-sleeps.](/include/figures/data-never-sleeps.png){##fig-dataneversleeps fig-align="left" width=80%} -->
+</section>
+<section id="data-science-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="data-science-workflow">Data science workflow</h3>
+<p>The folks who wrote <a href="https://r4ds.hadley.nz/">R for Data Science</a> proposed the following data science workflow:</p>
+<!-- ![from R for Data Science](/include/figures/datascience-workflow.png){##fig-datascience fig-align="left" width=80%} -->
+<p>Let’s unpack what these mean briefly:</p>
+<ol type="1">
+<li><p><strong>Import:</strong> gather data from a variety of sources, which can include structured data (like databases and spreadsheets) and unstructured data (like text, images, and videos).</p></li>
+<li><p><strong>Tidy and Transform:</strong> The raw data we import is often messy. Data scientists clean and preprocess the data, which involves removing errors, handling missing values, and transforming data into a suitable format for analysis.</p></li>
+<li><p><strong>Visualize (exploratory data analysis)</strong> visualize and summarize data to identify patterns, form hypotheses, select appropriate models, and guide further analysis.</p></li>
+<li><p><strong>Model:</strong> Using statistical methods, machine learning algorithms, and other computational techniques, data scientists build models to understand underlying patterns in the data. Models are tested using validation techniques to ensure their accuracy and reliability. Then data scientists use them to draw meaningful conclusions, like predictions about the future or inferences about populuation.</p></li>
+<li><p><strong>Communicate:</strong> Finally, a crucial part of data science is communicating findings clearly and effectively, whatever your purpose (academic, industry, or the public!)</p></li>
+<li><p><strong>Program</strong>: Surrounding all these is programming, since the computational tools are what make these possible!</p></li>
+</ol>
+<p>Data science has applications in many fields far beyond language and the mind. It allows us to make data-driven decisions, solve complex problems, and uncover hidden insights that might not be apparent through other methods.</p>
+</section>
+<section id="overview-of-the-course" class="level3">
+<h3 class="anchored" data-anchor-id="overview-of-the-course">Overview of the course</h3>
+<p>We will spend the first few weeks getting comfortable <strong>programming in R</strong>, including some useful skills for data science:</p>
+<ul>
+<li>R basics</li>
+<li>Data importing</li>
+<li>Data visualization</li>
+<li>Data wrangling</li>
+</ul>
+<p>Then, we will spend the next several weeks building a <strong>foundation in basic statistics and model building</strong>:</p>
+<ul>
+<li>Probability distributions</li>
+<li>Sampling variability</li>
+<li>Hypothesis testing</li>
+<li>Model specification</li>
+<li>Model fitting</li>
+<li>Model accuracy</li>
+<li>Model reliability</li>
+</ul>
+<p>Finally we will cover a selection of <strong>more advanced topics</strong> that are often applied in language and mind fields, with a focus on basic understanding:</p>
+<ul>
+<li>Classification</li>
+<li>Feature engineering (preprocessing)</li>
+<li>Inference for regression</li>
+<li>Mixed-effect models</li>
+</ul>
+</section>
+<section id="syllabus-briefly" class="level3">
+<h3 class="anchored" data-anchor-id="syllabus-briefly">Syllabus, briefly</h3>
+<p>Each week will include two lectures and a lab:</p>
+<ul>
+<li><strong>Lectures</strong> are on Tuesdays and Thursdays at 10:15am and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!</li>
+<li><strong>Lab</strong> is on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule.</li>
+</ul>
+<p>There are 10 graded assessments:</p>
+<ul>
+<li><strong>6 Problem sets</strong> in which you will be asked to apply your newly aquired R programming skills.</li>
+<li><strong>4 Quizzes</strong> in which you will be tested on your understanding of lecture concepts.</li>
+</ul>
+<p>There are a few policies to take note of:</p>
+<ul>
+<li>Missed quizzes cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required)</li>
+<li>You may request an extension on any problem set of up to 3 days. But extensions beyond 3 days will not be granted (because delying solutions will negative impact other students).</li>
+<li>You may submit any missed quiz or problem set by the end of the semester for half-credit (50%).</li>
+</ul>
+</section>
+<section id="why-r" class="level3">
+<h3 class="anchored" data-anchor-id="why-r">Why R?</h3>
+<p>With many programming languages available for data science (e.g.&nbsp;R, Python, Julia, MATLAB), why use R?</p>
+<ul>
+<li>Built for stats, specifically</li>
+<li>Makes nice visualizations</li>
+<li>Lots of people are doing it, especially in academia</li>
+<li>Easier for beginners to understand</li>
+<li>Free and open source (though so are Python and Julia, MATLAB costs $)</li>
+</ul>
+<p>If you are interested, here is a <a href="https://tobydriscoll.net/blog/matlab-vs.-julia-vs.-python/">math professor’s take</a> on the differences between Python, Julia, and MATLAB. Note that although they’re optimized for different things, <strong>they are all great</strong> and the technical skills and conceptual knowledge you gain in this course will transfer to other languages.</p>
+</section>
+</section>
+<section id="google-colab" class="level2">
+<h2 class="anchored" data-anchor-id="google-colab">Google Colab</h2>
+<p>There are many ways to program with R. Some popular options include:</p>
+<ul>
+<li><a href="https://posit.co/products/open-source/rstudio/">R Studio</a></li>
+<li><a href="https://jupyter.org/">Jupyter</a></li>
+<li><a href="https://code.visualstudio.com/docs/languages/r">VS Code</a></li>
+<li>and even simply the <a href="http://mercury.webster.edu/aleshunas/R_learning_infrastructure/Using%20the%20R%20command%20line.html">command line/terminal</a></li>
+</ul>
+<p><strong>Google Colab</strong> is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc. We use Google Colab because it’s simple and accessible to everyone. You can start programming right away, no setup required! Google Colab officially supports Python, but secretly supports R (and <a href="https://colab.research.google.com/github/ageron/julia_notebooks/blob/master/Julia_Colab_Notebook_Template.ipynb">Julia</a>, too!)</p>
+<p>New R notebook:</p>
+<ul>
+<li><a href="https://colab.research.google.com/##create=true&amp;language=r">colab (r kernel)</a> - use this link to start a new R notebook</li>
+<li><code>File &gt; New notebook</code> error, Python! <code>name 'x' is not defined</code></li>
+</ul>
+<p>Cell types:</p>
+<ul>
+<li><code>+ Code</code> - write and execute code</li>
+<li><code>+ Text</code> - write text blocks in <a href="https://www.markdowntutorial.com/">markdown</a></li>
+</ul>
+<p>Left sidebar:</p>
+<ul>
+<li><code>Table of contents</code> - outline from text headings</li>
+<li><code>Find and replace</code> - find and/or replace</li>
+<li><code>Files</code> - upload files to cloud session</li>
+</ul>
+<p>Frequently used menu options:</p>
+<ul>
+<li><code>File &gt; Locate in Drive</code> - where in your Google Drive?</li>
+<li><code>File &gt; Save</code> - saves</li>
+<li><code>File &gt; Revision history</code> - history of changes you made</li>
+<li><code>File &gt; Download &gt; Download .ipynb</code> - used to submit assignments!</li>
+<li><code>File &gt; Print</code> - prints</li>
+<li><code>Runtime &gt; Run all</code> - run all cells</li>
+<li><code>Runtime &gt; Run before</code> - run all cells before current active cell</li>
+<li><code>Runtime &gt; Restart and run all</code> - restart runtime, then run all</li>
+</ul>
+<p>Frequently used keyboard shortcuts:</p>
+<ul>
+<li><code>Cmd/Ctrl+S</code> - save</li>
+<li><code>Cmd/Ctrl+Enter</code> - run focused cell</li>
+<li><code>Cmd/Ctrl+Shift+A</code> - select all cells</li>
+<li><code>Cmd/Ctrl+/</code> - comment/uncomment selection</li>
+<li><code>Cmd/Ctrl+]</code> - increase indent</li>
+<li><code>Cmd/Ctrl+[</code> - decrease indent</li>
+</ul>
+</section>
+<section id="r-basics" class="level2">
+<h2 class="anchored" data-anchor-id="r-basics">R Basics</h2>
+<section id="basics" class="level3">
+<h3 class="anchored" data-anchor-id="basics">Basics</h3>
 <p>We begin by defining some basic concepts:</p>
 <ul>
 <li><strong>Expressions </strong>are combinations of values, variables, operators, and functions that can be evaluated to produce a result. Expressions can be as simple as a single value or more complex involving calculations, comparisons, and function calls. They are the fundamental building blocks of programming.
@@ -273,8 +422,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Ask ChatGPT</strong> - You can similarly use ChatGPT or other LLMs as a resource. But keep in mind they may provide a solution that is wrong or not relevant to what we are learning in this course.</li>
 </ul>
 </section>
-<section id="important-functions" class="level2">
-<h2 class="anchored" data-anchor-id="important-functions">Important functions</h2>
+<section id="important-functions" class="level3">
+<h3 class="anchored" data-anchor-id="important-functions">Important functions</h3>
 <p>For objects:</p>
 <ul>
 <li><code>str(x)</code> - returns summary of object’s structure</li>
@@ -304,8 +453,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>help(package='tidyverse')</code> - find help for a package</li>
 </ul>
 </section>
-<section id="vectors" class="level2">
-<h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
+<section id="vectors" class="level3">
+<h3 class="anchored" data-anchor-id="vectors">Vectors</h3>
 <p>One of the must fundamental data structures in R is the <strong>vector</strong>. There are two types:</p>
 <ul>
 <li><strong>atomic vector</strong> - elements of the same data type</li>
@@ -353,8 +502,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Note that atomic vectors must contain only elements of the same type. If you try to include elements of different types, R will coerce them into the same type with no warning (<strong>implicit coercion</strong>) according to the heirarchy character &gt; double &gt; integer &gt; logical.</p>
 </section>
-<section id="operations" class="level2">
-<h2 class="anchored" data-anchor-id="operations">Operations</h2>
+<section id="operations" class="level3">
+<h3 class="anchored" data-anchor-id="operations">Operations</h3>
 <p>Arithmetic operators:</p>
 <ul>
 <li><code>+</code> - add</li>
@@ -392,8 +541,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="more-complex-structures" class="level2">
-<h2 class="anchored" data-anchor-id="more-complex-structures">More complex structures</h2>
+<section id="more-complex-structures" class="level3">
+<h3 class="anchored" data-anchor-id="more-complex-structures">More complex structures</h3>
 <p>Some more complex data structures are <strong>built from atomic vectors</strong> by adding <strong>attributes</strong>:</p>
 <ul>
 <li><code>matrix</code> - a vector with a <code>dim</code> attribute representing 2 dimensions</li>
@@ -416,8 +565,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>NULL</code> - used to represent an empty or absent vector of arbitrary type. <code>NULL</code> is its own special type and always has length zero and <code>NULL</code> attributes. Check for <code>NULL</code> values with <code>is.null()</code>.</li>
 </ul>
 </section>
-<section id="subsetting" class="level2">
-<h2 class="anchored" data-anchor-id="subsetting">Subsetting</h2>
+<section id="subsetting" class="level3">
+<h3 class="anchored" data-anchor-id="subsetting">Subsetting</h3>
 <blockquote class="blockquote">
 <p>Subsetting is a natural complement to str(). While str() shows you all the pieces of any object (its structure), subsetting allows you to pull out the pieces that you’re interested in. ~ Hadley Wickham, Advanced R</p>
 </blockquote>
@@ -455,8 +604,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>the behavior for invalid indexes is inconsistent: sometimes you’ll get an error message, and sometimes it will return <code>NULL</code></li>
 </ul>
 </section>
-<section id="built-in-functions" class="level2">
-<h2 class="anchored" data-anchor-id="built-in-functions">Built-in functions</h2>
+<section id="built-in-functions" class="level3">
+<h3 class="anchored" data-anchor-id="built-in-functions">Built-in functions</h3>
 <p>Note that you do not need to memorize these built-in functions to be successful on quizzes. Use this as a reference.</p>
 <p>For basic math:</p>
 <ul>
@@ -522,13 +671,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>hist(x)</code> - histogram of x</li>
 </ul>
 </section>
-<section id="programming-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="programming-in-r">Programming in R</h2>
+<section id="programming-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="programming-in-r">Programming in R</h3>
 <p>Writing <strong>functions</strong> and handling <strong>control flow</strong> are important aspects of learning to program in any language. For our purposes, some general conceptual knowledge on these topics is sufficient (see below). Those interested to learn more might enjoy the book <a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a>.</p>
 <ul>
 <li><p><strong>Functions</strong> are reusable pieces of code that take some input, perform some task or computation, and return an output.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(inputs){</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># do something</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="do">## do something</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(output)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong>Control flow</strong> refers to managing the order in which expressions are executed in a program:</p>
@@ -541,11 +690,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
+</section>
 <section id="further-reading-and-references" class="level2">
 <h2 class="anchored" data-anchor-id="further-reading-and-references">Further reading and references</h2>
 <p>Suggested further reading:</p>
 <ul>
-<li><a href="https://moderndive.com/1-getting-started.html#code">Getting started with Data in R</a> from Modern Dive textbook</li>
+<li><a href="https://moderndive.com/1-getting-started.html##code">Getting started with Data in R</a> from Modern Dive textbook</li>
 <li><a href="https://bookdown.org/rdpeng/rprogdatascience/r-nuts-and-bolts.html">R Nuts and Bolts</a> in R Programming for Data Science by Roger Peng</li>
 <li><a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">Base R Cheat Sheet</a></li>
 </ul>
@@ -559,7 +709,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>https://neurosciencenews.com/neuroimaging-visual-processing-fmri-1150/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -75,7 +75,8 @@ format:
   html:
     toc: true
     toc-location: right
-    theme: default
+    #theme: default
+    theme: cosmo
     fontsize: 1em
     grid:
       sidebar-width: 350px

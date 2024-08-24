@@ -30,6 +30,14 @@ There are 6 problem sets, due to Gradescope by noon on the following Mondays. Yo
 - Problem set 5 due Nov 11
 - Problem set 6 due Dec 9 
 
+<!-- 
+    Hi [Professor's Name],
+
+    I’m having a [busy/difficult/etc.] week and was wondering if I could take an extra 3 days to complete the [name of the assignment]? I’d really appreciate it.
+
+    Thank you,
+    [Your Name] -->
+
 ### Exams
 
 There are 2 midterm exams, taken in class on the following dates. Exams cannot be rescheduled, except in cases of genuine conflict or emergency (documentation and a [Course Action Notice](https://srfs.upenn.edu/student-records/course-action-notices) are required). However, you can submit any missed exam by the end of the semester for half credit (50%). You may also replace your lowest midterm exam score with the optional final exam. 

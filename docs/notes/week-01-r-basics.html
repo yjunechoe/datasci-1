@@ -7,8 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Katie Schuler">
-<meta name="author" content="June Choe">
-<meta name="dcterms.date" content="2023-08-31">
+<meta name="dcterms.date" content="2024-08-27">
 
 <title>DataSci for Lang &amp; Mind - Week 1: R basics</title>
 <style>
@@ -235,17 +234,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
              <p>Katie Schuler </p>
-             <p>June Choe </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 31, 2023</p>
+      <p class="date">August 27, 2024</p>
     </div>
   </div>
   
@@ -264,15 +262,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>– <em>Computational and Inferential Thinking: The Foundations of Data Science</em></p>
 </blockquote>
 <p>Data science is about making decisions based on incomplete information. This concept is not new – brains (especially human brains!) love doing this. To illustrate, what do you see in the following image?</p>
-<!-- ![from Kok & de Lange (2014)^[Kok, P., & de Lange, F. P. (2014). Shape perception simultaneously up-and downregulates neural activity in the primary visual cortex. Current Biology, 24(13), 1531-1535.]](/include/figures/visual-illusion.png){##fig-visualillusion fig-align="left" width=25%} -->
+<p><img src="../assests/images/visual-illusion.png" class="img-fluid" alt="from Kok &amp; de Lange (2014)">{##fig-visualillusion fig-align=“left” width=25%}</p>
 <p>Did you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>While the underlying concept is not new, the computational tools we use are <em>relatively</em> new. And we have a lot more data!</p>
-<!-- ![from https://www.domo.com/data-never-sleeps.](/include/figures/data-never-sleeps.png){##fig-dataneversleeps fig-align="left" width=80%} -->
+<p><img src="../assests/images/data-never-sleeps.png" class="img-fluid" alt="from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png">{##fig-dataneversleeps fig-align=“left” width=80%}</p>
 </section>
 <section id="data-science-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="data-science-workflow">Data science workflow</h3>
 <p>The folks who wrote <a href="https://r4ds.hadley.nz/">R for Data Science</a> proposed the following data science workflow:</p>
-<!-- ![from R for Data Science](/include/figures/datascience-workflow.png){##fig-datascience fig-align="left" width=80%} -->
+<p><img src="../assests/images/data-science-workflow.png" class="img-fluid" alt="from R for Data Science">{##fig-datascience fig-align=“left” width=80%}</p>
 <p>Let’s unpack what these mean briefly:</p>
 <ol type="1">
 <li><p><strong>Import:</strong> gather data from a variety of sources, which can include structured data (like databases and spreadsheets) and unstructured data (like text, images, and videos).</p></li>
@@ -352,11 +350,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://code.visualstudio.com/docs/languages/r">VS Code</a></li>
 <li>and even simply the <a href="http://mercury.webster.edu/aleshunas/R_learning_infrastructure/Using%20the%20R%20command%20line.html">command line/terminal</a></li>
 </ul>
-<p><strong>Google Colab</strong> is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc. We use Google Colab because it’s simple and accessible to everyone. You can start programming right away, no setup required! Google Colab officially supports Python, but secretly supports R (and <a href="https://colab.research.google.com/github/ageron/julia_notebooks/blob/master/Julia_Colab_Notebook_Template.ipynb">Julia</a>, too!)</p>
+<p><strong>Google Colab</strong> is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc. We use Google Colab because it’s simple and accessible to everyone. You can start programming right away, no setup required! Google Colab officially supports Python and R (and secretly <a href="https://colab.research.google.com/github/ageron/julia_notebooks/blob/master/Julia_Colab_Notebook_Template.ipynb">Julia</a>, too!)</p>
 <p>New R notebook:</p>
 <ul>
 <li><a href="https://colab.research.google.com/##create=true&amp;language=r">colab (r kernel)</a> - use this link to start a new R notebook</li>
-<li><code>File &gt; New notebook</code> error, Python! <code>name 'x' is not defined</code></li>
+<li><code>File &gt; New notebook</code> and then <code>Runtime</code> &gt; <code>Change runtime type</code> to R</li>
 </ul>
 <p>Cell types:</p>
 <ul>

@@ -3,8 +3,8 @@
 | Week | Begins |  Topic | Practice | Due on Monday  |
 | -  | -- |  ------- | --- | ---- |
 | 1 | Aug 26 | R Basics |  Lab 1 | |
-| 2 | Sep 2 | Data import and tidy |  Lab 2 |  |
-| 3 | Sep 9 | Data visualization |  Lab 3 | Problem set 1 |
+| 2 | Sep 2 | Data visualization |  Lab 2 |  |
+| 3 | Sep 9 | Wrangling |  Lab 3 | Problem set 1 |
 | 4 | Sep 16 | Sampling distribution |  Lab 4 |  | 
 | 5 | Sep 23 | Hypothesis testing  | Exam 1 review | Problem set 2 |
 | 6 | Sep 30 | Exam 1 and **Fall break**| | |
@@ -12,7 +12,7 @@
 | 8 | Oct 14 | Model fitting | Lab 6 | Problem set 3 | 
 | 9 | Oct 21 | Model accuracy | Lab 7 |  | 
 | 10 | Oct 28 | Model reliability | Lab 8 | Problem set 4 |
-| 11 | Nov 4 | Classification | [Lab 9]() |  |
+| 11 | Nov 4 | Classification | Lab 9 |  |
 | 12 | Nov 11 | Inference |  Exam 2 review | Problem set 5 | 
 | 13 | Nov 18 | Exam 2 |  |     | 
 | 14 | Nov 25 |**Thanksgiving break (no class)**  |   |

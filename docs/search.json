@@ -25,7 +25,7 @@
     "href": "index.html#syllabus",
     "title": "Data Science for studying language and the mind",
     "section": "Syllabus",
-    "text": "Syllabus\nCourse description: Data Sci for Lang & Mind is an entry-level course designed to teach basic principles of statistics and data science to students with little or no background in statistics or computer science. Students will learn to identify patterns in data using visualizations and descriptive statistics; make predictions from data using machine learning and optimization; and quantify the certainty of their predictions using statistical models. This course aims to help students build a foundation of critical thinking and computational skills that will allow them to work with data in all fields related to the study of the mind (e.g. linguistics, psychology, philosophy, cognitive science, neuroscience).\nPrerequisites: There are no prerequisites beyond high school algebra. No prior programming or statistics experience is necessary, though you will still enjoy this course if you already have a little. Students who have taken several computer science or statistics classes should look for a more advanced course.\nInstructor: Dr. Katie Schuler (she/her)\nTAs: Brittany Zykoski and Wesley Lincoln\nLectures: Tuesdays and Thursdays from 12 - 1:29pm in TBD.\nLabs: Hands-on practice and exam prep guided by TAs.\n\n402: Thu at 1:45p in TBD with Wesley\n403: Thu at 5:15p in TBD with Brittany\n404: Fri at 3:30p in TBD with Brittany\n405: Fri at 12:00p in TBD with Wesley\n\nOffice Hours: You are welcome to attend any office hours that fit your schedule. The linguistics department is located on the 3rd floor of 3401-C Walnut street, between Franklin’s Table and Modern Eye.\n\nKatie Schuler: TBD in 314C\nBrittany Zykoski: TBD in TBD\nWesley Lincoln: TBD in TBD\n\nGrading:\n\n40% Homework (equally weighted, lowest dropped)\n60% exams (equally weighted, final is optional to replace lowest exam)\n\nCollaboration: Collaboration on problem sets is highly encouraged! If you collaborate, you need to write your own code/solutions, name your collaborators, and cite any outside sources you consulted (you don’t need to cite the course material).\nAccomodations: We will support any accommodations arranged through Disability Services via the Weingarten Center. Please make arrangements as soon as possible (1-2 weeks in advance).\nExtra credit: There is no extra credit in the course. However, students can submit any missed problem set or exam by the end of the semester for half credit (50%). To ensure fair treatment, all students will receive a 1% “bonus” to their final course grade: 92.54% will become 93.54%.\nRegrade requests Regrade requests should be submitted through Gradescope within one week of receiving your graded assignment. Please explain why you believe there was a grading mistake, given the posted solutions and rubric"
+    "text": "Syllabus\nCourse description: Data Sci for Lang & Mind is an entry-level course designed to teach basic principles of statistics and data science to students with little or no background in statistics or computer science. Students will learn to identify patterns in data using visualizations and descriptive statistics; make predictions from data using machine learning and optimization; and quantify the certainty of their predictions using statistical models. This course aims to help students build a foundation of critical thinking and computational skills that will allow them to work with data in all fields related to the study of the mind (e.g. linguistics, psychology, philosophy, cognitive science, neuroscience).\nPrerequisites: There are no prerequisites beyond high school algebra. No prior programming or statistics experience is necessary, though you will still enjoy this course if you already have a little. Students who have taken several computer science or statistics classes should look for a more advanced course.\nInstructor: Dr. Katie Schuler (she/her)\nTAs: Brittany Zykoski and Wesley Lincoln\nLectures: Tuesdays and Thursdays from 12 - 1:29pm in COHN 402.\nLabs: Hands-on practice and exam prep guided by TAs.\n\n402: Fri at 3:30p in WILL 201 with Brittany\n403: Thu at 1:45p in WILL 321 with Wesley\n404: Thu at 5:15p in TBD with Brittany\n405: Fri at 12:00p in WILL 316 with Wesley\n\nOffice Hours: You are welcome to attend any office hours that fit your schedule. The linguistics department is located on the 3rd floor of 3401-C Walnut street, between Franklin’s Table and Modern Eye.\n\nKatie Schuler: TBD in 314C\nBrittany Zykoski: TBD in TBD\nWesley Lincoln: TBD in TBD\n\nGrading:\n\n40% Homework (equally weighted, lowest dropped)\n60% exams (equally weighted, final is optional to replace lowest exam)\n\nCollaboration: Collaboration on problem sets is highly encouraged! If you collaborate, you need to write your own code/solutions, name your collaborators, and cite any outside sources you consulted (you don’t need to cite the course material).\nAccomodations: We will support any accommodations arranged through Disability Services via the Weingarten Center. Please make arrangements as soon as possible (1-2 weeks in advance).\nExtra credit: There is no extra credit in the course. However, students can submit any missed problem set or exam by the end of the semester for half credit (50%). To ensure fair treatment, all students will receive a 1% “bonus” to their final course grade: 92.54% will become 93.54%.\nRegrade requests Regrade requests should be submitted through Gradescope within one week of receiving your graded assignment. Please explain why you believe there was a grading mistake, given the posted solutions and rubric"
   },
   {
     "objectID": "index.html#resources",
@@ -42,25 +42,221 @@
     "text": "Materials\n\nStudy guides\nStudy guides include weekly study guides and additional resources from each week, including slides, demos, and further reading.\n\nWeek 1: R Basics\nWeek 2: Data visualization\nWeek 3: Data wrangling\nWeek 4: Sampling distribution\nWeek 5: Hypothesis testing\nWeek 6: Exam 1 review\nWeek 7: Model specification\nWeek 8: Model fitting\nWeek 9: Model accuracy\nWeek 10: Model reliability\nWeek 11: Classification\nWeek 12: Inference\nWeek 13: Exam 2 review\nWeeK 15: Multilevel Models\n\n\n\nProblem sets\nThere are 6 problem sets, due to Gradescope by noon on the following Mondays. You may request an extension of up to 3 days for any reason. After solutions are posted, late problem sets can still be submitted for half credit (50%). If you submit all 6 problem sets, we will drop your lowest.\n\nProblem set 1 due Sep 9\nProblem set 2 due Sep 23\nProblem set 3 due Oct 14\nProblem set 4 due Oct 28\nProblem set 5 due Nov 11\nProblem set 6 due Dec 9\n\n\n\n\nExams\nThere are 2 midterm exams, taken in class on the following dates. Exams cannot be rescheduled, except in cases of genuine conflict or emergency (documentation and a Course Action Notice are required). However, you can submit any missed exam by the end of the semester for half credit (50%). You may also replace your lowest midterm exam score with the optional final exam.\n\nExam 1 in class Tuesday Oct 1\nExam 2 in class Thursday Nov 21\nFinal exam (optional) TBD\n\n\n\nLab exercises\nLab exercises are intended for practice and are not graded.\n\nLab 1 on Aug 29 or 30\nLab 2 on Sep 5 or 6\nLab 3 on Sep 12 or 13\nLab 4 on Sep 19 or 20\nLab 5 on Oct 10 or 11\nLab 6 on Oct 17 or 18\nLab 7 on Oct 24 or 25\nLab 8 on Nov 1 or 2\nLab 9 on Nov 8 or 9\nLab 10 on Dec 5 or 6"
   },
   {
+    "objectID": "slides/week-01-r-basics.html#paperwork",
+    "href": "slides/week-01-r-basics.html#paperwork",
+    "title": "Week 1: R Bascis",
+    "section": "Paperwork",
+    "text": "Paperwork\n\nWhen you arrive, complete this anonymous form: Who’s in class\nYou can also join the waitlist if you are not enrolled"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#announcements",
+    "href": "slides/week-01-r-basics.html#announcements",
+    "title": "Week 1: R Bascis",
+    "section": "Announcements",
+    "text": "Announcements\n\nThe course is full and the room is full\nWays to join:\n\nWatch for an opening (highest odds of getting in)\nAdd your name to our waitlist"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#course-description",
+    "href": "slides/week-01-r-basics.html#course-description",
+    "title": "Week 1: R Bascis",
+    "section": "Course description",
+    "text": "Course description\nData Sci for Lang & Mind is an entry-level course designed to teach basic principles of statistics and data science to students with little or no background in statistics or computer science. Students will learn to identify patterns in data using visualizations and descriptive statistics; make predictions from data using machine learning and optimization; and quantify the certainty of their predictions using statistical models. This course aims to help students build a foundation of critical thinking and computational skills that will allow them to work with data in all fields related to the study of the mind (e.g. linguistics, psychology, philosophy, cognitive science, neuroscience)."
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#prerequisites",
+    "href": "slides/week-01-r-basics.html#prerequisites",
+    "title": "Week 1: R Bascis",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nThere are no prerequisites beyond high school algebra. No prior programming or statistics experience is necessary, though you will still enjoy this course if you already have a little. Students who have taken several computer science or statistics classes should look for a more advanced course."
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#teaching-team",
+    "href": "slides/week-01-r-basics.html#teaching-team",
+    "title": "Week 1: R Bascis",
+    "section": "Teaching team",
+    "text": "Teaching team\nInstructor: Dr. Katie Schuler (she/her)\nTAs:\n\nBrittany Zykoski\nWesley Lincoln"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#about-me-your-instructor-katie",
+    "href": "slides/week-01-r-basics.html#about-me-your-instructor-katie",
+    "title": "Week 1: R Bascis",
+    "section": "About me, your instructor (Katie)",
+    "text": "About me, your instructor (Katie)\n\nYou can call me Professor Schuler or Katie, whichever makes you more comfortable\nI live in Mt Airy with my husband and two kids (Dory, 2 and Joan, 6)\nAt Penn I also have a research lab, the Child Language Lab and am on the Natural Science and Math Panel (a group focused on improving inclusive teaching in STEM at Penn).\nI’m a first-generation college student from Western NY. I worked 40 hours a week to put myself through college; I am still paying off my student loans."
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#my-assumptions-about-you",
+    "href": "slides/week-01-r-basics.html#my-assumptions-about-you",
+    "title": "Week 1: R Bascis",
+    "section": "My assumptions about you",
+    "text": "My assumptions about you\nYou are an honest, kind, and hardworking student who wants to do well in and enjoy this class\n\nYou are very busy, and will sometimes have to prioritize other things above this class."
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#data-science",
+    "href": "slides/week-01-r-basics.html#data-science",
+    "title": "Week 1: R Bascis",
+    "section": "Data science",
+    "text": "Data science\nData science is about making decisions based on incomplete information.\n\n\n\n\nFigure 1: from Kok & de Lange (2014)\n\n\nThis concept is not new. Brains were built for doing this!"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#but-we-have-new-tools-and-lots-more-data",
+    "href": "slides/week-01-r-basics.html#but-we-have-new-tools-and-lots-more-data",
+    "title": "Week 1: R Bascis",
+    "section": "But we have new tools and lots more data!",
+    "text": "But we have new tools and lots more data!\n\n\n\n\nFigure 2: from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#data-science-workflow",
+    "href": "slides/week-01-r-basics.html#data-science-workflow",
+    "title": "Week 1: R Bascis",
+    "section": "Data science workflow",
+    "text": "Data science workflow\nThe folks who wrote R for Data Science proposed the following data science workflow:\n\n\n\n\nFigure 3: from R for Data Science"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#overview-of-course",
+    "href": "slides/week-01-r-basics.html#overview-of-course",
+    "title": "Week 1: R Bascis",
+    "section": "Overview of course",
+    "text": "Overview of course\nWe will spend the first few weeks getting comfortable programming in R, including some useful skills for data science:\n\nR basics\nData visualization\nData wrangling (import, tidy, and transform)"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#overview-of-course-1",
+    "href": "slides/week-01-r-basics.html#overview-of-course-1",
+    "title": "Week 1: R Bascis",
+    "section": "Overview of course",
+    "text": "Overview of course\nThen, we will spend the next several weeks building a foundation in basic statistics and model building:\n\nSampling distribution\nHypothesis testing\nModel specification\nModel fitting\nModel accuracy\nModel reliability"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#overview-of-course-2",
+    "href": "slides/week-01-r-basics.html#overview-of-course-2",
+    "title": "Week 1: R Bascis",
+    "section": "Overview of course",
+    "text": "Overview of course\nFinally we will cover a selection of more advanced topics that are often applied in language and mind fields, with a focus on basic understanding:\n\nClassification\nInference for regression\nMixed-effect models"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#syllabus-briefly",
+    "href": "slides/week-01-r-basics.html#syllabus-briefly",
+    "title": "Week 1: R Bascis",
+    "section": "Syllabus, briefly",
+    "text": "Syllabus, briefly\nEach week will include two lectures and a lab:\n\nLectures are on Tuesdays and Thursdays at 12pm and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!\nLabs are on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule."
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#syllabus-briefly-1",
+    "href": "slides/week-01-r-basics.html#syllabus-briefly-1",
+    "title": "Week 1: R Bascis",
+    "section": "Syllabus, briefly",
+    "text": "Syllabus, briefly\nThere are 8 graded assessments:\n\n6 Problem sets (40%) in which you will be asked to apply your newly aquired R programming skills.\n2 Midterm exams (60%) in which you will be tested on your understanding of lecture concepts."
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#syllabus-briefly-2",
+    "href": "slides/week-01-r-basics.html#syllabus-briefly-2",
+    "title": "Week 1: R Bascis",
+    "section": "Syllabus, briefly",
+    "text": "Syllabus, briefly\nThere are a few policies to take note of:\n\nMissed exams cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required). You may take the optional final exam to replace a missed or low scoring exam.\nYou may request an extension on any problem set of up to 3 days. But extensions beyond 3 days will not be granted (because delying solutions will negative impact other students).\nYou may submit any missed quiz or problem set by the end of the semester for half-credit (50%), even after solutions are posted.\nWe will drop your lowest pset grade, but you must turn in all 6 assignements to be eligible."
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#resources",
+    "href": "slides/week-01-r-basics.html#resources",
+    "title": "Week 1: R Bascis",
+    "section": "Resources",
+    "text": "Resources\nIn addition to our course website, we will use the following:\n\ngoogle colab (r kernel) - for computing\ncanvas- for posting grades\ngradescope - for submitting problem sets\ned discussion - for announcements and questions"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#wellness-resources",
+    "href": "slides/week-01-r-basics.html#wellness-resources",
+    "title": "Week 1: R Bascis",
+    "section": "Wellness resources",
+    "text": "Wellness resources\nPlease consider using these Penn resources this semester:\n\nWeingarten Center for academic support and tutoring.\nWellness at Penn for health and wellbeing."
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#why-r",
+    "href": "slides/week-01-r-basics.html#why-r",
+    "title": "Week 1: R Bascis",
+    "section": "Why R?",
+    "text": "Why R?\nWith many programming languages available for data science (e.g. R, Python, Julia, MATLAB), why use R?\n\nBuilt for stats, specifically\nMakes nice visualizations\nLots of people are doing it, especially in academia\nEasier for beginners to understand\nFree and open source (though so are Python and Julia, MATLAB costs $)"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#many-ways-to-use-r",
+    "href": "slides/week-01-r-basics.html#many-ways-to-use-r",
+    "title": "Week 1: R Bascis",
+    "section": "Many ways to use R",
+    "text": "Many ways to use R\n\nR Studio\nJupyter\nVS Code\nand even simply the command line/terminal"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#google-colab",
+    "href": "slides/week-01-r-basics.html#google-colab",
+    "title": "Week 1: R Bascis",
+    "section": "Google Colab",
+    "text": "Google Colab\n\nGoogle Colab is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc.\nWe use Google Colab because it’s simple and accessible to everyone. You can start programming right away, no setup required!"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#secretly-r",
+    "href": "slides/week-01-r-basics.html#secretly-r",
+    "title": "Week 1: R Bascis",
+    "section": "Secretly, R!",
+    "text": "Secretly, R!\nGoogle Colab officially supports Python, but secretly supports R (and Julia, too!)\n\nUpdate 2024: Google Colab now officially supports R!\ncolab (r kernel)"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#open-a-new-r-notebook",
+    "href": "slides/week-01-r-basics.html#open-a-new-r-notebook",
+    "title": "Week 1: R Bascis",
+    "section": "Open a new R notebook:",
+    "text": "Open a new R notebook:\n\ncolab (r kernel) - use this link to start a new R notebook\nFile &gt; New notebook and then Runtime &gt; Change runtime type to R"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#cell-types",
+    "href": "slides/week-01-r-basics.html#cell-types",
+    "title": "Week 1: R Bascis",
+    "section": "Cell types:",
+    "text": "Cell types:\n\n+ Code - write and execute code\n+ Text - write text blocks in markdown"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#left-sidebar",
+    "href": "slides/week-01-r-basics.html#left-sidebar",
+    "title": "Week 1: R Bascis",
+    "section": "Left sidebar:",
+    "text": "Left sidebar:\n\nTable of contents - outline from text headings\nFind and replace - find and/or replace\nFiles - upload files to cloud session"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#frequently-used-menu-options",
+    "href": "slides/week-01-r-basics.html#frequently-used-menu-options",
+    "title": "Week 1: R Bascis",
+    "section": "Frequently used menu options:",
+    "text": "Frequently used menu options:\n\nFile &gt; Locate in Drive - where in your Google Drive?\nFile &gt; Save - saves\nFile &gt; Revision history - history of changes you made\nFile &gt; Download &gt; Download .ipynb - used to submit assignments!\nFile &gt; Print - prints\nRuntime &gt; Run all - run all cells\nRuntime &gt; Run before - run all cells before current active cell\nRuntime &gt; Restart and run all - restart runtime, then run all"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#frequently-used-keyboard-shortcuts",
+    "href": "slides/week-01-r-basics.html#frequently-used-keyboard-shortcuts",
+    "title": "Week 1: R Bascis",
+    "section": "Frequently used keyboard shortcuts:",
+    "text": "Frequently used keyboard shortcuts:\n\nCmd/Ctrl+S - save\nCmd/Ctrl+Enter - run focused cell\nCmd/Ctrl+Shift+A - select all cells\nCmd/Ctrl+/ - comment/uncomment selection\nCmd/Ctrl+] - increase indent\nCmd/Ctrl+[ - decrease indent"
+  },
+  {
+    "objectID": "slides/week-01-r-basics.html#expressions",
+    "href": "slides/week-01-r-basics.html#expressions",
+    "title": "Week 1: R Bascis",
+    "section": "Expressions",
+    "text": "Expressions\n\nExpressions are combinations of values, variables, operators, and functions that can be evaluated to produce a result. Expressions can be as simple as a single value or more complex involving calculations, comparisons, and function calls. They are the fundamental building blocks of programming.\n\n10 - a simple value expression that evaluates to 10.\nx &lt;- 10 - an expression that assigns the value of 10 to x.\nx + 10 - an expression that adds the value of x to 10.\na &lt;- x + 10 - an expression that adds the value of x to 10 and assigns the result to the variable a"
+  },
+  {
     "objectID": "notes/week-01-r-basics.html",
     "href": "notes/week-01-r-basics.html",
     "title": "Week 1: R basics",
     "section": "",
-    "text": "Data are descriptions of the world around us, collected through observation and stored on computers. Computers enable us to infer properties of the world from these descriptions. Data science is the discipline of drawing conclusions from data using computation.\n– Computational and Inferential Thinking: The Foundations of Data Science\n\nData science is about making decisions based on incomplete information. This concept is not new – brains (especially human brains!) love doing this. To illustrate, what do you see in the following image?\n\nDid you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles 1.\nWhile the underlying concept is not new, the computational tools we use are relatively new. And we have a lot more data!\n\n\n\n\nThe folks who wrote R for Data Science proposed the following data science workflow:\n\nLet’s unpack what these mean briefly:\n\nImport: gather data from a variety of sources, which can include structured data (like databases and spreadsheets) and unstructured data (like text, images, and videos).\nTidy and Transform: The raw data we import is often messy. Data scientists clean and preprocess the data, which involves removing errors, handling missing values, and transforming data into a suitable format for analysis.\nVisualize (exploratory data analysis) visualize and summarize data to identify patterns, form hypotheses, select appropriate models, and guide further analysis.\nModel: Using statistical methods, machine learning algorithms, and other computational techniques, data scientists build models to understand underlying patterns in the data. Models are tested using validation techniques to ensure their accuracy and reliability. Then data scientists use them to draw meaningful conclusions, like predictions about the future or inferences about populuation.\nCommunicate: Finally, a crucial part of data science is communicating findings clearly and effectively, whatever your purpose (academic, industry, or the public!)\nProgram: Surrounding all these is programming, since the computational tools are what make these possible!\n\nData science has applications in many fields far beyond language and the mind. It allows us to make data-driven decisions, solve complex problems, and uncover hidden insights that might not be apparent through other methods.\n\n\n\nWe will spend the first few weeks getting comfortable programming in R, including some useful skills for data science:\n\nR basics\nData importing\nData visualization\nData wrangling\n\nThen, we will spend the next several weeks building a foundation in basic statistics and model building:\n\nProbability distributions\nSampling variability\nHypothesis testing\nModel specification\nModel fitting\nModel accuracy\nModel reliability\n\nFinally we will cover a selection of more advanced topics that are often applied in language and mind fields, with a focus on basic understanding:\n\nClassification\nFeature engineering (preprocessing)\nInference for regression\nMixed-effect models\n\n\n\n\nEach week will include two lectures and a lab:\n\nLectures are on Tuesdays and Thursdays at 10:15am and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!\nLab is on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule.\n\nThere are 10 graded assessments:\n\n6 Problem sets in which you will be asked to apply your newly aquired R programming skills.\n4 Quizzes in which you will be tested on your understanding of lecture concepts.\n\nThere are a few policies to take note of:\n\nMissed quizzes cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required)\nYou may request an extension on any problem set of up to 3 days. But extensions beyond 3 days will not be granted (because delying solutions will negative impact other students).\nYou may submit any missed quiz or problem set by the end of the semester for half-credit (50%).\n\n\n\n\nWith many programming languages available for data science (e.g. R, Python, Julia, MATLAB), why use R?\n\nBuilt for stats, specifically\nMakes nice visualizations\nLots of people are doing it, especially in academia\nEasier for beginners to understand\nFree and open source (though so are Python and Julia, MATLAB costs $)\n\nIf you are interested, here is a math professor’s take on the differences between Python, Julia, and MATLAB. Note that although they’re optimized for different things, they are all great and the technical skills and conceptual knowledge you gain in this course will transfer to other languages."
+    "text": "Data are descriptions of the world around us, collected through observation and stored on computers. Computers enable us to infer properties of the world from these descriptions. Data science is the discipline of drawing conclusions from data using computation.\n– Computational and Inferential Thinking: The Foundations of Data Science\n\nData science is about making decisions based on incomplete information. This concept is not new – brains (especially human brains!) love doing this. To illustrate, what do you see in the following image?\n{##fig-visualillusion fig-align=“left” width=25%}\nDid you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles 1.\nWhile the underlying concept is not new, the computational tools we use are relatively new. And we have a lot more data!\n{##fig-dataneversleeps fig-align=“left” width=80%}\n\n\n\nThe folks who wrote R for Data Science proposed the following data science workflow:\n{##fig-datascience fig-align=“left” width=80%}\nLet’s unpack what these mean briefly:\n\nImport: gather data from a variety of sources, which can include structured data (like databases and spreadsheets) and unstructured data (like text, images, and videos).\nTidy and Transform: The raw data we import is often messy. Data scientists clean and preprocess the data, which involves removing errors, handling missing values, and transforming data into a suitable format for analysis.\nVisualize (exploratory data analysis) visualize and summarize data to identify patterns, form hypotheses, select appropriate models, and guide further analysis.\nModel: Using statistical methods, machine learning algorithms, and other computational techniques, data scientists build models to understand underlying patterns in the data. Models are tested using validation techniques to ensure their accuracy and reliability. Then data scientists use them to draw meaningful conclusions, like predictions about the future or inferences about populuation.\nCommunicate: Finally, a crucial part of data science is communicating findings clearly and effectively, whatever your purpose (academic, industry, or the public!)\nProgram: Surrounding all these is programming, since the computational tools are what make these possible!\n\nData science has applications in many fields far beyond language and the mind. It allows us to make data-driven decisions, solve complex problems, and uncover hidden insights that might not be apparent through other methods.\n\n\n\nWe will spend the first few weeks getting comfortable programming in R, including some useful skills for data science:\n\nR basics\nData importing\nData visualization\nData wrangling\n\nThen, we will spend the next several weeks building a foundation in basic statistics and model building:\n\nProbability distributions\nSampling variability\nHypothesis testing\nModel specification\nModel fitting\nModel accuracy\nModel reliability\n\nFinally we will cover a selection of more advanced topics that are often applied in language and mind fields, with a focus on basic understanding:\n\nClassification\nFeature engineering (preprocessing)\nInference for regression\nMixed-effect models\n\n\n\n\nEach week will include two lectures and a lab:\n\nLectures are on Tuesdays and Thursdays at 10:15am and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!\nLab is on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule.\n\nThere are 10 graded assessments:\n\n6 Problem sets in which you will be asked to apply your newly aquired R programming skills.\n4 Quizzes in which you will be tested on your understanding of lecture concepts.\n\nThere are a few policies to take note of:\n\nMissed quizzes cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required)\nYou may request an extension on any problem set of up to 3 days. But extensions beyond 3 days will not be granted (because delying solutions will negative impact other students).\nYou may submit any missed quiz or problem set by the end of the semester for half-credit (50%).\n\n\n\n\nWith many programming languages available for data science (e.g. R, Python, Julia, MATLAB), why use R?\n\nBuilt for stats, specifically\nMakes nice visualizations\nLots of people are doing it, especially in academia\nEasier for beginners to understand\nFree and open source (though so are Python and Julia, MATLAB costs $)\n\nIf you are interested, here is a math professor’s take on the differences between Python, Julia, and MATLAB. Note that although they’re optimized for different things, they are all great and the technical skills and conceptual knowledge you gain in this course will transfer to other languages."
   },
   {
     "objectID": "notes/week-01-r-basics.html#hello-world",
     "href": "notes/week-01-r-basics.html#hello-world",
     "title": "Week 1: R basics",
     "section": "",
-    "text": "Data are descriptions of the world around us, collected through observation and stored on computers. Computers enable us to infer properties of the world from these descriptions. Data science is the discipline of drawing conclusions from data using computation.\n– Computational and Inferential Thinking: The Foundations of Data Science\n\nData science is about making decisions based on incomplete information. This concept is not new – brains (especially human brains!) love doing this. To illustrate, what do you see in the following image?\n\nDid you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles 1.\nWhile the underlying concept is not new, the computational tools we use are relatively new. And we have a lot more data!\n\n\n\n\nThe folks who wrote R for Data Science proposed the following data science workflow:\n\nLet’s unpack what these mean briefly:\n\nImport: gather data from a variety of sources, which can include structured data (like databases and spreadsheets) and unstructured data (like text, images, and videos).\nTidy and Transform: The raw data we import is often messy. Data scientists clean and preprocess the data, which involves removing errors, handling missing values, and transforming data into a suitable format for analysis.\nVisualize (exploratory data analysis) visualize and summarize data to identify patterns, form hypotheses, select appropriate models, and guide further analysis.\nModel: Using statistical methods, machine learning algorithms, and other computational techniques, data scientists build models to understand underlying patterns in the data. Models are tested using validation techniques to ensure their accuracy and reliability. Then data scientists use them to draw meaningful conclusions, like predictions about the future or inferences about populuation.\nCommunicate: Finally, a crucial part of data science is communicating findings clearly and effectively, whatever your purpose (academic, industry, or the public!)\nProgram: Surrounding all these is programming, since the computational tools are what make these possible!\n\nData science has applications in many fields far beyond language and the mind. It allows us to make data-driven decisions, solve complex problems, and uncover hidden insights that might not be apparent through other methods.\n\n\n\nWe will spend the first few weeks getting comfortable programming in R, including some useful skills for data science:\n\nR basics\nData importing\nData visualization\nData wrangling\n\nThen, we will spend the next several weeks building a foundation in basic statistics and model building:\n\nProbability distributions\nSampling variability\nHypothesis testing\nModel specification\nModel fitting\nModel accuracy\nModel reliability\n\nFinally we will cover a selection of more advanced topics that are often applied in language and mind fields, with a focus on basic understanding:\n\nClassification\nFeature engineering (preprocessing)\nInference for regression\nMixed-effect models\n\n\n\n\nEach week will include two lectures and a lab:\n\nLectures are on Tuesdays and Thursdays at 10:15am and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!\nLab is on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule.\n\nThere are 10 graded assessments:\n\n6 Problem sets in which you will be asked to apply your newly aquired R programming skills.\n4 Quizzes in which you will be tested on your understanding of lecture concepts.\n\nThere are a few policies to take note of:\n\nMissed quizzes cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required)\nYou may request an extension on any problem set of up to 3 days. But extensions beyond 3 days will not be granted (because delying solutions will negative impact other students).\nYou may submit any missed quiz or problem set by the end of the semester for half-credit (50%).\n\n\n\n\nWith many programming languages available for data science (e.g. R, Python, Julia, MATLAB), why use R?\n\nBuilt for stats, specifically\nMakes nice visualizations\nLots of people are doing it, especially in academia\nEasier for beginners to understand\nFree and open source (though so are Python and Julia, MATLAB costs $)\n\nIf you are interested, here is a math professor’s take on the differences between Python, Julia, and MATLAB. Note that although they’re optimized for different things, they are all great and the technical skills and conceptual knowledge you gain in this course will transfer to other languages."
+    "text": "Data are descriptions of the world around us, collected through observation and stored on computers. Computers enable us to infer properties of the world from these descriptions. Data science is the discipline of drawing conclusions from data using computation.\n– Computational and Inferential Thinking: The Foundations of Data Science\n\nData science is about making decisions based on incomplete information. This concept is not new – brains (especially human brains!) love doing this. To illustrate, what do you see in the following image?\n{##fig-visualillusion fig-align=“left” width=25%}\nDid you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles 1.\nWhile the underlying concept is not new, the computational tools we use are relatively new. And we have a lot more data!\n{##fig-dataneversleeps fig-align=“left” width=80%}\n\n\n\nThe folks who wrote R for Data Science proposed the following data science workflow:\n{##fig-datascience fig-align=“left” width=80%}\nLet’s unpack what these mean briefly:\n\nImport: gather data from a variety of sources, which can include structured data (like databases and spreadsheets) and unstructured data (like text, images, and videos).\nTidy and Transform: The raw data we import is often messy. Data scientists clean and preprocess the data, which involves removing errors, handling missing values, and transforming data into a suitable format for analysis.\nVisualize (exploratory data analysis) visualize and summarize data to identify patterns, form hypotheses, select appropriate models, and guide further analysis.\nModel: Using statistical methods, machine learning algorithms, and other computational techniques, data scientists build models to understand underlying patterns in the data. Models are tested using validation techniques to ensure their accuracy and reliability. Then data scientists use them to draw meaningful conclusions, like predictions about the future or inferences about populuation.\nCommunicate: Finally, a crucial part of data science is communicating findings clearly and effectively, whatever your purpose (academic, industry, or the public!)\nProgram: Surrounding all these is programming, since the computational tools are what make these possible!\n\nData science has applications in many fields far beyond language and the mind. It allows us to make data-driven decisions, solve complex problems, and uncover hidden insights that might not be apparent through other methods.\n\n\n\nWe will spend the first few weeks getting comfortable programming in R, including some useful skills for data science:\n\nR basics\nData importing\nData visualization\nData wrangling\n\nThen, we will spend the next several weeks building a foundation in basic statistics and model building:\n\nProbability distributions\nSampling variability\nHypothesis testing\nModel specification\nModel fitting\nModel accuracy\nModel reliability\n\nFinally we will cover a selection of more advanced topics that are often applied in language and mind fields, with a focus on basic understanding:\n\nClassification\nFeature engineering (preprocessing)\nInference for regression\nMixed-effect models\n\n\n\n\nEach week will include two lectures and a lab:\n\nLectures are on Tuesdays and Thursdays at 10:15am and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!\nLab is on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule.\n\nThere are 10 graded assessments:\n\n6 Problem sets in which you will be asked to apply your newly aquired R programming skills.\n4 Quizzes in which you will be tested on your understanding of lecture concepts.\n\nThere are a few policies to take note of:\n\nMissed quizzes cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required)\nYou may request an extension on any problem set of up to 3 days. But extensions beyond 3 days will not be granted (because delying solutions will negative impact other students).\nYou may submit any missed quiz or problem set by the end of the semester for half-credit (50%).\n\n\n\n\nWith many programming languages available for data science (e.g. R, Python, Julia, MATLAB), why use R?\n\nBuilt for stats, specifically\nMakes nice visualizations\nLots of people are doing it, especially in academia\nEasier for beginners to understand\nFree and open source (though so are Python and Julia, MATLAB costs $)\n\nIf you are interested, here is a math professor’s take on the differences between Python, Julia, and MATLAB. Note that although they’re optimized for different things, they are all great and the technical skills and conceptual knowledge you gain in this course will transfer to other languages."
   },
   {
     "objectID": "notes/week-01-r-basics.html#google-colab",
     "href": "notes/week-01-r-basics.html#google-colab",
     "title": "Week 1: R basics",
     "section": "Google Colab",
-    "text": "Google Colab\nThere are many ways to program with R. Some popular options include:\n\nR Studio\nJupyter\nVS Code\nand even simply the command line/terminal\n\nGoogle Colab is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc. We use Google Colab because it’s simple and accessible to everyone. You can start programming right away, no setup required! Google Colab officially supports Python, but secretly supports R (and Julia, too!)\nNew R notebook:\n\ncolab (r kernel) - use this link to start a new R notebook\nFile &gt; New notebook error, Python! name 'x' is not defined\n\nCell types:\n\n+ Code - write and execute code\n+ Text - write text blocks in markdown\n\nLeft sidebar:\n\nTable of contents - outline from text headings\nFind and replace - find and/or replace\nFiles - upload files to cloud session\n\nFrequently used menu options:\n\nFile &gt; Locate in Drive - where in your Google Drive?\nFile &gt; Save - saves\nFile &gt; Revision history - history of changes you made\nFile &gt; Download &gt; Download .ipynb - used to submit assignments!\nFile &gt; Print - prints\nRuntime &gt; Run all - run all cells\nRuntime &gt; Run before - run all cells before current active cell\nRuntime &gt; Restart and run all - restart runtime, then run all\n\nFrequently used keyboard shortcuts:\n\nCmd/Ctrl+S - save\nCmd/Ctrl+Enter - run focused cell\nCmd/Ctrl+Shift+A - select all cells\nCmd/Ctrl+/ - comment/uncomment selection\nCmd/Ctrl+] - increase indent\nCmd/Ctrl+[ - decrease indent"
+    "text": "Google Colab\nThere are many ways to program with R. Some popular options include:\n\nR Studio\nJupyter\nVS Code\nand even simply the command line/terminal\n\nGoogle Colab is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc. We use Google Colab because it’s simple and accessible to everyone. You can start programming right away, no setup required! Google Colab officially supports Python and R (and secretly Julia, too!)\nNew R notebook:\n\ncolab (r kernel) - use this link to start a new R notebook\nFile &gt; New notebook and then Runtime &gt; Change runtime type to R\n\nCell types:\n\n+ Code - write and execute code\n+ Text - write text blocks in markdown\n\nLeft sidebar:\n\nTable of contents - outline from text headings\nFind and replace - find and/or replace\nFiles - upload files to cloud session\n\nFrequently used menu options:\n\nFile &gt; Locate in Drive - where in your Google Drive?\nFile &gt; Save - saves\nFile &gt; Revision history - history of changes you made\nFile &gt; Download &gt; Download .ipynb - used to submit assignments!\nFile &gt; Print - prints\nRuntime &gt; Run all - run all cells\nRuntime &gt; Run before - run all cells before current active cell\nRuntime &gt; Restart and run all - restart runtime, then run all\n\nFrequently used keyboard shortcuts:\n\nCmd/Ctrl+S - save\nCmd/Ctrl+Enter - run focused cell\nCmd/Ctrl+Shift+A - select all cells\nCmd/Ctrl+/ - comment/uncomment selection\nCmd/Ctrl+] - increase indent\nCmd/Ctrl+[ - decrease indent"
   },
   {
     "objectID": "notes/week-01-r-basics.html#r-basics",

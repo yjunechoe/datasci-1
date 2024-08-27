@@ -1,9 +1,8 @@
 ---
 title:  "Week 1: R basics"
-date:   2023-08-31
+date:   2024-08-27
 author: 
     - Katie Schuler
-    - June Choe
 format:
     html: 
         toc-depth: 3
@@ -19,20 +18,20 @@ format:
 
 Data science is about making decisions based on incomplete information. This concept is not new -- brains (especially human brains!) love doing this. To illustrate, what do you see in the following image? 
 
-<!-- ![from Kok & de Lange (2014)^[Kok, P., & de Lange, F. P. (2014). Shape perception simultaneously up-and downregulates neural activity in the primary visual cortex. Current Biology, 24(13), 1531-1535.]](/include/figures/visual-illusion.png){##fig-visualillusion fig-align="left" width=25%} -->
+![from Kok & de Lange (2014)^[Kok, P., & de Lange, F. P. (2014). Shape perception simultaneously up-and downregulates neural activity in the primary visual cortex. Current Biology, 24(13), 1531-1535.]](/assests/images/visual-illusion.png){##fig-visualillusion fig-align="left" width=25%}
 
 Did you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles ^[https://neurosciencenews.com/neuroimaging-visual-processing-fmri-1150/]. 
 
 While the underlying concept is not new, the computational tools we use are *relatively* new. And we have a lot more data! 
 
-<!-- ![from https://www.domo.com/data-never-sleeps.](/include/figures/data-never-sleeps.png){##fig-dataneversleeps fig-align="left" width=80%} -->
+![from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png](/assests/images/data-never-sleeps.png){##fig-dataneversleeps fig-align="left" width=80%}
 
 
 ### Data science workflow
 
 The folks who wrote [R for Data Science](https://r4ds.hadley.nz/) proposed the following data science workflow: 
 
-<!-- ![from R for Data Science](/include/figures/datascience-workflow.png){##fig-datascience fig-align="left" width=80%} -->
+![from R for Data Science](/assests/images/data-science-workflow.png){##fig-datascience fig-align="left" width=80%}
 
 Let's unpack what these mean briefly: 
 
@@ -115,12 +114,12 @@ There are many ways to program with R. Some popular options include:
 - [VS Code](https://code.visualstudio.com/docs/languages/r)
 - and even simply the [command line/terminal](http://mercury.webster.edu/aleshunas/R_learning_infrastructure/Using%20the%20R%20command%20line.html)
 
-**Google Colab** is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc. We use Google Colab because it's simple and accessible to everyone. You can start programming right away, no setup required! Google Colab officially supports Python, but secretly supports R (and [Julia](https://colab.research.google.com/github/ageron/julia_notebooks/blob/master/Julia_Colab_Notebook_Template.ipynb), too!)
+**Google Colab** is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc. We use Google Colab because it's simple and accessible to everyone. You can start programming right away, no setup required! Google Colab officially supports Python and R (and secretly [Julia](https://colab.research.google.com/github/ageron/julia_notebooks/blob/master/Julia_Colab_Notebook_Template.ipynb), too!)
 
 New R notebook:
 
 - [colab (r kernel)](https://colab.research.google.com/##create=true&language=r) - use this link to start a new R notebook
-- `File > New notebook` error, Python! `name 'x' is not defined`
+- `File > New notebook` and then `Runtime` > `Change runtime type` to R
 
 Cell types: 
 

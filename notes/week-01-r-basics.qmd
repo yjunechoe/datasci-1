@@ -9,6 +9,11 @@ format:
     pdf: default
 ---
 
+**Materials**
+
+- [slides](/slides/week-01-r-basics.qmd)
+- demo
+
 ## Hello, World!
 ### What is data science?
 

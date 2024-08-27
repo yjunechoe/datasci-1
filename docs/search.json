@@ -44,196 +44,196 @@
   {
     "objectID": "slides/week-01-r-basics.html#paperwork",
     "href": "slides/week-01-r-basics.html#paperwork",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Paperwork",
     "text": "Paperwork\n\nWhen you arrive, complete this anonymous form: Who’s in class\nYou can also join the waitlist if you are not enrolled"
   },
   {
     "objectID": "slides/week-01-r-basics.html#announcements",
     "href": "slides/week-01-r-basics.html#announcements",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Announcements",
     "text": "Announcements\n\nThe course is full and the room is full\nWays to join:\n\nWatch for an opening (highest odds of getting in)\nAdd your name to our waitlist"
   },
   {
     "objectID": "slides/week-01-r-basics.html#course-description",
     "href": "slides/week-01-r-basics.html#course-description",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Course description",
     "text": "Course description\nData Sci for Lang & Mind is an entry-level course designed to teach basic principles of statistics and data science to students with little or no background in statistics or computer science. Students will learn to identify patterns in data using visualizations and descriptive statistics; make predictions from data using machine learning and optimization; and quantify the certainty of their predictions using statistical models. This course aims to help students build a foundation of critical thinking and computational skills that will allow them to work with data in all fields related to the study of the mind (e.g. linguistics, psychology, philosophy, cognitive science, neuroscience)."
   },
   {
     "objectID": "slides/week-01-r-basics.html#prerequisites",
     "href": "slides/week-01-r-basics.html#prerequisites",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Prerequisites",
     "text": "Prerequisites\nThere are no prerequisites beyond high school algebra. No prior programming or statistics experience is necessary, though you will still enjoy this course if you already have a little. Students who have taken several computer science or statistics classes should look for a more advanced course."
   },
   {
     "objectID": "slides/week-01-r-basics.html#teaching-team",
     "href": "slides/week-01-r-basics.html#teaching-team",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Teaching team",
     "text": "Teaching team\nInstructor: Dr. Katie Schuler (she/her)\nTAs:\n\nBrittany Zykoski\nWesley Lincoln"
   },
   {
     "objectID": "slides/week-01-r-basics.html#about-me-your-instructor-katie",
     "href": "slides/week-01-r-basics.html#about-me-your-instructor-katie",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "About me, your instructor (Katie)",
     "text": "About me, your instructor (Katie)\n\nYou can call me Professor Schuler or Katie, whichever makes you more comfortable\nI live in Mt Airy with my husband and two kids (Dory, 2 and Joan, 6)\nAt Penn I also have a research lab, the Child Language Lab and am on the Natural Science and Math Panel (a group focused on improving inclusive teaching in STEM at Penn).\nI’m a first-generation college student from Western NY. I worked 40 hours a week to put myself through college; I am still paying off my student loans."
   },
   {
     "objectID": "slides/week-01-r-basics.html#my-assumptions-about-you",
     "href": "slides/week-01-r-basics.html#my-assumptions-about-you",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "My assumptions about you",
     "text": "My assumptions about you\nYou are an honest, kind, and hardworking student who wants to do well in and enjoy this class\n\nYou are very busy, and will sometimes have to prioritize other things above this class."
   },
   {
     "objectID": "slides/week-01-r-basics.html#data-science",
     "href": "slides/week-01-r-basics.html#data-science",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Data science",
     "text": "Data science\nData science is about making decisions based on incomplete information.\n\n\n\n\nFigure 1: from Kok & de Lange (2014)\n\n\nThis concept is not new. Brains were built for doing this!"
   },
   {
     "objectID": "slides/week-01-r-basics.html#but-we-have-new-tools-and-lots-more-data",
     "href": "slides/week-01-r-basics.html#but-we-have-new-tools-and-lots-more-data",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "But we have new tools and lots more data!",
     "text": "But we have new tools and lots more data!\n\n\n\n\nFigure 2: from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png"
   },
   {
     "objectID": "slides/week-01-r-basics.html#data-science-workflow",
     "href": "slides/week-01-r-basics.html#data-science-workflow",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Data science workflow",
     "text": "Data science workflow\nThe folks who wrote R for Data Science proposed the following data science workflow:\n\n\n\n\nFigure 3: from R for Data Science"
   },
   {
     "objectID": "slides/week-01-r-basics.html#overview-of-course",
     "href": "slides/week-01-r-basics.html#overview-of-course",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Overview of course",
     "text": "Overview of course\nWe will spend the first few weeks getting comfortable programming in R, including some useful skills for data science:\n\nR basics\nData visualization\nData wrangling (import, tidy, and transform)"
   },
   {
     "objectID": "slides/week-01-r-basics.html#overview-of-course-1",
     "href": "slides/week-01-r-basics.html#overview-of-course-1",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Overview of course",
     "text": "Overview of course\nThen, we will spend the next several weeks building a foundation in basic statistics and model building:\n\nSampling distribution\nHypothesis testing\nModel specification\nModel fitting\nModel accuracy\nModel reliability"
   },
   {
     "objectID": "slides/week-01-r-basics.html#overview-of-course-2",
     "href": "slides/week-01-r-basics.html#overview-of-course-2",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Overview of course",
     "text": "Overview of course\nFinally we will cover a selection of more advanced topics that are often applied in language and mind fields, with a focus on basic understanding:\n\nClassification\nInference for regression\nMixed-effect models"
   },
   {
     "objectID": "slides/week-01-r-basics.html#syllabus-briefly",
     "href": "slides/week-01-r-basics.html#syllabus-briefly",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Syllabus, briefly",
     "text": "Syllabus, briefly\nEach week will include two lectures and a lab:\n\nLectures are on Tuesdays and Thursdays at 12pm and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!\nLabs are on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule."
   },
   {
     "objectID": "slides/week-01-r-basics.html#syllabus-briefly-1",
     "href": "slides/week-01-r-basics.html#syllabus-briefly-1",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Syllabus, briefly",
     "text": "Syllabus, briefly\nThere are 8 graded assessments:\n\n6 Problem sets (40%) in which you will be asked to apply your newly aquired R programming skills.\n2 Midterm exams (60%) in which you will be tested on your understanding of lecture concepts."
   },
   {
     "objectID": "slides/week-01-r-basics.html#syllabus-briefly-2",
     "href": "slides/week-01-r-basics.html#syllabus-briefly-2",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Syllabus, briefly",
     "text": "Syllabus, briefly\nThere are a few policies to take note of:\n\nMissed exams cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required). You may take the optional final exam to replace a missed or low scoring exam.\nYou may request an extension on any problem set of up to 3 days. But extensions beyond 3 days will not be granted (because delying solutions will negative impact other students).\nYou may submit any missed quiz or problem set by the end of the semester for half-credit (50%), even after solutions are posted.\nWe will drop your lowest pset grade, but you must turn in all 6 assignements to be eligible."
   },
   {
     "objectID": "slides/week-01-r-basics.html#resources",
     "href": "slides/week-01-r-basics.html#resources",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Resources",
     "text": "Resources\nIn addition to our course website, we will use the following:\n\ngoogle colab (r kernel) - for computing\ncanvas- for posting grades\ngradescope - for submitting problem sets\ned discussion - for announcements and questions"
   },
   {
     "objectID": "slides/week-01-r-basics.html#wellness-resources",
     "href": "slides/week-01-r-basics.html#wellness-resources",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Wellness resources",
     "text": "Wellness resources\nPlease consider using these Penn resources this semester:\n\nWeingarten Center for academic support and tutoring.\nWellness at Penn for health and wellbeing."
   },
   {
     "objectID": "slides/week-01-r-basics.html#why-r",
     "href": "slides/week-01-r-basics.html#why-r",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Why R?",
     "text": "Why R?\nWith many programming languages available for data science (e.g. R, Python, Julia, MATLAB), why use R?\n\nBuilt for stats, specifically\nMakes nice visualizations\nLots of people are doing it, especially in academia\nEasier for beginners to understand\nFree and open source (though so are Python and Julia, MATLAB costs $)"
   },
   {
     "objectID": "slides/week-01-r-basics.html#many-ways-to-use-r",
     "href": "slides/week-01-r-basics.html#many-ways-to-use-r",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Many ways to use R",
     "text": "Many ways to use R\n\nR Studio\nJupyter\nVS Code\nand even simply the command line/terminal"
   },
   {
     "objectID": "slides/week-01-r-basics.html#google-colab",
     "href": "slides/week-01-r-basics.html#google-colab",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Google Colab",
     "text": "Google Colab\n\nGoogle Colab is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc.\nWe use Google Colab because it’s simple and accessible to everyone. You can start programming right away, no setup required!"
   },
   {
     "objectID": "slides/week-01-r-basics.html#secretly-r",
     "href": "slides/week-01-r-basics.html#secretly-r",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Secretly, R!",
     "text": "Secretly, R!\nGoogle Colab officially supports Python, but secretly supports R (and Julia, too!)\n\nUpdate 2024: Google Colab now officially supports R!\ncolab (r kernel)"
   },
   {
     "objectID": "slides/week-01-r-basics.html#open-a-new-r-notebook",
     "href": "slides/week-01-r-basics.html#open-a-new-r-notebook",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Open a new R notebook:",
     "text": "Open a new R notebook:\n\ncolab (r kernel) - use this link to start a new R notebook\nFile &gt; New notebook and then Runtime &gt; Change runtime type to R"
   },
   {
     "objectID": "slides/week-01-r-basics.html#cell-types",
     "href": "slides/week-01-r-basics.html#cell-types",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Cell types:",
     "text": "Cell types:\n\n+ Code - write and execute code\n+ Text - write text blocks in markdown"
   },
   {
     "objectID": "slides/week-01-r-basics.html#left-sidebar",
     "href": "slides/week-01-r-basics.html#left-sidebar",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Left sidebar:",
     "text": "Left sidebar:\n\nTable of contents - outline from text headings\nFind and replace - find and/or replace\nFiles - upload files to cloud session"
   },
   {
     "objectID": "slides/week-01-r-basics.html#frequently-used-menu-options",
     "href": "slides/week-01-r-basics.html#frequently-used-menu-options",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Frequently used menu options:",
     "text": "Frequently used menu options:\n\nFile &gt; Locate in Drive - where in your Google Drive?\nFile &gt; Save - saves\nFile &gt; Revision history - history of changes you made\nFile &gt; Download &gt; Download .ipynb - used to submit assignments!\nFile &gt; Print - prints\nRuntime &gt; Run all - run all cells\nRuntime &gt; Run before - run all cells before current active cell\nRuntime &gt; Restart and run all - restart runtime, then run all"
   },
   {
     "objectID": "slides/week-01-r-basics.html#frequently-used-keyboard-shortcuts",
     "href": "slides/week-01-r-basics.html#frequently-used-keyboard-shortcuts",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Frequently used keyboard shortcuts:",
     "text": "Frequently used keyboard shortcuts:\n\nCmd/Ctrl+S - save\nCmd/Ctrl+Enter - run focused cell\nCmd/Ctrl+Shift+A - select all cells\nCmd/Ctrl+/ - comment/uncomment selection\nCmd/Ctrl+] - increase indent\nCmd/Ctrl+[ - decrease indent"
   },
   {
     "objectID": "slides/week-01-r-basics.html#expressions",
     "href": "slides/week-01-r-basics.html#expressions",
-    "title": "Week 1: R Bascis",
+    "title": "Week 1: R Basics",
     "section": "Expressions",
     "text": "Expressions\n\nExpressions are combinations of values, variables, operators, and functions that can be evaluated to produce a result. Expressions can be as simple as a single value or more complex involving calculations, comparisons, and function calls. They are the fundamental building blocks of programming.\n\n10 - a simple value expression that evaluates to 10.\nx &lt;- 10 - an expression that assigns the value of 10 to x.\nx + 10 - an expression that adds the value of x to 10.\na &lt;- x + 10 - an expression that adds the value of x to 10 and assigns the result to the variable a"
   },

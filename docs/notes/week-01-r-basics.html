@@ -267,15 +267,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>– <em>Computational and Inferential Thinking: The Foundations of Data Science</em></p>
 </blockquote>
 <p>Data science is about making decisions based on incomplete information. This concept is not new – brains (especially human brains!) love doing this. To illustrate, what do you see in the following image?</p>
-<p><img src="../assests/images/visual-illusion.png" class="img-fluid" alt="from Kok &amp; de Lange (2014)">{##fig-visualillusion fig-align=“left” width=25%}</p>
-<p>Did you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div id="fig-visualillusion" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure">
+<p><img src="../assests/images/visual-illusion.png" class="img-fluid figure-img" style="width:25.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: from Kok &amp; de Lange (2014)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></figcaption>
+</figure>
+</div>
+<p>Did you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <p>While the underlying concept is not new, the computational tools we use are <em>relatively</em> new. And we have a lot more data!</p>
-<p><img src="../assests/images/data-never-sleeps.png" class="img-fluid" alt="from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png">{##fig-dataneversleeps fig-align=“left” width=80%}</p>
+<div id="fig-dataneversleeps" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure">
+<p><img src="../assests/images/data-never-sleeps.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png</figcaption>
+</figure>
+</div>
 </section>
 <section id="data-science-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="data-science-workflow">Data science workflow</h3>
 <p>The folks who wrote <a href="https://r4ds.hadley.nz/">R for Data Science</a> proposed the following data science workflow:</p>
-<p><img src="../assests/images/data-science-workflow.png" class="img-fluid" alt="from R for Data Science">{##fig-datascience fig-align=“left” width=80%}</p>
+<div id="fig-datascience" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure">
+<p><img src="../assests/images/data-science-workflow.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: from R for Data Science</figcaption>
+</figure>
+</div>
 <p>Let’s unpack what these mean briefly:</p>
 <ol type="1">
 <li><p><strong>Import:</strong> gather data from a variety of sources, which can include structured data (like databases and spreadsheets) and unstructured data (like text, images, and videos).</p></li>
@@ -292,14 +307,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We will spend the first few weeks getting comfortable <strong>programming in R</strong>, including some useful skills for data science:</p>
 <ul>
 <li>R basics</li>
-<li>Data importing</li>
 <li>Data visualization</li>
 <li>Data wrangling</li>
 </ul>
 <p>Then, we will spend the next several weeks building a <strong>foundation in basic statistics and model building</strong>:</p>
 <ul>
-<li>Probability distributions</li>
-<li>Sampling variability</li>
+<li>Sampling distribution</li>
 <li>Hypothesis testing</li>
 <li>Model specification</li>
 <li>Model fitting</li>
@@ -309,7 +322,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Finally we will cover a selection of <strong>more advanced topics</strong> that are often applied in language and mind fields, with a focus on basic understanding:</p>
 <ul>
 <li>Classification</li>
-<li>Feature engineering (preprocessing)</li>
 <li>Inference for regression</li>
 <li>Mixed-effect models</li>
 </ul>
@@ -318,19 +330,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="syllabus-briefly">Syllabus, briefly</h3>
 <p>Each week will include two lectures and a lab:</p>
 <ul>
-<li><strong>Lectures</strong> are on Tuesdays and Thursdays at 10:15am and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!</li>
-<li><strong>Lab</strong> is on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule.</li>
+<li><strong>Lectures</strong> are on Tuesdays and Thursdays at 12pm and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!</li>
+<li><strong>Labs</strong> are on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule.</li>
 </ul>
 <p>There are 10 graded assessments:</p>
+<p>There are 8 graded assessments:</p>
 <ul>
-<li><strong>6 Problem sets</strong> in which you will be asked to apply your newly aquired R programming skills.</li>
-<li><strong>4 Quizzes</strong> in which you will be tested on your understanding of lecture concepts.</li>
+<li><strong>6 Problem sets (40%)</strong> in which you will be asked to apply your newly aquired R programming skills.</li>
+<li><strong>2 Midterm exams (60%)</strong> in which you will be tested on your understanding of lecture concepts.</li>
 </ul>
 <p>There are a few policies to take note of:</p>
 <ul>
-<li>Missed quizzes cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required)</li>
+<li>Missed exams cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required). You may take the optional final exam to replace a missed or low scoring exam.</li>
 <li>You may request an extension on any problem set of up to 3 days. But extensions beyond 3 days will not be granted (because delying solutions will negative impact other students).</li>
-<li>You may submit any missed quiz or problem set by the end of the semester for half-credit (50%).</li>
+<li>You may submit any missed quiz or problem set by the end of the semester for half-credit (50%), even after solutions are posted.</li>
+<li>We will drop your lowest pset grade, but you must turn in all 6 assignements to be eligible.</li>
 </ul>
 </section>
 <section id="why-r" class="level3">
@@ -358,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Google Colab</strong> is a cloud-based Jupyter notebook that allows you to write, execute, and share code like a google doc. We use Google Colab because it’s simple and accessible to everyone. You can start programming right away, no setup required! Google Colab officially supports Python and R (and secretly <a href="https://colab.research.google.com/github/ageron/julia_notebooks/blob/master/Julia_Colab_Notebook_Template.ipynb">Julia</a>, too!)</p>
 <p>New R notebook:</p>
 <ul>
-<li><a href="https://colab.research.google.com/##create=true&amp;language=r">colab (r kernel)</a> - use this link to start a new R notebook</li>
+<li><a href="https://colab.research.google.com/#create=true&amp;language=r">colab (r kernel)</a> - use this link to start a new R notebook</li>
 <li><code>File &gt; New notebook</code> and then <code>Runtime</code> &gt; <code>Change runtime type</code> to R</li>
 </ul>
 <p>Cell types:</p>
@@ -399,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="basics">Basics</h3>
 <p>We begin by defining some basic concepts:</p>
 <ul>
-<li><strong>Expressions </strong>are combinations of values, variables, operators, and functions that can be evaluated to produce a result. Expressions can be as simple as a single value or more complex involving calculations, comparisons, and function calls. They are the fundamental building blocks of programming.
+<li><strong>Expressions</strong> are combinations of values, variables, operators, and functions that can be evaluated to produce a result. Expressions can be as simple as a single value or more complex involving calculations, comparisons, and function calls. They are the fundamental building blocks of programming.
 <ul>
 <li><code>10</code> - a simple value expression that evaluates to <code>10</code>.</li>
 <li><code>x &lt;- 10</code> - an expression that assigns the value of <code>10</code> to <code>x</code>.</li>
@@ -716,7 +730,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>https://neurosciencenews.com/neuroimaging-visual-processing-fmri-1150/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Kok, P., &amp; de Lange, F. P. (2014). Shape perception simultaneously up-and downregulates neural activity in the primary visual cortex. Current Biology, 24(13), 1531-1535.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://neurosciencenews.com/neuroimaging-visual-processing-fmri-1150/<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

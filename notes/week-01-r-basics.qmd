@@ -23,20 +23,20 @@ format:
 
 Data science is about making decisions based on incomplete information. This concept is not new -- brains (especially human brains!) love doing this. To illustrate, what do you see in the following image? 
 
-![from Kok & de Lange (2014)^[Kok, P., & de Lange, F. P. (2014). Shape perception simultaneously up-and downregulates neural activity in the primary visual cortex. Current Biology, 24(13), 1531-1535.]](/assests/images/visual-illusion.png){##fig-visualillusion fig-align="left" width=25%}
+![from Kok & de Lange (2014)^[Kok, P., & de Lange, F. P. (2014). Shape perception simultaneously up-and downregulates neural activity in the primary visual cortex. Current Biology, 24(13), 1531-1535.]](/assests/images/visual-illusion.png){#fig-visualillusion fig-align="left" width=25%}
 
 Did you see a gray triangle on top of three circles? Most people do! But it turns out that your brain is filling in the gaps, inferring the presence of a triangle from the partial information available in the black circles ^[https://neurosciencenews.com/neuroimaging-visual-processing-fmri-1150/]. 
 
 While the underlying concept is not new, the computational tools we use are *relatively* new. And we have a lot more data! 
 
-![from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png](/assests/images/data-never-sleeps.png){##fig-dataneversleeps fig-align="left" width=80%}
+![from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png](/assests/images/data-never-sleeps.png){#fig-dataneversleeps fig-align="left" width=80%}
 
 
 ### Data science workflow
 
 The folks who wrote [R for Data Science](https://r4ds.hadley.nz/) proposed the following data science workflow: 
 
-![from R for Data Science](/assests/images/data-science-workflow.png){##fig-datascience fig-align="left" width=80%}
+![from R for Data Science](/assests/images/data-science-workflow.png){#fig-datascience fig-align="left" width=80%}
 
 Let's unpack what these mean briefly: 
 
@@ -59,14 +59,12 @@ Data science has applications in many fields far beyond language and the mind. I
 We will spend the first few weeks getting comfortable **programming in R**, including some useful skills for data science:
 
 - R basics
-- Data importing
 - Data visualization 
 - Data wrangling 
 
 Then, we will spend the next several weeks building a **foundation in basic statistics and model building**: 
 
-- Probability distributions
-- Sampling variability
+- Sampling distribution
 - Hypothesis testing
 - Model specification
 - Model fitting 
@@ -76,7 +74,6 @@ Then, we will spend the next several weeks building a **foundation in basic stat
 Finally we will cover a selection of **more advanced topics** that are often applied in language and mind fields, with a focus on basic understanding: 
 
 - Classification
-- Feature engineering (preprocessing) 
 - Inference for regression
 - Mixed-effect models
 
@@ -84,19 +81,22 @@ Finally we will cover a selection of **more advanced topics** that are often app
 
 Each week will include two lectures and a lab: 
 
-- **Lectures** are on Tuesdays and Thursdays at 10:15am and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!
-- **Lab** is on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule. 
+- **Lectures** are on Tuesdays and Thursdays at 12pm and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!
+- **Labs** are on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule. 
 
 There are 10 graded assessments: 
 
-- **6 Problem sets** in which you will be asked to apply your newly aquired R programming skills.
-- **4 Quizzes** in which you will be tested on your understanding of lecture concepts. 
+There are 8 graded assessments: 
+
+- **6 Problem sets (40%)** in which you will be asked to apply your newly aquired R programming skills.
+- **2 Midterm exams (60%)** in which you will be tested on your understanding of lecture concepts. 
 
 There are a few policies to take note of: 
 
-- Missed quizzes cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required)
+- Missed exams cannot be made up except in cases of genuine conflict or emergency (documentation and course action notice required). You may take the optional final exam to replace a missed or low scoring exam. 
 - You may request an extension on any problem set of up to 3 days. But extensions beyond 3 days will not be granted (because delying solutions will negative impact other students). 
-- You may submit any missed quiz or problem set by the end of the semester for half-credit (50%).
+- You may submit any missed quiz or problem set by the end of the semester for half-credit (50%), even after solutions are posted. 
+- We will drop your lowest pset grade, but you must turn in all 6 assignements to be eligible. 
 
 ### Why R? 
 
@@ -123,7 +123,7 @@ There are many ways to program with R. Some popular options include:
 
 New R notebook:
 
-- [colab (r kernel)](https://colab.research.google.com/##create=true&language=r) - use this link to start a new R notebook
+- [colab (r kernel)](https://colab.research.google.com/#create=true&language=r) - use this link to start a new R notebook
 - `File > New notebook` and then `Runtime` > `Change runtime type` to R
 
 Cell types: 
@@ -163,7 +163,7 @@ Frequently used keyboard shortcuts:
 
 We begin by defining some basic concepts:
 
-- **Expressions **are combinations of values, variables, operators, and functions that can be evaluated to produce a result. Expressions can be as simple as a single value or more complex involving calculations, comparisons, and function calls. They are the fundamental building blocks of programming.
+- **Expressions** are combinations of values, variables, operators, and functions that can be evaluated to produce a result. Expressions can be as simple as a single value or more complex involving calculations, comparisons, and function calls. They are the fundamental building blocks of programming.
     - `10` - a simple value expression that evaluates to `10`.
     - `x <- 10` - an expression that assigns the value of `10` to `x`.
     - `x + 10` - an expression that adds the value of `x` to `10`.

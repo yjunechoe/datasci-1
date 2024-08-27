@@ -199,7 +199,7 @@ Google colab demo
 
 ## Open a new R notebook:
 
-- [colab (r kernel)](https://colab.research.google.com/##create=true&language=r) - use this link to start a new R notebook
+- [colab (r kernel)](https://colab.research.google.com/#create=true&language=r) - use this link to start a new R notebook
 - `File > New notebook` and then `Runtime` > `Change runtime type` to R
 
 ## Cell types: 

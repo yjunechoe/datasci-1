@@ -52,13 +52,11 @@ format:
 
 ::::
 
-## Learning resources
+# Today
 
-- [colab notebook (R kernel)](https://colab.research.google.com/#create=true&language=r)
-- [Lecture notes](/notes/r-basics.qmd) 
-- [Labs](/labs/lab-01.qmd)
+Let's find what we need for today (see course website)
 
-## Basic concepts (review) {.smaller}
+## Basic concepts {.smaller}
 
 - `Expressions`: fundamental building blocks of programming 
 - `Objects`: allow us to store stuff, created with assignment operator

@@ -2,16 +2,16 @@
 title:  "Lab 1: Getting started with R"
 subtitle: "Not graded, just practice"
 date: 2024-08-29
-format: live-html
+# format: live-html
 ---
 
 To learn to program in R (or any language), you can read about how to do it, and watch someone else do it; but the only way to really learn is to do it yourself. Create some data structures, try some stuff, and see what happens! Here are some practice quiz questions to guide your learning. We will go over the solutions to these in lab.
 
-```{r}
+<!-- ```{r}
 #| echo: false
 
 library(webexercises)
-```
+``` -->
 
 ## Google Colab
 

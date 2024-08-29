@@ -12,6 +12,13 @@ format:
 
 ---
 
+## Announcements
+
+- Course is full
+- Thursday 3:30 moved to 5:15pm 
+- Please join the waitlist 
+- Please fill out Who's in class 
+
 ## You are `here` {.smaller} 
 
 :::: {.columns}
@@ -60,7 +67,7 @@ Let's find what we need for today (see course website)
 
 - `Expressions`: fundamental building blocks of programming 
 - `Objects`: allow us to store stuff, created with assignment operator
-- `Name`s: names w give objects must be letters, numbers, ., or _
+- `Names`: names w give objects must be letters, numbers, ., or _
 - `Attributes`: allow us to attach arbitrary metadata to objects
 - `Functions`: take some input, perform some computation, and return some output
 - `Environment`: collection of all objects we defined in current R session

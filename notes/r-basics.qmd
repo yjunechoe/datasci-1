@@ -9,10 +9,9 @@ format:
     pdf: default
 ---
 
-**Materials**
-
-- [slides](/slides/week-01-r-basics.qmd)
-- demo
+## Materials from lecture
+- **Tuesday**: [slides](/slides/hello-world.qmd) and [demo](https://colab.research.google.com/drive/1G0kTGOqukzko_8LYVgsdZ4yFLPQFVD03?usp=sharing)
+- **Thursday**: [slides](/slides/r-basics.qmd)
 
 ## Hello, World!
 ### What is data science?
@@ -83,8 +82,6 @@ Each week will include two lectures and a lab:
 
 - **Lectures** are on Tuesdays and Thursdays at 12pm and will be a mix of conceptual overviews and R tutorials. It is a good idea to bring your laptop so you can follow along and try stuff in R!
 - **Labs** are on Thursday or Friday and will consist of (ungraded) practice problems and concept review with TAs. You may attend any lab section that works for your schedule. 
-
-There are 10 graded assessments: 
 
 There are 8 graded assessments: 
 

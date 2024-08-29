@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2024-08-29">
 
-<title>DataSci for Lang &amp; Mind - Lab 1: Getting started with R</title>
+<title>Lab 1: Getting started with R – DataSci for Lang &amp; Mind</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -74,13 +74,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -89,28 +97,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
       DataSci for Lang &amp; Mind
       </li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -120,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">DataSci for Lang &amp; Mind</a> 
@@ -149,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../index.html#materials" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Materials</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -189,20 +201,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#google-colab" id="toc-google-colab" class="nav-link active" data-scroll-target="#google-colab">Google Colab</a></li>
-  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R Basics</a></li>
-  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
-  <li><a href="#subsetting" id="toc-subsetting" class="nav-link" data-scroll-target="#subsetting">Subsetting</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-01.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -228,52 +229,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <p>To learn to program in R (or any language), you can read about how to do it, and watch someone else do it; but the only way to really learn is to do it yourself. Create some data structures, try some stuff, and see what happens! Here are some practice quiz questions to guide your learning. We will go over the solutions to these in lab.</p>
 <section id="google-colab" class="level2">
 <h2 class="anchored" data-anchor-id="google-colab">Google Colab</h2>
-<p>True or false? We start a new R notebook in Google Colab with <code>File &gt; New notebook</code></p>
-<div id="radio_RREPXLCFIT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RREPXLCFIT" value="answer"> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_RREPXLCFIT" value=""> <span>False</span></label>
+<p>True or false? We can start a new R notebook in Google Colab with <code>File &gt; New notebook</code></p>
+<div id="radio_SJFLHYCJNF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SJFLHYCJNF" value=""> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_SJFLHYCJNF" value="answer"> <span>True, but we need to change the Runtime environment too</span></label><label><input type="radio" autocomplete="off" name="radio_SJFLHYCJNF" value=""> <span>False</span></label>
 </div>
 <p>For problem sets, how will you submit your colab notebook for grading?</p>
-<div id="radio_EIOBARIEFD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EIOBARIEFD" value="answer"> <span><code>File &gt; Download &gt; Download .ipynb</code>, then upload to Gradescope</span></label><label><input type="radio" autocomplete="off" name="radio_EIOBARIEFD" value=""> <span><code>File &gt; Download &gt; Download .ipynb</code>, then upload to Canvas</span></label><label><input type="radio" autocomplete="off" name="radio_EIOBARIEFD" value=""> <span><code>File &gt; Download &gt; Download .py</code>, then upload to Gradescope</span></label><label><input type="radio" autocomplete="off" name="radio_EIOBARIEFD" value=""> <span><code>File &gt; Download &gt; Download .py</code>, then upload to Canvas</span></label>
+<div id="radio_PERSSQHPKA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PERSSQHPKA" value="answer"> <span><code>File &gt; Download &gt; Download .ipynb</code>, then upload to Gradescope</span></label><label><input type="radio" autocomplete="off" name="radio_PERSSQHPKA" value=""> <span><code>File &gt; Download &gt; Download .ipynb</code>, then upload to Canvas</span></label><label><input type="radio" autocomplete="off" name="radio_PERSSQHPKA" value=""> <span><code>File &gt; Download &gt; Download .py</code>, then upload to Gradescope</span></label><label><input type="radio" autocomplete="off" name="radio_PERSSQHPKA" value=""> <span><code>File &gt; Download &gt; Download .py</code>, then upload to Canvas</span></label>
 </div>
 <p>What version of R is Google Colab running? Hint: use <code>sessionInfo()</code>.</p>
 <p><input class="webex-solveme nospaces" size="20" data-answer="[&quot;4.4.1&quot;]"></p>
 <p>What is the relationship between R and Google Colab?</p>
-<div id="radio_LINISPXKXX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LINISPXKXX" value=""> <span>R is a programming language. Google Colab is a smaller, specific version of R.</span></label><label><input type="radio" autocomplete="off" name="radio_LINISPXKXX" value="answer"> <span>R is a programming language. Google Colab is a development environment where you can run R</span></label><label><input type="radio" autocomplete="off" name="radio_LINISPXKXX" value=""> <span>R and Google Colab are both programming languages.</span></label><label><input type="radio" autocomplete="off" name="radio_LINISPXKXX" value=""> <span>R is a paid (proprietary) programming language. Google Colab is a free service to run R.</span></label>
+<div id="radio_XEBQHCHNHS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XEBQHCHNHS" value=""> <span>R is a programming language. Google Colab is a smaller, specific version of R.</span></label><label><input type="radio" autocomplete="off" name="radio_XEBQHCHNHS" value="answer"> <span>R is a programming language. Google Colab is a development environment where you can run R</span></label><label><input type="radio" autocomplete="off" name="radio_XEBQHCHNHS" value=""> <span>R and Google Colab are both programming languages.</span></label><label><input type="radio" autocomplete="off" name="radio_XEBQHCHNHS" value=""> <span>R is a paid (proprietary) programming language. Google Colab is a free service to run R.</span></label>
 </div>
 </section>
 <section id="r-basics" class="level2">
 <h2 class="anchored" data-anchor-id="r-basics">R Basics</h2>
 <p>Which of the following are expressions?</p>
-<div id="radio_HZYTQLVTGR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HZYTQLVTGR" value="answer"> <span>10</span></label><label><input type="radio" autocomplete="off" name="radio_HZYTQLVTGR" value="answer"> <span>5 + 10</span></label><label><input type="radio" autocomplete="off" name="radio_HZYTQLVTGR" value="answer"> <span>x &lt;- 5 + 10</span></label><label><input type="radio" autocomplete="off" name="radio_HZYTQLVTGR" value="answer"> <span>x &lt;- y + 10</span></label><label><input type="radio" autocomplete="off" name="radio_HZYTQLVTGR" value="answer"> <span>mean(x)</span></label>
+<div id="radio_SYJCHXMFMM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SYJCHXMFMM" value="answer"> <span>10</span></label><label><input type="radio" autocomplete="off" name="radio_SYJCHXMFMM" value="answer"> <span>5 + 10</span></label><label><input type="radio" autocomplete="off" name="radio_SYJCHXMFMM" value="answer"> <span>x &lt;- 5 + 10</span></label><label><input type="radio" autocomplete="off" name="radio_SYJCHXMFMM" value="answer"> <span>x &lt;- y + 10</span></label><label><input type="radio" autocomplete="off" name="radio_SYJCHXMFMM" value="answer"> <span>mean(x)</span></label>
 </div>
 <p>Which of the following are valid variable names in R?</p>
-<div id="radio_IAPCIFVSWU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IAPCIFVSWU" value="answer"> <span>childAge</span></label><label><input type="radio" autocomplete="off" name="radio_IAPCIFVSWU" value="answer"> <span>response_time</span></label><label><input type="radio" autocomplete="off" name="radio_IAPCIFVSWU" value=""> <span>1stPlaceWinner</span></label><label><input type="radio" autocomplete="off" name="radio_IAPCIFVSWU" value=""> <span>2fast2furious</span></label><label><input type="radio" autocomplete="off" name="radio_IAPCIFVSWU" value=""> <span>pi</span></label>
+<div id="radio_XJSLFYJBMK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XJSLFYJBMK" value="answer"> <span>childAge</span></label><label><input type="radio" autocomplete="off" name="radio_XJSLFYJBMK" value="answer"> <span>response_time</span></label><label><input type="radio" autocomplete="off" name="radio_XJSLFYJBMK" value=""> <span>1stPlaceWinner</span></label><label><input type="radio" autocomplete="off" name="radio_XJSLFYJBMK" value=""> <span>2fast2furious</span></label><label><input type="radio" autocomplete="off" name="radio_XJSLFYJBMK" value=""> <span>pi</span></label>
 </div>
 <p>Suppose we open a new colab notebook and run the following code block. What will be returned?</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="sc">+</span> <span class="dv">3</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_YNXCWNRLHX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YNXCWNRLHX" value=""> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_YNXCWNRLHX" value=""> <span>x=3 • y=3</span></label><label><input type="radio" autocomplete="off" name="radio_YNXCWNRLHX" value="answer"> <span>'x' • 'y' </span></label><label><input type="radio" autocomplete="off" name="radio_YNXCWNRLHX" value=""> <span>mean(c(1,3,5)) • median(c(1,3,5))</span></label>
+<div id="radio_TWOIQKOQMF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TWOIQKOQMF" value=""> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_TWOIQKOQMF" value=""> <span>x=3 • y=3</span></label><label><input type="radio" autocomplete="off" name="radio_TWOIQKOQMF" value="answer"> <span>'x' • 'y' </span></label><label><input type="radio" autocomplete="off" name="radio_TWOIQKOQMF" value=""> <span>mean(c(1,3,5)) • median(c(1,3,5))</span></label>
 </div>
 <p>Which of the following will load the <code>emo</code> package into the current environment?</p>
-<div id="radio_HSAAFXHNYB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HSAAFXHNYB" value=""> <span>install.packages('emo')</span></label><label><input type="radio" autocomplete="off" name="radio_HSAAFXHNYB" value="answer"> <span>library(emo)</span></label><label><input type="radio" autocomplete="off" name="radio_HSAAFXHNYB" value=""> <span>data(emo)</span></label><label><input type="radio" autocomplete="off" name="radio_HSAAFXHNYB" value=""> <span>attributes(emo)</span></label>
+<div id="radio_PNAKCIKJNK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PNAKCIKJNK" value=""> <span>install.packages('emo')</span></label><label><input type="radio" autocomplete="off" name="radio_PNAKCIKJNK" value="answer"> <span>library(emo)</span></label><label><input type="radio" autocomplete="off" name="radio_PNAKCIKJNK" value=""> <span>data(emo)</span></label><label><input type="radio" autocomplete="off" name="radio_PNAKCIKJNK" value=""> <span>attributes(emo)</span></label>
 </div>
 <p>Which of the following occur in the code block below?</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the mean of x and y</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_VYDGVFVTVY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VYDGVFVTVY" value=""> <span>a message</span></label><label><input type="radio" autocomplete="off" name="radio_VYDGVFVTVY" value="answer"> <span>a function</span></label><label><input type="radio" autocomplete="off" name="radio_VYDGVFVTVY" value="answer"> <span>a comment</span></label><label><input type="radio" autocomplete="off" name="radio_VYDGVFVTVY" value="answer"> <span>an expression</span></label>
+<div id="radio_BOSAHZKVRD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BOSAHZKVRD" value=""> <span>a message</span></label><label><input type="radio" autocomplete="off" name="radio_BOSAHZKVRD" value="answer"> <span>a function</span></label><label><input type="radio" autocomplete="off" name="radio_BOSAHZKVRD" value="answer"> <span>a comment</span></label><label><input type="radio" autocomplete="off" name="radio_BOSAHZKVRD" value="answer"> <span>an expression</span></label>
 </div>
 </section>
 <section id="vectors" class="level2">
@@ -282,8 +285,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><input class="webex-solveme nospaces" size="20" data-answer="[&quot;character&quot;]"></p>
 <p>What is the previous question an example of?</p>
-<div id="radio_MMRFWMBFKX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MMRFWMBFKX" value=""> <span>attribute addition</span></label><label><input type="radio" autocomplete="off" name="radio_MMRFWMBFKX" value=""> <span>explicit coercion</span></label><label><input type="radio" autocomplete="off" name="radio_MMRFWMBFKX" value="answer"> <span>implicit coercion</span></label><label><input type="radio" autocomplete="off" name="radio_MMRFWMBFKX" value=""> <span>none of the above</span></label>
+<div id="radio_ELOSYUAHDH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ELOSYUAHDH" value=""> <span>attribute addition</span></label><label><input type="radio" autocomplete="off" name="radio_ELOSYUAHDH" value=""> <span>explicit coercion</span></label><label><input type="radio" autocomplete="off" name="radio_ELOSYUAHDH" value="answer"> <span>implicit coercion</span></label><label><input type="radio" autocomplete="off" name="radio_ELOSYUAHDH" value=""> <span>none of the above</span></label>
 </div>
 <p>What will the following code block return?</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
@@ -300,35 +303,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code> num [1:4] 1 0 1 0</code></pre>
 </div>
 </div>
-<div id="radio_TBTRJDKTXR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_TBTRJDKTXR" value=""> <span>an error</span></label><label><input type="radio" autocomplete="off" name="radio_TBTRJDKTXR" value="answer"> <span>TRUE • FALSE • TRUE • FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_TBTRJDKTXR" value=""> <span>FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_TBTRJDKTXR" value=""> <span>FALSE • TRUE • FALSE • TRUE</span></label>
+<div id="radio_HNZTGLGCUH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HNZTGLGCUH" value=""> <span>an error</span></label><label><input type="radio" autocomplete="off" name="radio_HNZTGLGCUH" value="answer"> <span>TRUE • FALSE • TRUE • FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_HNZTGLGCUH" value=""> <span>FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_HNZTGLGCUH" value=""> <span>FALSE • TRUE • FALSE • TRUE</span></label>
 </div>
 <p>Given the following vector, what will <code>as.double(x)</code> return?</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"one"</span>, <span class="st">"two"</span>, <span class="st">"three"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_DJEMYOABTR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DJEMYOABTR" value="answer"> <span>an error</span></label><label><input type="radio" autocomplete="off" name="radio_DJEMYOABTR" value=""> <span>1 • 2 • 3</span></label><label><input type="radio" autocomplete="off" name="radio_DJEMYOABTR" value=""> <span>2 • 4 • 6</span></label><label><input type="radio" autocomplete="off" name="radio_DJEMYOABTR" value=""> <span>'one' • 'two' • 'three'</span></label>
+<div id="radio_JIVLZFOBMQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JIVLZFOBMQ" value="answer"> <span>an error</span></label><label><input type="radio" autocomplete="off" name="radio_JIVLZFOBMQ" value=""> <span>1 • 2 • 3</span></label><label><input type="radio" autocomplete="off" name="radio_JIVLZFOBMQ" value=""> <span>2 • 4 • 6</span></label><label><input type="radio" autocomplete="off" name="radio_JIVLZFOBMQ" value=""> <span>'one' • 'two' • 'three'</span></label>
 </div>
 <p>What happens if you add a vector of numbers to a single number in the following expression?</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_NHSFJOYCAF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NHSFJOYCAF" value=""> <span>2 • 3 • 5</span></label><label><input type="radio" autocomplete="off" name="radio_NHSFJOYCAF" value=""> <span>Error: length mismatch</span></label><label><input type="radio" autocomplete="off" name="radio_NHSFJOYCAF" value=""> <span>1 • 3 • 5 • 1</span></label><label><input type="radio" autocomplete="off" name="radio_NHSFJOYCAF" value="answer"> <span>2 • 4 • 6</span></label>
+<div id="radio_TAMDGBOYQV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TAMDGBOYQV" value=""> <span>2 • 3 • 5</span></label><label><input type="radio" autocomplete="off" name="radio_TAMDGBOYQV" value=""> <span>Error: length mismatch</span></label><label><input type="radio" autocomplete="off" name="radio_TAMDGBOYQV" value=""> <span>1 • 3 • 5 • 1</span></label><label><input type="radio" autocomplete="off" name="radio_TAMDGBOYQV" value="answer"> <span>2 • 4 • 6</span></label>
 </div>
 <p>What happens if you multiply a vector times another vector?</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_PZRINGDLDY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PZRINGDLDY" value="answer"> <span>10 • 300 • 5000</span></label><label><input type="radio" autocomplete="off" name="radio_PZRINGDLDY" value=""> <span>Error: length mismatch</span></label><label><input type="radio" autocomplete="off" name="radio_PZRINGDLDY" value=""> <span>10 • 30 • 50 • 100 • 300 • 500 • 1000 • 3000 • 5000</span></label><label><input type="radio" autocomplete="off" name="radio_PZRINGDLDY" value=""> <span>a 2 x 3 matrix</span></label><label><input type="radio" autocomplete="off" name="radio_PZRINGDLDY" value=""> <span>Error: cannot multiply vectors</span></label>
+<div id="radio_YJENQWBNCS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YJENQWBNCS" value="answer"> <span>10 • 300 • 5000</span></label><label><input type="radio" autocomplete="off" name="radio_YJENQWBNCS" value=""> <span>Error: length mismatch</span></label><label><input type="radio" autocomplete="off" name="radio_YJENQWBNCS" value=""> <span>10 • 30 • 50 • 100 • 300 • 500 • 1000 • 3000 • 5000</span></label><label><input type="radio" autocomplete="off" name="radio_YJENQWBNCS" value=""> <span>a 2 x 3 matrix</span></label><label><input type="radio" autocomplete="off" name="radio_YJENQWBNCS" value=""> <span>Error: cannot multiply vectors</span></label>
 </div>
 <p>Suppose we run the following code. What will <code>any(x)</code> return?</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">11</span>) <span class="sc">&gt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_THGRLCYNYW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_THGRLCYNYW" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_THGRLCYNYW" value=""> <span>FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_THGRLCYNYW" value=""> <span>Error: vector is double but requires logical</span></label>
+<div id="radio_DLOZDARTXK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DLOZDARTXK" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_DLOZDARTXK" value=""> <span>FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_DLOZDARTXK" value=""> <span>Error: vector is double but requires logical</span></label>
 </div>
 </section>
 <section id="subsetting" class="level2">
 <h2 class="anchored" data-anchor-id="subsetting">Subsetting</h2>
 <p>Which of the following code subsets the vector <code>x &lt;- c("blue", "pink", "red")</code> to return just the first element?</p>
-<div id="radio_HZFGSGRZYB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HZFGSGRZYB" value="answer"> <span>x[1]</span></label><label><input type="radio" autocomplete="off" name="radio_HZFGSGRZYB" value="answer"> <span>x[[1]]</span></label><label><input type="radio" autocomplete="off" name="radio_HZFGSGRZYB" value=""> <span>x[0]</span></label><label><input type="radio" autocomplete="off" name="radio_HZFGSGRZYB" value="answer"> <span>x[-c(2, 3)]</span></label><label><input type="radio" autocomplete="off" name="radio_HZFGSGRZYB" value=""> <span>x[“blue”]</span></label>
+<div id="radio_CZABATDWJP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CZABATDWJP" value="answer"> <span>x[1]</span></label><label><input type="radio" autocomplete="off" name="radio_CZABATDWJP" value="answer"> <span>x[[1]]</span></label><label><input type="radio" autocomplete="off" name="radio_CZABATDWJP" value=""> <span>x[0]</span></label><label><input type="radio" autocomplete="off" name="radio_CZABATDWJP" value="answer"> <span>x[-c(2, 3)]</span></label><label><input type="radio" autocomplete="off" name="radio_CZABATDWJP" value=""> <span>x[“blue”]</span></label>
 </div>
 <p>Suppose we run the following code. What will <code>x[[2]]</code> return?</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span><span class="dv">8</span>, <span class="at">by=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -395,9 +398,34 @@ NA or <NA>
 --->
 
 
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../labs";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -433,18 +461,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -476,11 +493,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -490,8 +546,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -503,7 +568,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -547,6 +735,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -572,6 +761,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -632,6 +847,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

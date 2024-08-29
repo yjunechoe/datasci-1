@@ -8,11 +8,11 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="Katie Schuler">
   <meta name="dcterms.date" content="2024-08-27">
-  <title>DataSci for Lang &amp; Mind - Week 1: R Basics</title>
+  <title>DataSci for Lang &amp; Mind – Week 1: R Basics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -157,7 +157,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -404,10 +405,14 @@ Katie Schuler
 <h2>Data science</h2>
 <p>Data science is about making decisions based on incomplete information.</p>
 <div class="fragment">
-<div id="fig-visualillusion" class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="../assests/images/visual-illusion.png" style="width:30.0%"></p>
-<figcaption>Figure&nbsp;1: from Kok &amp; de Lange (2014)</figcaption>
+<div id="fig-visualillusion" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-visualillusion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="../assests/images/visual-illusion.png" class="quarto-figure quarto-figure-left" style="width:30.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visualillusion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: from Kok &amp; de Lange (2014)
+</figcaption>
 </figure>
 </div>
 <p>This concept is not new. Brains were built for doing this!</p>
@@ -416,10 +421,14 @@ Katie Schuler
 <section id="but-we-have-new-tools-and-lots-more-data" class="slide level2">
 <h2>But we have new tools and lots more data!</h2>
 <div class="fragment">
-<div id="fig-dataneversleeps" class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="../assests/images/data-never-sleeps.png" style="width:80.0%"></p>
-<figcaption>Figure&nbsp;2: from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png</figcaption>
+<div id="fig-dataneversleeps" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-dataneversleeps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="../assests/images/data-never-sleeps.png" class="quarto-figure quarto-figure-left" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dataneversleeps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png
+</figcaption>
 </figure>
 </div>
 </div>
@@ -428,10 +437,14 @@ Katie Schuler
 <h2>Data science workflow</h2>
 <p>The folks who wrote <a href="https://r4ds.hadley.nz/">R for Data Science</a> proposed the following data science workflow:</p>
 <div class="fragment">
-<div id="fig-datascience" class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="../assests/images/data-science-workflow.png" style="width:80.0%"></p>
-<figcaption>Figure&nbsp;3: from R for Data Science</figcaption>
+<div id="fig-datascience" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-datascience-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="../assests/images/data-science-workflow.png" class="quarto-figure quarto-figure-left" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-datascience-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: from R for Data Science
+</figcaption>
 </figure>
 </div>
 </div>
@@ -617,8 +630,10 @@ Katie Schuler
 <h1>See you next time!</h1>
 <p>Looking forward to a great semester.</p>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://kathrynschuler.com/datasci/">https://kathrynschuler.com/datasci</a></p>
+</div>
 </div>
 </section>
     </div>
@@ -647,7 +662,6 @@ Katie Schuler
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -864,18 +878,7 @@ Katie Schuler
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -907,11 +910,50 @@ Katie Schuler
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -921,8 +963,17 @@ Katie Schuler
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -936,7 +987,11 @@ Katie Schuler
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

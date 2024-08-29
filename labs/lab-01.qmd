@@ -2,6 +2,7 @@
 title:  "Lab 1: Getting started with R"
 subtitle: "Not graded, just practice"
 date: 2024-08-29
+format: live-html
 ---
 
 To learn to program in R (or any language), you can read about how to do it, and watch someone else do it; but the only way to really learn is to do it yourself. Create some data structures, try some stuff, and see what happens! Here are some practice quiz questions to guide your learning. We will go over the solutions to these in lab.
@@ -14,14 +15,14 @@ library(webexercises)
 
 ## Google Colab
 
-True or false? We start a new R notebook in Google Colab with `File > New notebook`
+True or false? We can start a new R notebook in Google Colab with `File > New notebook`
 
 ```{r}
 #| echo: false
 #| results: asis
 
 # Define the answer choices
-choices <- c(answer ="True","False")
+choices <- c("True", answer ="True, but we need to change the Runtime environment too", "False")
 
 cat(longmcq(choices))
 ```

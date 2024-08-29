@@ -73,6 +73,24 @@ cat(longmcq(choices))
 
 ```
 
+What happens to files you upload to google colab when the Runtime environment is restarted? 
+
+```{r}
+#| echo: false
+#| results: asis
+
+# Define the answer choices
+choices <- c(
+    "They are saved in your google drive.",
+    "They are saved in Google Colab's cloud for future use", 
+    answer="They are deleted",
+    "They are stored for 7 business days, then deleted."
+)
+
+cat(longmcq(choices))
+
+```
+
 ## R Basics
 
 
@@ -179,6 +197,24 @@ cat(longmcq(choices))
 ```
 
 ## Vectors
+
+Which of the following returns the vector `20 22 24 26` 
+
+```{r}
+#| echo: false
+#| results: asis
+
+# Define the answer choices
+choices <- c(
+    "`20:26`",
+    answer ="`seq(from=20, to=26, by =2)`",
+    "`rep(c(20, 22, 24, 26), times = 4)`",
+    answer ="`c(20, 22, 24, 26)`"
+)
+
+cat(longmcq(choices))
+```
+
 
 Suppose we construct a vector with `c(1, "two", 3, 4, 5, 6)` and assign it to `x`. What will the following code block return? 
 
@@ -403,8 +439,87 @@ m <- matrix(c(10,20,30,40), nrow=2, ncol=2)
 cat(fitb(c(30), ignore_ws = TRUE, width = "20"))
 
 ```
+
+Suppose we run the following code. What will `df$y[4]` return?
+
+```r
+df <- data.frame(
+    x = c(2, 4, 6, 8), 
+    y = c("l", "m", "n", "o")
+)
+
+```
+
+
+```{r}
+#| echo: false
+#| results: asis
+
+cat(fitb(c("o"), ignore_ws = TRUE, width = "20"))
+
+```
+
+## Missing Values 
+
+Suppose we run the following code. What will `is.na(y)` return?
+
+```r
+
+y <- c(25, 25, NA, 36)
+
+```
+
+
+```{r}
+#| echo: false
+#| results: asis
+
+# Define the answer choices
+choices <- c(
+    "3",
+    "Error: Non-atomic vector is invalid type",
+    "TRUE",
+    answer = "FALSE FALSE TRUE FALSE"
+)
+
+cat(longmcq(choices))
+
+```
+
+Suppose we run the following code. What will `is.null(y)` return?
+
+```r
+y <- c()
+
+```
+
+
+```{r}
+#| echo: false
+#| results: asis
+
+cat(fitb(c("TRUE"), ignore_ws = TRUE, width = "20"))
+
+```
+
+Suppose we run the following code. What will `mean(y)` return?
+
+```r
+y <- c()
+
+```
+
+
+```{r}
+#| echo: false
+#| results: asis
+
+cat(fitb(c("NA"), ignore_ws = TRUE, width = "20"))
+
+```
 <!---
  
+
 THERE ARE FROM BEFORE webexerciser
 
 Suppose we run the following code block. What will `typeof(x)` return? What about `length(x)`? Explain why.

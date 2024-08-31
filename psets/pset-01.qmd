@@ -1,0 +1,97 @@
+---
+title:  "Problem set 1"
+subtitle: "due Monday, September 9, 2024 at 11:59am"
+# author: 
+#     name: Katie Schuler
+#     affiliation: University of Pennsylvania
+number-sections: false
+format: 
+  html: default
+  pdf: default
+
+---
+
+<!-- ::: {.callout-tip}
+## Estimated time: 6 hours
+
+Allocate about **1 hour per problem**, though some will take longer than others. You may need more time if programming is completely new to you, or less if you have some experience already.
+:::
+
+Instructions
+: Upload your `.ipynb` notebook to gradescope by 11:59pm on the due date. 
+
+- Note that each problem will be graded according to this [rubric](/rubric.qmd). Solutions that include packages or functions not covered in this course will recieve a score no higher than 2.
+- You may collaborate with any of your classmates, but you must write your own code/solutions, understand all parts of the problem, and name your collaborators. 
+- You should also cite any outside sources you consulted, like Stack Overflow or ChatGPT, with a comment near the relevant lines of code (see example below). Recycled code that has not been cited will be considered plagerism and receive a zero.  -->
+<!-- 
+```r
+# code here was inspired by user2554330 on stack overflow: 
+# https://stackoverflow.com/questions/69091812/is-everything-a-vector-in-r
+``` -->
+
+<!-- ## Problem 0
+
+Create a new colab R notebook. Add a text block that includes the title "Problem set 1", your name, and the date. Add a text block with a heading for each problem in the set. As you work through the problem set, include your code/solutions below the appropriate heading. Finally, load the `tidyverse` package under your heading for problem 0. -->
+
+## Problem 1 
+
+Load the `tidyverse` package library into Google Colab. 
+
+## Problem 1
+
+> done 
+
+Suppose you track the number of hours you spend studying each day for a week. You store your data in a vector called `study_hours_stringy`. Convert the `study_hours_stringy` vector from strings to doubles using explicit coercion and store it as `study_hours`. Use R's built-in functions to compute the total number of hours you studied that week, the average number of hours studied per day, and the median number of hours studied on a single day. Store the results in a tibble with columns named `Total_Hours`, `Average_Hours`, and `Median_Hours`. Perform a comparison operation on the `study_hours` vector to determine whether each day's study hours were below the median. Finally, use subsetting to extract the days where the number of hours studied was exactly 2 or 4.
+
+## Problem 2
+
+Create the matrix given below. Use one of R's built-in functions to append a new row to the matrix made up of all 1s.  Multiply every number in the new matrix by 5. Then use subsetting to return the second and fourth row of values in the final matrix. 
+
+```{r}
+#| echo: false
+x <- c(3, 4, 5, 6, 7, 8, 9, 10, 11)
+matrix(x, nrow=3, ncol=3)
+
+```
+
+
+## Problem 3
+
+Create a data frame that looks like the one below. Return the structure of the dataframe with `str()`. Use subsetting to select all columns that were indicated as doubles. Compute the mean of each column in the subset dataframe using `map_*()` and convert the output to a tibble (use the pipe!).
+
+```{r}
+#| echo: false
+age <- c(30, 45, 81, 27)
+height <- c(65, 66, 72, 59)
+major <- c("cogsci", "ling", "psych", "ling")
+score <- c(100, 75, 88, 97)
+firstgen <- c(TRUE, FALSE, TRUE, FALSE)
+df <- data.frame(age, height, major, score, firstgen)
+df
+
+
+```
+
+## Problem 4
+Read the documentation for the [`emo`](https://github.com/hadley/emo) package.  Install and load the package. Then create a character vector including 8 of your favorite emojis by their keyword (see the docs for a list). Finally, use the package's `emo::ji()` function in conjunction with `map_*()` to print all 8 emojis with one line of code. Combine this output with your keyword vector in a tibble.  
+
+## Problem 5 
+
+Suppose you extend your experiment: you decide to record the number of words your quiet roommate says to you every day for the entire semester. Import the file below from the given url, ensuring that `week` is an integer vector, `words spoken` is a double, and all column names are valid variable names in R. Take care to use the approaches we discussed in lecture to identify and handle any issues. Use `glimpse` to show the resulting tibble. Finally, use these data to recreate (as faithfully as possible) the figure below. 
+
+```r
+"https://kathrynschuler.com/datasets/quiet_roommate.csv"
+```
+
+<!-- ![](/include/targets/pset-1-target-5.png){#target-5 fig-align="center" width=50%} -->
+
+## Problem 6
+
+Problem 6 makes use of the `english` dataset in the [`languageR`](https://cran.r-project.org/web/packages/languageR/languageR.pdf) package. From the documentation:
+
+> This data set gives mean visual lexical decision latencies and word naming latencies to 2284
+monomorphemic English nouns and verbs, averaged for old and young subjects, with various predictor variables.
+
+Install and load the `languageR` library. Convert the `english` dataset to a tibble, then use `glimpse` to show the result. Finally, use the `RTlexdec`, `Familiarity`, and `AgeSubjects` columns to recreate (as faithfully as possible) the figure below. 
+
+<!-- ![](/include/targets/pset-1-target-6.png){#target-6 fig-align="center" width=60%} -->

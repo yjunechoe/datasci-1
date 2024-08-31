@@ -11,7 +11,7 @@ format:
 
 ## Materials from lecture
 - **Tuesday**: [slides](/slides/hello-world.qmd) and [demo](https://colab.research.google.com/drive/1G0kTGOqukzko_8LYVgsdZ4yFLPQFVD03?usp=sharing)
-- **Thursday**: [slides](/slides/r-basics.qmd)
+- **Thursday**: [slides](/slides/r-basics.qmd) and [demo](https://colab.research.google.com/drive/1qe66EM3ABVPEv6X-m1q7jJ6Oe-yK1cW2?usp=sharing)
 
 ## Hello, World!
 ### What is data science?

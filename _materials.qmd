@@ -61,4 +61,20 @@ Lab exercises are intended for practice and are not graded.
 - Lab 9 on Nov 8 or 9
 - Lab 10 on Dec 5 or 6
 
+<!-- ## Practice exercises 
 
+Practice exercies are a self-guided practice tool that takes you through the study guide can use for more practice (before or after the lecture). 
+
+- [Practice 1: R Basics](practice/practice-01.qmd)
+- Practice 2: Data visualization
+- Practice 3: Data wrangling 
+- Practice 4: Sampling distribution 
+- Practice 5: Hypothesis testing 
+- Practice 6: Model specification 
+- Practice 8: Model fitting
+- Practice 9: Model accuracy 
+- Practice 10: Model reliability 
+- Practice 11: Classification 
+- Practice 12: Inference
+- Practice 15: Multilevel Models 
+ -->

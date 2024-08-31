@@ -4,14 +4,14 @@
     "href": "notes/r-basics.html",
     "title": "Week 1: R basics",
     "section": "",
-    "text": "Tuesday: slides and demo\nThursday: slides"
+    "text": "Tuesday: slides and demo\nThursday: slides and demo"
   },
   {
     "objectID": "notes/r-basics.html#materials-from-lecture",
     "href": "notes/r-basics.html#materials-from-lecture",
     "title": "Week 1: R basics",
     "section": "",
-    "text": "Tuesday: slides and demo\nThursday: slides"
+    "text": "Tuesday: slides and demo\nThursday: slides and demo"
   },
   {
     "objectID": "notes/r-basics.html#hello-world",
@@ -359,7 +359,7 @@
     "href": "webexercises.html#example-questions",
     "title": "Webexercises",
     "section": "Example Questions",
-    "text": "Example Questions\n\nFill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 25 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\nMultiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\nTrue or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\nLonger MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n if you repeated the process many times, 95% of intervals calculated in this way contain the true mean there is a 95% probability that the true mean lies within this range 95% of the data fall within this range"
+    "text": "Example Questions\n\nFill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 25 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\nMultiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\nTrue or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\nLonger MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n 95% of the data fall within this range there is a 95% probability that the true mean lies within this range if you repeated the process many times, 95% of intervals calculated in this way contain the true mean"
   },
   {
     "objectID": "webexercises.html#checked-sections",
@@ -422,7 +422,56 @@
     "href": "psets/pset-01.html",
     "title": "Problem set 1",
     "section": "",
-    "text": "Problem set 1"
+    "text": "Load the tidyverse package library into Google Colab."
+  },
+  {
+    "objectID": "psets/pset-01.html#problem-1",
+    "href": "psets/pset-01.html#problem-1",
+    "title": "Problem set 1",
+    "section": "",
+    "text": "Load the tidyverse package library into Google Colab."
+  },
+  {
+    "objectID": "psets/pset-01.html#problem-1-1",
+    "href": "psets/pset-01.html#problem-1-1",
+    "title": "Problem set 1",
+    "section": "Problem 1",
+    "text": "Problem 1\n\ndone\n\nSuppose you track the number of hours you spend studying each day for a week. You store your data in a vector called study_hours_stringy. Convert the study_hours_stringy vector from strings to doubles using explicit coercion and store it as study_hours. Use R’s built-in functions to compute the total number of hours you studied that week, the average number of hours studied per day, and the median number of hours studied on a single day. Store the results in a tibble with columns named Total_Hours, Average_Hours, and Median_Hours. Perform a comparison operation on the study_hours vector to determine whether each day’s study hours were below the median. Finally, use subsetting to extract the days where the number of hours studied was exactly 2 or 4."
+  },
+  {
+    "objectID": "psets/pset-01.html#problem-2",
+    "href": "psets/pset-01.html#problem-2",
+    "title": "Problem set 1",
+    "section": "Problem 2",
+    "text": "Problem 2\nCreate the matrix given below. Use one of R’s built-in functions to append a new row to the matrix made up of all 1s. Multiply every number in the new matrix by 5. Then use subsetting to return the second and fourth row of values in the final matrix.\n\n\n     [,1] [,2] [,3]\n[1,]    3    6    9\n[2,]    4    7   10\n[3,]    5    8   11"
+  },
+  {
+    "objectID": "psets/pset-01.html#problem-3",
+    "href": "psets/pset-01.html#problem-3",
+    "title": "Problem set 1",
+    "section": "Problem 3",
+    "text": "Problem 3\nCreate a data frame that looks like the one below. Return the structure of the dataframe with str(). Use subsetting to select all columns that were indicated as doubles. Compute the mean of each column in the subset dataframe using map_*() and convert the output to a tibble (use the pipe!).\n\n\n  age height  major score firstgen\n1  30     65 cogsci   100     TRUE\n2  45     66   ling    75    FALSE\n3  81     72  psych    88     TRUE\n4  27     59   ling    97    FALSE"
+  },
+  {
+    "objectID": "psets/pset-01.html#problem-4",
+    "href": "psets/pset-01.html#problem-4",
+    "title": "Problem set 1",
+    "section": "Problem 4",
+    "text": "Problem 4\nRead the documentation for the emo package. Install and load the package. Then create a character vector including 8 of your favorite emojis by their keyword (see the docs for a list). Finally, use the package’s emo::ji() function in conjunction with map_*() to print all 8 emojis with one line of code. Combine this output with your keyword vector in a tibble."
+  },
+  {
+    "objectID": "psets/pset-01.html#problem-5",
+    "href": "psets/pset-01.html#problem-5",
+    "title": "Problem set 1",
+    "section": "Problem 5",
+    "text": "Problem 5\nSuppose you extend your experiment: you decide to record the number of words your quiet roommate says to you every day for the entire semester. Import the file below from the given url, ensuring that week is an integer vector, words spoken is a double, and all column names are valid variable names in R. Take care to use the approaches we discussed in lecture to identify and handle any issues. Use glimpse to show the resulting tibble. Finally, use these data to recreate (as faithfully as possible) the figure below.\n\"https://kathrynschuler.com/datasets/quiet_roommate.csv\""
+  },
+  {
+    "objectID": "psets/pset-01.html#problem-6",
+    "href": "psets/pset-01.html#problem-6",
+    "title": "Problem set 1",
+    "section": "Problem 6",
+    "text": "Problem 6\nProblem 6 makes use of the english dataset in the languageR package. From the documentation:\n\nThis data set gives mean visual lexical decision latencies and word naming latencies to 2284 monomorphemic English nouns and verbs, averaged for old and young subjects, with various predictor variables.\n\nInstall and load the languageR library. Convert the english dataset to a tibble, then use glimpse to show the result. Finally, use the RTlexdec, Familiarity, and AgeSubjects columns to recreate (as faithfully as possible) the figure below."
   },
   {
     "objectID": "archive.html",

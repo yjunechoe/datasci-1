@@ -205,7 +205,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#google-colab" id="toc-google-colab" class="nav-link active" data-scroll-target="#google-colab">Google Colab</a></li>
+  <li><a href="#materials-from-lab" id="toc-materials-from-lab" class="nav-link active" data-scroll-target="#materials-from-lab">Materials from lab</a></li>
+  <li><a href="#google-colab" id="toc-google-colab" class="nav-link" data-scroll-target="#google-colab">Google Colab</a></li>
   <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R Basics</a></li>
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
   <li><a href="#subsetting" id="toc-subsetting" class="nav-link" data-scroll-target="#subsetting">Subsetting</a></li>
@@ -243,72 +244,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>To learn to program in R (or any language), you can read about how to do it, and watch someone else do it; but the only way to really learn is to do it yourself. Create some data structures, try some stuff, and see what happens! Here are some practice quiz questions to guide your learning. We will go over the solutions to these in lab.</p>
+<section id="materials-from-lab" class="level2">
+<h2 class="anchored" data-anchor-id="materials-from-lab">Materials from lab</h2>
+<ul>
+<li><a href="../assests/pdfs/lab-01-brittany.pdf">Brittany’s lab slides</a></li>
+<li><a href="../assests/pdfs/lab-01-wesley.pdf">Wesley’s lab slides</a></li>
+</ul>
 <!-- ```{r}
 #| echo: false
 
 library(webexercises)
 ``` -->
+</section>
 <section id="google-colab" class="level2">
 <h2 class="anchored" data-anchor-id="google-colab">Google Colab</h2>
 <p>True or false? We can start a new R notebook in Google Colab with <code>File &gt; New notebook</code></p>
-<div id="radio_UEDXKRZLJH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UEDXKRZLJH" value=""> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_UEDXKRZLJH" value="answer"> <span>True, but we need to change the Runtime environment too</span></label><label><input type="radio" autocomplete="off" name="radio_UEDXKRZLJH" value=""> <span>False</span></label>
+<div id="radio_VTPTMSQAKD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VTPTMSQAKD" value=""> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_VTPTMSQAKD" value="answer"> <span>True, but we need to change the Runtime environment too</span></label><label><input type="radio" autocomplete="off" name="radio_VTPTMSQAKD" value=""> <span>False</span></label>
 </div>
 <p>For problem sets, how will you submit your colab notebook for grading?</p>
-<div id="radio_MOYFSBQVYN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MOYFSBQVYN" value="answer"> <span><code>File &gt; Download &gt; Download .ipynb</code>, then upload to Gradescope</span></label><label><input type="radio" autocomplete="off" name="radio_MOYFSBQVYN" value=""> <span><code>File &gt; Download &gt; Download .ipynb</code>, then upload to Canvas</span></label><label><input type="radio" autocomplete="off" name="radio_MOYFSBQVYN" value=""> <span><code>File &gt; Download &gt; Download .py</code>, then upload to Gradescope</span></label><label><input type="radio" autocomplete="off" name="radio_MOYFSBQVYN" value=""> <span><code>File &gt; Download &gt; Download .py</code>, then upload to Canvas</span></label>
+<div id="radio_XFWGWHVWHN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XFWGWHVWHN" value="answer"> <span><code>File &gt; Download &gt; Download .ipynb</code>, then upload to Gradescope</span></label><label><input type="radio" autocomplete="off" name="radio_XFWGWHVWHN" value=""> <span><code>File &gt; Download &gt; Download .ipynb</code>, then upload to Canvas</span></label><label><input type="radio" autocomplete="off" name="radio_XFWGWHVWHN" value=""> <span><code>File &gt; Download &gt; Download .py</code>, then upload to Gradescope</span></label><label><input type="radio" autocomplete="off" name="radio_XFWGWHVWHN" value=""> <span><code>File &gt; Download &gt; Download .py</code>, then upload to Canvas</span></label>
 </div>
 <p>What version of R is Google Colab running? Hint: use <code>sessionInfo()</code>.</p>
 <p><input class="webex-solveme nospaces" size="20" data-answer="[&quot;4.4.1&quot;]"></p>
 <p>What is the relationship between R and Google Colab?</p>
-<div id="radio_PQDCGLXHTM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PQDCGLXHTM" value=""> <span>R is a programming language. Google Colab is a smaller, specific version of R.</span></label><label><input type="radio" autocomplete="off" name="radio_PQDCGLXHTM" value="answer"> <span>R is a programming language. Google Colab is a development environment where you can run R</span></label><label><input type="radio" autocomplete="off" name="radio_PQDCGLXHTM" value=""> <span>R and Google Colab are both programming languages.</span></label><label><input type="radio" autocomplete="off" name="radio_PQDCGLXHTM" value=""> <span>R is a paid (proprietary) programming language. Google Colab is a free service to run R.</span></label>
+<div id="radio_LSOEWMVLWA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LSOEWMVLWA" value=""> <span>R is a programming language. Google Colab is a smaller, specific version of R.</span></label><label><input type="radio" autocomplete="off" name="radio_LSOEWMVLWA" value="answer"> <span>R is a programming language. Google Colab is a development environment where you can run R</span></label><label><input type="radio" autocomplete="off" name="radio_LSOEWMVLWA" value=""> <span>R and Google Colab are both programming languages.</span></label><label><input type="radio" autocomplete="off" name="radio_LSOEWMVLWA" value=""> <span>R is a paid (proprietary) programming language. Google Colab is a free service to run R.</span></label>
 </div>
 <p>What happens to files you upload to google colab when the Runtime environment is restarted?</p>
-<div id="radio_YMLBDXSSIH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YMLBDXSSIH" value=""> <span>They are saved in your google drive.</span></label><label><input type="radio" autocomplete="off" name="radio_YMLBDXSSIH" value=""> <span>They are saved in Google Colab's cloud for future use</span></label><label><input type="radio" autocomplete="off" name="radio_YMLBDXSSIH" value="answer"> <span>They are deleted</span></label><label><input type="radio" autocomplete="off" name="radio_YMLBDXSSIH" value=""> <span>They are stored for 7 business days, then deleted.</span></label>
+<div id="radio_NJACFQWZFH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NJACFQWZFH" value=""> <span>They are saved in your google drive.</span></label><label><input type="radio" autocomplete="off" name="radio_NJACFQWZFH" value=""> <span>They are saved in Google Colab's cloud for future use</span></label><label><input type="radio" autocomplete="off" name="radio_NJACFQWZFH" value="answer"> <span>They are deleted</span></label><label><input type="radio" autocomplete="off" name="radio_NJACFQWZFH" value=""> <span>They are stored for 7 business days, then deleted.</span></label>
 </div>
 </section>
 <section id="r-basics" class="level2">
 <h2 class="anchored" data-anchor-id="r-basics">R Basics</h2>
 <p>Which of the following are expressions?</p>
-<div id="radio_JBYEVXEXLE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JBYEVXEXLE" value="answer"> <span>10</span></label><label><input type="radio" autocomplete="off" name="radio_JBYEVXEXLE" value="answer"> <span>5 + 10</span></label><label><input type="radio" autocomplete="off" name="radio_JBYEVXEXLE" value="answer"> <span>x &lt;- 5 + 10</span></label><label><input type="radio" autocomplete="off" name="radio_JBYEVXEXLE" value="answer"> <span>x &lt;- y + 10</span></label><label><input type="radio" autocomplete="off" name="radio_JBYEVXEXLE" value="answer"> <span>mean(x)</span></label>
+<div id="radio_QFTKFSSRQH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QFTKFSSRQH" value="answer"> <span>10</span></label><label><input type="radio" autocomplete="off" name="radio_QFTKFSSRQH" value="answer"> <span>5 + 10</span></label><label><input type="radio" autocomplete="off" name="radio_QFTKFSSRQH" value="answer"> <span>x &lt;- 5 + 10</span></label><label><input type="radio" autocomplete="off" name="radio_QFTKFSSRQH" value="answer"> <span>x &lt;- y + 10</span></label><label><input type="radio" autocomplete="off" name="radio_QFTKFSSRQH" value="answer"> <span>mean(x)</span></label>
 </div>
 <p>Which of the following are valid variable names in R?</p>
-<div id="radio_QMXHNVWMJY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QMXHNVWMJY" value="answer"> <span>childAge</span></label><label><input type="radio" autocomplete="off" name="radio_QMXHNVWMJY" value="answer"> <span>response_time</span></label><label><input type="radio" autocomplete="off" name="radio_QMXHNVWMJY" value=""> <span>1stPlaceWinner</span></label><label><input type="radio" autocomplete="off" name="radio_QMXHNVWMJY" value=""> <span>2fast2furious</span></label><label><input type="radio" autocomplete="off" name="radio_QMXHNVWMJY" value=""> <span>pi</span></label>
+<div id="radio_JJXGVBRIXJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JJXGVBRIXJ" value="answer"> <span>childAge</span></label><label><input type="radio" autocomplete="off" name="radio_JJXGVBRIXJ" value="answer"> <span>response_time</span></label><label><input type="radio" autocomplete="off" name="radio_JJXGVBRIXJ" value=""> <span>1stPlaceWinner</span></label><label><input type="radio" autocomplete="off" name="radio_JJXGVBRIXJ" value=""> <span>2fast2furious</span></label><label><input type="radio" autocomplete="off" name="radio_JJXGVBRIXJ" value=""> <span>pi</span></label>
 </div>
 <p>Suppose we open a new colab notebook and run the following code block. What will be returned?</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="sc">+</span> <span class="dv">3</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_SPCGIURJXW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SPCGIURJXW" value=""> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_SPCGIURJXW" value=""> <span>x=3 • y=3</span></label><label><input type="radio" autocomplete="off" name="radio_SPCGIURJXW" value="answer"> <span>'x' • 'y' </span></label><label><input type="radio" autocomplete="off" name="radio_SPCGIURJXW" value=""> <span>mean(c(1,3,5)) • median(c(1,3,5))</span></label>
+<div id="radio_SSSJIADIZV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SSSJIADIZV" value=""> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_SSSJIADIZV" value=""> <span>x=3 • y=3</span></label><label><input type="radio" autocomplete="off" name="radio_SSSJIADIZV" value="answer"> <span>'x' • 'y' </span></label><label><input type="radio" autocomplete="off" name="radio_SSSJIADIZV" value=""> <span>mean(c(1,3,5)) • median(c(1,3,5))</span></label>
 </div>
 <p>Which of the following will load the <code>emo</code> package into the current environment?</p>
-<div id="radio_YEDUQHTTDC" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YEDUQHTTDC" value=""> <span>install.packages('emo')</span></label><label><input type="radio" autocomplete="off" name="radio_YEDUQHTTDC" value="answer"> <span>library(emo)</span></label><label><input type="radio" autocomplete="off" name="radio_YEDUQHTTDC" value=""> <span>data(emo)</span></label><label><input type="radio" autocomplete="off" name="radio_YEDUQHTTDC" value=""> <span>attributes(emo)</span></label>
+<div id="radio_ARXLTZTGBV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ARXLTZTGBV" value=""> <span>install.packages('emo')</span></label><label><input type="radio" autocomplete="off" name="radio_ARXLTZTGBV" value="answer"> <span>library(emo)</span></label><label><input type="radio" autocomplete="off" name="radio_ARXLTZTGBV" value=""> <span>data(emo)</span></label><label><input type="radio" autocomplete="off" name="radio_ARXLTZTGBV" value=""> <span>attributes(emo)</span></label>
 </div>
 <p>Which of the following occur in the code block below?</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the mean of x and y</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_BUZCLCQLJA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BUZCLCQLJA" value=""> <span>a message</span></label><label><input type="radio" autocomplete="off" name="radio_BUZCLCQLJA" value="answer"> <span>a function</span></label><label><input type="radio" autocomplete="off" name="radio_BUZCLCQLJA" value="answer"> <span>a comment</span></label><label><input type="radio" autocomplete="off" name="radio_BUZCLCQLJA" value="answer"> <span>an expression</span></label>
+<div id="radio_UQOFMFRGTY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UQOFMFRGTY" value=""> <span>a message</span></label><label><input type="radio" autocomplete="off" name="radio_UQOFMFRGTY" value="answer"> <span>a function</span></label><label><input type="radio" autocomplete="off" name="radio_UQOFMFRGTY" value="answer"> <span>a comment</span></label><label><input type="radio" autocomplete="off" name="radio_UQOFMFRGTY" value="answer"> <span>an expression</span></label>
 </div>
 </section>
 <section id="vectors" class="level2">
 <h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
 <p>Which of the following returns the vector <code>20 22 24 26</code></p>
-<div id="radio_VJKZGFLONV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VJKZGFLONV" value=""> <span><code>20:26</code></span></label><label><input type="radio" autocomplete="off" name="radio_VJKZGFLONV" value="answer"> <span><code>seq(from=20, to=26, by =2)</code></span></label><label><input type="radio" autocomplete="off" name="radio_VJKZGFLONV" value=""> <span><code>rep(c(20, 22, 24, 26), times = 4)</code></span></label><label><input type="radio" autocomplete="off" name="radio_VJKZGFLONV" value="answer"> <span><code>c(20, 22, 24, 26)</code></span></label>
+<div id="radio_THJANUKNPB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_THJANUKNPB" value=""> <span><code>20:26</code></span></label><label><input type="radio" autocomplete="off" name="radio_THJANUKNPB" value="answer"> <span><code>seq(from=20, to=26, by =2)</code></span></label><label><input type="radio" autocomplete="off" name="radio_THJANUKNPB" value=""> <span><code>rep(c(20, 22, 24, 26), times = 4)</code></span></label><label><input type="radio" autocomplete="off" name="radio_THJANUKNPB" value="answer"> <span><code>c(20, 22, 24, 26)</code></span></label>
 </div>
 <p>Suppose we construct a vector with <code>c(1, "two", 3, 4, 5, 6)</code> and assign it to <code>x</code>. What will the following code block return?</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><input class="webex-solveme nospaces" size="20" data-answer="[&quot;character&quot;]"></p>
 <p>What is the previous question an example of?</p>
-<div id="radio_XNBOKYTJLG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XNBOKYTJLG" value=""> <span>attribute addition</span></label><label><input type="radio" autocomplete="off" name="radio_XNBOKYTJLG" value=""> <span>explicit coercion</span></label><label><input type="radio" autocomplete="off" name="radio_XNBOKYTJLG" value="answer"> <span>implicit coercion</span></label><label><input type="radio" autocomplete="off" name="radio_XNBOKYTJLG" value=""> <span>none of the above</span></label>
+<div id="radio_FJPULFVOHD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FJPULFVOHD" value=""> <span>attribute addition</span></label><label><input type="radio" autocomplete="off" name="radio_FJPULFVOHD" value=""> <span>explicit coercion</span></label><label><input type="radio" autocomplete="off" name="radio_FJPULFVOHD" value="answer"> <span>implicit coercion</span></label><label><input type="radio" autocomplete="off" name="radio_FJPULFVOHD" value=""> <span>none of the above</span></label>
 </div>
 <p>What will the following code block return?</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
@@ -325,35 +333,35 @@ library(webexercises)
 <pre><code> num [1:4] 1 0 1 0</code></pre>
 </div>
 </div>
-<div id="radio_ZJEMVYMESK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ZJEMVYMESK" value=""> <span>an error</span></label><label><input type="radio" autocomplete="off" name="radio_ZJEMVYMESK" value="answer"> <span>TRUE • FALSE • TRUE • FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_ZJEMVYMESK" value=""> <span>FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_ZJEMVYMESK" value=""> <span>FALSE • TRUE • FALSE • TRUE</span></label>
+<div id="radio_RDASBJHYPH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RDASBJHYPH" value=""> <span>an error</span></label><label><input type="radio" autocomplete="off" name="radio_RDASBJHYPH" value="answer"> <span>TRUE • FALSE • TRUE • FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_RDASBJHYPH" value=""> <span>FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_RDASBJHYPH" value=""> <span>FALSE • TRUE • FALSE • TRUE</span></label>
 </div>
 <p>Given the following vector, what will <code>as.double(x)</code> return?</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"one"</span>, <span class="st">"two"</span>, <span class="st">"three"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_FFIAXDLOOM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FFIAXDLOOM" value="answer"> <span>an error</span></label><label><input type="radio" autocomplete="off" name="radio_FFIAXDLOOM" value=""> <span>1 • 2 • 3</span></label><label><input type="radio" autocomplete="off" name="radio_FFIAXDLOOM" value=""> <span>2 • 4 • 6</span></label><label><input type="radio" autocomplete="off" name="radio_FFIAXDLOOM" value=""> <span>'one' • 'two' • 'three'</span></label>
+<div id="radio_UPIEIAQJUF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UPIEIAQJUF" value="answer"> <span>an error</span></label><label><input type="radio" autocomplete="off" name="radio_UPIEIAQJUF" value=""> <span>1 • 2 • 3</span></label><label><input type="radio" autocomplete="off" name="radio_UPIEIAQJUF" value=""> <span>2 • 4 • 6</span></label><label><input type="radio" autocomplete="off" name="radio_UPIEIAQJUF" value=""> <span>'one' • 'two' • 'three'</span></label>
 </div>
 <p>What happens if you add a vector of numbers to a single number in the following expression?</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_EJPNHOTPQY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EJPNHOTPQY" value=""> <span>2 • 3 • 5</span></label><label><input type="radio" autocomplete="off" name="radio_EJPNHOTPQY" value=""> <span>Error: length mismatch</span></label><label><input type="radio" autocomplete="off" name="radio_EJPNHOTPQY" value=""> <span>1 • 3 • 5 • 1</span></label><label><input type="radio" autocomplete="off" name="radio_EJPNHOTPQY" value="answer"> <span>2 • 4 • 6</span></label>
+<div id="radio_HBOXRWFIFJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HBOXRWFIFJ" value=""> <span>2 • 3 • 5</span></label><label><input type="radio" autocomplete="off" name="radio_HBOXRWFIFJ" value=""> <span>Error: length mismatch</span></label><label><input type="radio" autocomplete="off" name="radio_HBOXRWFIFJ" value=""> <span>1 • 3 • 5 • 1</span></label><label><input type="radio" autocomplete="off" name="radio_HBOXRWFIFJ" value="answer"> <span>2 • 4 • 6</span></label>
 </div>
 <p>What happens if you multiply a vector times another vector?</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_SZRQNSECOU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SZRQNSECOU" value="answer"> <span>10 • 300 • 5000</span></label><label><input type="radio" autocomplete="off" name="radio_SZRQNSECOU" value=""> <span>Error: length mismatch</span></label><label><input type="radio" autocomplete="off" name="radio_SZRQNSECOU" value=""> <span>10 • 30 • 50 • 100 • 300 • 500 • 1000 • 3000 • 5000</span></label><label><input type="radio" autocomplete="off" name="radio_SZRQNSECOU" value=""> <span>a 2 x 3 matrix</span></label><label><input type="radio" autocomplete="off" name="radio_SZRQNSECOU" value=""> <span>Error: cannot multiply vectors</span></label>
+<div id="radio_XJDHGYPMZK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XJDHGYPMZK" value="answer"> <span>10 • 300 • 5000</span></label><label><input type="radio" autocomplete="off" name="radio_XJDHGYPMZK" value=""> <span>Error: length mismatch</span></label><label><input type="radio" autocomplete="off" name="radio_XJDHGYPMZK" value=""> <span>10 • 30 • 50 • 100 • 300 • 500 • 1000 • 3000 • 5000</span></label><label><input type="radio" autocomplete="off" name="radio_XJDHGYPMZK" value=""> <span>a 2 x 3 matrix</span></label><label><input type="radio" autocomplete="off" name="radio_XJDHGYPMZK" value=""> <span>Error: cannot multiply vectors</span></label>
 </div>
 <p>Suppose we run the following code. What will <code>any(x)</code> return?</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">11</span>) <span class="sc">&gt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_SWJURNKQAF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SWJURNKQAF" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_SWJURNKQAF" value=""> <span>FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_SWJURNKQAF" value=""> <span>Error: vector is double but requires logical</span></label>
+<div id="radio_CQKUORMUXV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CQKUORMUXV" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_CQKUORMUXV" value=""> <span>FALSE</span></label><label><input type="radio" autocomplete="off" name="radio_CQKUORMUXV" value=""> <span>Error: vector is double but requires logical</span></label>
 </div>
 </section>
 <section id="subsetting" class="level2">
 <h2 class="anchored" data-anchor-id="subsetting">Subsetting</h2>
 <p>Which of the following code subsets the vector <code>x &lt;- c("blue", "pink", "red")</code> to return just the first element?</p>
-<div id="radio_IQPKTJOFLX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IQPKTJOFLX" value="answer"> <span>x[1]</span></label><label><input type="radio" autocomplete="off" name="radio_IQPKTJOFLX" value="answer"> <span>x[[1]]</span></label><label><input type="radio" autocomplete="off" name="radio_IQPKTJOFLX" value=""> <span>x[0]</span></label><label><input type="radio" autocomplete="off" name="radio_IQPKTJOFLX" value="answer"> <span>x[-c(2, 3)]</span></label><label><input type="radio" autocomplete="off" name="radio_IQPKTJOFLX" value=""> <span>x[“blue”]</span></label>
+<div id="radio_MJHRNJMBDF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MJHRNJMBDF" value="answer"> <span>x[1]</span></label><label><input type="radio" autocomplete="off" name="radio_MJHRNJMBDF" value="answer"> <span>x[[1]]</span></label><label><input type="radio" autocomplete="off" name="radio_MJHRNJMBDF" value=""> <span>x[0]</span></label><label><input type="radio" autocomplete="off" name="radio_MJHRNJMBDF" value="answer"> <span>x[-c(2, 3)]</span></label><label><input type="radio" autocomplete="off" name="radio_MJHRNJMBDF" value=""> <span>x[“blue”]</span></label>
 </div>
 <p>Suppose we run the following code. What will <code>x[[2]]</code> return?</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span><span class="dv">8</span>, <span class="at">by=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -373,8 +381,8 @@ library(webexercises)
 <p>Suppose we run the following code. What will <code>is.na(y)</code> return?</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">25</span>, <span class="cn">NA</span>, <span class="dv">36</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_YNTUXTBLKV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YNTUXTBLKV" value=""> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_YNTUXTBLKV" value=""> <span>Error: Non-atomic vector is invalid type</span></label><label><input type="radio" autocomplete="off" name="radio_YNTUXTBLKV" value=""> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_YNTUXTBLKV" value="answer"> <span>FALSE FALSE TRUE FALSE</span></label>
+<div id="radio_YCGDKXQYOC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YCGDKXQYOC" value=""> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_YCGDKXQYOC" value=""> <span>Error: Non-atomic vector is invalid type</span></label><label><input type="radio" autocomplete="off" name="radio_YCGDKXQYOC" value=""> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_YCGDKXQYOC" value="answer"> <span>FALSE FALSE TRUE FALSE</span></label>
 </div>
 <p>Suppose we run the following code. What will <code>is.null(y)</code> return?</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

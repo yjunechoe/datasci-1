@@ -23,7 +23,7 @@ Study guides include weekly study guides and additional resources from each week
 
 There are 6 problem sets, due to Gradescope by noon on the following Mondays. You may request an extension of up to 3 days for any reason. After solutions are posted, late problem sets can still be submitted for half credit (50%). If you submit all 6 problem sets, we will drop your lowest. 
 
-- Problem set 1 due Sep 9
+- [Problem set 1 due Sep 9](psets/pset-01.qmd)
 - Problem set 2 due Sep 23
 - Problem set 3 due Oct 14 
 - Problem set 4 due Oct 28

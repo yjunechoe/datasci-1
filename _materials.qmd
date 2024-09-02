@@ -1,6 +1,6 @@
-## Materials
+# Materials
 
-### Study guides 
+## Study guides 
 
 Study guides include weekly study guides and additional resources from each week, including slides, demos, and further reading.
 
@@ -19,7 +19,7 @@ Study guides include weekly study guides and additional resources from each week
 - Week 13: Exam 2 review
 - WeeK 15: Multilevel Models 
 
-### Problem sets
+## Problem sets
 
 There are 6 problem sets, due to Gradescope by noon on the following Mondays. You may request an extension of up to 3 days for any reason. After solutions are posted, late problem sets can still be submitted for half credit (50%). If you submit all 6 problem sets, we will drop your lowest. 
 
@@ -38,7 +38,7 @@ There are 6 problem sets, due to Gradescope by noon on the following Mondays. Yo
     Thank you,
     [Your Name] -->
 
-### Exams
+## Exams
 
 There are 2 midterm exams, taken in class on the following dates. Exams cannot be rescheduled, except in cases of genuine conflict or emergency (documentation and a [Course Action Notice](https://srfs.upenn.edu/student-records/course-action-notices) are required). However, you can submit any missed exam by the end of the semester for half credit (50%). You may also replace your lowest midterm exam score with the optional final exam. 
 
@@ -46,7 +46,7 @@ There are 2 midterm exams, taken in class on the following dates. Exams cannot b
 - Exam 2 in class Thursday Nov 21 
 - Final exam (optional) TBD 
 
-### Lab exercises
+## Lab exercises
 
 Lab exercises are intended for practice and are not graded.
 

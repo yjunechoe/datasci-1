@@ -9,12 +9,13 @@ format:
     pdf: default
 ---
 
-## Materials from lecture
+# Materials from lecture
 - **Tuesday**: [slides](/slides/hello-world.qmd) and [demo](https://colab.research.google.com/drive/1G0kTGOqukzko_8LYVgsdZ4yFLPQFVD03?usp=sharing)
 - **Thursday**: [slides](/slides/r-basics.qmd) and [demo](https://colab.research.google.com/drive/1qe66EM3ABVPEv6X-m1q7jJ6Oe-yK1cW2?usp=sharing)
 
-## Hello, World!
-### What is data science?
+# Hello, World!
+
+## What is data science?
 
 > Data are descriptions of the world around us, collected through observation and stored on computers. Computers enable us to infer properties of the world from these descriptions. Data science is the discipline of drawing conclusions from data using computation.
 > 
@@ -31,7 +32,7 @@ While the underlying concept is not new, the computational tools we use are *rel
 ![from https://web-assets.domo.com/miyagi/images/product/product-feature-22-data-never-sleeps-10.png](/assests/images/data-never-sleeps.png){#fig-dataneversleeps fig-align="left" width=80%}
 
 
-### Data science workflow
+## Data science workflow
 
 The folks who wrote [R for Data Science](https://r4ds.hadley.nz/) proposed the following data science workflow: 
 
@@ -53,7 +54,7 @@ Let's unpack what these mean briefly:
 
 Data science has applications in many fields far beyond language and the mind. It allows us to make data-driven decisions, solve complex problems, and uncover hidden insights that might not be apparent through other methods.
 
-### Overview of the course
+## Overview of the course
 
 We will spend the first few weeks getting comfortable **programming in R**, including some useful skills for data science:
 
@@ -76,7 +77,7 @@ Finally we will cover a selection of **more advanced topics** that are often app
 - Inference for regression
 - Mixed-effect models
 
-### Syllabus, briefly
+## Syllabus, briefly
 
 Each week will include two lectures and a lab: 
 
@@ -95,7 +96,7 @@ There are a few policies to take note of:
 - You may submit any missed quiz or problem set by the end of the semester for half-credit (50%), even after solutions are posted. 
 - We will drop your lowest pset grade, but you must turn in all 6 assignements to be eligible. 
 
-### Why R? 
+## Why R? 
 
 With many programming languages available for data science (e.g. R, Python, Julia, MATLAB), why use R?
 
@@ -107,7 +108,7 @@ With many programming languages available for data science (e.g. R, Python, Juli
 
 If you are interested, here is a [math professor's take](https://tobydriscoll.net/blog/matlab-vs.-julia-vs.-python/) on the differences between Python, Julia, and MATLAB. Note that although they're optimized for different things, **they are all great** and the technical skills and conceptual knowledge you gain in this course will transfer to other languages.
 
-## Google Colab
+# Google Colab
 
 There are many ways to program with R. Some popular options include:
 
@@ -154,9 +155,9 @@ Frequently used keyboard shortcuts:
 - `Cmd/Ctrl+]` - increase indent
 - `Cmd/Ctrl+[` - decrease indent 
 
-## R Basics
+# R Basics
 
-### Basics
+## Basics
 
 We begin by defining some basic concepts:
 
@@ -183,7 +184,7 @@ Ways to get help when coding in R:
 - **Ask Google or Stack Overflow** - It is a normal and important skill (not cheating) to google things while coding and learning to code! Use keywords and package names to ensure your solutions are course-relevant.
 - **Ask ChatGPT** - You can similarly use ChatGPT or other LLMs as a resource. But keep in mind they may provide a solution that is wrong or not relevant to what we are learning in this course.
 
-### Important functions
+## Important functions
 
 For objects: 
 
@@ -214,7 +215,7 @@ For help:
 - `help(package='tidyverse')` - find help for a package 
 
 
-### Vectors
+## Vectors
 
 One of the must fundamental data structures in R is the **vector**. There are two types:
 
@@ -259,7 +260,7 @@ To change an object to data type (**explicit coercion**):
 Note that atomic vectors must contain only elements of the same type. If you try to include elements of different types, R will coerce them into the same type with no warning (**implicit coercion**) according to the heirarchy character > double > integer > logical. 
 
 
-### Operations
+## Operations
 
 Arithmetic operators:
 
@@ -297,7 +298,7 @@ Most math operations (and many functions) are **vectorized** in R:
 
 
 
-### More complex structures 
+## More complex structures 
 
 Some more complex data structures are **built from atomic vectors** by adding **attributes**:
 
@@ -321,7 +322,7 @@ Missing elements and empty vectors:
 - `NULL` - used to represent an empty or absent vector of arbitrary type. `NULL` is its own special type and always has length zero and `NULL` attributes. Check for `NULL` values with `is.null()`.
 
 
-### Subsetting
+## Subsetting
 
 > Subsetting is a natural complement to str(). While str() shows you all the pieces of any object (its structure), subsetting allows you to pull out the pieces that you’re interested in. ~ Hadley Wickham, Advanced R
 
@@ -360,7 +361,7 @@ When extracting single elements, note that:
 sometimes you'll get an error message, and sometimes it will return `NULL`
 
 
-### Built-in functions 
+## Built-in functions 
 
 Note that you do not need to memorize these built-in functions to be successful on quizzes. Use this as a reference. 
 
@@ -427,7 +428,7 @@ For simple plotting:
 - `plot(x, y)` - values of x against y
 - `hist(x)` - histogram of x
 
-### Programming in R
+## Programming in R
 
 Writing **functions** and handling **control flow** are important aspects of learning to program in any language. For our purposes, some general conceptual knowledge on these topics is sufficient (see below). Those interested to learn more might enjoy the book [Hands-On Programming with R](https://rstudio-education.github.io/hopr/). 
 
@@ -449,7 +450,7 @@ Writing **functions** and handling **control flow** are important aspects of lea
     - `next` - skip to next iteration in a loop 
 
 
-## Further reading and references
+# Further reading and references
 
 Suggested further reading:
 

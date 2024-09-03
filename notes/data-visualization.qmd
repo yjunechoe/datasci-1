@@ -5,9 +5,9 @@ author: Katie Schuler
 
 ---
 
-::: {.callout-warning title="Under Construction"}
-This page may undergo minor changes
-:::
+Materials
+: - [Slides](/slides/data-visualization.qmd)
+: - Demo
 
 
 ::: {.callout-note title="Acknowledgement"}

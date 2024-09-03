@@ -99,12 +99,12 @@ theme(legend.position = "top")
 
 ## Problem 7
 
-Compute the mean of `WrittenFrequency` and store it in a variable called `mean_written_frequency`. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean written frequency. 
+Compute the mean of `Familiarity` and store it in a variable called `mean_familiarity`. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean written frequency. 
 
 ```{r}
 #| echo: false
 
-mean_written_frequency <- mean(english$WrittenFrequency)
+mean_familiarity <- mean(english$Familiarity)
 
 library(ggplot2)
 ggplot(english, aes(
@@ -114,8 +114,8 @@ geom_point() +
 labs(title = "Familiarity Rating by Written Frequency", 
 subtitle = "From the english dataset in languageR", 
 x = "Written frequency", y = "Familiarity rating", color = "Word category") +
-geom_hline(yintercept = mean_written_frequency, linetype = 'dashed') +
-annotate("text", x = 1.8, y = 5.5, label= "Mean written frequency") + 
+geom_hline(yintercept = mean_familiarity, linetype = 'dashed') +
+annotate("text", x = 1, y = 4, label= "Mean familiarity") + 
 theme_minimal( base_size = 15) +
 theme(legend.position = "top")
 ```

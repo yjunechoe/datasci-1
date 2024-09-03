@@ -660,7 +660,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Data import, tidy, wrangle",
+    "title": "Data Science for studying language and the mind",
     "section": "",
     "text": "Welcome to Data Science for Studying Language & the Mind! The Fall 2024 course information and materials are below. Course materials from previous semesters are archived here.",
     "crumbs": [
@@ -670,7 +670,7 @@
   {
     "objectID": "index.html#study-guides",
     "href": "index.html#study-guides",
-    "title": "Data import, tidy, wrangle",
+    "title": "Data Science for studying language and the mind",
     "section": "Study guides",
     "text": "Study guides\nStudy guides include weekly study guides and additional resources from each week, including slides, demos, and further reading.\n\nWeek 1: R Basics\nWeek 2: Data visualization\nWeek 3: Data import, tidy, wrangle\nWeek 4: Sampling distribution\nWeek 5: Hypothesis testing\nWeek 6: Exam 1 review\nWeek 7: Model specification\nWeek 8: Model fitting\nWeek 9: Model accuracy\nWeek 10: Model reliability\nWeek 11: Classification\nWeek 12: Inference\nWeek 13: Exam 2 review\nWeeK 15: Multilevel Models",
     "crumbs": [
@@ -680,7 +680,7 @@
   {
     "objectID": "index.html#problem-sets",
     "href": "index.html#problem-sets",
-    "title": "Data import, tidy, wrangle",
+    "title": "Data Science for studying language and the mind",
     "section": "Problem sets",
     "text": "Problem sets\nThere are 6 problem sets, due to Gradescope by noon on the following Mondays. You may request an extension of up to 3 days for any reason. After solutions are posted, late problem sets can still be submitted for half credit (50%). If you submit all 6 problem sets, we will drop your lowest.\n\nProblem set 1 due Sep 9\nProblem set 2 due Sep 23\nProblem set 3 due Oct 14\nProblem set 4 due Oct 28\nProblem set 5 due Nov 11\nProblem set 6 due Dec 9",
     "crumbs": [
@@ -690,7 +690,7 @@
   {
     "objectID": "index.html#exams",
     "href": "index.html#exams",
-    "title": "Data import, tidy, wrangle",
+    "title": "Data Science for studying language and the mind",
     "section": "Exams",
     "text": "Exams\nThere are 2 midterm exams, taken in class on the following dates. Exams cannot be rescheduled, except in cases of genuine conflict or emergency (documentation and a Course Action Notice are required). However, you can submit any missed exam by the end of the semester for half credit (50%). You may also replace your lowest midterm exam score with the optional final exam.\n\nExam 1 in class Tuesday Oct 1\nExam 2 in class Thursday Nov 21\nFinal exam (optional) TBD",
     "crumbs": [
@@ -700,7 +700,7 @@
   {
     "objectID": "index.html#lab-exercises",
     "href": "index.html#lab-exercises",
-    "title": "Data import, tidy, wrangle",
+    "title": "Data Science for studying language and the mind",
     "section": "Lab exercises",
     "text": "Lab exercises\nLab exercises are intended for practice and are not graded.\n\nLab 1 on Aug 29 or 30\nLab 2 on Sep 5 or 6\nLab 3 on Sep 12 or 13\nLab 4 on Sep 19 or 20\nLab 5 on Oct 10 or 11\nLab 6 on Oct 17 or 18\nLab 7 on Oct 24 or 25\nLab 8 on Nov 1 or 2\nLab 9 on Nov 8 or 9\nLab 10 on Dec 5 or 6",
     "crumbs": [

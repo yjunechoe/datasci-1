@@ -1,5 +1,5 @@
 ---
-title: "Data wrangling"
+title: "Data import, tidy, wrangle"
 date: 2024-09-10
 author: 
     - Katie Schuler

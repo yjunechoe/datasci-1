@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Katie Schuler">
+<meta name="dcterms.date" content="2024-09-10">
 
-<title>Data Science for studying language and the mind – DataSci for Lang &amp; Mind</title>
+<title>Data import, tidy, wrangle – DataSci for Lang &amp; Mind</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -170,7 +206,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Science for studying language and the mind</h1>
+<h1 class="title">Data import, tidy, wrangle</h1>
 <p class="subtitle lead">Fall 2024</p>
 </div>
 
@@ -179,6 +215,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-09-10</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,7 +289,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><a href="./notes/r-basics.html">Week 1: R Basics</a></li>
 <li><a href="./notes/data-visualization.html">Week 2: Data visualization</a></li>
-<li><a href="./notes/data-wrangling.html">Week 3: Data wrangling</a></li>
+<li><a href="./notes/data-wrangling.html">Week 3: Data import, tidy, wrangle</a></li>
 <li>Week 4: Sampling distribution</li>
 <li>Week 5: Hypothesis testing</li>
 <li>Week 6: Exam 1 review</li>
@@ -353,7 +395,7 @@ Practice exercies are a self-guided practice tool that takes you through the stu
 <tr class="odd">
 <td>3</td>
 <td>Sep 9</td>
-<td><a href="./notes/data-wrangling.html">Data wrangling</a></td>
+<td><a href="./notes/data-wrangling.html">Data import, tidy, wrangle</a></td>
 <td>Lab 3</td>
 <td><a href="./psets/pset-01.html">Problem set 1</a></td>
 </tr>
@@ -480,6 +522,328 @@ Tuesdays and Thursdays from 12 - 1:29pm in TBD.
 - Week 17 (TBD) -- Final exam (optional) -->
 
 
+<div class="callout callout-style-default callout-warning callout-titled" title="Under construction">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Under construction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notes may change between now and the lecture</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Acknowledgement">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Acknowledgement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These notes are adapted from <a href="https://r4ds.hadley.nz/data-tidy">Ch 5 Data tidying</a>, <a href="https://r4ds.hadley.nz/data-import">Ch 7 Data import</a> and <a href="https://r4ds.hadley.nz/data-transform">Ch 4 Data transformation</a> in R for Data Science</p>
+</div>
+</div>
+</section>
+<section id="tidy-and-import" class="level1">
+<h1>Tidy and import</h1>
+<section id="welcome-to-the-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="welcome-to-the-tidyverse">Welcome to the tidyverse</h2>
+<blockquote class="blockquote">
+<p>The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures. ~ <a href="https://www.tidyverse.org/">Tidyverse package docs</a></p>
+</blockquote>
+<p>The <code>tidyverse</code> collection of packages includes:</p>
+<ul>
+<li><code>ggplot2</code> - for data visualization</li>
+<li><code>dplyr</code> - for data wrangling</li>
+<li><code>readr</code> - for reading data</li>
+<li><code>tibble</code> - for modern data frames</li>
+<li><code>stringr</code>: for string manipulation</li>
+<li><code>forcats</code>: for dealing with factors</li>
+<li><code>tidyr</code>: for data tidying</li>
+<li><code>purrr</code>: for functional programming</li>
+<li><code>lubridate</code>: for working with dates and times</li>
+</ul>
+<p>We load the <code>tidyverse</code> like any other package, with <code>library(tidyverse)</code>. When we do, we will receive a message with (1) a list packages that were loaded and (2) a warning that there are potential conflicts with base R’s <code>stats</code> functions</p>
+<ul>
+<li>We can resolve conflicts with the <code>::</code> operator, which allows us to specify which package our intended function belongs to as a prefix: <code>stats::filter()</code> or <code>dplyr::filter()</code></li>
+</ul>
+</section>
+<section id="what-is-tidy-data" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-tidy-data">What is tidy data?</h2>
+<p>The same underlying data can be represented in a table in many different ways; some easier to work with than others. The tidyverse makes use of tidy data principles to make datasets easier to work with in R. <strong>Tidy data</strong> provides a standard way of structuring datasets:</p>
+<ol type="1">
+<li>each variable forms a <strong>column</strong>; each column forms a variable</li>
+<li>each observation forms a <strong>row</strong>; each row forms an observation</li>
+<li>value is a <strong>cell</strong>; each cell is a single value</li>
+</ol>
+<p>Why is tidy data easier to work with?</p>
+<ul>
+<li>Because consistency and uniformity are very helpful when programming</li>
+<li>Variables as columns works well for vectorized languages (R!)</li>
+</ul>
+</section>
+<section id="functional-programming-with-purrr" class="level2">
+<h2 class="anchored" data-anchor-id="functional-programming-with-purrr">Functional programming with purrr</h2>
+<blockquote class="blockquote">
+<p>purrr enhances R’s functional programming (FP) toolkit by providing a complete and consistent set of tools for working with functions and vectors. If you’ve never heard of FP before, the best place to start is the family of map() functions which allow you to replace many for loops with code that is both more succinct and easier to read. ~ <a href="https://purrr.tidyverse.org/">purrr docs</a></p>
+</blockquote>
+<p>Let’s illustrate the joy of the tidyverse with one of its packages: <code>purrr</code>. The docs say that the best place to start is the family of <code>map()</code> functions, so we’ll do that.</p>
+<p>The <code>map()</code> functions:</p>
+<ol type="1">
+<li>take a vector as input</li>
+<li>apply a function to each element</li>
+<li>return a new vector</li>
+</ol>
+<p>We say “functions” because there are 5, the generic <code>map()</code> function and <code>map_*()</code> variants for each type of vector:</p>
+<ul>
+<li><code>map()</code></li>
+<li><code>map_lgl()</code></li>
+<li><code>map_int()</code></li>
+<li><code>map_dbl()</code></li>
+<li><code>map_chr()</code></li>
+</ul>
+<p>To illustrate, suppose we have a data frame <code>df</code> with 3 columns and we want to compute the mean of each column. We could solve this with copy-and-paste (run <code>mean()</code> 3 different times) or try to use a <code>for</code> loop, but <code>map()</code> can do this with just one line:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We use `map_dbl()` because `mean()` returns a *double* value</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(df, mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="modern-data-frames-with-tibble" class="level2">
+<h2 class="anchored" data-anchor-id="modern-data-frames-with-tibble">Modern data frames with tibble</h2>
+<blockquote class="blockquote">
+<p>A tibble, or tbl_df, is a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not. Tibbles are data.frames that are lazy and surly: they do less and complain more ~ <a href="https://tibble.tidyverse.org/">tibble docs</a></p>
+</blockquote>
+<p>Tibbles do less than data frames, in a good way:</p>
+<ul>
+<li>never changes type of input (never converts strings to factors!)</li>
+<li>never changes the name of variables</li>
+<li>only recycles vectors of length 1</li>
+<li>never creates row names</li>
+</ul>
+<p>You can read more in the <a href="https://tibble.tidyverse.org/articles/tibble.html">tibble vignette</a> if you are interested, but understanding these differences is not necessary to be successful in the course. The take-away is that <code>data.frame</code> and <code>tibble</code> sometimes behave differently. The behavior of <code>tibble</code> makes more sense for modern data science, so we should us it instead!</p>
+<p>Create a <code>tibble</code> with one of the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) coerce an existing object (e.g., a data frame) to tibble</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(x)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) construct a tibble from a column of vectors</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y=</span><span class="dv">1</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># (3) define row-by-row, short for transposed tibble</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span>x, <span class="sc">~</span>y, <span class="sc">~</span>z,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"a"</span>, <span class="dv">2</span>, <span class="fl">3.6</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"b"</span>, <span class="dv">1</span>, <span class="fl">8.5</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We will encounter two main ways tibbles and data frames differ:</p>
+<ul>
+<li><strong>printing</strong> - by default, tibbles print the first 10 rows and all columns that fit on screen, making it easier to work with large datasets. Tibbles also report the type of each column (e.g.&nbsp;<code>&lt;dbl&gt;</code>, <code>&lt;chr&gt;</code>)</li>
+<li><strong>subsetting</strong> - tibbles are more strict than data frames, which fixes two quirks we encountered last lecture when subsetting with <code>[[</code> and <code>$</code>: (1) tibbles <em>never</em> do partial matching, and (2) they <em>always</em> generate a warning if the column you are trying to extract does not exist.</li>
+</ul>
+<p>To test if something is a <code>tibble</code> or a <code>data.frame</code>:</p>
+<ul>
+<li><code>is_tibble(x)</code></li>
+<li><code>is.data.frame(x)</code></li>
+</ul>
+</section>
+<section id="reading-data-with-readr" class="level2">
+<h2 class="anchored" data-anchor-id="reading-data-with-readr">Reading data with readr</h2>
+<blockquote class="blockquote">
+<p>The goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (CSV) and tab-separated values (TSV). It is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results.</p>
+<p><a href="https://readr.tidyverse.org/">readr docs</a></p>
+</blockquote>
+<p>Often we want to read in some data we’ve generated or collected outside of R. The most basic and common format is plain-text <strong>rectangular</strong> files. We will “read” these into R with readr’s <code>read_*()</code> functions.</p>
+<p>The <code>read_*()</code> functions have two important arguments:</p>
+<ul>
+<li><code>file</code> - the path to the file (that reader will try to parse)</li>
+<li><code>col_types</code> - <strong>column specification</strong>, a description of how each column should be converted from a character vector to a specific data type</li>
+</ul>
+<p>There are 7 supported file types, each with their own <code>read_*()</code> function:</p>
+<ul>
+<li><code>read_csv()</code>: comma-separated values (CSV)</li>
+<li><code>read_tsv()</code>: tab-separated values (TSV)</li>
+<li><code>read_csv2()</code>: semicolon-separated values</li>
+<li><code>read_delim()</code>: delimited files (CSV and TSV are important special cases)</li>
+<li><code>read_fwf()</code>: fixed-width files</li>
+<li><code>read_table()</code>: whitespace-separated files</li>
+<li><code>read_log()</code>: web log files</li>
+</ul>
+<p>To read <code>.csv</code> files, include a path and (optionally) a column specification in <code>col_types</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) pass only the path; readr guesses col_types </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="at">file=</span><span class="st">'path/to/file.csv'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) include a column specification with col_types</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">file=</span><span class="st">'path/to/file.csv'</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">list</span>( <span class="at">x =</span> <span class="fu">col_string</span>(), <span class="at">y =</span> <span class="fu">col_skip</span>() )</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>With no column specification, <code>readr</code> uses the the first 1000 rows to guess with a simple heuristic:</p>
+<ul>
+<li>if column contains only T/F, <code>logical</code></li>
+<li>if only numbers, <code>double</code></li>
+<li>if ISO8601 standard, <code>date</code> or <code>date-time</code></li>
+<li>otherwise <code>string</code></li>
+</ul>
+<p>There are 11 column types that can be specified:</p>
+<ul>
+<li><code>col_logical()</code> - reads as boolean TRUE FALSE values</li>
+<li><code>col_integer()</code> - reads as integer</li>
+<li><code>col_double()</code> - reads as double</li>
+<li><code>col_number()</code> - numeric parser that can ignore non-numbers</li>
+<li><code>col_character()</code> - reads as strings</li>
+<li><code>col_factor(levels, ordered = FALSE)</code> - creates factors</li>
+<li><code>col_datetime(format = "")</code> - creates date-times</li>
+<li><code>col_date(format = "")</code> - creates dates</li>
+<li><code>col_time(format = "")</code> - creates times</li>
+<li><code>col_skip()</code> - skips a column</li>
+<li><code>col_guess()</code> - tries to guess the column</li>
+</ul>
+<p>Some useful additional arguments:</p>
+<ul>
+<li>if there is <strong>no header</strong> (the top row containing column names), include <code>col_names = FALSE</code></li>
+<li>to <strong>provide a header</strong>, include <code>col_names = c("x","y","z")</code></li>
+<li>to <strong>skip some lines</strong>, include <code>skip = n</code>, where n is number of lines to skip</li>
+<li>to <strong>select which columns</strong> to import, include <code>col_select(x, y)</code></li>
+<li>to <strong>guess</strong> column types <strong>with all rows</strong>, include <code>guess_max = Inf</code></li>
+</ul>
+<p>Sometimes weird things happen. The most common problems are:</p>
+<ul>
+<li><strong>column contains unexpected values</strong> - your dataset has a column that you expected to be <code>logical</code> or <code>double</code>, but there is a typo somewhere, so R has coerced the column into <code>character</code>. Solve by specifying the column type <code>col_double()</code> and then using the <code>problems()</code> function to see where R failed.</li>
+<li><strong>missing values are not <code>NA</code></strong> - your dataset has missing values, but they were not coded as <code>NA</code> as R expects. Solve by adding an <code>na</code> argument (e.g.&nbsp;<code>na=c("N/A")</code>)</li>
+<li><strong>column names have spaces</strong> - your dataset has column names that include spaces, breaking R’s naming rules. In these cases, R adds backticks (e.g.&nbsp;<code>`brain size`</code>); we can use the <code>rename()</code> function to fix them. If we have a lot to rename and that gets annoying, see <code>janitor::clean_names()</code>.</li>
+</ul>
+<p>Reading more complex file types requires functions outside the tidyverse:</p>
+<ul>
+<li><strong>excel</strong> with <code>readxl</code> - see <a href="https://r4ds.hadley.nz/spreadsheets#excel">Spreadsheets</a> in R for Data Science</li>
+<li><strong>google sheets</strong> with <code>googlesheets4</code> - see <a href="https://r4ds.hadley.nz/spreadsheets#google-sheets">Spreadsheets</a> in R for Data Science</li>
+<li><strong>databases</strong> with <code>DBI</code> - see <a href="https://r4ds.hadley.nz/databases">Databases</a> in R for Data Science</li>
+<li><strong>json data</strong> with <code>jsonlite</code> - see <a href="https://r4ds.hadley.nz/rectangling">Hierarchical data</a> in R for Data Science</li>
+</ul>
+</section>
+<section id="writing-data" class="level2">
+<h2 class="anchored" data-anchor-id="writing-data">Writing data</h2>
+<p>We can also write to a csv file with:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(our_tibble, <span class="st">"name_of_file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="data-wrangling" class="level1">
+<h1>Data wrangling</h1>
+<section id="why-wrangle" class="level2">
+<h2 class="anchored" data-anchor-id="why-wrangle">Why wrangle?</h2>
+<blockquote class="blockquote">
+<p>Visualization is an important tool for generating insight, but it’s rare that you get the data in exactly the right form you need to make the graph you want. Often you’ll need to create some new variables or summaries to answer your questions with your data, or maybe you just want to rename the variables or reorder the observations to make the data a little easier to work with.</p>
+</blockquote>
+</section>
+<section id="data-wrangling-with-dplyr" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling-with-dplyr">Data wrangling with dplyr</h2>
+<p>All <code>dplyr</code> functions (verbs) share a common structure:</p>
+<ul>
+<li>1st argument is always a data frame</li>
+<li>Subsequent arguments typically describe which columns to operate on (via their names)</li>
+<li>Output is always a new data frame</li>
+</ul>
+<p>We can group <code>dplyr</code> functions based on what they operate on:</p>
+<ul>
+<li>rows - see section 3 Manipulating rows</li>
+<li>columns - see section 4 Manipulating columns</li>
+<li>groups - see section 5 Grouping and summarizing data frames</li>
+<li>tables - see section 6 Joining data frames</li>
+</ul>
+<p>We can easily combine <code>dplyr</code> functions to solve complex problems:</p>
+<ul>
+<li>The pipe operator, <code>|&gt;</code> takes the output from one function and passes it as input (the first argument) to the next function.</li>
+<li>There is another version of the pipe, <code>%&gt;%</code>. See the reading on data transformation if you are curious about the difference.</li>
+</ul>
+<p><em>In lecture, we will demonstrate with the 3 most common <code>dplyr</code> functions for manipulating rows, manipulating columns, and grouping. But you should feel comfortable reading the docs/resources to use others to solve unique problems.</em></p>
+</section>
+<section id="manipulating-rows" class="level2">
+<h2 class="anchored" data-anchor-id="manipulating-rows">Manipulating rows</h2>
+<p><strong><code>filter()</code></strong> filters rows, allowing you to keep only some rows based on the values of the columns.</p>
+<ul>
+<li>the first argument is a data frame (all dplyr verbs)</li>
+<li>subsequent arguments are the conditions that must be true to keep the row (using R’s logical and comparison operators we learned in <a href="./notes/r-basics.html">R basics</a>!), e.g.&nbsp;<code>filter(age &gt; 18)</code></li>
+<li>a common filtering mistake is to use <code>=</code> instead of the logical operator <code>==</code>!</li>
+</ul>
+<p><strong><code>arrange()</code></strong> arranges the rows in the order you specify based on column values (does not change the number of rows, just changes their order)</p>
+<ul>
+<li>the first argument is a data frame (all dplyr verbs)</li>
+<li>subsequent arguments are a set of column names to order by</li>
+<li>note that the default order is ascending, but you can specify descending by wrapping the column in the <code>desc()</code> function</li>
+</ul>
+<p><strong><code>distinct()</code></strong> finds unique rows in a dataset, but you can also provide column names</p>
+<ul>
+<li>the first argument is a data frame</li>
+<li>optionally subsequent arguments provides column names to find the distinct combination of some variables</li>
+<li>note that if you provide column names, distinct will only return those columns unless you add the argument <code>.keep_all=TRUE</code></li>
+</ul>
+</section>
+<section id="manipulating-columns" class="level2">
+<h2 class="anchored" data-anchor-id="manipulating-columns">Manipulating columns</h2>
+<p><strong><code>mutate()</code></strong> adds new columns that are calculated from existing columns</p>
+<ul>
+<li>first argument is a data frame (all dplyr verbs)</li>
+<li>subsequent arguments are the new column name, an equals sign, followed by an expression you want to use to calculate the new value, e.g.&nbsp;<code>difference=age_end - age_start</code></li>
+<li>by default new columns are added to the right, but the <code>.before</code> and <code>.after</code> arguments allows you to add them before/after specific positions (by position number, e.g.&nbsp;<code>.before=1</code> or by column name, e.g.&nbsp;<code>before=age</code>)</li>
+</ul>
+<p><strong><code>select()</code></strong> selects columns based on their names</p>
+<ul>
+<li>first argument is a data frame (all dplyr verbs)</li>
+<li>subsequent arguments can be the names of the columns you want to keep</li>
+<li>use the <code>:</code> operator to select everything from one column to another, e.g.&nbsp;<code>age:height</code></li>
+<li>you can also use logical operators like <code>&amp;</code> (and) or <code>!</code> (not) to identify the subset of columns you want to select, e.g.&nbsp;<code>!age:height</code></li>
+<li>you can also rename columns within select by putting the name of the column and an equals sign before the column you want to select, e.g.&nbsp;<code>new_name=selected_column</code></li>
+</ul>
+<p><strong><code>rename()</code></strong> we’ve already seen this function when importing data. Rename is used when want to keep all of our columns but rename one or more.</p>
+<ul>
+<li>first argument is a data frame (all dplyr verbs)</li>
+<li>subsequent arguments are the columns we would like to rename, e.g.&nbsp;<code>new_colname=old_colname</code></li>
+</ul>
+</section>
+<section id="group-and-summarise" class="level2">
+<h2 class="anchored" data-anchor-id="group-and-summarise">Group and summarise</h2>
+<p>In addition to manipulating rows and columns in your dataset, <code>dplyr</code> also allows you to work with groups</p>
+<p><strong><code>group_by()</code></strong> is used to divide your dataset into groups that are meaningful for your analysis.</p>
+<ul>
+<li><code>group_by()</code> doesn’t change the data, but adds a groups attribute, which tells R that subsequent operations will be performed by group</li>
+<li>you can tell if a data frame is grouped by the first line of the output (or with <code>attributes()</code>!)</li>
+</ul>
+<p><strong><code>summarise()</code></strong> is often used after <code>group_by()</code> to calculate summary statistics on grouped data, which returns a data frame with a single row for each group</p>
+<ul>
+<li>you can add any number of summary stats; usually you want to name them something that makes sense for your analysis<br>
+</li>
+<li><code>n()</code> is a particularly useful summary stat to add to <a href="./notes/r-basics.html#built-in-functions">our list</a> that returns a count</li>
+<li>use the argument <code>na.rm=TRUE</code> to compute the summary statistics with NAs removed (remember they are contageous!)</li>
+<li>note that the returned data frame is iteself grouped, but in a <a href="https://r4ds.hadley.nz/data-transform#grouping-by-multiple-variables">quirky way</a>, with one fewer group (you may get a warning about this). You can add the argument <strong><code>.groups="drop"</code></strong> to drop all groups or <strong><code>.groups="keep"</code></strong> to keep them all</li>
+<li>to avoid this quirk, <code>summarise()</code> also has a cool new <strong><code>.by</code></strong> argument that can be used <strong>instead of calling <code>group_by()</code></strong>, which always returns an ungrouped data frame.</li>
+</ul>
+<p><strong><code>ungroup()</code></strong> is used to remove the grouping attribute from a data frame</p>
+</section>
+<section id="more-advanced" class="level2">
+<h2 class="anchored" data-anchor-id="more-advanced">More advanced</h2>
+<p>There are a few more advanced techniques for transforming and tidying data that we won’t cover now, but might be useful to you in your own research.</p>
+<ul>
+<li><strong>joins</strong> - sometimes you have more than one dataset that you want to join into one. <code>dplyr</code> also has functions for handling that. <a href="https://r4ds.hadley.nz/joins">Learn more about joins</a></li>
+<li><strong>pivots</strong> - sometimes your data doesn’t arrive in the tidy data form. The <code>tidyr</code> package can help with <code>pivot_longer()</code> and <code>pivot_wider()</code>. <a href="https://r4ds.hadley.nz/data-tidy">Learn more about pivots</a></li>
+</ul>
+</section>
+</section>
+<section id="further-reading-and-references" class="level1">
+<h1>Further reading and references</h1>
+<p>Recommended further reading:</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/data-tidy">Data tidying</a> in R for Data Science</li>
+<li><a href="https://r4ds.had.co.nz/tibbles.html">Tibbles</a> in R for Data Science</li>
+<li><a href="https://r4ds.hadley.nz/data-import.html">Data import</a> in R for Data Science</li>
+<li><a href="https://rstudio.github.io/cheatsheets/html/data-import.html?_gl=1*1fxlvya*_ga*MTI4NTg4NDIzMy4xNjkyODg0OTA4*_ga_2C0WZ1JHG0*MTY5Mjg4NDkwNy4xLjAuMTY5Mjg4NDkwNy4wLjAuMA..">readr cheatsheet</a></li>
+<li><a href="https://r4ds.hadley.nz/data-transform">Ch 4 Data transformation</a> in R for Data Science textbook</li>
+</ul>
+<p>Other references:</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/joins">Ch 20 Joins</a> in R for Data Science textbook</li>
+<li><a href="https://r4ds.hadley.nz/data-tidy">Ch 6 Data tidying</a> in R for Data Science textbook</li>
+</ul>
 </section>
 
 </main> <!-- /main -->

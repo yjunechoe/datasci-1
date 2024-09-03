@@ -571,7 +571,7 @@
     "href": "psets/pset-01.html",
     "title": "Problem set 1",
     "section": "",
-    "text": "Instructions\n\nUpload your .ipynb notebook to gradescope by 11:59am on the due date. Please include your name, Problem set 1, and any collaborators you worked with in a text cell at the top of your notebook."
+    "text": "Instructions\n\nUpload your .ipynb notebook to gradescope by 11:59am on the due date. Please include your name, Problem set 1, and any collaborators you worked with in a text cell at the top of your notebook. Please also number your problems and include comments in your code to indicate what part of a problem you are working on."
   },
   {
     "objectID": "psets/pset-01.html#problem-1",
@@ -641,7 +641,7 @@
     "href": "webexercises.html#example-questions",
     "title": "Webexercises",
     "section": "1 Example Questions",
-    "text": "1 Example Questions\n\n1.1 Fill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 4 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\n1.2 Multiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\n1.3 True or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\n1.4 Longer MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n there is a 95% probability that the true mean lies within this range if you repeated the process many times, 95% of intervals calculated in this way contain the true mean 95% of the data fall within this range"
+    "text": "1 Example Questions\n\n1.1 Fill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 16 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\n1.2 Multiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\n1.3 True or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\n1.4 Longer MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n there is a 95% probability that the true mean lies within this range 95% of the data fall within this range if you repeated the process many times, 95% of intervals calculated in this way contain the true mean"
   },
   {
     "objectID": "webexercises.html#checked-sections",
@@ -710,294 +710,294 @@
   {
     "objectID": "slides/data-visualization-1.html#announcements",
     "href": "slides/data-visualization-1.html#announcements",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Announcements",
     "text": "Announcements\n\nPermits are being issued today!\n\nFirst, for students dropped due to the rescheduled lab\nNext, for students on the waitlist\n\nIf you are unable to request a permit in Path @ Penn, please send me an email to let me know\n\nThese are the instructions\n\nThe Friday 12pm lab is full\n\nIf you are available at other times, please request a permit for another lab section for greater odds of enrolling in the course"
   },
   {
     "objectID": "slides/data-visualization-1.html#you-are-here",
     "href": "slides/data-visualization-1.html#you-are-here",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "You are here",
     "text": "You are here\n\n\nData science with R\n\n\nR basics\nData visualization\nData wrangling\n\n\n\nStats & Model buidling\n\n\nSampling distribution\nHypothesis testing\nModel specification\nModel fitting\nModel accuracy\nModel reliability\n\n\n\nMore advanced\n\n\nClassification\nInference for regression\nMixed-effect models"
   },
   {
     "objectID": "slides/data-visualization-1.html#why-visualize",
     "href": "slides/data-visualization-1.html#why-visualize",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Why visualize?",
     "text": "Why visualize?\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey"
   },
   {
     "objectID": "slides/data-visualization-1.html#why-visualize-1",
     "href": "slides/data-visualization-1.html#why-visualize-1",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Why visualize?",
     "text": "Why visualize?\n\n“Visualization is a fundamentally human activity. A good visualization will show you things you did not expect or raise new questions about the data. A good visualization might also hint that you’re asking the wrong question or that you need to collect different data. Visualizations can surprise you, but they don’t scale particularly well because they require a human to interpret them.” – R4DS"
   },
   {
     "objectID": "slides/data-visualization-1.html#datasaurus-dozen",
     "href": "slides/data-visualization-1.html#datasaurus-dozen",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Datasaurus dozen",
     "text": "Datasaurus dozen\n\n\n# A tibble: 13 × 6\n   dataset    mean_x mean_y std_dev_x std_dev_y corr_x_y\n   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n 1 away         54.3   47.8      16.8      26.9  -0.0641\n 2 bullseye     54.3   47.8      16.8      26.9  -0.0686\n 3 circle       54.3   47.8      16.8      26.9  -0.0683\n 4 dino         54.3   47.8      16.8      26.9  -0.0645\n 5 dots         54.3   47.8      16.8      26.9  -0.0603\n 6 h_lines      54.3   47.8      16.8      26.9  -0.0617\n 7 high_lines   54.3   47.8      16.8      26.9  -0.0685\n 8 slant_down   54.3   47.8      16.8      26.9  -0.0690\n 9 slant_up     54.3   47.8      16.8      26.9  -0.0686\n10 star         54.3   47.8      16.8      26.9  -0.0630\n11 v_lines      54.3   47.8      16.8      26.9  -0.0694\n12 wide_lines   54.3   47.8      16.8      26.9  -0.0666\n13 x_shape      54.3   47.8      16.8      26.9  -0.0656\n\n\n\n\nDatasaurus was created by Alberto Cairo, library(datasauRus)"
   },
   {
     "objectID": "slides/data-visualization-1.html#datasaurus-dozen-1",
     "href": "slides/data-visualization-1.html#datasaurus-dozen-1",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Datasaurus dozen",
     "text": "Datasaurus dozen\n\n\n\n\n\n\n\n\n\n\n\nDatasaurus was created by Alberto Cairo"
   },
   {
     "objectID": "slides/data-visualization-1.html#ggplot2",
     "href": "slides/data-visualization-1.html#ggplot2",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "ggplot2",
     "text": "ggplot2\n\n\nFigure 2"
   },
   {
     "objectID": "slides/data-visualization-1.html#using-ggplot2",
     "href": "slides/data-visualization-1.html#using-ggplot2",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Using ggplot2",
     "text": "Using ggplot2\nGoogle Colab already has ggplot2 installed by default. There is no need to run install.packages().\n\nlibrary(ggplot2)"
   },
   {
     "objectID": "slides/data-visualization-1.html#why-ggplot2",
     "href": "slides/data-visualization-1.html#why-ggplot2",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Why ggplot2?",
     "text": "Why ggplot2?\n\n“R has several systems for making graphs, but ggplot2 is one of the most elegant and most versatile. ggplot2 implements the grammar of graphics, a coherent system for describing and building graphs. With ggplot2, you can do more and faster by learning one system and applying it in many places.” – R4DS"
   },
   {
     "objectID": "slides/data-visualization-1.html#ggplot2s-grammar-of-graphics",
     "href": "slides/data-visualization-1.html#ggplot2s-grammar-of-graphics",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "ggplot2’s grammar of graphics",
     "text": "ggplot2’s grammar of graphics\n\n\nFigure 3"
   },
   {
     "objectID": "slides/data-visualization-1.html#todays-data-ratings",
     "href": "slides/data-visualization-1.html#todays-data-ratings",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Today’s data: ratings",
     "text": "Today’s data: ratings\n\nSubjective frequency ratings, ratings of estimated weight, and ratings of estimated size, averaged over subjects, for 81 concrete English nouns. – languageR\n\n\nlibrary(languageR)\nstr(ratings)\n\n'data.frame':   81 obs. of  14 variables:\n $ Word            : Factor w/ 81 levels \"almond\",\"ant\",..: 1 2 3 4 5 6 7 8 9 10 ...\n $ Frequency       : num  4.2 5.35 6.3 3.83 3.66 ...\n $ FamilySize      : num  0 1.39 1.1 0 0 ...\n $ SynsetCount     : num  1.1 1.1 1.1 1.39 1.1 ...\n $ Length          : int  6 3 5 7 9 7 6 6 3 6 ...\n $ Class           : Factor w/ 2 levels \"animal\",\"plant\": 2 1 2 2 2 2 1 2 1 1 ...\n $ FreqSingular    : int  24 69 315 26 19 24 53 74 155 37 ...\n $ FreqPlural      : int  42 140 231 19 19 6 78 77 103 14 ...\n $ DerivEntropy    : num  0 0.562 0.496 0 0 ...\n $ Complex         : Factor w/ 2 levels \"complex\",\"simplex\": 2 2 2 2 2 2 2 2 2 2 ...\n $ rInfl           : num  -0.542 -0.7 0.309 0.3 0 ...\n $ meanWeightRating: num  1.49 3.35 2.19 1.32 1.44 ...\n $ meanSizeRating  : num  1.89 3.63 2.47 1.76 1.87 ...\n $ meanFamiliarity : num  3.72 3.6 5.84 4.4 3.68 4.12 2.12 5.68 3.2 2.2 ..."
   },
   {
     "objectID": "slides/data-visualization-1.html#todays-data-ratings-1",
     "href": "slides/data-visualization-1.html#todays-data-ratings-1",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Today’s data: ratings",
     "text": "Today’s data: ratings\nWe will make use of the following variables:\n\nFrequency - actual word frequency\nmeanFamiliarity - subjective frequency rating\nClass - whether word is a plant or animal\n\n\n\n\n'data.frame':   81 obs. of  4 variables:\n $ Word           : Factor w/ 81 levels \"almond\",\"ant\",..: 1 2 3 4 5 6 7 8 9 10 ...\n $ Frequency      : num  4.2 5.35 6.3 3.83 3.66 ...\n $ meanFamiliarity: num  3.72 3.6 5.84 4.4 3.68 4.12 2.12 5.68 3.2 2.2 ...\n $ Class          : Factor w/ 2 levels \"animal\",\"plant\": 2 1 2 2 2 2 1 2 1 1 ..."
   },
   {
     "objectID": "slides/data-visualization-1.html#todays-goal",
     "href": "slides/data-visualization-1.html#todays-goal",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Today’s goal",
     "text": "Today’s goal\nCreate this figure showing the relationship between actual frequency and subjective frequency rating of each word, considering the class the word belongs to"
   },
   {
     "objectID": "slides/data-visualization-1.html#data",
     "href": "slides/data-visualization-1.html#data",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "1 data",
     "text": "1 data\n\nUse ratings data\n\n\n\nggplot(\n    data = ratings\n )"
   },
   {
     "objectID": "slides/data-visualization-1.html#aesthetic-mapping",
     "href": "slides/data-visualization-1.html#aesthetic-mapping",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "2 aesthetic mapping",
     "text": "2 aesthetic mapping\n\nMap Frequency to x-axis and meanFamiliarity to y-axis.\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n )"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom",
     "href": "slides/data-visualization-1.html#geom",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "3 geom",
     "text": "3 geom\n\nRepresent each value with a point.\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point()"
   },
   {
     "objectID": "slides/data-visualization-1.html#mapping-categorical-variables",
     "href": "slides/data-visualization-1.html#mapping-categorical-variables",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Mapping categorical variables",
     "text": "Mapping categorical variables\n\nWhen a categorical variable is mapped to an aesthetic, ggplot2 will automatically assign a unique value of the aesthetic (here color) … a process known as scaling. – R4DS\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity,\n        color = Class\n    )\n ) +\n  geom_point()"
   },
   {
     "objectID": "slides/data-visualization-1.html#global-vs.-local-aesthetics",
     "href": "slides/data-visualization-1.html#global-vs.-local-aesthetics",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Global vs. local aesthetics",
     "text": "Global vs. local aesthetics\n\nglobally in ggplot(), which are passed down to all geoms\nlocally in geom_*() which are used by that geom only\n\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(color = Class)\n    )"
   },
   {
     "objectID": "slides/data-visualization-1.html#mapping-vs.-setting-aesthetics",
     "href": "slides/data-visualization-1.html#mapping-vs.-setting-aesthetics",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "Mapping vs. setting aesthetics",
     "text": "Mapping vs. setting aesthetics\n\nmapping allows us to determine a geom’s aesthetics based on a variable, and is passed as argument in aes()\nsetting allows us to set a geom’s aestheics to a constant value (not based on any variable), and passed as argument in geom_*() directly\n\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(color = Class), \n    size = 3\n    )"
   },
   {
     "objectID": "slides/data-visualization-1.html#labels-title-and-subtitle",
     "href": "slides/data-visualization-1.html#labels-title-and-subtitle",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "labels: title and subtitle",
     "text": "labels: title and subtitle\n\nAdd title “Subjective frequency ratings” with subtitle “for 81 english nouns”\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(color = Class), \n    size = 3\n    ) +\n  labs(\n    title = \"Subjective frequency ratings\", \n    subtitle = \"for 81 english nouns\"\n  )"
   },
   {
     "objectID": "slides/data-visualization-1.html#labels-x-and-y-axis",
     "href": "slides/data-visualization-1.html#labels-x-and-y-axis",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "labels: x and y axis",
     "text": "labels: x and y axis\n\nLabel x-axis “Actual frequency” and y-axis “Frequency rating”\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(color = Class), \n    size = 3\n    ) +\n  labs(\n    title = \"Subjective frequency ratings\", \n    subtitle = \"for 81 english nouns\",\n    x = \"Actual frequency\",\n    y = \"Frequency rating\"\n  ) \n\n\n\n\n\n\n\n\n\n\n\nNote these are mapped to the aesthetic (x and y)"
   },
   {
     "objectID": "slides/data-visualization-1.html#labels-legend",
     "href": "slides/data-visualization-1.html#labels-legend",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "labels: legend",
     "text": "labels: legend\n\nLabel the legend “word class”.\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(color = Class), \n    size = 3\n    ) +\n  labs(\n    title = \"Subjective frequency ratings\", \n    subtitle = \"for 81 english nouns\",\n    x = \"Actual frequency\",\n    y = \"Frequency rating\",\n    color = \"word class\"\n  ) \n\n\n\n\n\n\n\n\n\n\n\nNote these are mapped to the aesthetic as well (color)"
   },
   {
     "objectID": "slides/data-visualization-1.html#themes",
     "href": "slides/data-visualization-1.html#themes",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "themes",
     "text": "themes\n\nApply classic theme with base_size 20.\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(color = Class), \n    size = 3\n    ) +\n  labs(\n    title = \"Subjective frequency ratings\", \n    subtitle = \"for 81 english nouns\",\n    x = \"Actual frequency\",\n    y = \"Frequency rating\",\n    color = \"word class\"\n  ) +\n  theme_classic(base_size = 20)"
   },
   {
     "objectID": "slides/data-visualization-1.html#scales-changing-color",
     "href": "slides/data-visualization-1.html#scales-changing-color",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "scales: changing color",
     "text": "scales: changing color\n\nRemember: When a categorical variable is mapped to an aesthetic, ggplot2 will automatically assign a unique value of the aesthetic (here color) … a process known as scaling. – R4DS\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(color = Class), \n    size = 3\n    ) +\n  labs(\n    title = \"Subjective frequency ratings\", \n    subtitle = \"for 81 english nouns\",\n    x = \"Actual frequency\",\n    y = \"Frequency rating\",\n    color = \"word class\"\n  ) +\n  theme_classic(base_size = 20) +\n  scale_color_brewer(palette = \"Paired\")"
   },
   {
     "objectID": "slides/data-visualization-1.html#color",
     "href": "slides/data-visualization-1.html#color",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "color",
     "text": "color\nMap the color aesthetic to a variable\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(color = Class),\n    size = 3\n    ) +\n theme_classic(base_size = 20)"
   },
   {
     "objectID": "slides/data-visualization-1.html#color-1",
     "href": "slides/data-visualization-1.html#color-1",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "color",
     "text": "color\nSet a constant value for the color aesthetic\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    color = \"blue\",\n    size = 3\n    ) +\n theme_classic(base_size = 20)"
   },
   {
     "objectID": "slides/data-visualization-1.html#size",
     "href": "slides/data-visualization-1.html#size",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "size",
     "text": "size\nSetting a constant value for the size aesthetic\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(color = Class),\n    size = 3\n    ) +\n theme_classic(base_size = 20)"
   },
   {
     "objectID": "slides/data-visualization-1.html#size-1",
     "href": "slides/data-visualization-1.html#size-1",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "size",
     "text": "size\nMapped the size aesthetic to a variable\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(\n        color = Class,\n        size = Complex\n    ),\n    ) +\n theme_classic(base_size = 20)"
   },
   {
     "objectID": "slides/data-visualization-1.html#shape",
     "href": "slides/data-visualization-1.html#shape",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "shape",
     "text": "shape\nMap the shape aesthetic to a different variable\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(\n        color = Class,\n        shape = Complex),\n    size = 3\n    ) +\n theme_classic(base_size = 20)"
   },
   {
     "objectID": "slides/data-visualization-1.html#shape-1",
     "href": "slides/data-visualization-1.html#shape-1",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "shape",
     "text": "shape\nMap the shape aesthetic to the same variable\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(\n        color = Class,\n        shape = Class),\n    size = 3\n    ) +\n theme_classic(base_size = 20)"
   },
   {
     "objectID": "slides/data-visualization-1.html#alpha",
     "href": "slides/data-visualization-1.html#alpha",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "alpha",
     "text": "alpha\nSet a constant value for the alpha aesthetic\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(\n        color = Class,\n        shape = Class),\n    alpha = 0.5,\n    size = 3\n    ) +\n theme_classic(base_size = 20)"
   },
   {
     "objectID": "slides/data-visualization-1.html#alpha-1",
     "href": "slides/data-visualization-1.html#alpha-1",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "alpha",
     "text": "alpha\nMapped to a variable\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = Frequency, \n        y = meanFamiliarity\n    )\n ) +\n  geom_point( \n    mapping = aes(\n        color = Class,\n        shape = Class,\n        alpha = Length),\n    size = 3\n    ) +\n theme_classic(base_size = 20)"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_-aka-geoms",
     "href": "slides/data-visualization-1.html#geom_-aka-geoms",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_*() aka geoms",
     "text": "geom_*() aka geoms\nThere are many. We will start with these, and add a few additional geoms as we move through the course:\n\n\n\n\n\n\n\ngeom_histogram()\nhistogram, distribution of a continuous variable\n\n\ngeom_density()\ndistribution of a continuous variable\n\n\ngeom_bar()\ndistribution of a categorical data\n\n\ngeom_point()\nscatterplot\n\n\ngeom_smooth()\nsmoothed line of best fit"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_histogram",
     "href": "slides/data-visualization-1.html#geom_histogram",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_histogram()",
     "text": "geom_histogram()\n\nA histogram divides the x-axis into equally spaced bins and then uses the height of a bar to display the number of observations that fall in each bin. – R4DS\n\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = meanFamiliarity\n    )\n) + \n    geom_histogram()"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_histogram-1",
     "href": "slides/data-visualization-1.html#geom_histogram-1",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_histogram()",
     "text": "geom_histogram()\nbins - How many bins should we have?\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = meanFamiliarity\n    )\n) + \n    geom_histogram(\n        bins = 10\n    )"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_histogram-2",
     "href": "slides/data-visualization-1.html#geom_histogram-2",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_histogram()",
     "text": "geom_histogram()\nbinwidth - How wide should the bins be?\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = meanFamiliarity\n    )\n) + \n    geom_histogram(\n        binwidth = 0.25\n    )"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_histogram-3",
     "href": "slides/data-visualization-1.html#geom_histogram-3",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_histogram()",
     "text": "geom_histogram()\ncolor - What should the outline color be?\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = meanFamiliarity\n    )\n) + \n    geom_histogram(\n        binwidth = 0.25,\n        color = \"red\"\n    )"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_histogram-4",
     "href": "slides/data-visualization-1.html#geom_histogram-4",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_histogram()",
     "text": "geom_histogram()\nfill - What should the fill color be?\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = meanFamiliarity\n    )\n) + \n    geom_histogram(\n        binwidth = 0.25,\n        color = \"red\",\n        fill = \"lightblue\"\n    )"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_density",
     "href": "slides/data-visualization-1.html#geom_density",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_density()",
     "text": "geom_density()\n\nImagine a histogram made out of wooden blocks. Then, imagine that you drop a cooked spaghetti string over it. The shape the spaghetti will take draped over blocks can be thought of as the shape of the density curve. – R4DS\n\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = meanFamiliarity\n    )\n) + \n    geom_density()"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_density-1",
     "href": "slides/data-visualization-1.html#geom_density-1",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_density()",
     "text": "geom_density()\nMap Class to color aesthetic\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = meanFamiliarity,\n        color = Class\n    )\n) + \n    geom_density()"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_density-2",
     "href": "slides/data-visualization-1.html#geom_density-2",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_density()",
     "text": "geom_density()\nSet linewidth\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = meanFamiliarity,\n        color = Class\n    )\n) + \n    geom_density(linewidth = 2)"
   },
   {
     "objectID": "slides/data-visualization-1.html#geom_density-3",
     "href": "slides/data-visualization-1.html#geom_density-3",
-    "title": "Data Visualization (Part 1)",
+    "title": "Data Visualization Day 1",
     "section": "geom_density()",
     "text": "geom_density()\nMap Class to fill and set alpha\n\n\nggplot(\n    data = ratings,\n    mapping = aes(\n        x = meanFamiliarity,\n        fill = Class\n    )\n) + \n    geom_density(alpha = 0.5) \n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://kathrynschuler.com/datasci"
   },

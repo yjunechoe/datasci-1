@@ -1,5 +1,5 @@
 ---
-title: "Data Visualization (Part 1)"
+title: "Data Visualization Day 1"
 subtitle: "Data Science for Studying Language and the Mind"
 author: Katie Schuler
 date: 2024-09-03

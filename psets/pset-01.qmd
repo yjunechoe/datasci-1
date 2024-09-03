@@ -13,7 +13,7 @@ format:
 ---
 
 Instructions
-: Upload your `.ipynb` notebook to gradescope by 11:59am on the due date. Please include your name, Problem set 1, and any collaborators you worked with in a text cell at the top of your notebook. 
+: Upload your `.ipynb` notebook to gradescope by 11:59am on the due date. Please include your name, Problem set 1, and any collaborators you worked with in a text cell at the top of your notebook. Please also number your problems and include comments in your code to indicate what part of a problem you are working on.  
 
 
 
@@ -87,10 +87,13 @@ Use the `WrittenFrequency`, `Familiarity`, and `WordCategory` columns in the `en
 #| echo: false
 library(ggplot2)
 ggplot(english, aes(
-  x = Familiarity, y = WrittenFrequency, color = WordCategory)
+  x = WrittenFrequency, y = Familiarity, color = WordCategory)
 ) + 
 geom_point() + 
-theme_minimal( base_size = 20) +
+labs(title = "Familiarity Rating by Written Frequency", 
+subtitle = "From the english dataset in languageR", 
+x = "Written frequency", y = "Familiarity rating", color = "Word category") +
+theme_minimal( base_size = 15) +
 theme(legend.position = "top")
 ```
 
@@ -105,11 +108,14 @@ mean_written_frequency <- mean(english$WrittenFrequency)
 
 library(ggplot2)
 ggplot(english, aes(
-  x = Familiarity, y = WrittenFrequency, color = WordCategory)
+  x = WrittenFrequency, y = Familiarity, color = WordCategory)
 ) + 
 geom_point() + 
+labs(title = "Familiarity Rating by Written Frequency", 
+subtitle = "From the english dataset in languageR", 
+x = "Written frequency", y = "Familiarity rating", color = "Word category") +
 geom_hline(yintercept = mean_written_frequency, linetype = 'dashed') +
 annotate("text", x = 1.8, y = 5.5, label= "Mean written frequency") + 
-theme_minimal( base_size = 20) +
+theme_minimal( base_size = 15) +
 theme(legend.position = "top")
 ```

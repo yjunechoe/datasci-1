@@ -18,7 +18,7 @@ These notes are adapted from [Ch 2 Data visualization](https://r4ds.hadley.nz/da
 
 ## Visualization with ggplot2
 
-There are many ways to visualize data with R. One great option is [`ggplot2`](https://ggplot2.tidyverse.org/), one of the core pacakges in the `tidyverse`.
+There are many ways to visualize data with R. One great option is [`ggplot2`](https://ggplot2.tidyverse.org/). Note that `ggplot2` is one of the core pacakges in the `tidyverse`, a family of packages for datascience with R. We'll learn more about this package next week. 
 
 - `ggplot2` makes use of a system for describing and creating graphics known as the layered **grammar of graphics** 
 - learning this one simple system allows you to generate many different types of plots

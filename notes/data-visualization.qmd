@@ -5,9 +5,8 @@ author: Katie Schuler
 
 ---
 
-Materials
-: - [Slides](/slides/data-visualization.qmd)
-: - Demo
+Materials from lecture
+: - [Slides](/slides/data-visualization-1.qmd) and [Demo](https://colab.research.google.com/drive/1ysdt1PlLb4M8VT2eFbXT52H_sJaxXDpl?usp=sharing)
 
 
 ::: {.callout-note title="Acknowledgement"}
@@ -16,7 +15,7 @@ These notes are adapted from [Ch 2 Data visualization](https://r4ds.hadley.nz/da
 
 
 
-## Visualization with ggplot2
+# Visualization with ggplot2
 
 There are many ways to visualize data with R. One great option is [`ggplot2`](https://ggplot2.tidyverse.org/). Note that `ggplot2` is one of the core pacakges in the `tidyverse`, a family of packages for datascience with R. We'll learn more about this package next week. 
 
@@ -47,7 +46,7 @@ One common **warning** you will encounter is about missing values. `ggplot2` wil
 *We won't cover everything you can do with `ggplot2` (that would be a lot!) In lecture we'll demo the most common features, but you should feel comfortable using [ggplot2's function reference](https://ggplot2.tidyverse.org/reference/) to figure out how to do other things.*
 
 
-## Aesthetics 
+# Aesthetics 
 
 There are two ways we can determine the aesthetics of a plot: 
 
@@ -80,7 +79,7 @@ There are **3 common warnings** people encounter when **mapping categorical vari
 
 
 
-## Geoms 
+# Geoms 
 
 **Geoms** are the geometric objects used to represent the data in your plot. To change the geom, simply change the geom function
 
@@ -117,20 +116,20 @@ Usually we use the default stat, so we don't need to specify it at all. But some
 - For `geom_histogram()`, we set the number of bins with the **bins** argument or the width of the bins with the **binwidth** argument, e.g. `binwidth=30`. 
 
 
-## Other layers 
+# Other layers 
 
-There are many other layers that can be specified in ggplot2 to create more complex plots. I find this figure helpful in understanding the layered nature of the **grammar of graphics**: 
+There are many other layers that can be specified in ggplot2 to create more complex plots. I find @fig-gglayers below helpful in understanding the layered nature of the **grammar of graphics**. 
 
 ![Adapted from The Grammar of Graphics by Leland Wilkinson](/assests/images/gglayers.png){#fig-gglayers width=40%}
 
-Below we'll outline some common uses for the following layers. We demoed most of this in class, but a few of them might be new to you!
+Below we'll outline some common uses for the following layers. We will demo most of this in class, but a few of them might be new to you!
 
 - **facets** - display subsets of data
 - **labels** - modifies axis, legend and plot labels
 - **themes** - overall visuals
 - **scales** - map data values to visual values of aestetic
 
-### Facets 
+## Facets 
 
 Facets are smaller plots that display different subsets of the data. They are often used as an alternative to aesthetics to plot additional categorical variables. 
 
@@ -139,7 +138,7 @@ Facets are smaller plots that display different subsets of the data. They are of
 - `scales` - by default facets share the same scale and range for x and y aesthetics. Set the `scales` argument to "free" to allow for different axis scales, e.g. `scales="free"`
 
 
-### Labels 
+## Labels 
 
 The `labs()` functions allows you to modify axis, legend, and plot labels. `labs()` takes several arguments. 
 
@@ -156,13 +155,13 @@ Others are mapped to aesthetics, like:
 - **color** - the legend for the color aesthetic
 - **size** - the legend for the size aesthetic
 
-### Themes 
+## Themes 
 
 ggplot2 comes with many [complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) which control how everything is displayed (except data!). A few favorites include:
 
 - `theme_gray()` - the default
 - `theme_bw()` - classic dark-on-light theme
-- `theme_minimal()` - minimal theme with no backgroun annotations 
+- `theme_minimal()` - minimal theme with no background annotations 
 - `theme_classic()` - a classic looking theme with no gridelines
 
 Themes take a few arguments, two of which we may use in the class: 
@@ -171,7 +170,7 @@ Themes take a few arguments, two of which we may use in the class:
 - **base_family** - base font family to use 
 
 
-### Scales 
+## Scales 
 
 [Scales](https://ggplot2.tidyverse.org/reference/#scales) control the details of how data values are translated to visual properties. Adding a scale layer overrides the default scales that ggplot2 uses automatically. There are many kinds of scales, but we will mostly encounter them when changing colors of things:  
 
@@ -179,7 +178,7 @@ Themes take a few arguments, two of which we may use in the class:
 - `scale_fill_manual()` - also changes the color, set to manual values with **values** argument, e.g. `values=c("green", "blue", "red")`
 
 
-## Shortcuts 
+# Shortcuts 
 
 When calling ggplot2 (or any function!) we can specify argument names explicitly or leave them off (implicit). Leaving off the names makes code more conscise, so you'll typically see it that way.
 
@@ -201,7 +200,7 @@ When calling ggplot2 (or any function!) we can specify argument names explicitly
     )
     ```
 
-Another shortcut you'll encounter is **the pipe operator**, `%>%`. The pipe takes the thing on its left and passes it along to the function on its right (as the function's first argument) 
+Another shortcut you'll encounter is **the pipe operator**, `%>%`. The pipe takes the thing on its left and passes it along to the function on its right (as the function's first argument). We'll work with the pipe more next week. 
 
 - `x %>% y` is equivalent to `f(x, y)`
 - since the first argument to ggplot() is data, you'll typically see the pipe used like this:
@@ -213,7 +212,7 @@ Another shortcut you'll encounter is **the pipe operator**, `%>%`. The pipe take
     )
     ```
 
-## Saving plots 
+# Saving plots 
 
 Often we want to save a plot (to add it to a presentation or paper). We can accomplish this with `ggsave()`. 
 
@@ -229,7 +228,7 @@ ggsave("mtcars.pdf", width = 20, height = 20, units = "cm")
 In Google Colab, you can find your saved plot by clicking the file icon on the left side bar. 
 
 
-## Further reading 
+# Further reading 
 
 Recommended further reading: 
 

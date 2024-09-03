@@ -1,5 +1,5 @@
 ---
-title: "Data Visualization"
+title: "Data Visualization (Part 1)"
 subtitle: "Data Science for Studying Language and the Mind"
 author: Katie Schuler
 date: 2024-09-03
@@ -11,6 +11,24 @@ format:
         incremental: true 
         footer: "[https://kathrynschuler.com/datasci](https://kathrynschuler.com/datasci/)"
 ---
+
+## Announcements
+
+- Permits are being issued today!
+    - First, for students dropped due to the rescheduled lab
+    - Next, for students on the waitlist 
+
+- If you are unable to request a permit in Path @ Penn, please send me an email to let me know
+    - These are the [instructions](https://apps.srfs.upenn.edu:44306/secure/Pennant-Training/Path-Request-Permission-to-Take-a-Class.pdf) 
+
+- The Friday 12pm lab is full
+    - If you are available at other times, please request a permit for another lab section for greater odds of enrolling in the course
+
+--- 
+
+![](/assests/images/Rlearning.png){#fig-rlearning fig-align="center" width=100%}
+
+
 
 ## You are `here` {.smaller} 
 
@@ -62,6 +80,11 @@ and some materials by Dr. Colin Rundel at Duke
 
 > “The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey
 
+## Why visualize? 
+
+> "`Visualization` is a fundamentally human activity. A good visualization will show you things you did not expect or raise new questions about the data. A good visualization might also hint that you’re asking the wrong question or that you need to collect different data. Visualizations can surprise you, but they don’t scale particularly well because they require a human to interpret them." -- R4DS
+
+
 ## Datasaurus dozen {.smaller}
 
 ```{r}
@@ -105,37 +128,38 @@ Datasaurus was created by Alberto Cairo
 
 
 
-## Why visualize? 
+## ggplot2
 
-> "`Visualization` is a fundamentally human activity. A good visualization will show you things you did not expect or raise new questions about the data. A good visualization might also hint that you’re asking the wrong question or that you need to collect different data. Visualizations can surprise you, but they don’t scale particularly well because they require a human to interpret them." -- R4DS
+![](/assests/images/ggplot-hexlogo.png){#fig-ggplothexlogo fig-align="center" width=20%}
 
---- 
+## Using `ggplot2` 
 
-![](/include/figures/ggplot-hexlogo.png){#fig-ggplothexlogo fig-align="center" width=20%}
-
-## ggplot2 loads with tidyverse
+Google Colab already has `ggplot2` installed by default. There is no need to run `install.packages()`. 
 
 ```{r}
 #| echo: true
 #| message: true
-library(tidyverse)
+library(ggplot2)
 ```
 
 ## Why ggplot2? 
 
 > "R has several systems for making graphs, but ggplot2 is one of the most elegant and most versatile. ggplot2 implements the `grammar of graphics`, a coherent system for describing and building graphs. With ggplot2, you can do more and faster by learning one system and applying it in many places." -- R4DS
 
+## ggplot2's grammar of graphics 
+
+![](/assests/images/gglayers.png){#fig-gglayers fig-align="center" width=100%}
+
 
 
 ## Today's data: `ratings` {.smaller}
 
-> Subjective frequency ratings, ratings of estimated weight, and ratings of estimated size, averaged
-over subjects, for 81 concrete English nouns. -- languageR
+> Subjective frequency ratings, ratings of estimated weight, and ratings of estimated size, averaged over subjects, for 81 concrete English nouns. -- languageR
 
 ```{r}
 #| echo: true
 library(languageR)
-glimpse(ratings)
+str(ratings)
 ```
 
 ## Today's data: `ratings` {.smaller}
@@ -152,7 +176,7 @@ We will make use of the following variables:
 #| echo: false
 ratings %>% 
     select(Word, Frequency, meanFamiliarity, Class) %>%
-    glimpse()
+    str()
 ```
 
 ## Today's goal {.smaller}
@@ -864,7 +888,7 @@ ggplot(
     geom_density(alpha = 0.5) 
 
 ```
-
+<!-- 
 ## `geom_bar()` {.smaller}
 
 > To examine the distribution of a categorical variable, you can use a bar chart. The height of the bars displays how many observations occurred with each x value. -- R4DS
@@ -1475,4 +1499,4 @@ Note that we pipe `%>%` in arguments to functions but we ADD `+` layers to ggplo
 
 > Adding aesthetics and layers
 
-![Data from `penguins` dataframe in `palmerpenguins` package](/include/targets/class-target-penguins.png){#fig-penguintarget}
+![Data from `penguins` dataframe in `palmerpenguins` package](/include/targets/class-target-penguins.png){#fig-penguintarget} -->

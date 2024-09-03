@@ -12,7 +12,7 @@
 
   <meta name="author" content="Katie Schuler">
   <meta name="dcterms.date" content="2024-09-03">
-  <title>DataSci for Lang &amp; Mind – Data Visualization</title>
+  <title>DataSci for Lang &amp; Mind – Data Visualization (Part 1)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,7 +392,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Data Visualization</h1>
+  <h1 class="title">Data Visualization (Part 1)</h1>
   <p class="subtitle">Data Science for Studying Language and the Mind</p>
 
 <div class="quarto-title-authors">
@@ -405,6 +405,30 @@ Katie Schuler
 
   <p class="date">2024-09-03</p>
 </section>
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
+<ul>
+<li class="fragment">Permits are being issued today!
+<ul>
+<li class="fragment">First, for students dropped due to the rescheduled lab</li>
+<li class="fragment">Next, for students on the waitlist</li>
+</ul></li>
+<li class="fragment">If you are unable to request a permit in Path @ Penn, please send me an email to let me know
+<ul>
+<li class="fragment">These are the <a href="https://apps.srfs.upenn.edu:44306/secure/Pennant-Training/Path-Request-Permission-to-Take-a-Class.pdf">instructions</a></li>
+</ul></li>
+<li class="fragment">The Friday 12pm lab is full
+<ul>
+<li class="fragment">If you are available at other times, please request a permit for another lab section for greater odds of enrolling in the course</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../assests/images/Rlearning.png" id="fig-rlearning" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p class="caption">
+Figure&nbsp;1
+</p></section>
 <section id="you-are-here" class="slide level2 smaller">
 <h2>You are <code>here</code></h2>
 <div class="columns">
@@ -451,6 +475,12 @@ Katie Schuler
 <p>“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey</p>
 </blockquote>
 </section>
+<section id="why-visualize-1" class="slide level2">
+<h2>Why visualize?</h2>
+<blockquote>
+<p>“<code>Visualization</code> is a fundamentally human activity. A good visualization will show you things you did not expect or raise new questions about the data. A good visualization might also hint that you’re asking the wrong question or that you need to collect different data. Visualizations can surprise you, but they don’t scale particularly well because they require a human to interpret them.” – R4DS</p>
+</blockquote>
+</section>
 <section id="datasaurus-dozen" class="slide level2 smaller">
 <h2>Datasaurus dozen</h2>
 <div class="cell">
@@ -483,7 +513,7 @@ Katie Schuler
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-2-1.png" width="768"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-2-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -492,22 +522,17 @@ Katie Schuler
 <aside><div>
 <p>Datasaurus was created by Alberto Cairo</p>
 </div></aside></section>
-<section id="why-visualize-1" class="slide level2">
-<h2>Why visualize?</h2>
-<blockquote>
-<p>“<code>Visualization</code> is a fundamentally human activity. A good visualization will show you things you did not expect or raise new questions about the data. A good visualization might also hint that you’re asking the wrong question or that you need to collect different data. Visualizations can surprise you, but they don’t scale particularly well because they require a human to interpret them.” – R4DS</p>
-</blockquote>
-</section>
-<section class="slide level2">
+<section id="ggplot2" class="slide level2">
+<h2>ggplot2</h2>
 
-
-<img data-src="../include/figures/ggplot-hexlogo.png" id="fig-ggplothexlogo" class="quarto-figure quarto-figure-center r-stretch" style="width:20.0%"><p class="caption">
-Figure&nbsp;1
+<img data-src="../assests/images/ggplot-hexlogo.png" id="fig-ggplothexlogo" class="quarto-figure quarto-figure-center r-stretch" style="width:20.0%"><p class="caption">
+Figure&nbsp;2
 </p></section>
-<section id="ggplot2-loads-with-tidyverse" class="slide level2">
-<h2>ggplot2 loads with tidyverse</h2>
+<section id="using-ggplot2" class="slide level2">
+<h2>Using <code>ggplot2</code></h2>
+<p>Google Colab already has <code>ggplot2</code> installed by default. There is no need to run <code>install.packages()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="why-ggplot2" class="slide level2">
@@ -516,6 +541,12 @@ Figure&nbsp;1
 <p>“R has several systems for making graphs, but ggplot2 is one of the most elegant and most versatile. ggplot2 implements the <code>grammar of graphics</code>, a coherent system for describing and building graphs. With ggplot2, you can do more and faster by learning one system and applying it in many places.” – R4DS</p>
 </blockquote>
 </section>
+<section id="ggplot2s-grammar-of-graphics" class="slide level2">
+<h2>ggplot2’s grammar of graphics</h2>
+
+<img data-src="../assests/images/gglayers.png" id="fig-gglayers" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p class="caption">
+Figure&nbsp;3
+</p></section>
 <section id="todays-data-ratings" class="slide level2 smaller">
 <h2>Today’s data: <code>ratings</code></h2>
 <blockquote>
@@ -523,24 +554,23 @@ Figure&nbsp;1
 </blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(languageR)</span>
-<span id="cb3-2"><a></a><span class="fu">glimpse</span>(ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a></a><span class="fu">str</span>(ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 81
-Columns: 14
-$ Word             &lt;fct&gt; almond, ant, apple, apricot, asparagus, avocado, badg…
-$ Frequency        &lt;dbl&gt; 4.204693, 5.347108, 6.304449, 3.828641, 3.663562, 3.4…
-$ FamilySize       &lt;dbl&gt; 0.0000000, 1.3862944, 1.0986123, 0.0000000, 0.0000000…
-$ SynsetCount      &lt;dbl&gt; 1.0986123, 1.0986123, 1.0986123, 1.3862944, 1.0986123…
-$ Length           &lt;int&gt; 6, 3, 5, 7, 9, 7, 6, 6, 3, 6, 3, 8, 10, 9, 8, 5, 9, 5…
-$ Class            &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal, pl…
-$ FreqSingular     &lt;int&gt; 24, 69, 315, 26, 19, 24, 53, 74, 155, 37, 118, 15, 26…
-$ FreqPlural       &lt;int&gt; 42, 140, 231, 19, 19, 6, 78, 77, 103, 14, 180, 19, 31…
-$ DerivEntropy     &lt;dbl&gt; 0.0000, 0.5620, 0.4960, 0.0000, 0.0000, 0.0000, 0.634…
-$ Complex          &lt;fct&gt; simplex, simplex, simplex, simplex, simplex, simplex,…
-$ rInfl            &lt;dbl&gt; -0.54232429, -0.70026465, 0.30900484, 0.30010459, 0.0…
-$ meanWeightRating &lt;dbl&gt; 1.4860, 3.3489, 2.1948, 1.3216, 1.4424, 1.3256, 3.047…
-$ meanSizeRating   &lt;dbl&gt; 1.8912, 3.6275, 2.4730, 1.7597, 1.8660, 1.7737, 3.369…
-$ meanFamiliarity  &lt;dbl&gt; 3.72, 3.60, 5.84, 4.40, 3.68, 4.12, 2.12, 5.68, 3.20,…</code></pre>
+<pre><code>'data.frame':   81 obs. of  14 variables:
+ $ Word            : Factor w/ 81 levels "almond","ant",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ Frequency       : num  4.2 5.35 6.3 3.83 3.66 ...
+ $ FamilySize      : num  0 1.39 1.1 0 0 ...
+ $ SynsetCount     : num  1.1 1.1 1.1 1.39 1.1 ...
+ $ Length          : int  6 3 5 7 9 7 6 6 3 6 ...
+ $ Class           : Factor w/ 2 levels "animal","plant": 2 1 2 2 2 2 1 2 1 1 ...
+ $ FreqSingular    : int  24 69 315 26 19 24 53 74 155 37 ...
+ $ FreqPlural      : int  42 140 231 19 19 6 78 77 103 14 ...
+ $ DerivEntropy    : num  0 0.562 0.496 0 0 ...
+ $ Complex         : Factor w/ 2 levels "complex","simplex": 2 2 2 2 2 2 2 2 2 2 ...
+ $ rInfl           : num  -0.542 -0.7 0.309 0.3 0 ...
+ $ meanWeightRating: num  1.49 3.35 2.19 1.32 1.44 ...
+ $ meanSizeRating  : num  1.89 3.63 2.47 1.76 1.87 ...
+ $ meanFamiliarity : num  3.72 3.6 5.84 4.4 3.68 4.12 2.12 5.68 3.2 2.2 ...</code></pre>
 </div>
 </div>
 </section>
@@ -555,12 +585,11 @@ $ meanFamiliarity  &lt;dbl&gt; 3.72, 3.60, 5.84, 4.40, 3.68, 4.12, 2.12, 5.68, 3
 <div class="fragment">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 81
-Columns: 4
-$ Word            &lt;fct&gt; almond, ant, apple, apricot, asparagus, avocado, badge…
-$ Frequency       &lt;dbl&gt; 4.204693, 5.347108, 6.304449, 3.828641, 3.663562, 3.43…
-$ meanFamiliarity &lt;dbl&gt; 3.72, 3.60, 5.84, 4.40, 3.68, 4.12, 2.12, 5.68, 3.20, …
-$ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal, pla…</code></pre>
+<pre><code>'data.frame':   81 obs. of  4 variables:
+ $ Word           : Factor w/ 81 levels "almond","ant",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ Frequency      : num  4.2 5.35 6.3 3.83 3.66 ...
+ $ meanFamiliarity: num  3.72 3.6 5.84 4.4 3.68 4.12 2.12 5.68 3.2 2.2 ...
+ $ Class          : Factor w/ 2 levels "animal","plant": 2 1 2 2 2 2 1 2 1 1 ...</code></pre>
 </div>
 </div>
 </div>
@@ -569,7 +598,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <h2>Today’s goal</h2>
 <p>Create this figure showing the relationship between actual frequency and subjective frequency rating of each word, considering the class the word belongs to</p>
 
-<img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section></section>
 <section>
 <section id="the-basic-ggplot" class="title-slide slide level1 center">
 <h1>The basic ggplot</h1>
@@ -593,7 +622,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -617,7 +646,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -642,7 +671,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -673,7 +702,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -702,7 +731,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -733,7 +762,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -771,7 +800,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -805,7 +834,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -843,7 +872,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -887,7 +916,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -924,7 +953,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -956,7 +985,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -983,7 +1012,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1010,7 +1039,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1039,7 +1068,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1068,7 +1097,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1097,7 +1126,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-23-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-23-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1127,7 +1156,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1157,7 +1186,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1219,7 +1248,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1244,7 +1273,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1268,7 +1297,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-28-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-28-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1293,7 +1322,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1319,7 +1348,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1343,7 +1372,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1366,7 +1395,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1389,7 +1418,7 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-33-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-33-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1412,744 +1441,907 @@ $ Class           &lt;fct&gt; plant, animal, plant, plant, plant, plant, animal,
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+<p><img data-src="data-visualization-1_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section>
-<section id="geom_bar" class="slide level2 smaller">
-<h2><code>geom_bar()</code></h2>
-<blockquote>
-<p>To examine the distribution of a categorical variable, you can use a bar chart. The height of the bars displays how many observations occurred with each x value. – R4DS</p>
-</blockquote>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb34" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb34-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb34-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb34-4"><a></a>        <span class="at">x =</span> Class</span>
-<span id="cb34-5"><a></a>    )</span>
-<span id="cb34-6"><a></a>) <span class="sc">+</span> </span>
-<span id="cb34-7"><a></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-35-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="geom_bar---stacked" class="slide level2 smaller">
-<h2><code>geom_bar()</code> - stacked</h2>
-<p>We can use stacked bar plots to visualize the relationship between two categorical variables</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb35-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb35-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb35-4"><a></a>        <span class="at">x =</span> Class,</span>
-<span id="cb35-5"><a></a>        <span class="at">fill =</span> Complex</span>
-<span id="cb35-6"><a></a>    )</span>
-<span id="cb35-7"><a></a>) <span class="sc">+</span> </span>
-<span id="cb35-8"><a></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="geom_bar---relative-frequency" class="slide level2 smaller">
-<h2><code>geom_bar()</code> - relative frequency</h2>
-<p>We can use relative frequency to visualize the relationship between two categorical variables (as a percentage)</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb36-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb36-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb36-4"><a></a>        <span class="at">x =</span> Class,</span>
-<span id="cb36-5"><a></a>        <span class="at">fill =</span> Complex</span>
-<span id="cb36-6"><a></a>    )</span>
-<span id="cb36-7"><a></a>) <span class="sc">+</span> </span>
-<span id="cb36-8"><a></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-37-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="geom_bar---dodged" class="slide level2 smaller">
-<h2><code>geom_bar()</code> - dodged</h2>
-<p>We can use a dodged bar plot to visualize the relationship between two categorical variables side-by-side, not stacked</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb37-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb37-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb37-4"><a></a>        <span class="at">x =</span> Class,</span>
-<span id="cb37-5"><a></a>        <span class="at">fill =</span> Complex</span>
-<span id="cb37-6"><a></a>    )</span>
-<span id="cb37-7"><a></a>) <span class="sc">+</span> </span>
-<span id="cb37-8"><a></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-38-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="geom_point" class="slide level2 smaller">
-<h2><code>geom_point()</code></h2>
-<blockquote>
-<p>Scatterplots are useful for displaying the relationship between two numerical variables – R4DS</p>
-</blockquote>
-<div class="fragment">
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb38" data-code-line-numbers="8-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb38-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb38-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb38-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb38-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb38-6"><a></a>    )</span>
-<span id="cb38-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb38-8"><a></a>  <span class="fu">geom_point</span>( </span>
-<span id="cb38-9"><a></a>    <span class="at">color =</span> <span class="st">"blue"</span>, </span>
-<span id="cb38-10"><a></a>    <span class="at">size =</span> <span class="dv">3</span></span>
-<span id="cb38-11"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb38-12"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb38-13"><a></a>    <span class="at">title =</span> <span class="st">"Subjective frequency ratings"</span>, </span>
-<span id="cb38-14"><a></a>    <span class="at">subtitle =</span> <span class="st">"for 81 english nouns"</span>,</span>
-<span id="cb38-15"><a></a>    <span class="at">x =</span> <span class="st">"Actual frequency"</span>,</span>
-<span id="cb38-16"><a></a>    <span class="at">y =</span> <span class="st">"Frequency rating"</span>,</span>
-<span id="cb38-17"><a></a>    <span class="at">color =</span> <span class="st">"word class"</span></span>
-<span id="cb38-18"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb38-19"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-39-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section id="geom_point-with-geom_smooth" class="slide level2 smaller">
-<h2><code>geom_point()</code> with <code>geom_smooth()</code></h2>
-<p>draws a best fitting curve</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb39-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb39-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb39-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb39-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb39-6"><a></a>    )</span>
-<span id="cb39-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb39-8"><a></a>  <span class="fu">geom_point</span>( </span>
-<span id="cb39-9"><a></a>    <span class="at">color =</span> <span class="st">"blue"</span>, </span>
-<span id="cb39-10"><a></a>    <span class="at">size =</span> <span class="dv">3</span></span>
-<span id="cb39-11"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb39-12"><a></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb39-13"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb39-14"><a></a>    <span class="at">title =</span> <span class="st">"Subjective frequency ratings"</span>, </span>
-<span id="cb39-15"><a></a>    <span class="at">subtitle =</span> <span class="st">"for 81 english nouns"</span>,</span>
-<span id="cb39-16"><a></a>    <span class="at">x =</span> <span class="st">"Actual frequency"</span>,</span>
-<span id="cb39-17"><a></a>    <span class="at">y =</span> <span class="st">"Frequency rating"</span>,</span>
-<span id="cb39-18"><a></a>    <span class="at">color =</span> <span class="st">"word class"</span></span>
-<span id="cb39-19"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb39-20"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-40-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="geom_point-with-geom_smoothmethodlm" class="slide level2 smaller">
-<h2><code>geom_point()</code> with <code>geom_smooth(method="lm")</code></h2>
-<p>draws the best fitting linear model</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb40-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb40-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb40-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb40-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb40-6"><a></a>    )</span>
-<span id="cb40-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb40-8"><a></a>  <span class="fu">geom_point</span>( </span>
-<span id="cb40-9"><a></a>    <span class="at">color =</span> <span class="st">"blue"</span>, </span>
-<span id="cb40-10"><a></a>    <span class="at">size =</span> <span class="dv">3</span></span>
-<span id="cb40-11"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb40-12"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb40-13"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb40-14"><a></a>    <span class="at">title =</span> <span class="st">"Subjective frequency ratings"</span>, </span>
-<span id="cb40-15"><a></a>    <span class="at">subtitle =</span> <span class="st">"for 81 english nouns"</span>,</span>
-<span id="cb40-16"><a></a>    <span class="at">x =</span> <span class="st">"Actual frequency"</span>,</span>
-<span id="cb40-17"><a></a>    <span class="at">y =</span> <span class="st">"Frequency rating"</span>,</span>
-<span id="cb40-18"><a></a>    <span class="at">color =</span> <span class="st">"word class"</span></span>
-<span id="cb40-19"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb40-20"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-41-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="geom_point-with-geom_smoothmethodlm-1" class="slide level2 smaller">
-<h2><code>geom_point()</code> with <code>geom_smooth(method="lm")</code></h2>
-<p>We can also map to color, by specifying globally</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb41" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb41-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb41-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb41-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb41-5"><a></a>        <span class="at">y =</span> meanFamiliarity,</span>
-<span id="cb41-6"><a></a>        <span class="at">color =</span> Class</span>
-<span id="cb41-7"><a></a>    )</span>
-<span id="cb41-8"><a></a> ) <span class="sc">+</span></span>
-<span id="cb41-9"><a></a>  <span class="fu">geom_point</span>( </span>
-<span id="cb41-10"><a></a>    <span class="at">size =</span> <span class="dv">3</span></span>
-<span id="cb41-11"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb41-12"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb41-13"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb41-14"><a></a>    <span class="at">title =</span> <span class="st">"Subjective frequency ratings"</span>, </span>
-<span id="cb41-15"><a></a>    <span class="at">subtitle =</span> <span class="st">"for 81 english nouns"</span>,</span>
-<span id="cb41-16"><a></a>    <span class="at">x =</span> <span class="st">"Actual frequency"</span>,</span>
-<span id="cb41-17"><a></a>    <span class="at">y =</span> <span class="st">"Frequency rating"</span>,</span>
-<span id="cb41-18"><a></a>    <span class="at">color =</span> <span class="st">"word class"</span></span>
-<span id="cb41-19"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb41-20"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="geom_point-with-geom_smoothmethodlm-2" class="slide level2 smaller">
-<h2><code>geom_point()</code> with <code>geom_smooth(method="lm")</code></h2>
-<p>Or include only a single smooth, by specifying color in the point geom only</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb42-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb42-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb42-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb42-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb42-6"><a></a>    )</span>
-<span id="cb42-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb42-8"><a></a>  <span class="fu">geom_point</span>( </span>
-<span id="cb42-9"><a></a>    <span class="fu">aes</span>(<span class="at">color =</span> Class),</span>
-<span id="cb42-10"><a></a>    <span class="at">size =</span> <span class="dv">3</span></span>
-<span id="cb42-11"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb42-12"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb42-13"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb42-14"><a></a>    <span class="at">title =</span> <span class="st">"Subjective frequency ratings"</span>, </span>
-<span id="cb42-15"><a></a>    <span class="at">subtitle =</span> <span class="st">"for 81 english nouns"</span>,</span>
-<span id="cb42-16"><a></a>    <span class="at">x =</span> <span class="st">"Actual frequency"</span>,</span>
-<span id="cb42-17"><a></a>    <span class="at">y =</span> <span class="st">"Frequency rating"</span>,</span>
-<span id="cb42-18"><a></a>    <span class="at">color =</span> <span class="st">"word class"</span></span>
-<span id="cb42-19"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb42-20"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-43-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section></section>
-<section>
-<section id="facets" class="title-slide slide level1 center">
-<h1>Facets</h1>
-<p>smaller plots that display different subsets of data</p>
-</section>
-<section id="facet_grid" class="slide level2">
-<h2><code>facet_grid()</code></h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb43-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb43-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb43-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb43-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb43-6"><a></a>    )</span>
-<span id="cb43-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb43-8"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb43-9"><a></a>  <span class="fu">facet_grid</span>(Class <span class="sc">~</span> Complex) <span class="sc">+</span></span>
-<span id="cb43-10"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="facet_grid-1" class="slide level2 smaller">
-<h2><code>facet_grid()</code></h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb44" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb44-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb44-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb44-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb44-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb44-6"><a></a>    )</span>
-<span id="cb44-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb44-8"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb44-9"><a></a>  <span class="fu">facet_grid</span>(Class <span class="sc">~</span> Complex) <span class="sc">+</span></span>
-<span id="cb44-10"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb45" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb45-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb45-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb45-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb45-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb45-6"><a></a>    )</span>
-<span id="cb45-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb45-8"><a></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb45-9"><a></a>    <span class="fu">aes</span>(<span class="at">color =</span> Class, <span class="at">shape =</span> Complex)</span>
-<span id="cb45-10"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb45-11"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section id="facet_grid---just-columns" class="slide level2 smaller">
-<h2><code>facet_grid()</code> - just columns</h2>
-<p>and note we can still map other aesthetics!</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb46" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb46-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb46-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb46-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb46-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb46-6"><a></a>    )</span>
-<span id="cb46-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb46-8"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb46-9"><a></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> Complex) <span class="sc">+</span></span>
-<span id="cb46-10"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-47-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="facet_grid---just-columns-1" class="slide level2 smaller">
-<h2><code>facet_grid()</code> - just columns</h2>
-<p>and note we can still map other aesthetics!</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb47" data-code-line-numbers="8-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb47-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb47-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb47-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb47-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb47-6"><a></a>    )</span>
-<span id="cb47-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb47-8"><a></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb47-9"><a></a>    <span class="fu">aes</span>(<span class="at">color =</span> Class),</span>
-<span id="cb47-10"><a></a>    <span class="at">shape =</span> <span class="st">"triangle"</span></span>
-<span id="cb47-11"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb47-12"><a></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> Complex) <span class="sc">+</span></span>
-<span id="cb47-13"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="facet_grid---just-rows" class="slide level2 smaller">
-<h2><code>facet_grid()</code> - just rows</h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb48" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb48-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb48-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb48-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb48-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb48-6"><a></a>    )</span>
-<span id="cb48-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb48-8"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb48-9"><a></a>  <span class="fu">facet_grid</span>(Class <span class="sc">~</span> .) <span class="sc">+</span></span>
-<span id="cb48-10"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-49-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="facet_wrap" class="slide level2 smaller">
-<h2><code>facet_wrap()</code></h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb49" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb49-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb49-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb49-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb49-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb49-6"><a></a>    )</span>
-<span id="cb49-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb49-8"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb49-9"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Class) <span class="sc">+</span></span>
-<span id="cb49-10"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-50-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="facet_wrap---number-of-columns" class="slide level2 smaller">
-<h2><code>facet_wrap()</code> - number of columns</h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb50" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb50-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb50-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb50-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb50-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb50-6"><a></a>    )</span>
-<span id="cb50-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb50-8"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb50-9"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Class, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb50-10"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section></section>
-<section>
-<section id="helper-functions" class="title-slide slide level1 center">
-<h1>Helper functions</h1>
+<!-- 
+## `geom_bar()` {.smaller}
 
-</section>
-<section id="remember-our-goal-plot" class="slide level2 smaller">
-<h2>remember our goal plot?</h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb51-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb51-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb51-4"><a></a>        <span class="at">x =</span> Frequency, </span>
-<span id="cb51-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb51-6"><a></a>    )</span>
-<span id="cb51-7"><a></a> ) <span class="sc">+</span></span>
-<span id="cb51-8"><a></a>  <span class="fu">geom_point</span>( </span>
-<span id="cb51-9"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> Class), </span>
-<span id="cb51-10"><a></a>    <span class="at">size =</span> <span class="dv">3</span></span>
-<span id="cb51-11"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb51-12"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb51-13"><a></a>    <span class="at">title =</span> <span class="st">"Subjective frequency ratings"</span>, </span>
-<span id="cb51-14"><a></a>    <span class="at">subtitle =</span> <span class="st">"for 81 english nouns"</span>,</span>
-<span id="cb51-15"><a></a>    <span class="at">x =</span> <span class="st">"Actual frequency"</span>,</span>
-<span id="cb51-16"><a></a>    <span class="at">y =</span> <span class="st">"Frequency rating"</span>,</span>
-<span id="cb51-17"><a></a>    <span class="at">color =</span> <span class="st">"word class"</span></span>
-<span id="cb51-18"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb51-19"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb51-20"><a></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Paired"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-52-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="last_plot" class="slide level2 smaller">
-<h2><code>last_plot()</code></h2>
-<p>returns the last plot</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">last_plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-53-1.png" width="960" class="r-stretch"></section>
-<section id="ggsave" class="slide level2">
-<h2><code>ggsave()</code></h2>
-<p>saves last plot</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="fu">ggsave</span>(<span class="st">"plot.png"</span>, <span class="at">width=</span><span class="dv">5</span>, <span class="at">height=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section>
-<section>
-<section id="themes-1" class="title-slide slide level1 center">
-<h1>Themes</h1>
-<p>ggplot comes with many <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">Complete themes</a></p>
-</section>
-<section id="default-theme" class="slide level2 smaller">
-<h2>Default theme</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">last_plot</span>() <span class="sc">+</span> <span class="fu">theme_gray</span>(<span class="at">base_size=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-54-1.png" width="960" class="r-stretch"></section>
-<section id="sample-themes" class="slide level2 smaller">
-<h2>Sample themes</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">last_plot</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-55-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="fu">last_plot</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-56-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">last_plot</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>(<span class="at">base_size=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-57-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a><span class="fu">last_plot</span>() <span class="sc">+</span> <span class="fu">theme_void</span>(<span class="at">base_size=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-58-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section></section>
-<section>
-<section id="shortcuts" class="title-slide slide level1 center">
-<h1>Shortcuts</h1>
-
-</section>
-<section id="ggplot2-calls" class="slide level2 smaller">
-<h2>ggplot2 calls</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Explicit argument names:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb59-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb59-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb59-4"><a></a>        <span class="at">x =</span> Frequency,</span>
-<span id="cb59-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb59-6"><a></a>    )</span>
-<span id="cb59-7"><a></a>) <span class="sc">+</span> </span>
-<span id="cb59-8"><a></a>   <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-59-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<p>Implied argument names:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb60-2"><a></a>    ratings,</span>
-<span id="cb60-3"><a></a>    <span class="fu">aes</span>(</span>
-<span id="cb60-4"><a></a>        <span class="at">x =</span> Frequency,</span>
-<span id="cb60-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb60-6"><a></a>    )</span>
-<span id="cb60-7"><a></a>) <span class="sc">+</span> </span>
-<span id="cb60-8"><a></a>   <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-60-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="the-pipe" class="slide level2 smaller">
-<h2>the pipe <code>%&gt;%</code></h2>
-<blockquote>
-<p>the pipe takes the thing on its left and passes it along to the function on its right</p>
-</blockquote>
-<div class="fragment">
-<p><code>x %&gt;% f(y)</code> is equivalent to <code>f(x, y)</code></p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.0</span>, <span class="fl">2.245</span>, <span class="dv">3</span>, <span class="fl">4.22222</span>)</span>
-<span id="cb61-2"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.00000 2.24500 3.00000 4.22222</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a></a><span class="co"># pass x as an argument to function usual way</span></span>
-<span id="cb63-2"><a></a><span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.00 2.24 3.00 4.22</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a></a><span class="co"># pass x as an argument to function with pipe</span></span>
-<span id="cb65-2"><a></a>x <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.00 2.24 3.00 4.22</code></pre>
-</div>
-</div>
-
-</div>
-<aside><div>
-<p>There are two ways to write the pipe: <code>%&gt;%</code> or <code>|&gt;</code></p>
-</div></aside></section>
-<section id="the-pipe-and-ggplot" class="slide level2 smaller">
-<h2>the pipe <code>%&gt;%</code> and ggplot</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Implied argument names:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb67-2"><a></a>    <span class="at">data =</span> ratings,</span>
-<span id="cb67-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb67-4"><a></a>        <span class="at">x =</span> Frequency,</span>
-<span id="cb67-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb67-6"><a></a>    )</span>
-<span id="cb67-7"><a></a>) <span class="sc">+</span> </span>
-<span id="cb67-8"><a></a>   <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-63-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<p>Implied argument names + pipe:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a>ratings <span class="sc">%&gt;%</span> </span>
-<span id="cb68-2"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb68-3"><a></a>    <span class="fu">aes</span>(</span>
-<span id="cb68-4"><a></a>        <span class="at">x =</span> Frequency,</span>
-<span id="cb68-5"><a></a>        <span class="at">y =</span> meanFamiliarity</span>
-<span id="cb68-6"><a></a>    )</span>
-<span id="cb68-7"><a></a>) <span class="sc">+</span> </span>
-<span id="cb68-8"><a></a>   <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="data-visualization_files/figure-revealjs/unnamed-chunk-64-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-
-<aside><div>
-<p>Note that we pipe <code>%&gt;%</code> in arguments to functions but we ADD <code>+</code> layers to ggplot. Common mistake!</p>
-</div></aside></section>
-<section id="exercise-1" class="slide level2">
-<h2>Exercise 1</h2>
-<blockquote>
-<p>The basic ggplot</p>
-</blockquote>
-
-<img data-src="../include/targets/class-target-basicpenguins.png" class="r-stretch quarto-figure-center"><p class="caption">
-Figure&nbsp;2: Data from <code>penguins</code> dataframe in <code>palmerpenguins</code> package
-</p></section>
-<section id="exercise-2" class="slide level2">
-<h2>Exercise 2</h2>
-<blockquote>
-<p>Adding aesthetics and layers</p>
-</blockquote>
+> To examine the distribution of a categorical variable, you can use a bar chart. The height of the bars displays how many observations occurred with each x value. -- R4DS
 
 
-<img data-src="../include/targets/class-target-penguins.png" class="r-stretch quarto-figure-center"><p class="caption">
-Figure&nbsp;3: Data from <code>penguins</code> dataframe in <code>palmerpenguins</code> package
-</p><div class="quarto-auto-generated-content">
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="8"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Class
+    )
+) + 
+    geom_bar()
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-35-1.png){width=960}
+:::
+:::
+
+
+
+## `geom_bar()` - stacked {.smaller}
+
+We can use stacked bar plots to visualize the relationship between two categorical variables
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="5"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Class,
+        fill = Complex
+    )
+) + 
+    geom_bar()
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-36-1.png){width=960}
+:::
+:::
+
+
+
+## `geom_bar()` - relative frequency {.smaller}
+
+We can use relative frequency to visualize the relationship between two categorical variables (as a percentage)
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="8"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Class,
+        fill = Complex
+    )
+) + 
+    geom_bar(position = "fill")
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-37-1.png){width=960}
+:::
+:::
+
+
+
+## `geom_bar()` - dodged {.smaller}
+
+We can use a dodged bar plot to visualize the relationship between two categorical variables side-by-side, not stacked
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="8"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Class,
+        fill = Complex
+    )
+) + 
+    geom_bar(position = "dodge")
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-38-1.png){width=960}
+:::
+:::
+
+
+
+## `geom_point()` {.smaller}
+
+> Scatterplots are useful for displaying the relationship between two numerical variables -- R4DS
+
+. . . 
+
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="8-11"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point( 
+    color = "blue", 
+    size = 3
+    ) +
+  labs(
+    title = "Subjective frequency ratings", 
+    subtitle = "for 81 english nouns",
+    x = "Actual frequency",
+    y = "Frequency rating",
+    color = "word class"
+  ) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-39-1.png){width=960}
+:::
+:::
+
+
+
+## `geom_point()` with `geom_smooth()` {.smaller}
+
+draws a best fitting curve 
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="12"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point( 
+    color = "blue", 
+    size = 3
+    ) +
+  geom_smooth() +
+  labs(
+    title = "Subjective frequency ratings", 
+    subtitle = "for 81 english nouns",
+    x = "Actual frequency",
+    y = "Frequency rating",
+    color = "word class"
+  ) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-40-1.png){width=960}
+:::
+:::
+
+
+
+## `geom_point()` with `geom_smooth(method="lm")` {.smaller}
+
+draws the best fitting linear model
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="12"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point( 
+    color = "blue", 
+    size = 3
+    ) +
+  geom_smooth(method="lm") +
+  labs(
+    title = "Subjective frequency ratings", 
+    subtitle = "for 81 english nouns",
+    x = "Actual frequency",
+    y = "Frequency rating",
+    color = "word class"
+  ) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-41-1.png){width=960}
+:::
+:::
+
+
+
+## `geom_point()` with `geom_smooth(method="lm")` {.smaller}
+
+We can also map to color, by specifying globally
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="6"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity,
+        color = Class
+    )
+ ) +
+  geom_point( 
+    size = 3
+    ) +
+  geom_smooth(method="lm") +
+  labs(
+    title = "Subjective frequency ratings", 
+    subtitle = "for 81 english nouns",
+    x = "Actual frequency",
+    y = "Frequency rating",
+    color = "word class"
+  ) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-42-1.png){width=960}
+:::
+:::
+
+
+
+## `geom_point()` with `geom_smooth(method="lm")` {.smaller}
+
+Or include only a single smooth, by specifying color in the point geom only
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="9"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point( 
+    aes(color = Class),
+    size = 3
+    ) +
+  geom_smooth(method="lm") +
+  labs(
+    title = "Subjective frequency ratings", 
+    subtitle = "for 81 english nouns",
+    x = "Actual frequency",
+    y = "Frequency rating",
+    color = "word class"
+  ) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-43-1.png){width=960}
+:::
+:::
+
+
+
+
+
+# Facets 
+
+smaller plots that display different subsets of data
+
+## `facet_grid()`
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="9"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point() +
+  facet_grid(Class ~ Complex) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-44-1.png){width=960}
+:::
+:::
+
+
+
+## `facet_grid()` {.smaller}
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="9"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point() +
+  facet_grid(Class ~ Complex) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-45-1.png){width=960}
+:::
+:::
+
+
+
+. . . 
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="9"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point(
+    aes(color = Class, shape = Complex)
+  ) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-46-1.png){width=960}
+:::
+:::
+
+
+
+
+## `facet_grid()` - just columns {.smaller}
+
+and note we can still map other aesthetics!
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="9"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point() +
+  facet_grid(. ~ Complex) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-47-1.png){width=960}
+:::
+:::
+
+
+
+## `facet_grid()` - just columns {.smaller}
+
+and note we can still map other aesthetics!
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="8-11"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point(
+    aes(color = Class),
+    shape = "triangle"
+  ) +
+  facet_grid(. ~ Complex) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-48-1.png){width=960}
+:::
+:::
+
+
+
+
+
+## `facet_grid()` - just rows {.smaller}
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="9"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point() +
+  facet_grid(Class ~ .) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-49-1.png){width=960}
+:::
+:::
+
+
+
+
+## `facet_wrap()`  {.smaller}
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="9"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point() +
+  facet_wrap(~ Class) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-50-1.png){width=960}
+:::
+:::
+
+
+
+## `facet_wrap()` - number of columns {.smaller}
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code  code-line-numbers="9"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point() +
+  facet_wrap(~ Class, ncol = 1) +
+  theme_classic(base_size = 20) 
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-51-1.png){width=960}
+:::
+:::
+
+
+
+# Helper functions 
+
+## remember our goal plot? {.smaller}
+
+
+
+::: {.cell output-location='column'}
+
+```{.r .cell-code}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency, 
+        y = meanFamiliarity
+    )
+ ) +
+  geom_point( 
+    mapping = aes(color = Class), 
+    size = 3
+    ) +
+  labs(
+    title = "Subjective frequency ratings", 
+    subtitle = "for 81 english nouns",
+    x = "Actual frequency",
+    y = "Frequency rating",
+    color = "word class"
+  ) +
+  theme_classic(base_size = 20) +
+  scale_color_brewer(palette = "Paired")
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-52-1.png){width=960}
+:::
+:::
+
+
+
+## `last_plot()` {.smaller}
+
+returns the last plot
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+last_plot()
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-53-1.png){width=960}
+:::
+:::
+
+
+
+## `ggsave()` 
+
+saves last plot
+
+```r
+ggsave("plot.png", width=5, height=5)
+```
+
+# Themes 
+
+ggplot comes with many [Complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+
+## Default theme {.smaller}
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+last_plot() + theme_gray(base_size=20)
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-54-1.png){width=960}
+:::
+:::
+
+
+
+## Sample themes {.smaller}
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+last_plot() + theme_bw(base_size=20)
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-55-1.png){width=960}
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
+last_plot() + theme_classic(base_size=20)
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-56-1.png){width=960}
+:::
+:::
+
+
+
+::: 
+
+::: {.column width=50%}
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+last_plot() + theme_minimal(base_size=20)
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-57-1.png){width=960}
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
+last_plot() + theme_void(base_size=20)
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-58-1.png){width=960}
+:::
+:::
+
+
+
+::: 
+
+::::
+
+
+# Shortcuts 
+
+## ggplot2 calls {.smaller}
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+Explicit argument names:
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency,
+        y = meanFamiliarity
+    )
+) + 
+   geom_point()
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-59-1.png){width=960}
+:::
+:::
+
+
+
+
+::: 
+
+
+::: {.column width=50%}
+
+Implied argument names:
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+ggplot(
+    ratings,
+    aes(
+        x = Frequency,
+        y = meanFamiliarity
+    )
+) + 
+   geom_point()
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-60-1.png){width=960}
+:::
+:::
+
+
+
+::: 
+
+::::
+
+
+## the pipe `%>%` {.smaller}
+
+> the pipe takes the thing on its left and passes it along to the function on its right 
+
+. . .
+
+`x %>% f(y)` is equivalent to `f(x, y)`
+
+. . . 
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+x <- c(1.0, 2.245, 3, 4.22222)
+x
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 1.00000 2.24500 3.00000 4.22222
+```
+
+
+:::
+
+```{.r .cell-code}
+# pass x as an argument to function usual way
+round(x, digits = 2)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 1.00 2.24 3.00 4.22
+```
+
+
+:::
+:::
+
+
+
+. . . 
+
+
+::: {.cell}
+
+```{.r .cell-code}
+# pass x as an argument to function with pipe
+x %>% round(digits = 2)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 1.00 2.24 3.00 4.22
+```
+
+
+:::
+:::
+
+
+
+
+::: aside
+There are two ways to write the pipe: `%>%` or `|>`
+:::
+
+## the pipe `%>%` and ggplot {.smaller}
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+Implied argument names:
+
+
+
+::: {.cell}
+
+```{.r .cell-code  code-line-numbers="2"}
+ggplot(
+    data = ratings,
+    mapping = aes(
+        x = Frequency,
+        y = meanFamiliarity
+    )
+) + 
+   geom_point()
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-63-1.png){width=960}
+:::
+:::
+
+
+
+
+::: 
+
+
+::: {.column width=50%}
+
+Implied argument names + pipe:
+
+
+
+::: {.cell}
+
+```{.r .cell-code  code-line-numbers="1"}
+ratings %>% 
+ggplot(
+    aes(
+        x = Frequency,
+        y = meanFamiliarity
+    )
+) + 
+   geom_point()
+```
+
+::: {.cell-output-display}
+![](data-visualization-1_files/figure-revealjs/unnamed-chunk-64-1.png){width=960}
+:::
+:::
+
+
+
+::: 
+
+::::
+
+::: aside
+Note that we pipe `%>%` in arguments to functions but we ADD `+` layers to ggplot. Common mistake!
+:::
+
+## Exercise 1
+
+> The basic ggplot
+
+![Data from `penguins` dataframe in `palmerpenguins` package](/include/targets/class-target-basicpenguins.png){#fig-basicpenguintarget}
+
+## Exercise 2
+
+> Adding aesthetics and layers
+
+![Data from `penguins` dataframe in `palmerpenguins` package](/include/targets/class-target-penguins.png){#fig-penguintarget} -->
+
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://kathrynschuler.com/datasci/">https://kathrynschuler.com/datasci</a></p>
 </div>

@@ -4,6 +4,7 @@ subtitle: Fall 2024
 format:
     html: 
         toc: false
+        number-sections: false
     pdf: default
 ---
 

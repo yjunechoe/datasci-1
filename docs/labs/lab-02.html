@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Katie Schuler">
+<meta name="dcterms.date" content="2024-09-05">
 
-<title>Data Science for studying language and the mind – DataSci for Lang &amp; Mind</title>
+<title>Lab 2: Data visualization – DataSci for Lang &amp; Mind</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="../include/webex.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -80,7 +116,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Syllabus</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      DataSci for Lang &amp; Mind
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -95,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DataSci for Lang &amp; Mind</a> 
+      <a href="../">DataSci for Lang &amp; Mind</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -107,19 +145,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html#resources" class="sidebar-item-text sidebar-link">
+  <a href="../index.html#resources" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./index.html#materials" class="sidebar-item-text sidebar-link">
+            <a href="../index.html#materials" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Materials</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -128,25 +166,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html#study-guides" class="sidebar-item-text sidebar-link">
+  <a href="../index.html#study-guides" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study guides</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html#problem-sets" class="sidebar-item-text sidebar-link">
+  <a href="../index.html#problem-sets" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html#exams" class="sidebar-item-text sidebar-link">
+  <a href="../index.html#exams" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exams</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html#lab-exercises" class="sidebar-item-text sidebar-link">
+  <a href="../index.html#lab-exercises" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab exercises</span></a>
   </div>
 </li>
@@ -154,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html#schedule" class="sidebar-item-text sidebar-link">
+  <a href="../index.html#schedule" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
@@ -164,21 +202,40 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link active" data-scroll-target="#data-visualization"><span class="header-section-number">1</span> Data visualization</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-02.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Science for studying language and the mind</h1>
-<p class="subtitle lead">Fall 2024</p>
+<h1 class="title">Lab 2: Data visualization</h1>
+<p class="subtitle lead">Not graded, just practice</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Katie Schuler </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 5, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -188,312 +245,158 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled" title="Announcements">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="data-visualization" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Data visualization</h1>
+<p>We will continue working with the <code>ratings</code> dataset from the visualization lecture (part of the <code>languageR</code> package). It contains the following variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   81 obs. of  14 variables:
+ $ Word            : Factor w/ 81 levels "almond","ant",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ Frequency       : num  4.2 5.35 6.3 3.83 3.66 ...
+ $ FamilySize      : num  0 1.39 1.1 0 0 ...
+ $ SynsetCount     : num  1.1 1.1 1.1 1.39 1.1 ...
+ $ Length          : int  6 3 5 7 9 7 6 6 3 6 ...
+ $ Class           : Factor w/ 2 levels "animal","plant": 2 1 2 2 2 2 1 2 1 1 ...
+ $ FreqSingular    : int  24 69 315 26 19 24 53 74 155 37 ...
+ $ FreqPlural      : int  42 140 231 19 19 6 78 77 103 14 ...
+ $ DerivEntropy    : num  0 0.562 0.496 0 0 ...
+ $ Complex         : Factor w/ 2 levels "complex","simplex": 2 2 2 2 2 2 2 2 2 2 ...
+ $ rInfl           : num  -0.542 -0.7 0.309 0.3 0 ...
+ $ meanWeightRating: num  1.49 3.35 2.19 1.32 1.44 ...
+ $ meanSizeRating  : num  1.89 3.63 2.47 1.76 1.87 ...
+ $ meanFamiliarity : num  3.72 3.6 5.84 4.4 3.68 4.12 2.12 5.68 3.2 2.2 ...</code></pre>
 </div>
-<div class="callout-title-container flex-fill">
-Announcements
 </div>
+<ol type="1">
+<li><p>Fill in the blanks below with one of the following words: <code>data</code>, <code>aesthetics</code>, <code>geom</code>.</p>
+<blockquote class="blockquote">
+<p>The basic ggplot involves: (1) using your <input class="webex-solveme nospaces" size="10" data-answer="[&quot;data&quot;]">, (2) defining how variables are mapped to visual properties (<input class="webex-solveme nospaces" size="10" data-answer="[&quot;aesthetics&quot;]">), and (3) determining the geometrical object that a plot uses to represent data (<input class="webex-solveme nospaces" size="10" data-answer="[&quot;geom&quot;]">)</p>
+</blockquote></li>
+<li><p>When ggplot2 maps a categorical variable to an aesthetic, it automatically assigns a unique value of the aesthetic to each level of the variable. What is this process called?</p>
+<div id="radio_ZDASKNKALK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZDASKNKALK" value=""> <span>level assignment</span></label><label><input type="radio" autocomplete="off" name="radio_ZDASKNKALK" value=""> <span>variable aestheticization</span></label><label><input type="radio" autocomplete="off" name="radio_ZDASKNKALK" value=""> <span>autofill</span></label><label><input type="radio" autocomplete="off" name="radio_ZDASKNKALK" value="answer"> <span>scaling</span></label>
+</div></li>
+<li><p>The code below generated which of the following figures?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ratings,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> meanFamiliarity)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> Class)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><!-- ![](/include/figures/global-v-local.png){#fig-globallocal fig-align="center" width=100%} --></p>
+<div id="radio_GGNSMMQHAW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GGNSMMQHAW" value=""> <span>A</span></label><label><input type="radio" autocomplete="off" name="radio_GGNSMMQHAW" value="answer"> <span>B</span></label><label><input type="radio" autocomplete="off" name="radio_GGNSMMQHAW" value=""> <span>C</span></label>
+</div></li>
+<li><p>Suppose we want to map the variable <code>Complex</code> to the color aesthetic in a scatterplot. Which of the following arguments could we pass to <code>geom_point()</code>?</p>
+<div id="radio_DFQTLYSQTP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DFQTLYSQTP" value=""> <span>color = Complex</span></label><label><input type="radio" autocomplete="off" name="radio_DFQTLYSQTP" value="answer"> <span>mapping=aes(color = Complex)</span></label><label><input type="radio" autocomplete="off" name="radio_DFQTLYSQTP" value=""> <span>color = mapping(Complex)</span></label><label><input type="radio" autocomplete="off" name="radio_DFQTLYSQTP" value="answer"> <span>aes(color=Complex)</span></label>
+</div></li>
+<li><p>Which geoms are depicted in the following figure?</p>
+<p><!-- ![](/include/figures/guess-geom.png){#fig-guessgeom fig-align="center" width=50%} --></p>
+<div id="radio_NOELWCEJSC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NOELWCEJSC" value=""> <span>geom_histogram()</span></label><label><input type="radio" autocomplete="off" name="radio_NOELWCEJSC" value="answer"> <span>geom_density()</span></label><label><input type="radio" autocomplete="off" name="radio_NOELWCEJSC" value=""> <span>geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_NOELWCEJSC" value=""> <span>geom_smooth()</span></label><label><input type="radio" autocomplete="off" name="radio_NOELWCEJSC" value=""> <span>geom_point()</span></label>
+</div></li>
+<li><p>Which geoms are depicted in the following figure?</p>
+<p><!-- ![](/include/figures/guess-geom2.png){#fig-guessgeom2 fig-align="center" width=50%} --></p>
+<div id="radio_NVXOCKNEII" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NVXOCKNEII" value="answer"> <span>geom_histogram()</span></label><label><input type="radio" autocomplete="off" name="radio_NVXOCKNEII" value=""> <span>geom_density()</span></label><label><input type="radio" autocomplete="off" name="radio_NVXOCKNEII" value=""> <span>geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_NVXOCKNEII" value=""> <span>geom_smooth()</span></label><label><input type="radio" autocomplete="off" name="radio_NVXOCKNEII" value=""> <span>geom_point()</span></label>
+</div></li>
+<li><p>Given code blocks a, b, and c; and the plot below:</p>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CODE BLOCK a ---------------------------#</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ratings, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> meanFamiliarity)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CODE BLOCK b ---------------------------#</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ratings, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> meanFamiliarity, <span class="at">color =</span> <span class="st">"blue"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CODE BLOCK c ---------------------------#</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ratings, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> meanFamiliarity)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<p>::: {.cell} ::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"> ::: :::</p></li>
+<li><p>Which of the code blocks above generate plot A above?</p>
+<div id="radio_DELCQJXEHA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DELCQJXEHA" value="answer"> <span>a</span></label><label><input type="radio" autocomplete="off" name="radio_DELCQJXEHA" value=""> <span>b</span></label><label><input type="radio" autocomplete="off" name="radio_DELCQJXEHA" value=""> <span>c</span></label>
+</div></li>
+<li><p>In plot A above, is the color aesthetic mapped, set, or both?</p>
+<div id="radio_UTYXJRXKZQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UTYXJRXKZQ" value=""> <span>mapped</span></label><label><input type="radio" autocomplete="off" name="radio_UTYXJRXKZQ" value="answer"> <span>set</span></label><label><input type="radio" autocomplete="off" name="radio_UTYXJRXKZQ" value=""> <span>both</span></label>
+</div></li>
+<li><p>In plot A above, which of the following aesthetics should we set to make the points more transparent?</p>
+<div id="radio_NLOCFDEOFZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NLOCFDEOFZ" value=""> <span>color</span></label><label><input type="radio" autocomplete="off" name="radio_NLOCFDEOFZ" value=""> <span>fill</span></label><label><input type="radio" autocomplete="off" name="radio_NLOCFDEOFZ" value="answer"> <span>alpha</span></label><label><input type="radio" autocomplete="off" name="radio_NLOCFDEOFZ" value=""> <span>shape</span></label>
+</div></li>
+<li><p>In plot A above, which of the following would change the x axis label to “FQ”?</p>
+<div id="radio_BQOQEUSQQU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BQOQEUSQQU" value="answer"> <span>add a <code>labs()</code> layer with <code>x="FQ"</code> argument</span></label><label><input type="radio" autocomplete="off" name="radio_BQOQEUSQQU" value=""> <span>add a <code>labs()</code> layer with <code>y="FQ"</code> argument</span></label><label><input type="radio" autocomplete="off" name="radio_BQOQEUSQQU" value=""> <span>change the mapping argument from <code>x="Frequency"</code> to <code>x="FQ"</code></span></label>
 </div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>If we issued you a permit in Path @ Penn, please use it to re-register today!</li>
-<li>Join the waitlist here: <a href="https://forms.gle/5bfzNXwWvj8eSdp46">LING0700/PSYC2314 Waitlist</a></li>
-</ul>
+<p>::: {.cell} ::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"> ::: :::</p></li>
+<li><p>In plot B above, which geom(s) are used to represent the data?</p>
+<div id="radio_SDOMHHVWHV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SDOMHHVWHV" value=""> <span>geom_histogram()</span></label><label><input type="radio" autocomplete="off" name="radio_SDOMHHVWHV" value=""> <span>geom_density()</span></label><label><input type="radio" autocomplete="off" name="radio_SDOMHHVWHV" value=""> <span>geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_SDOMHHVWHV" value="answer"> <span>geom_point()</span></label><label><input type="radio" autocomplete="off" name="radio_SDOMHHVWHV" value="answer"> <span>geom_smooth()</span></label>
 </div>
+<p>True or false, the blue line in plot B above is mapped to the Class aesthetic?</p>
+<div id="radio_RPCDULWFAS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RPCDULWFAS" value=""> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_RPCDULWFAS" value="answer"> <span>False</span></label>
+</div></li>
+<li><p>In plot B above, which of the following variables is mapped to the x aesthetic?</p>
+<div id="radio_ZMEOVEZIWA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZMEOVEZIWA" value="answer"> <span>Frequency</span></label><label><input type="radio" autocomplete="off" name="radio_ZMEOVEZIWA" value=""> <span>meanFamiliarity</span></label><label><input type="radio" autocomplete="off" name="radio_ZMEOVEZIWA" value=""> <span>FreqSingular</span></label><label><input type="radio" autocomplete="off" name="radio_ZMEOVEZIWA" value=""> <span>FreqPlural</span></label>
+</div></li>
+<li><p>True or false, in plot B above, the default statistical transformation in the geom responsible for the red dots is “identity”.</p>
+<div id="radio_APFFVWXQFT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_APFFVWXQFT" value="answer"> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_APFFVWXQFT" value=""> <span>False</span></label>
+</div></li>
+<li><p>Suppse we run the code below. Which of the following plots will be returned?</p>
+<div id="radio_PGGTHRPEYR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PGGTHRPEYR" value=""> <span>C</span></label><label><input type="radio" autocomplete="off" name="radio_PGGTHRPEYR" value="answer"> <span>D</span></label>
 </div>
-<p>Welcome to Data Science for Studying Language &amp; the Mind! The Fall 2024 course information and materials are below. Course materials from previous semesters are archived <a href="./archive.html">here</a>.</p>
-<section id="syllabus" class="level1">
-<h1>Syllabus</h1>
-<p><strong>Course description</strong>: Data Sci for Lang &amp; Mind is an entry-level course designed to teach basic principles of statistics and data science to students with little or no background in statistics or computer science. Students will learn to identify patterns in data using visualizations and descriptive statistics; make predictions from data using machine learning and optimization; and quantify the certainty of their predictions using statistical models. This course aims to help students build a foundation of critical thinking and computational skills that will allow them to work with data in all fields related to the study of the mind (e.g.&nbsp;linguistics, psychology, philosophy, cognitive science, neuroscience).</p>
-<p><strong>Prerequisites</strong>: There are <em>no prerequisites beyond high school algebra</em>. No prior programming or statistics experience is necessary, though you will still enjoy this course if you already have a little. Students who have taken several computer science or statistics classes should look for a more advanced course.</p>
-<p><strong>Instructor</strong>: <a href="https://kathrynschuler.com">Dr.&nbsp;Katie Schuler (she/her)</a></p>
-<p><strong>TAs</strong>: Brittany Zykoski and Wesley Lincoln</p>
-<p><strong>Lectures</strong>: Tuesdays and Thursdays from 12 - 1:29pm in COHN 402.</p>
-<p><strong>Labs</strong>: Hands-on practice and exam prep guided by TAs.</p>
-<ul>
-<li>402: Fri at 3:30p in WILL 201 with Brittany</li>
-<li>403: Thu at 1:45p in WILL 321 with Wesley</li>
-<li>404: Thu at 5:15p in TBD with Brittany</li>
-<li>405: Fri at 12:00p in WILL 316 with Wesley</li>
-</ul>
-<p><strong>Office Hours</strong>: You are welcome to attend any office hours that fit your schedule. The linguistics department is located on the 3rd floor of 3401-C Walnut street, between Franklin’s Table and Modern Eye.</p>
-<ul>
-<li>Katie Schuler: TBD in 314C</li>
-<li>Brittany Zykoski: TBD in TBD</li>
-<li>Wesley Lincoln: TBD in TBD</li>
-</ul>
-<p><strong>Grading</strong>:</p>
-<ul>
-<li>40% Homework (equally weighted, lowest dropped)</li>
-<li>60% exams (equally weighted, final is optional to replace lowest exam)</li>
-</ul>
-<p><strong>Collaboration</strong>: Collaboration on problem sets is highly encouraged! If you collaborate, you need to write your own code/solutions, name your collaborators, and cite any outside sources you consulted (you don’t need to cite the course material).</p>
-<p><strong>Accomodations</strong>: We will support any accommodations arranged through Disability Services via the <a href="https://weingartencenter.universitylife.upenn.edu/disability-services/">Weingarten Center</a>. Please make arrangements as soon as possible (1-2 weeks in advance).</p>
-<p><strong>Extra credit</strong>: There is no extra credit in the course. However, students can submit any missed problem set or exam by the end of the semester for half credit (50%). To ensure fair treatment, all students will receive a 1% “bonus” to their final course grade: 92.54% will become 93.54%.</p>
-<p><strong>Regrade requests</strong> Regrade requests should be submitted through Gradescope within one week of receiving your graded assignment. Please explain why you believe there was a grading mistake, given the posted solutions and rubric</p>
-</section>
-<section id="resources" class="level1">
-<h1>Resources</h1>
-<p>In addition to our course website, we will use the following:</p>
-<ul>
-<li><a href="https://colab.research.google.com/#create=true&amp;language=r">google colab (r kernel)</a> - for computing</li>
-<li><a href="https://canvas.upenn.edu/courses/1809306">canvas</a>- for posting grades</li>
-<li><a href="https://www.gradescope.com/courses/814032">gradescope</a> - for submitting problem sets</li>
-<li><a href="https://edstem.org/us/courses/61540/discussion/">ed discussion</a> - for announcements and questions</li>
-</ul>
-<p>Other helpful materials and resources:</p>
-<ul>
-<li><a href="https://www.markdowntutorial.com/">markdown tutorial</a></li>
-<li><a href="">tidyverse cheatsheets</a></li>
-</ul>
-<p>Please consider using these Penn resources this semester:</p>
-<ul>
-<li><a href="https://weingartencenter.universitylife.upenn.edu/academic-support/">Weingarten Center</a> for academic support and tutoring.</li>
-<li><a href="https://wellness.upenn.edu/">Wellness at Penn</a> for health and wellbeing.</li>
-</ul>
-</section>
-<section id="materials" class="level1">
-<h1>Materials</h1>
-<section id="study-guides" class="level2">
-<h2 class="anchored" data-anchor-id="study-guides">Study guides</h2>
-<p>Study guides include weekly study guides and additional resources from each week, including slides, demos, and further reading.</p>
-<ul>
-<li><a href="./notes/r-basics.html">Week 1: R Basics</a></li>
-<li><a href="./notes/data-visualization.html">Week 2: Data visualization</a></li>
-<li><a href="./notes/data-wrangling.html">Week 3: Data import, tidy, wrangle</a></li>
-<li>Week 4: Sampling distribution</li>
-<li>Week 5: Hypothesis testing</li>
-<li>Week 6: Exam 1 review</li>
-<li>Week 7: Model specification</li>
-<li>Week 8: Model fitting</li>
-<li>Week 9: Model accuracy</li>
-<li>Week 10: Model reliability</li>
-<li>Week 11: Classification</li>
-<li>Week 12: Inference</li>
-<li>Week 13: Exam 2 review</li>
-<li>WeeK 15: Multilevel Models</li>
-</ul>
-</section>
-<section id="problem-sets" class="level2">
-<h2 class="anchored" data-anchor-id="problem-sets">Problem sets</h2>
-<p>There are 6 problem sets, due to Gradescope by noon on the following Mondays. You may request an extension of up to 3 days for any reason. After solutions are posted, late problem sets can still be submitted for half credit (50%). If you submit all 6 problem sets, we will drop your lowest.</p>
-<ul>
-<li><a href="./psets/pset-01.html">Problem set 1 due Sep 9</a></li>
-<li>Problem set 2 due Sep 23</li>
-<li>Problem set 3 due Oct 14</li>
-<li>Problem set 4 due Oct 28</li>
-<li>Problem set 5 due Nov 11</li>
-<li>Problem set 6 due Dec 9</li>
-</ul>
-<!-- 
-    Hi [Professor's Name],
-
-    I’m having a [busy/difficult/etc.] week and was wondering if I could take an extra 3 days to complete the [name of the assignment]? I’d really appreciate it.
-
-    Thank you,
-    [Your Name] -->
-</section>
-<section id="exams" class="level2">
-<h2 class="anchored" data-anchor-id="exams">Exams</h2>
-<p>There are 2 midterm exams, taken in class on the following dates. Exams cannot be rescheduled, except in cases of genuine conflict or emergency (documentation and a <a href="https://srfs.upenn.edu/student-records/course-action-notices">Course Action Notice</a> are required). However, you can submit any missed exam by the end of the semester for half credit (50%). You may also replace your lowest midterm exam score with the optional final exam.</p>
-<ul>
-<li>Exam 1 in class Tuesday Oct 1</li>
-<li>Exam 2 in class Thursday Nov 21</li>
-<li>Final exam (optional) TBD</li>
-</ul>
-</section>
-<section id="lab-exercises" class="level2">
-<h2 class="anchored" data-anchor-id="lab-exercises">Lab exercises</h2>
-<p>Lab exercises are intended for practice and are not graded.</p>
-<ul>
-<li><a href="./labs/lab-01.html">Lab 1 on Aug 29 or 30</a></li>
-<li>Lab 2 on Sep 5 or 6</li>
-<li>Lab 3 on Sep 12 or 13</li>
-<li>Lab 4 on Sep 19 or 20</li>
-<li>Lab 5 on Oct 10 or 11</li>
-<li>Lab 6 on Oct 17 or 18</li>
-<li>Lab 7 on Oct 24 or 25</li>
-<li>Lab 8 on Nov 1 or 2</li>
-<li>Lab 9 on Nov 8 or 9</li>
-<li>Lab 10 on Dec 5 or 6</li>
-</ul>
-<!-- ## Practice exercises 
-
-Practice exercies are a self-guided practice tool that takes you through the study guide can use for more practice (before or after the lecture). 
-
-- [Practice 1: R Basics](practice/practice-01.qmd)
-- Practice 2: Data visualization
-- Practice 3: Data wrangling 
-- Practice 4: Sampling distribution 
-- Practice 5: Hypothesis testing 
-- Practice 6: Model specification 
-- Practice 8: Model fitting
-- Practice 9: Model accuracy 
-- Practice 10: Model reliability 
-- Practice 11: Classification 
-- Practice 12: Inference
-- Practice 15: Multilevel Models 
- -->
-</section>
-</section>
-<section id="schedule" class="level1">
-<h1>Schedule</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Begins</th>
-<th>Topic</th>
-<th>Practice</th>
-<th>Due on Monday</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Aug 26</td>
-<td><a href="./notes/r-basics.html">R Basics</a></td>
-<td><a href="./labs/lab-01.html">Lab 1</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Sep 2</td>
-<td><a href="./notes/data-visualization.html">Data visualization</a></td>
-<td>Lab 2</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>Sep 9</td>
-<td><a href="./notes/data-wrangling.html">Data import, tidy, wrangle</a></td>
-<td>Lab 3</td>
-<td><a href="./psets/pset-01.html">Problem set 1</a></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Sep 16</td>
-<td>Sampling distribution</td>
-<td>Lab 4</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>Sep 23</td>
-<td>Hypothesis testing</td>
-<td>Exam 1 review</td>
-<td>Problem set 2</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>Sep 30</td>
-<td>Exam 1 and <strong>Fall break</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>Oct 7</td>
-<td>Model specification</td>
-<td>Lab 5</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>Oct 14</td>
-<td>Model fitting</td>
-<td>Lab 6</td>
-<td>Problem set 3</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>Oct 21</td>
-<td>Model accuracy</td>
-<td>Lab 7</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>Oct 28</td>
-<td>Model reliability</td>
-<td>Lab 8</td>
-<td>Problem set 4</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>Nov 4</td>
-<td>Classification</td>
-<td>Lab 9</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td>Nov 11</td>
-<td>Inference</td>
-<td>Exam 2 review</td>
-<td>Problem set 5</td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td>Nov 18</td>
-<td>Exam 2</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td>Nov 25</td>
-<td><strong>Thanksgiving break (no class)</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>15</td>
-<td>Dec 2</td>
-<td>Multilevel models</td>
-<td>Lab 10</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>16</td>
-<td>Dec 9</td>
-<td>Last day of classes (no class)</td>
-<td></td>
-<td>Problem set 6</td>
-</tr>
-<tr class="odd">
-<td>17</td>
-<td>TBD</td>
-<td>Final exam (optional)</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<!-- ## Lectures
-
-Tuesdays and Thursdays from 12 - 1:29pm in TBD.
-
-- **Week 1 (Aug 27) -- R Basics**: [Notes]() / [Slides]() / [Demo]() 
-- Week 2 (Sep 3) -- Importing and tidying data: [Notes]() / [Slides]() / [Demo]() 
-- Week 3 (Sep 10) -- Data visualization: [Notes]() / [Slides]() / [Demo]() 
-- Week 4 (Sep 17)-- Sampling distribution: [Notes]() / [Slides]() / [Demo]() 
-- Week 5 (Sep 24) -- Hypothesis testing: [Notes]() / [Slides]() / [Demo]() 
-- Week 6 (Oct 1) -- Exam 1  
-- Week 7 (Oct 8) -- Model specification 
-- Week 8 (Oct 15) -- Model fitting
-- Week 9 (Oct 22) -- Model accuracy 
-- Week 10 (Oct 29) -- Model reliability 
-- Week 11 (Nov 5) -- Classification 
-- Week 12 (Nov 12) -- Exam 2
-- Week 13 (Nov 19) -- Inference 
-- Week 14 (Nov 26) -- Thanksgiving break (no class)
-- Week 15 (Dec 3) -- Multilevel models
-- Week 16 (Dec 10) -- Last day of class 
-- Week 17 (TBD) -- Final exam (optional) -->
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ratings, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> meanFamiliarity, <span class="at">color =</span> Class)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {.cell .caption-bottom layout-ncol=“2” layout-valign=“bottom”} ::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"> :::</p>
+<p>::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-20-2.png" class="img-fluid" width="672"> ::: :::</p></li>
+<li><p>Suppose we run the following code block, which plot will be returned?</p>
+<div id="radio_QMJUPVDWYR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QMJUPVDWYR" value=""> <span>E</span></label><label><input type="radio" autocomplete="off" name="radio_QMJUPVDWYR" value="answer"> <span>F</span></label><label><input type="radio" autocomplete="off" name="radio_QMJUPVDWYR" value=""> <span>G</span></label><label><input type="radio" autocomplete="off" name="radio_QMJUPVDWYR" value=""> <span>H</span></label>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ratings, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Class, <span class="at">fill =</span> Complex)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>::: {.cell .caption-bottom layout-ncol=“2” layout-valign=“bottom”} ::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"> :::</p>
+<p>::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-22-2.png" class="img-fluid" width="672"> :::</p>
+<p>::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-22-3.png" class="img-fluid" width="672"> :::</p>
+<p>::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-22-4.png" class="img-fluid" width="672"> ::: :::</p></li>
+<li><p>To generate the facets in the plot below, which of the following lines of code must be included?</p>
+<div id="radio_XCEZKNRVDE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XCEZKNRVDE" value=""> <span><code>facet_grid(Complex ~ Class)</code></span></label><label><input type="radio" autocomplete="off" name="radio_XCEZKNRVDE" value="answer"> <span><code>facet_grid(Class ~ Complex)</code></span></label><label><input type="radio" autocomplete="off" name="radio_XCEZKNRVDE" value=""> <span><code>facet_grid(.~ Complex)</code></span></label><label><input type="radio" autocomplete="off" name="radio_XCEZKNRVDE" value=""> <span><code>facet_wrap(Class~Complex, ncol = 2)</code></span></label>
+</div>
+<p>::: {.cell .caption-bottom layout-valign=“bottom”} ::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"> ::: :::</p></li>
+<li><p>To adjust the size of the font to 20pt in the complete theme <code>theme_minimal()</code>, what argument should we include?</p>
+<div id="radio_WZIBFVNFWY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WZIBFVNFWY" value="answer"> <span><code>base_size(20)</code></span></label><label><input type="radio" autocomplete="off" name="radio_WZIBFVNFWY" value=""> <span><code>size=20</code></span></label><label><input type="radio" autocomplete="off" name="radio_WZIBFVNFWY" value=""> <span><code>font_family_size=20</code></span></label><label><input type="radio" autocomplete="off" name="radio_WZIBFVNFWY" value=""> <span>None of the above</span></label>
+</div></li>
+<li><p>What would happen if we added the layer <code>scale_fill_manual(values = c("green", "orange"))</code> to the following plot?</p>
+<p>::: {.cell .caption-bottom layout-ncol=“2” layout-valign=“bottom”} ::: {.cell-output-display} <img src="lab-02_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"> ::: :::</p>
+<div id="radio_QITBSJVXEO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QITBSJVXEO" value=""> <span>error: no fill aesthetic specified</span></label><label><input type="radio" autocomplete="off" name="radio_QITBSJVXEO" value="answer"> <span>complex would turn green and simplex would turn orange</span></label><label><input type="radio" autocomplete="off" name="radio_QITBSJVXEO" value=""> <span>simplex would turn green and complex would turn orange</span></label><label><input type="radio" autocomplete="off" name="radio_QITBSJVXEO" value=""> <span>No change</span></label>
+</div></li>
+</ol>
 
 
 </section>

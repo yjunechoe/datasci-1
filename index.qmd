@@ -8,6 +8,13 @@ format:
     pdf: default
 ---
 
+::: {.callout-note title="Announcements"}
+
+- If we issued you a permit in Path @ Penn, please use it to re-register today! 
+- Join the waitlist here: [LING0700/PSYC2314 Waitlist](https://forms.gle/5bfzNXwWvj8eSdp46)
+
+:::
+
 Welcome to Data Science for Studying Language & the Mind! The Fall 2024 course information and materials are below. Course materials from previous semesters are archived [here](archive.qmd).
 
 {{< include _syllabus.qmd >}}

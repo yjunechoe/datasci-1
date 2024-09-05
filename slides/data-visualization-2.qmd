@@ -85,6 +85,12 @@ Google Colab already has `ggplot2` installed by default. There is no need to run
 library(ggplot2)
 ```
 
+## The grammar of graphics with ggplot2
+
+![](/assests/images/gglayers.png){fig-align="center" width=100%}
+
+
+
 ## Exercise 1 {.smaller}
 
 > The basic ggplot (review from last time!)

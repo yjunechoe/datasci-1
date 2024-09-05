@@ -1617,5 +1617,12 @@
     "title": "Data Visualization Day 2",
     "section": "Exercise 3",
     "text": "Exercise 3\n\nNeed a challenge? Use the datasaurus_dozen data from the datasauRus R package to create this!\n\n\n\n\n\nhttps://kathrynschuler.com/datasci"
+  },
+  {
+    "objectID": "slides/data-visualization-2.html#the-grammar-of-graphics-with-ggplot2",
+    "href": "slides/data-visualization-2.html#the-grammar-of-graphics-with-ggplot2",
+    "title": "Data Visualization Day 2",
+    "section": "The grammar of graphics with ggplot2",
+    "text": "The grammar of graphics with ggplot2"
   }
 ]

@@ -5,12 +5,14 @@ author: Katie Schuler
 
 ---
 
-Materials from lecture
-: - [Slides](/slides/data-visualization-1.qmd) and [Demo](https://colab.research.google.com/drive/1ysdt1PlLb4M8VT2eFbXT52H_sJaxXDpl?usp=sharing)
+# Materials from lecture
+
+- Tuesday: [Slides](/slides/data-visualization-1.qmd) and [Demo](https://colab.research.google.com/drive/1ysdt1PlLb4M8VT2eFbXT52H_sJaxXDpl?usp=sharing)
+- Thursday: [Slides](/slides/data-visualization-2.qmd)
 
 
 ::: {.callout-note title="Acknowledgement"}
-These notes are adapted from [Ch 2 Data visualization](https://r4ds.hadley.nz/data-visualize) and [Ch 10 Layers](https://r4ds.hadley.nz/layers) in R for Data Science
+These notes are adapted from [Data visualization](https://r4ds.hadley.nz/data-visualize) and [Layers](https://r4ds.hadley.nz/layers) chapters in R for Data Science
 :::
 
 
@@ -232,9 +234,9 @@ In Google Colab, you can find your saved plot by clicking the file icon on the l
 
 Recommended further reading: 
 
-- [Ch 2 Data visualization](https://r4ds.hadley.nz/data-visualize) in R for Data Science
+- [Data visualization](https://r4ds.hadley.nz/data-visualize) in R for Data Science
 - https://moderndive.com/2-viz.html
-- [Ch 10 Layers](https://r4ds.hadley.nz/layers) in R for Data Science
+- [Layers](https://r4ds.hadley.nz/layers) in R for Data Science
 
 Other useful resources:
 

@@ -206,19 +206,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#visualization-with-ggplot2" id="toc-visualization-with-ggplot2" class="nav-link active" data-scroll-target="#visualization-with-ggplot2"><span class="header-section-number">1</span> Visualization with ggplot2</a></li>
-  <li><a href="#aesthetics" id="toc-aesthetics" class="nav-link" data-scroll-target="#aesthetics"><span class="header-section-number">2</span> Aesthetics</a></li>
-  <li><a href="#geoms" id="toc-geoms" class="nav-link" data-scroll-target="#geoms"><span class="header-section-number">3</span> Geoms</a></li>
-  <li><a href="#other-layers" id="toc-other-layers" class="nav-link" data-scroll-target="#other-layers"><span class="header-section-number">4</span> Other layers</a>
+  <li><a href="#materials-from-lecture" id="toc-materials-from-lecture" class="nav-link active" data-scroll-target="#materials-from-lecture"><span class="header-section-number">1</span> Materials from lecture</a></li>
+  <li><a href="#visualization-with-ggplot2" id="toc-visualization-with-ggplot2" class="nav-link" data-scroll-target="#visualization-with-ggplot2"><span class="header-section-number">2</span> Visualization with ggplot2</a></li>
+  <li><a href="#aesthetics" id="toc-aesthetics" class="nav-link" data-scroll-target="#aesthetics"><span class="header-section-number">3</span> Aesthetics</a></li>
+  <li><a href="#geoms" id="toc-geoms" class="nav-link" data-scroll-target="#geoms"><span class="header-section-number">4</span> Geoms</a></li>
+  <li><a href="#other-layers" id="toc-other-layers" class="nav-link" data-scroll-target="#other-layers"><span class="header-section-number">5</span> Other layers</a>
   <ul class="collapse">
-  <li><a href="#facets" id="toc-facets" class="nav-link" data-scroll-target="#facets"><span class="header-section-number">4.1</span> Facets</a></li>
-  <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels"><span class="header-section-number">4.2</span> Labels</a></li>
-  <li><a href="#themes" id="toc-themes" class="nav-link" data-scroll-target="#themes"><span class="header-section-number">4.3</span> Themes</a></li>
-  <li><a href="#scales" id="toc-scales" class="nav-link" data-scroll-target="#scales"><span class="header-section-number">4.4</span> Scales</a></li>
+  <li><a href="#facets" id="toc-facets" class="nav-link" data-scroll-target="#facets"><span class="header-section-number">5.1</span> Facets</a></li>
+  <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels"><span class="header-section-number">5.2</span> Labels</a></li>
+  <li><a href="#themes" id="toc-themes" class="nav-link" data-scroll-target="#themes"><span class="header-section-number">5.3</span> Themes</a></li>
+  <li><a href="#scales" id="toc-scales" class="nav-link" data-scroll-target="#scales"><span class="header-section-number">5.4</span> Scales</a></li>
   </ul></li>
-  <li><a href="#shortcuts" id="toc-shortcuts" class="nav-link" data-scroll-target="#shortcuts"><span class="header-section-number">5</span> Shortcuts</a></li>
-  <li><a href="#saving-plots" id="toc-saving-plots" class="nav-link" data-scroll-target="#saving-plots"><span class="header-section-number">6</span> Saving plots</a></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">7</span> Further reading</a></li>
+  <li><a href="#shortcuts" id="toc-shortcuts" class="nav-link" data-scroll-target="#shortcuts"><span class="header-section-number">6</span> Shortcuts</a></li>
+  <li><a href="#saving-plots" id="toc-saving-plots" class="nav-link" data-scroll-target="#saving-plots"><span class="header-section-number">7</span> Saving plots</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">8</span> Further reading</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data-visualization.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -256,14 +257,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<dl>
-<dt>Materials from lecture</dt>
-<dd>
+<section id="materials-from-lecture" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Materials from lecture</h1>
 <ul>
-<li><a href="../slides/data-visualization-1.html">Slides</a> and <a href="https://colab.research.google.com/drive/1ysdt1PlLb4M8VT2eFbXT52H_sJaxXDpl?usp=sharing">Demo</a></li>
+<li>Tuesday: <a href="../slides/data-visualization-1.html">Slides</a> and <a href="https://colab.research.google.com/drive/1ysdt1PlLb4M8VT2eFbXT52H_sJaxXDpl?usp=sharing">Demo</a></li>
+<li>Thursday: <a href="../slides/data-visualization-2.html">Slides</a></li>
 </ul>
-</dd>
-</dl>
 <div class="callout callout-style-default callout-note callout-titled" title="Acknowledgement">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -274,11 +273,12 @@ Acknowledgement
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These notes are adapted from <a href="https://r4ds.hadley.nz/data-visualize">Ch 2 Data visualization</a> and <a href="https://r4ds.hadley.nz/layers">Ch 10 Layers</a> in R for Data Science</p>
+<p>These notes are adapted from <a href="https://r4ds.hadley.nz/data-visualize">Data visualization</a> and <a href="https://r4ds.hadley.nz/layers">Layers</a> chapters in R for Data Science</p>
 </div>
 </div>
-<section id="visualization-with-ggplot2" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Visualization with ggplot2</h1>
+</section>
+<section id="visualization-with-ggplot2" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Visualization with ggplot2</h1>
 <p>There are many ways to visualize data with R. One great option is <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>. Note that <code>ggplot2</code> is one of the core pacakges in the <code>tidyverse</code>, a family of packages for datascience with R. We’ll learn more about this package next week.</p>
 <ul>
 <li><code>ggplot2</code> makes use of a system for describing and creating graphics known as the layered <strong>grammar of graphics</strong></li>
@@ -302,8 +302,8 @@ Acknowledgement
 </blockquote>
 <p><em>We won’t cover everything you can do with <code>ggplot2</code> (that would be a lot!) In lecture we’ll demo the most common features, but you should feel comfortable using <a href="https://ggplot2.tidyverse.org/reference/">ggplot2’s function reference</a> to figure out how to do other things.</em></p>
 </section>
-<section id="aesthetics" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Aesthetics</h1>
+<section id="aesthetics" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Aesthetics</h1>
 <p>There are two ways we can determine the aesthetics of a plot:</p>
 <ul>
 <li><strong>mapping</strong> allows us to determine aesthetics based on a variable, which are passed as arguments. e.g.&nbsp;<code>mapping=aes(color=var)</code>.</li>
@@ -345,8 +345,8 @@ Figure&nbsp;1: from R4DS’s figure 10.1 showing the available shapes
 <li>The last one happens when mapping <strong>size</strong> or <strong>alpha</strong>, because it is strange to map an unordered categorical variable to an ordered aesthetic. Size and alpha imply there is some ranking but there is none!</li>
 </ul>
 </section>
-<section id="geoms" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Geoms</h1>
+<section id="geoms" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Geoms</h1>
 <p><strong>Geoms</strong> are the geometric objects used to represent the data in your plot. To change the geom, simply change the geom function</p>
 <ul>
 <li><code>geom_histogram()</code> - histogram, distribution of a continuous variable</li>
@@ -380,8 +380,8 @@ Figure&nbsp;1: from R4DS’s figure 10.1 showing the available shapes
 <li>For <code>geom_histogram()</code>, we set the number of bins with the <strong>bins</strong> argument or the width of the bins with the <strong>binwidth</strong> argument, e.g.&nbsp;<code>binwidth=30</code>.</li>
 </ul>
 </section>
-<section id="other-layers" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Other layers</h1>
+<section id="other-layers" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Other layers</h1>
 <p>There are many other layers that can be specified in ggplot2 to create more complex plots. I find <a href="#fig-gglayers" class="quarto-xref">Figure&nbsp;2</a> below helpful in understanding the layered nature of the <strong>grammar of graphics</strong>.</p>
 <div id="fig-gglayers" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -400,8 +400,8 @@ Figure&nbsp;2: Adapted from The Grammar of Graphics by Leland Wilkinson
 <li><strong>themes</strong> - overall visuals</li>
 <li><strong>scales</strong> - map data values to visual values of aestetic</li>
 </ul>
-<section id="facets" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="facets"><span class="header-section-number">4.1</span> Facets</h2>
+<section id="facets" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="facets"><span class="header-section-number">5.1</span> Facets</h2>
 <p>Facets are smaller plots that display different subsets of the data. They are often used as an alternative to aesthetics to plot additional categorical variables.</p>
 <ul>
 <li><code>facet_wrap(~var)</code> - splits a plot into subplots based on a categorical variable; each subplot displays a subset of the data. The <strong>ncol</strong> argument takes a number and specifies the number of columns.</li>
@@ -409,8 +409,8 @@ Figure&nbsp;2: Adapted from The Grammar of Graphics by Leland Wilkinson
 <li><code>scales</code> - by default facets share the same scale and range for x and y aesthetics. Set the <code>scales</code> argument to “free” to allow for different axis scales, e.g.&nbsp;<code>scales="free"</code></li>
 </ul>
 </section>
-<section id="labels" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="labels"><span class="header-section-number">4.2</span> Labels</h2>
+<section id="labels" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="labels"><span class="header-section-number">5.2</span> Labels</h2>
 <p>The <code>labs()</code> functions allows you to modify axis, legend, and plot labels. <code>labs()</code> takes several arguments.</p>
 <p>Some are a straightforward name, like:</p>
 <ul>
@@ -426,8 +426,8 @@ Figure&nbsp;2: Adapted from The Grammar of Graphics by Leland Wilkinson
 <li><strong>size</strong> - the legend for the size aesthetic</li>
 </ul>
 </section>
-<section id="themes" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="themes"><span class="header-section-number">4.3</span> Themes</h2>
+<section id="themes" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="themes"><span class="header-section-number">5.3</span> Themes</h2>
 <p>ggplot2 comes with many <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">complete themes</a> which control how everything is displayed (except data!). A few favorites include:</p>
 <ul>
 <li><code>theme_gray()</code> - the default</li>
@@ -441,8 +441,8 @@ Figure&nbsp;2: Adapted from The Grammar of Graphics by Leland Wilkinson
 <li><strong>base_family</strong> - base font family to use</li>
 </ul>
 </section>
-<section id="scales" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="scales"><span class="header-section-number">4.4</span> Scales</h2>
+<section id="scales" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="scales"><span class="header-section-number">5.4</span> Scales</h2>
 <p><a href="https://ggplot2.tidyverse.org/reference/#scales">Scales</a> control the details of how data values are translated to visual properties. Adding a scale layer overrides the default scales that ggplot2 uses automatically. There are many kinds of scales, but we will mostly encounter them when changing colors of things:</p>
 <ul>
 <li><code>scale_color_brewer()</code> - changes the color, allows you to <a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">select color palettes</a> from the RColorBrewer package with <strong>palette</strong> argument, e.g.&nbsp;<code>palette="Greens"</code></li>
@@ -450,8 +450,8 @@ Figure&nbsp;2: Adapted from The Grammar of Graphics by Leland Wilkinson
 </ul>
 </section>
 </section>
-<section id="shortcuts" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Shortcuts</h1>
+<section id="shortcuts" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Shortcuts</h1>
 <p>When calling ggplot2 (or any function!) we can specify argument names explicitly or leave them off (implicit). Leaving off the names makes code more conscise, so you’ll typically see it that way.</p>
 <ul>
 <li><p><strong>explicit</strong> naming of arguments allow us to write them in any order (because we indicate them to ggplot2 by their name)</p>
@@ -475,8 +475,8 @@ Figure&nbsp;2: Adapted from The Grammar of Graphics by Leland Wilkinson
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
-<section id="saving-plots" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Saving plots</h1>
+<section id="saving-plots" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Saving plots</h1>
 <p>Often we want to save a plot (to add it to a presentation or paper). We can accomplish this with <code>ggsave()</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save your most recent plot with the name</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myfigurename.png"</span>)</span>
@@ -486,13 +486,13 @@ Figure&nbsp;2: Adapted from The Grammar of Graphics by Leland Wilkinson
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"mtcars.pdf"</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">"cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In Google Colab, you can find your saved plot by clicking the file icon on the left side bar.</p>
 </section>
-<section id="further-reading" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Further reading</h1>
+<section id="further-reading" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Further reading</h1>
 <p>Recommended further reading:</p>
 <ul>
-<li><a href="https://r4ds.hadley.nz/data-visualize">Ch 2 Data visualization</a> in R for Data Science</li>
+<li><a href="https://r4ds.hadley.nz/data-visualize">Data visualization</a> in R for Data Science</li>
 <li>https://moderndive.com/2-viz.html</li>
-<li><a href="https://r4ds.hadley.nz/layers">Ch 10 Layers</a> in R for Data Science</li>
+<li><a href="https://r4ds.hadley.nz/layers">Layers</a> in R for Data Science</li>
 </ul>
 <p>Other useful resources:</p>
 <ul>

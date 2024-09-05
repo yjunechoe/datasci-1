@@ -50,8 +50,8 @@ There are 2 midterm exams, taken in class on the following dates. Exams cannot b
 
 Lab exercises are intended for practice and are not graded.
 
-- [Lab 1 on Aug 29 or 30](/labs/lab-01.qmd)
-- [Lab 2 on Sep 5 or 6](/labs/lab-02.qmd)
+- [Lab 1 on Aug 29 or 30](labs/lab-01.qmd)
+- [Lab 2 on Sep 5 or 6](labs/lab-02.qmd)
 - Lab 3 on Sep 12 or 13
 - Lab 4 on Sep 19 or 20
 - Lab 5 on Oct 10 or 11

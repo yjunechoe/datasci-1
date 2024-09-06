@@ -55,6 +55,12 @@ df
 
 Read the documentation for the [`emojifont`](https://cran.r-project.org/web/packages/emojifont/vignettes/emojifont.html) package.  Install and load the package. Use the package's `search_emoji()` function to find all of the emojis with hearts. Then use the `emoji()` function to return all of these emjois as a vector, as shown below. Finally, select your favorite emoji and visulize it with ggplot, using `theme_void()`. 
 
+::: {.callout-tip title="Hint"}
+emojifont has it's own ggplot geom called `geom_emoji()`! Read the [`emojifont` docs](https://cran.r-project.org/web/packages/emojifont/vignettes/emojifont.html) to learn more.
+:::
+
+An example of a vector of heart emojis (approximately the same is fine!):
+
 ```{r}
 #| echo: false
 
@@ -63,6 +69,15 @@ emoji(search_emoji('heart'))
 
 ```
 
+An example of a favorite emoji visualized with ggplot and theme_void:
+
+```{r}
+#| echo: false
+
+library(ggplot2)
+ggplot() + geom_emoji("poop") + theme_void()
+
+```
 
 ## Problem 5
 
@@ -100,6 +115,10 @@ theme(legend.position = "top")
 ## Problem 7
 
 Compute the mean of `Familiarity` and store it in a variable called `mean_familiarity`. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean written frequency. 
+
+::: {.callout-tip title="Hint"}
+`geom_hline()` adds a horizontal line and `annotate()` adds a text layer! Investigate these geoms and layers to figure out this problem!
+:::
 
 ```{r}
 #| echo: false

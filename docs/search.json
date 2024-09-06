@@ -599,7 +599,7 @@
     "href": "psets/pset-01.html#problem-4",
     "title": "Problem set 1",
     "section": "Problem 4",
-    "text": "Problem 4\nRead the documentation for the emojifont package. Install and load the package. Use the package’s search_emoji() function to find all of the emojis with hearts. Then use the emoji() function to return all of these emjois as a vector, as shown below. Finally, select your favorite emoji and visulize it with ggplot, using theme_void().\n\n\n [1] \"😍\"    \"😘\"    \"😻\"    \"💑\"    \"💑\"    \"👩‍❤️‍👩\" \"👨‍❤️‍👨\" \"❤️\"     \"💛\"   \n[10] \"💚\"    \"💙\"    \"💜\"    \"🖤\"    \"💔\"    \"❣️\"     \"💕\"    \"💞\"    \"💓\"   \n[19] \"💗\"    \"💖\"    \"💝\"    \"💟\"    \"♥️\""
+    "text": "Problem 4\nRead the documentation for the emojifont package. Install and load the package. Use the package’s search_emoji() function to find all of the emojis with hearts. Then use the emoji() function to return all of these emjois as a vector, as shown below. Finally, select your favorite emoji and visulize it with ggplot, using theme_void().\n\n\n\n\n\n\nHint\n\n\n\nemojifont has it’s own ggplot geom called geom_emoji()! Read the emojifont docs to learn more.\n\n\nAn example of a vector of heart emojis (approximately the same is fine!):\n\n\n [1] \"😍\"    \"😘\"    \"😻\"    \"💑\"    \"💑\"    \"👩‍❤️‍👩\" \"👨‍❤️‍👨\" \"❤️\"     \"💛\"   \n[10] \"💚\"    \"💙\"    \"💜\"    \"🖤\"    \"💔\"    \"❣️\"     \"💕\"    \"💞\"    \"💓\"   \n[19] \"💗\"    \"💖\"    \"💝\"    \"💟\"    \"♥️\"    \n\n\nAn example of a favorite emoji visualized with ggplot and theme_void:"
   },
   {
     "objectID": "psets/pset-01.html#problem-5",
@@ -620,7 +620,7 @@
     "href": "psets/pset-01.html#problem-7",
     "title": "Problem set 1",
     "section": "Problem 7",
-    "text": "Problem 7\nCompute the mean of Familiarity and store it in a variable called mean_familiarity. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean written frequency."
+    "text": "Problem 7\nCompute the mean of Familiarity and store it in a variable called mean_familiarity. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean written frequency.\n\n\n\n\n\n\nHint\n\n\n\ngeom_hline() adds a horizontal line and annotate() adds a text layer! Investigate these geoms and layers to figure out this problem!"
   },
   {
     "objectID": "labs/lab-01.html",

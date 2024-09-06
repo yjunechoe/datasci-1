@@ -241,11 +241,35 @@ Upload your <code>.ipynb</code> notebook to gradescope by 11:59am on the due dat
 <section id="problem-4" class="level2">
 <h2 class="anchored" data-anchor-id="problem-4">Problem 4</h2>
 <p>Read the documentation for the <a href="https://cran.r-project.org/web/packages/emojifont/vignettes/emojifont.html"><code>emojifont</code></a> package. Install and load the package. Use the package’s <code>search_emoji()</code> function to find all of the emojis with hearts. Then use the <code>emoji()</code> function to return all of these emjois as a vector, as shown below. Finally, select your favorite emoji and visulize it with ggplot, using <code>theme_void()</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>emojifont has it’s own ggplot geom called <code>geom_emoji()</code>! Read the <a href="https://cran.r-project.org/web/packages/emojifont/vignettes/emojifont.html"><code>emojifont</code> docs</a> to learn more.</p>
+</div>
+</div>
+<p>An example of a vector of heart emojis (approximately the same is fine!):</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "😍"    "😘"    "😻"    "💑"    "💑"    "👩‍❤️‍👩" "👨‍❤️‍👨" "❤️"     "💛"   
 [10] "💚"    "💙"    "💜"    "🖤"    "💔"    "❣️"     "💕"    "💞"    "💓"   
 [19] "💗"    "💖"    "💝"    "💟"    "♥️"    </code></pre>
+</div>
+</div>
+<p>An example of a favorite emoji visualized with ggplot and theme_void:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pset-01_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -264,7 +288,7 @@ Upload your <code>.ipynb</code> notebook to gradescope by 11:59am on the due dat
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pset-01_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="pset-01_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -273,11 +297,24 @@ Upload your <code>.ipynb</code> notebook to gradescope by 11:59am on the due dat
 <section id="problem-7" class="level2">
 <h2 class="anchored" data-anchor-id="problem-7">Problem 7</h2>
 <p>Compute the mean of <code>Familiarity</code> and store it in a variable called <code>mean_familiarity</code>. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean written frequency.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>geom_hline()</code> adds a horizontal line and <code>annotate()</code> adds a text layer! Investigate these geoms and layers to figure out this problem!</p>
+</div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pset-01_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="pset-01_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

@@ -114,7 +114,7 @@ theme(legend.position = "top")
 
 ## Problem 7
 
-Compute the mean of `Familiarity` and store it in a variable called `mean_familiarity`. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean written frequency. 
+Compute the mean of `Familiarity` and store it in a variable called `mean_familiarity`. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean familiarity with text. 
 
 ::: {.callout-tip title="Hint"}
 `geom_hline()` adds a horizontal line and `annotate()` adds a text layer! Investigate these geoms and layers to figure out this problem!

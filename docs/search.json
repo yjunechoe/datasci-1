@@ -620,7 +620,7 @@
     "href": "psets/pset-01.html#problem-7",
     "title": "Problem set 1",
     "section": "Problem 7",
-    "text": "Problem 7\nCompute the mean of Familiarity and store it in a variable called mean_familiarity. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean written frequency.\n\n\n\n\n\n\nHint\n\n\n\ngeom_hline() adds a horizontal line and annotate() adds a text layer! Investigate these geoms and layers to figure out this problem!"
+    "text": "Problem 7\nCompute the mean of Familiarity and store it in a variable called mean_familiarity. Add a dashed horizontal line on top of the dots in your figure to indicate this value, as shown below. Also include an annotation layer above the dashed line to indicate the line is the mean familiarity with text.\n\n\n\n\n\n\nHint\n\n\n\ngeom_hline() adds a horizontal line and annotate() adds a text layer! Investigate these geoms and layers to figure out this problem!"
   },
   {
     "objectID": "labs/lab-01.html",

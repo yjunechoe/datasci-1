@@ -7,7 +7,7 @@ Study guides include weekly study guides and additional resources from each week
 - [Week 1: R Basics](notes/r-basics.qmd)
 - [Week 2: Data visualization](notes/data-visualization.qmd)
 - [Week 3: Data import, tidy, wrangle](notes/data-wrangling.qmd) 
-- Week 4: Sampling distribution 
+- [Week 4: Sampling distribution](notes/sampling-distribution.qmd) 
 - Week 5: Hypothesis testing 
 - Week 6: Exam 1 review
 - Week 7: Model specification 

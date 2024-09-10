@@ -4,7 +4,7 @@ author: "Katie Schuler"
 date: 2024-09-17
 ---
 
-::: {.callout-warning title= "Under construction"}
+::: {.callout-warning title="Under construction"}
 Notes may change before lecture, this is a sneak peak
 :::
 

@@ -9,7 +9,7 @@
 <meta name="author" content="Katie Schuler">
 <meta name="dcterms.date" content="2024-09-10">
 
-<title>Data import, tidy, wrangle – DataSci for Lang &amp; Mind</title>
+<title>Data wrangling – DataSci for Lang &amp; Mind</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -206,25 +206,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tidy-and-import" id="toc-tidy-and-import" class="nav-link active" data-scroll-target="#tidy-and-import"><span class="header-section-number">1</span> Tidy and import</a>
+  <li><a href="#materials-from-lecture" id="toc-materials-from-lecture" class="nav-link active" data-scroll-target="#materials-from-lecture">Materials from lecture</a></li>
+  <li><a href="#tidy" id="toc-tidy" class="nav-link" data-scroll-target="#tidy"><span class="header-section-number">1</span> Tidy</a>
   <ul class="collapse">
   <li><a href="#welcome-to-the-tidyverse" id="toc-welcome-to-the-tidyverse" class="nav-link" data-scroll-target="#welcome-to-the-tidyverse"><span class="header-section-number">1.1</span> Welcome to the tidyverse</a></li>
   <li><a href="#what-is-tidy-data" id="toc-what-is-tidy-data" class="nav-link" data-scroll-target="#what-is-tidy-data"><span class="header-section-number">1.2</span> What is tidy data?</a></li>
   <li><a href="#functional-programming-with-purrr" id="toc-functional-programming-with-purrr" class="nav-link" data-scroll-target="#functional-programming-with-purrr"><span class="header-section-number">1.3</span> Functional programming with purrr</a></li>
   <li><a href="#modern-data-frames-with-tibble" id="toc-modern-data-frames-with-tibble" class="nav-link" data-scroll-target="#modern-data-frames-with-tibble"><span class="header-section-number">1.4</span> Modern data frames with tibble</a></li>
-  <li><a href="#reading-data-with-readr" id="toc-reading-data-with-readr" class="nav-link" data-scroll-target="#reading-data-with-readr"><span class="header-section-number">1.5</span> Reading data with readr</a></li>
-  <li><a href="#writing-data" id="toc-writing-data" class="nav-link" data-scroll-target="#writing-data"><span class="header-section-number">1.6</span> Writing data</a></li>
   </ul></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">2</span> Data wrangling</a>
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import"><span class="header-section-number">2</span> Import</a>
   <ul class="collapse">
-  <li><a href="#why-wrangle" id="toc-why-wrangle" class="nav-link" data-scroll-target="#why-wrangle"><span class="header-section-number">2.1</span> Why wrangle?</a></li>
-  <li><a href="#data-wrangling-with-dplyr" id="toc-data-wrangling-with-dplyr" class="nav-link" data-scroll-target="#data-wrangling-with-dplyr"><span class="header-section-number">2.2</span> Data wrangling with dplyr</a></li>
-  <li><a href="#manipulating-rows" id="toc-manipulating-rows" class="nav-link" data-scroll-target="#manipulating-rows"><span class="header-section-number">2.3</span> Manipulating rows</a></li>
-  <li><a href="#manipulating-columns" id="toc-manipulating-columns" class="nav-link" data-scroll-target="#manipulating-columns"><span class="header-section-number">2.4</span> Manipulating columns</a></li>
-  <li><a href="#group-and-summarise" id="toc-group-and-summarise" class="nav-link" data-scroll-target="#group-and-summarise"><span class="header-section-number">2.5</span> Group and summarise</a></li>
-  <li><a href="#more-advanced" id="toc-more-advanced" class="nav-link" data-scroll-target="#more-advanced"><span class="header-section-number">2.6</span> More advanced</a></li>
+  <li><a href="#reading-data-with-readr" id="toc-reading-data-with-readr" class="nav-link" data-scroll-target="#reading-data-with-readr"><span class="header-section-number">2.1</span> Reading data with readr</a></li>
+  <li><a href="#writing-data" id="toc-writing-data" class="nav-link" data-scroll-target="#writing-data"><span class="header-section-number">2.2</span> Writing data</a></li>
   </ul></li>
-  <li><a href="#further-reading-and-references" id="toc-further-reading-and-references" class="nav-link" data-scroll-target="#further-reading-and-references"><span class="header-section-number">3</span> Further reading and references</a></li>
+  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation"><span class="header-section-number">3</span> Data transformation</a>
+  <ul class="collapse">
+  <li><a href="#data-transformation-with-dplyr" id="toc-data-transformation-with-dplyr" class="nav-link" data-scroll-target="#data-transformation-with-dplyr"><span class="header-section-number">3.1</span> Data transformation with dplyr</a></li>
+  <li><a href="#manipulating-rows" id="toc-manipulating-rows" class="nav-link" data-scroll-target="#manipulating-rows"><span class="header-section-number">3.2</span> Manipulating rows</a></li>
+  <li><a href="#manipulating-columns" id="toc-manipulating-columns" class="nav-link" data-scroll-target="#manipulating-columns"><span class="header-section-number">3.3</span> Manipulating columns</a></li>
+  <li><a href="#group-and-summarise" id="toc-group-and-summarise" class="nav-link" data-scroll-target="#group-and-summarise"><span class="header-section-number">3.4</span> Group and summarise</a></li>
+  <li><a href="#more-advanced" id="toc-more-advanced" class="nav-link" data-scroll-target="#more-advanced"><span class="header-section-number">3.5</span> More advanced</a></li>
+  </ul></li>
+  <li><a href="#further-reading-and-references" id="toc-further-reading-and-references" class="nav-link" data-scroll-target="#further-reading-and-references"><span class="header-section-number">4</span> Further reading and references</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="data-wrangling.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -233,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data import, tidy, wrangle</h1>
+<h1 class="title">Data wrangling</h1>
 </div>
 
 
@@ -262,19 +265,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled" title="Under construction">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Notes may change between now and the lecture</p>
-</div>
-</div>
 <div class="callout callout-style-default callout-note callout-titled" title="Acknowledgement">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -288,8 +278,15 @@ Acknowledgement
 <p>These notes are adapted from <a href="https://r4ds.hadley.nz/data-tidy">Ch 5 Data tidying</a>, <a href="https://r4ds.hadley.nz/data-import">Ch 7 Data import</a> and <a href="https://r4ds.hadley.nz/data-transform">Ch 4 Data transformation</a> in R for Data Science</p>
 </div>
 </div>
-<section id="tidy-and-import" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Tidy and import</h1>
+<section id="materials-from-lecture" class="level1 unnumbered">
+<h1 class="unnumbered">Materials from lecture</h1>
+<ul>
+<li>Tuesday: Data tidy and import <a href="../slides/data-importing.html">slides</a></li>
+<li>Thursday: Data transformation <a href="../slides/data-transformation.html">slides</a></li>
+</ul>
+</section>
+<section id="tidy" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Tidy</h1>
 <section id="welcome-to-the-tidyverse" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="welcome-to-the-tidyverse"><span class="header-section-number">1.1</span> Welcome to the tidyverse</h2>
 <blockquote class="blockquote">
@@ -387,13 +384,17 @@ Acknowledgement
 <li><code>is.data.frame(x)</code></li>
 </ul>
 </section>
-<section id="reading-data-with-readr" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="reading-data-with-readr"><span class="header-section-number">1.5</span> Reading data with readr</h2>
+</section>
+<section id="import" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Import</h1>
+<p>Often we want to read in some data we’ve generated or collected outside of R. The most basic and common format is plain-text <strong>rectangular</strong> files. We will “read” these into R with the <code>readr</code> package.</p>
+<section id="reading-data-with-readr" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="reading-data-with-readr"><span class="header-section-number">2.1</span> Reading data with readr</h2>
 <blockquote class="blockquote">
 <p>The goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (CSV) and tab-separated values (TSV). It is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results.</p>
 <p><a href="https://readr.tidyverse.org/">readr docs</a></p>
 </blockquote>
-<p>Often we want to read in some data we’ve generated or collected outside of R. The most basic and common format is plain-text <strong>rectangular</strong> files. We will “read” these into R with readr’s <code>read_*()</code> functions.</p>
+<p>We will use <code>readr</code>’s <code>read_*()</code> functions to read in our rectangular data files.</p>
 <p>The <code>read_*()</code> functions have two important arguments:</p>
 <ul>
 <li><code>file</code> - the path to the file (that reader will try to parse)</li>
@@ -461,22 +462,21 @@ Acknowledgement
 <li><strong>json data</strong> with <code>jsonlite</code> - see <a href="https://r4ds.hadley.nz/rectangling">Hierarchical data</a> in R for Data Science</li>
 </ul>
 </section>
-<section id="writing-data" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="writing-data"><span class="header-section-number">1.6</span> Writing data</h2>
-<p>We can also write to a csv file with:</p>
+<section id="writing-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="writing-data"><span class="header-section-number">2.2</span> Writing data</h2>
+<p>We can also write to a csv file with <code>readr</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(our_tibble, <span class="st">"name_of_file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We pass the name of our tibble and the name of the file as arguments. In Google Colab, files we write appear in the left side bar file menu.</p>
 </section>
 </section>
-<section id="data-wrangling" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Data wrangling</h1>
-<section id="why-wrangle" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="why-wrangle"><span class="header-section-number">2.1</span> Why wrangle?</h2>
+<section id="data-transformation" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Data transformation</h1>
+<p>Why do we need to transform data?</p>
 <blockquote class="blockquote">
 <p>Visualization is an important tool for generating insight, but it’s rare that you get the data in exactly the right form you need to make the graph you want. Often you’ll need to create some new variables or summaries to answer your questions with your data, or maybe you just want to rename the variables or reorder the observations to make the data a little easier to work with.</p>
 </blockquote>
-</section>
-<section id="data-wrangling-with-dplyr" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="data-wrangling-with-dplyr"><span class="header-section-number">2.2</span> Data wrangling with dplyr</h2>
+<section id="data-transformation-with-dplyr" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="data-transformation-with-dplyr"><span class="header-section-number">3.1</span> Data transformation with dplyr</h2>
 <p>All <code>dplyr</code> functions (verbs) share a common structure:</p>
 <ul>
 <li>1st argument is always a data frame</li>
@@ -497,8 +497,8 @@ Acknowledgement
 </ul>
 <p><em>In lecture, we will demonstrate with the 3 most common <code>dplyr</code> functions for manipulating rows, manipulating columns, and grouping. But you should feel comfortable reading the docs/resources to use others to solve unique problems.</em></p>
 </section>
-<section id="manipulating-rows" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="manipulating-rows"><span class="header-section-number">2.3</span> Manipulating rows</h2>
+<section id="manipulating-rows" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="manipulating-rows"><span class="header-section-number">3.2</span> Manipulating rows</h2>
 <p><strong><code>filter()</code></strong> filters rows, allowing you to keep only some rows based on the values of the columns.</p>
 <ul>
 <li>the first argument is a data frame (all dplyr verbs)</li>
@@ -518,8 +518,8 @@ Acknowledgement
 <li>note that if you provide column names, distinct will only return those columns unless you add the argument <code>.keep_all=TRUE</code></li>
 </ul>
 </section>
-<section id="manipulating-columns" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="manipulating-columns"><span class="header-section-number">2.4</span> Manipulating columns</h2>
+<section id="manipulating-columns" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="manipulating-columns"><span class="header-section-number">3.3</span> Manipulating columns</h2>
 <p><strong><code>mutate()</code></strong> adds new columns that are calculated from existing columns</p>
 <ul>
 <li>first argument is a data frame (all dplyr verbs)</li>
@@ -540,8 +540,8 @@ Acknowledgement
 <li>subsequent arguments are the columns we would like to rename, e.g.&nbsp;<code>new_colname=old_colname</code></li>
 </ul>
 </section>
-<section id="group-and-summarise" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="group-and-summarise"><span class="header-section-number">2.5</span> Group and summarise</h2>
+<section id="group-and-summarise" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="group-and-summarise"><span class="header-section-number">3.4</span> Group and summarise</h2>
 <p>In addition to manipulating rows and columns in your dataset, <code>dplyr</code> also allows you to work with groups</p>
 <p><strong><code>group_by()</code></strong> is used to divide your dataset into groups that are meaningful for your analysis.</p>
 <ul>
@@ -559,8 +559,8 @@ Acknowledgement
 </ul>
 <p><strong><code>ungroup()</code></strong> is used to remove the grouping attribute from a data frame</p>
 </section>
-<section id="more-advanced" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="more-advanced"><span class="header-section-number">2.6</span> More advanced</h2>
+<section id="more-advanced" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="more-advanced"><span class="header-section-number">3.5</span> More advanced</h2>
 <p>There are a few more advanced techniques for transforming and tidying data that we won’t cover now, but might be useful to you in your own research.</p>
 <ul>
 <li><strong>joins</strong> - sometimes you have more than one dataset that you want to join into one. <code>dplyr</code> also has functions for handling that. <a href="https://r4ds.hadley.nz/joins">Learn more about joins</a></li>
@@ -568,8 +568,8 @@ Acknowledgement
 </ul>
 </section>
 </section>
-<section id="further-reading-and-references" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Further reading and references</h1>
+<section id="further-reading-and-references" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Further reading and references</h1>
 <p>Recommended further reading:</p>
 <ul>
 <li><a href="https://r4ds.hadley.nz/data-tidy">Data tidying</a> in R for Data Science</li>

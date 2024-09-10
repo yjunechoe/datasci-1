@@ -1,20 +1,21 @@
 ---
-title: "Data import, tidy, wrangle"
+title: "Data wrangling"
 date: 2024-09-10
 author: 
     - Katie Schuler
 
 ---
 
-::: {.callout-warning title="Under construction"}
-Notes may change between now and the lecture 
-:::
-
 ::: {.callout-note title="Acknowledgement"}
 These notes are adapted from [Ch 5 Data tidying](https://r4ds.hadley.nz/data-tidy),  [Ch 7 Data import](https://r4ds.hadley.nz/data-import) and [Ch 4 Data transformation](https://r4ds.hadley.nz/data-transform) in R for Data Science
 :::
 
-# Tidy and import
+# Materials from lecture {.unnumbered}
+
+- Tuesday: Data tidy and import [slides](/slides/data-importing.qmd)
+- Thursday: Data transformation [slides](/slides/data-transformation.qmd)
+
+# Tidy
 
 ## Welcome to the tidyverse
 
@@ -118,6 +119,9 @@ To test if something is a `tibble` or a `data.frame`:
 - `is_tibble(x)`
 - `is.data.frame(x)`
 
+# Import 
+
+Often we want to read in some data we've generated or collected outside of R. The most basic and common format is plain-text **rectangular** files. We will "read" these into R with the `readr` package.
 
 ## Reading data with readr
 
@@ -125,7 +129,7 @@ To test if something is a `tibble` or a `data.frame`:
 > 
 > [readr docs](https://readr.tidyverse.org/)
 
-Often we want to read in some data we've generated or collected outside of R. The most basic and common format is plain-text **rectangular** files. We will "read" these into R with readr's `read_*()` functions.
+We will use `readr`'s `read_*()` functions to read in our rectangular data files. 
 
 The `read_*()` functions have two important arguments: 
 
@@ -200,20 +204,22 @@ Reading more complex file types requires functions outside the tidyverse:
 
 ## Writing data 
 
-We can also write to a csv file with:
+We can also write to a csv file with `readr`:
 
 ```r
 write_csv(our_tibble, "name_of_file.csv")
 ```
 
+We pass the name of our tibble and the name of the file as arguments. In Google Colab, files we write appear in the left side bar file menu. 
 
-# Data wrangling
 
-## Why wrangle? 
+# Data transformation
+
+Why do we need to transform data? 
 
 > Visualization is an important tool for generating insight, but it’s rare that you get the data in exactly the right form you need to make the graph you want. Often you’ll need to create some new variables or summaries to answer your questions with your data, or maybe you just want to rename the variables or reorder the observations to make the data a little easier to work with.
 
-## Data wrangling with dplyr
+## Data transformation with dplyr
 
 All `dplyr` functions (verbs) share a common structure:
 

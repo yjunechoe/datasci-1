@@ -488,9 +488,10 @@ students %>%
     )
 ```
 
-::: aside
+. . . 
+ d
 If we have a lot to rename and that gets annoying, see `janitor::clean_names()`.
-:::
+ 
 
 
 

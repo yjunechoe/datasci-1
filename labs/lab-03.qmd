@@ -5,6 +5,12 @@ date:   2024-09-12
 author: Katie Schuler
 ---
 
+::: {.callout-tip title="Tip"}
+On exams, you will have access to the following cheatsheets: 
+
+- [readr cheatsheet]
+- [dplyr cheatsheet]
+:::
 
 ```{r}
 #| echo: false

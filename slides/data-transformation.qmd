@@ -74,6 +74,15 @@ library(languageR)
 
 R for Data Science, Ch 4
 
+
+## Why transform 
+
+> Visualization is an important tool for generating insight, but it’s rare that you get the data in exactly the right form you need to make the graph you want. Often you’ll need to create some new variables or summaries to answer your questions with your data, or maybe you just want to rename the variables or reorder the observations to make the data a little easier to work with.
+
+--- 
+
+![Art by Allison Horst https://allisonhorst.com/](/assests/images/why-tidy-3.jpg)
+
 --- 
 
 ![Art by Allison Horst https://allisonhorst.com/](/assests/images/why-tidy.jpg)
@@ -82,13 +91,7 @@ R for Data Science, Ch 4
 
 ![Art by Allison Horst https://allisonhorst.com/](/assests/images/why-tidy-2.jpg)
 
---- 
 
-![Art by Allison Horst https://allisonhorst.com/](/assests/images/why-tidy-3.jpg)
-
-## Why transform 
-
-> Visualization is an important tool for generating insight, but it’s rare that you get the data in exactly the right form you need to make the graph you want. Often you’ll need to create some new variables or summaries to answer your questions with your data, or maybe you just want to rename the variables or reorder the observations to make the data a little easier to work with.
 
 
 # `dplyr` 

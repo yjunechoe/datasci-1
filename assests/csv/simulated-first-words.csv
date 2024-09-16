@@ -1,4 +1,4 @@
-ID,Gender,First_Word
+Baby ID,Gender,First Word
 Baby_1,F,more
 Baby_2,F,no
 Baby_3,F,no
@@ -37,7 +37,7 @@ Baby_35,M,hi
 Baby_36,M,mama
 Baby_37,M,baba
 Baby_38,M,mama
-Baby_39,F,uh-oh
+Baby_39,F,na
 Baby_40,M,ball
 Baby_41,M,cat
 Baby_42,M,ball
@@ -93,7 +93,7 @@ Baby_91,F,uh-oh
 Baby_92,M,no
 Baby_93,M,bye-bye
 Baby_94,F,more
-Baby_95,M,hi
+Baby_95,M,/NA/
 Baby_96,M,dada
 Baby_97,M,milk
 Baby_98,F,more

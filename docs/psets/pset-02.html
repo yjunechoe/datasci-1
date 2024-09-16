@@ -231,7 +231,7 @@ Upload your <code>.ipynb</code> notebook to gradescope by 11:59am (noon) on the 
 </section>
 <section id="problem-2" class="level2">
 <h2 class="anchored" data-anchor-id="problem-2">Problem 2</h2>
-<p>Using the <code>Age_First_Word</code> column you created, plot a histogram to visualize the distribution of ages at which babies spoke their first word. Choose an appropriate bin width to best represent the data. Make sure to adjust the plot’s readability using a built-in theme of your choice and include a suitable <code>base_size</code> font. Then, use <code>group_by()</code> and <code>summarize()</code> to calculate descriptive parametric statistics (mean, median, and standard deviation) for <code>Age_First_Word</code>, grouped by gender. Include <code>n()</code> in your call to summarize to count the number of babies per group.</p>
+<p>Using the <code>Age_First_Word</code> column you created, plot a histogram to visualize the distribution of ages at which babies spoke their first word. Choose an appropriate bin width to best represent the data. Make sure to adjust the plot’s readability using a built-in theme of your choice and include a suitable <code>base_size</code> font. Then, use <code>group_by()</code> and <code>summarize()</code> to calculate descriptive statistics (mean, median, and standard deviation) for <code>Age_First_Word</code>, grouped by gender. Include <code>n()</code> in your call to summarize to count the number of babies per group.</p>
 </section>
 <section id="problem-3" class="level2">
 <h2 class="anchored" data-anchor-id="problem-3">Problem 3</h2>
@@ -239,11 +239,11 @@ Upload your <code>.ipynb</code> notebook to gradescope by 11:59am (noon) on the 
 </section>
 <section id="problem-4" class="level2">
 <h2 class="anchored" data-anchor-id="problem-4">Problem 4</h2>
-<p>Suppose we are only interested in studying the “late talkers,” defined as babies who spoke their first word after 15 months. Using the <code>dplyr</code> package (also part of <code>tidyverse</code>), first use <code>select()</code> to keep only the columns <code>Baby_ID</code>, <code>Gender</code>, and <code>Age_First_Word</code>. Then, use <code>rename()</code> to change <code>Age_First_Word</code> to <code>First_Word_Age</code>. Finally, use <code>filter()</code> to show only the babies who spoke their first word after 15 months, focusing your analysis on late talkers.</p>
+<p>Suppose we are only interested in studying the “late talkers,” defined as babies who spoke their first word after 15 months. Using the <code>dplyr</code> package (also part of <code>tidyverse</code>), first use <code>select()</code> to keep only the columns <code>ID</code>, <code>Gender</code>, and <code>Age_First_Word</code>. Then, use <code>rename()</code> to change <code>Age_First_Word</code> to <code>First_Word_Age</code>. Finally, use <code>filter()</code> to show only the babies who spoke their first word after 15 months, focusing your analysis on late talkers.</p>
 </section>
 <section id="problem-5" class="level2">
 <h2 class="anchored" data-anchor-id="problem-5">Problem 5</h2>
-<p>Determine whether there is a difference in mean age of first word production in late talking babies by sex. Use <code>infer</code> to construct the null distribution and to compute the observed difference in medians. Visualize the null distribution and shade the p-value on the plot, including a line that identifies the observed difference in medians. Print the p-value your analysis obtained. Should you reject the null hypothesis? Why or why not?</p>
+<p>Determine whether there is a difference in mean age of first word production in late talking babies by gender. Use <code>infer</code> to construct the null distribution and to compute the observed difference in medians. Visualize the null distribution and shade the p-value on the plot, including a line that identifies the observed difference in medians. Print the p-value your analysis obtained. Should you reject the null hypothesis? Why or why not?</p>
 </section>
 <section id="problem-6" class="level2">
 <h2 class="anchored" data-anchor-id="problem-6">Problem 6</h2>

@@ -28,7 +28,7 @@ Using the provided dataset of 1,000 babies, import the CSV file using the `readr
 
 ## Problem 2
 
-Using the `Age_First_Word` column you created, plot a histogram to visualize the distribution of ages at which babies spoke their first word. Choose an appropriate bin width to best represent the data. Make sure to adjust the plot's readability using a built-in theme of your choice and include a suitable `base_size` font. Then, use `group_by()` and `summarize()` to calculate descriptive parametric statistics (mean, median, and standard deviation) for `Age_First_Word`, grouped by gender. Include `n()` in your call to summarize to count the number of babies per group. 
+Using the `Age_First_Word` column you created, plot a histogram to visualize the distribution of ages at which babies spoke their first word. Choose an appropriate bin width to best represent the data. Make sure to adjust the plot's readability using a built-in theme of your choice and include a suitable `base_size` font. Then, use `group_by()` and `summarize()` to calculate descriptive statistics (mean, median, and standard deviation) for `Age_First_Word`, grouped by gender. Include `n()` in your call to summarize to count the number of babies per group. 
 
 
 ## Problem 3
@@ -38,12 +38,12 @@ Using the `infer` package, construct a bootstrap sampling distribution for the `
 
 ## Problem 4
 
-Suppose we are only interested in studying the "late talkers," defined as babies who spoke their first word after 15 months. Using the `dplyr` package (also part of `tidyverse`), first use `select()` to keep only the columns `Baby_ID`, `Gender`, and `Age_First_Word`. Then, use `rename()` to change `Age_First_Word` to `First_Word_Age`. Finally, use `filter()` to show only the babies who spoke their first word after 15 months, focusing your analysis on late talkers.
+Suppose we are only interested in studying the "late talkers," defined as babies who spoke their first word after 15 months. Using the `dplyr` package (also part of `tidyverse`), first use `select()` to keep only the columns `ID`, `Gender`, and `Age_First_Word`. Then, use `rename()` to change `Age_First_Word` to `First_Word_Age`. Finally, use `filter()` to show only the babies who spoke their first word after 15 months, focusing your analysis on late talkers.
 
 
 ## Problem 5
 
-Determine whether there is a difference in mean age of first word production in late talking babies by sex. Use `infer` to construct the null distribution and to compute the observed difference in medians. Visualize the null distribution and shade the p-value on the plot, including a line that identifies the observed difference in medians. Print the p-value your analysis obtained. Should you reject the null hypothesis? Why or why not? 
+Determine whether there is a difference in mean age of first word production in late talking babies by gender. Use `infer` to construct the null distribution and to compute the observed difference in medians. Visualize the null distribution and shade the p-value on the plot, including a line that identifies the observed difference in medians. Print the p-value your analysis obtained. Should you reject the null hypothesis? Why or why not? 
 
 
 ## Problem 6 

@@ -12,6 +12,10 @@ Notes may change before lecture, this is a sneak peak
 These notes are inspired by a MATLAB course by Kendrick Kay
 :::
 
+## Materials from lecture {.unnumbered}
+
+- Tuesday: [slides](/slides/sampling-distribution.qmd)
+
 ## Exploring a simple dataset
 
 Suppose we measure a single quantity of interest (the simplest possible dataset!): the brain volume of human adults. How do we explore these data?

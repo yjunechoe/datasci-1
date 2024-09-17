@@ -5,7 +5,7 @@
 | 1 | Aug 26 | [R Basics](/notes/r-basics.qmd) |  [Lab 1](labs/lab-01.qmd) | |
 | 2 | Sep 2 | [Data visualization](notes/data-visualization.qmd) |  [Lab 2](labs/lab-02.qmd) |  |
 | 3 | Sep 9 | [Data import, tidy, wrangle](notes/data-wrangling.qmd) |  [Lab 3](labs/lab-03.qmd) | [Problem set 1](psets/pset-01.qmd) |
-| 4 | Sep 16 | Sampling distribution |  Lab 4 |  | 
+| 4 | Sep 16 | [Sampling distribution](notes/sampling-distribution.qmd) |  Lab 4 |  | 
 | 5 | Sep 23 | Hypothesis testing  | Exam 1 review | [Problem set 2](/psets/pset-02.qmd) |
 | 6 | Sep 30 | Exam 1 and **Fall break**| | |
 | 7 | Oct 7 | Model specification |  Lab 5 |  | 

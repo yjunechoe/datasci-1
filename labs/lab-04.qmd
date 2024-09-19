@@ -27,7 +27,7 @@ If you would like to practice with a set of data, you can import the following d
 "http://kathrynschuler.com/datasets/brain_volume.csv"
 ```
 
-## Exploring a simple dataset 
+## Descriptive statistics
 
 (a) Which of the following is the best choice to visualize the frequency distribution of a set of data? Choose one.
 

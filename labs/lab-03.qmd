@@ -5,13 +5,16 @@ date:   2024-09-12
 author: Katie Schuler
 ---
 
-
-
 ```{r}
 #| echo: false
 library(languageR)
 library(webexercises)
 ```
+
+# Materials from lab {.unnumbered}
+
+- [Brittany's slides](/assests/pdfs/lab-03-brittany.pdf)
+- [Wesley's slides](/assests/pdfs/lab-03-wesley.pdf)
 
 # Tidy
 

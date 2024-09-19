@@ -13,7 +13,8 @@ More than one answer may be correct!
 
 # Materials from lab {.unnumbered}
 
-- [Brittany's materials](https://docs.google.com/document/d/1vmIPs8Uy9goPWzQmGL14dwrbVVZE3jIPDJhBvw_KPps/edit) 
+- [Brittany's materials](/assests/pdfs/lab-02-brittany.pdf) 
+- [Wesley's materials](/assests/pdfs/lab-02-wesley.pdf)
 
 # Setup
 

@@ -206,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exploring-a-simple-dataset" id="toc-exploring-a-simple-dataset" class="nav-link active" data-scroll-target="#exploring-a-simple-dataset"><span class="header-section-number">1</span> Exploring a simple dataset</a></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link active" data-scroll-target="#descriptive-statistics"><span class="header-section-number">1</span> Descriptive statistics</a></li>
   <li><a href="#probability-distributions" id="toc-probability-distributions" class="nav-link" data-scroll-target="#probability-distributions"><span class="header-section-number">2</span> Probability distributions</a></li>
   <li><a href="#sampling-variability" id="toc-sampling-variability" class="nav-link" data-scroll-target="#sampling-variability"><span class="header-section-number">3</span> Sampling variability</a></li>
   <li><a href="#bootstrapping" id="toc-bootstrapping" class="nav-link" data-scroll-target="#bootstrapping"><span class="header-section-number">4</span> Bootstrapping</a></li>
@@ -265,31 +265,31 @@ Tip
 <p>If you would like to practice with a set of data, you can import the following dataset with <code>read_csv</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># brain volumes simulated from Ritchie et al</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">"http://kathrynschuler.com/datasets/brain_volume.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="exploring-a-simple-dataset" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="exploring-a-simple-dataset"><span class="header-section-number">1</span> Exploring a simple dataset</h2>
+<section id="descriptive-statistics" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">1</span> Descriptive statistics</h2>
 <ol type="a">
 <li>Which of the following is the best choice to visualize the frequency distribution of a set of data? Choose one.</li>
 </ol>
-<div id="radio_RCVDEGKDYL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RCVDEGKDYL" value=""> <span><code>geom_rug()</code></span></label><label><input type="radio" autocomplete="off" name="radio_RCVDEGKDYL" value="answer"> <span><code>geom_histogram()</code></span></label><label><input type="radio" autocomplete="off" name="radio_RCVDEGKDYL" value=""> <span><code>geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_RCVDEGKDYL" value=""> <span><code>geom_smooth()</code></span></label>
+<div id="radio_ZBWUNLCLAS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZBWUNLCLAS" value=""> <span><code>geom_rug()</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZBWUNLCLAS" value="answer"> <span><code>geom_histogram()</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZBWUNLCLAS" value=""> <span><code>geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZBWUNLCLAS" value=""> <span><code>geom_smooth()</code></span></label>
 </div>
 <ol start="2" type="a">
 <li>Which of the following would summarize the central tendency of a set of data? Choose all that apply.</li>
 </ol>
-<div id="radio_UAWXFYUKQY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UAWXFYUKQY" value="answer"> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_UAWXFYUKQY" value="answer"> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_UAWXFYUKQY" value=""> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_UAWXFYUKQY" value=""> <span>inter quartile range (IQR)</span></label>
+<div id="radio_QVVBIJDGQZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QVVBIJDGQZ" value="answer"> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_QVVBIJDGQZ" value="answer"> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_QVVBIJDGQZ" value=""> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_QVVBIJDGQZ" value=""> <span>inter quartile range (IQR)</span></label>
 </div>
 <ol start="3" type="a">
 <li>Which of the following would summarize the spread of a set of data? Choose all that apply</li>
 </ol>
-<div id="radio_YXMKCYDLND" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YXMKCYDLND" value=""> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_YXMKCYDLND" value=""> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_YXMKCYDLND" value="answer"> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_YXMKCYDLND" value="answer"> <span>inter quartile range (IQR)</span></label>
+<div id="radio_BDGEJKACVB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BDGEJKACVB" value=""> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_BDGEJKACVB" value=""> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_BDGEJKACVB" value="answer"> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_BDGEJKACVB" value="answer"> <span>inter quartile range (IQR)</span></label>
 </div>
 <ol start="4" type="a">
 <li>Which of the following are paramteric statistics?</li>
 </ol>
-<div id="radio_NITDSTXXVT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NITDSTXXVT" value="answer"> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_NITDSTXXVT" value=""> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_NITDSTXXVT" value="answer"> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_NITDSTXXVT" value=""> <span>inter quartile range (IQR)</span></label>
+<div id="radio_WBTMVSCMVV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WBTMVSCMVV" value="answer"> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_WBTMVSCMVV" value=""> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_WBTMVSCMVV" value="answer"> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_WBTMVSCMVV" value=""> <span>inter quartile range (IQR)</span></label>
 </div>
 <ol start="5" type="a">
 <li>Given the following figure, which summary statistics would best describe these data?</li>
@@ -303,16 +303,16 @@ Tip
 </div>
 </div>
 </div>
-<div id="radio_YJTSXKVXAK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YJTSXKVXAK" value=""> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_YJTSXKVXAK" value="answer"> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_YJTSXKVXAK" value=""> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_YJTSXKVXAK" value="answer"> <span>inter quartile range (IQR)</span></label>
+<div id="radio_TTHGOMZUQF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TTHGOMZUQF" value=""> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_TTHGOMZUQF" value="answer"> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_TTHGOMZUQF" value=""> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_TTHGOMZUQF" value="answer"> <span>inter quartile range (IQR)</span></label>
 </div>
 <ol start="6" type="a">
 <li><p>Given the following code, which of the following would fill in the blank to return the value below which 20% of the data fall.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(y, ________)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_NIVKZODQCW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NIVKZODQCW" value=""> <span>20</span></label><label><input type="radio" autocomplete="off" name="radio_NIVKZODQCW" value=""> <span>-20</span></label><label><input type="radio" autocomplete="off" name="radio_NIVKZODQCW" value=""> <span>below</span></label><label><input type="radio" autocomplete="off" name="radio_NIVKZODQCW" value="answer"> <span>0.2</span></label>
+<div id="radio_OQSXQZBVNB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OQSXQZBVNB" value=""> <span>20</span></label><label><input type="radio" autocomplete="off" name="radio_OQSXQZBVNB" value=""> <span>-20</span></label><label><input type="radio" autocomplete="off" name="radio_OQSXQZBVNB" value=""> <span>below</span></label><label><input type="radio" autocomplete="off" name="radio_OQSXQZBVNB" value="answer"> <span>0.2</span></label>
 </div></li>
 </ol>
 </section>
@@ -342,15 +342,15 @@ Tip
 <pre><code># A tibble: 1 × 5
       n  mean    sd lower upper
   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1   500  7.40  1.41  5.01  9.98</code></pre>
+1   500  7.44  1.45  5.01  10.0</code></pre>
 </div>
 </div>
 <p><input class="webex-solveme nospaces ignorecase" size="1" data-answer="[&quot;0&quot;]"></p>
 <ol start="3" type="a">
 <li>Suppose your data is normally distributed and has a mean of 25 and a standard deviation of 5. What is the probability a random value drawn from your dataset will be less than 20? Select the closest value.</li>
 </ol>
-<div id="radio_GRBUEEYZBM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GRBUEEYZBM" value=""> <span>0.0483</span></label><label><input type="radio" autocomplete="off" name="radio_GRBUEEYZBM" value="answer"> <span>0.1589</span></label><label><input type="radio" autocomplete="off" name="radio_GRBUEEYZBM" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_GRBUEEYZBM" value=""> <span>0</span></label>
+<div id="radio_TSVNPRNMBH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TSVNPRNMBH" value=""> <span>0.0483</span></label><label><input type="radio" autocomplete="off" name="radio_TSVNPRNMBH" value="answer"> <span>0.1589</span></label><label><input type="radio" autocomplete="off" name="radio_TSVNPRNMBH" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_TSVNPRNMBH" value=""> <span>0</span></label>
 </div>
 </section>
 <section id="sampling-variability" class="level2" data-number="3">
@@ -358,8 +358,8 @@ Tip
 <ol type="a">
 <li>True or false, the <code>parameter</code> is the mean of the population and the <code>parameter estimate</code> is the mean of your sample?</li>
 </ol>
-<div id="radio_XVWOVUBBPL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XVWOVUBBPL" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_XVWOVUBBPL" value=""> <span>FALSE</span></label>
+<div id="radio_QGNIHKNCDF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QGNIHKNCDF" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_QGNIHKNCDF" value=""> <span>FALSE</span></label>
 </div>
 <ol start="2" type="a">
 <li>What do we call the probability distribution of the values our parameter estimate can take on?</li>
@@ -368,8 +368,8 @@ Tip
 <ol start="3" type="a">
 <li>Suppose we want to quantify the spread of the sampling distribution. What method could we choose? Choose all that apply.</li>
 </ol>
-<div id="radio_UGTMKKPQBM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UGTMKKPQBM" value=""> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_UGTMKKPQBM" value=""> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_UGTMKKPQBM" value="answer"> <span>standard error</span></label><label><input type="radio" autocomplete="off" name="radio_UGTMKKPQBM" value="answer"> <span>confidence interval</span></label>
+<div id="radio_KHOVUHKFER" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KHOVUHKFER" value=""> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_KHOVUHKFER" value=""> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_KHOVUHKFER" value="answer"> <span>standard error</span></label><label><input type="radio" autocomplete="off" name="radio_KHOVUHKFER" value="answer"> <span>confidence interval</span></label>
 </div>
 <ol start="4" type="a">
 <li>For a typical experiment, how many samples from the population is practical for us to take? Enter a number.</li>
@@ -381,8 +381,8 @@ Tip
 <ol type="a">
 <li>True or false, when we generate the bootstrap sampling distribution, we sample our original sample <em>with replacement</em>.</li>
 </ol>
-<div id="radio_USPOPEYYBR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_USPOPEYYBR" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_USPOPEYYBR" value=""> <span>FALSE</span></label>
+<div id="radio_OYPTFGHXRL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OYPTFGHXRL" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_OYPTFGHXRL" value=""> <span>FALSE</span></label>
 </div>
 <ol start="2" type="a">
 <li>Suppose we want to generate the bootstrap sampling distribution for the mean of set of data, <code>data</code>, with one variable: <code>reaction_time</code>. Write code that uses the <code>infer</code> package to accomplish this, generating 1000 samples.</li>
@@ -401,8 +401,8 @@ Tip
 </ol>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> bootstrap_distribution <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_confidence_interval</span>(______, ________)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_MYKHPNVOZA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MYKHPNVOZA" value=""> <span><code>type="se", level = 68</code></span></label><label><input type="radio" autocomplete="off" name="radio_MYKHPNVOZA" value=""> <span><code>type="se", level = 0.68</code></span></label><label><input type="radio" autocomplete="off" name="radio_MYKHPNVOZA" value="answer"> <span><code>type="percentage", level = 0.68</code></span></label><label><input type="radio" autocomplete="off" name="radio_MYKHPNVOZA" value=""> <span><code>type="percentage", level = 68</code></span></label>
+<div id="radio_ZIFKGQJTFF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZIFKGQJTFF" value=""> <span><code>type="se", level = 68</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZIFKGQJTFF" value=""> <span><code>type="se", level = 0.68</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZIFKGQJTFF" value="answer"> <span><code>type="percentage", level = 0.68</code></span></label><label><input type="radio" autocomplete="off" name="radio_ZIFKGQJTFF" value=""> <span><code>type="percentage", level = 68</code></span></label>
 </div>
 <ol start="4" type="a">
 <li>Suppose we store our bootstrap sampling distribution in <code>bootstrap_distribution</code> and we want to visualize the confidence interval we just computed in c.&nbsp;Which of the following could we add to the code below? Choose all that apply.</li>
@@ -410,8 +410,8 @@ Tip
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bootstrap_distribution <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">visualize</span>() <span class="sc">+</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    _____________</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_MTDNKOYXJO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MTDNKOYXJO" value=""> <span><code>get_confidence_interval(endpoints = ci)</code></span></label><label><input type="radio" autocomplete="off" name="radio_MTDNKOYXJO" value="answer"> <span><code>shade_ci(endpoints = ci)</code></span></label><label><input type="radio" autocomplete="off" name="radio_MTDNKOYXJO" value="answer"> <span><code>shade_confidence_interval(endpoints = ci)</code></span></label><label><input type="radio" autocomplete="off" name="radio_MTDNKOYXJO" value=""> <span><code>get_ci(endpoints = ci)</code></span></label>
+<div id="radio_MJUCEOBCTE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MJUCEOBCTE" value=""> <span><code>get_confidence_interval(endpoints = ci)</code></span></label><label><input type="radio" autocomplete="off" name="radio_MJUCEOBCTE" value="answer"> <span><code>shade_ci(endpoints = ci)</code></span></label><label><input type="radio" autocomplete="off" name="radio_MJUCEOBCTE" value="answer"> <span><code>shade_confidence_interval(endpoints = ci)</code></span></label><label><input type="radio" autocomplete="off" name="radio_MJUCEOBCTE" value=""> <span><code>get_ci(endpoints = ci)</code></span></label>
 </div>
 
 

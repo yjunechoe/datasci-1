@@ -948,4 +948,4 @@ bootstrap_distribution %>%
 
 ## More next lecture 
 
-- Let's stop there, and work through some more demos in lecture! 
+- Let's stop there, and work through some more demos in our next lecture!

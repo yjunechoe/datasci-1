@@ -1,0 +1,301 @@
+---
+title: "Model fitting"
+author: 
+    - Katie Schuler
+date: 2023-10-05
+---
+
+::: {.callout-warning title="Under Construction"}
+:::
+
+```{r}
+#| echo: false
+#| message: false
+library(tidyverse)
+library(modelr)
+library(infer)
+library(knitr)
+theme_set(theme_classic(base_size = 20))
+
+# setup data 
+data <- tibble(
+    x = c(1, 2, 3, 4, 5),
+    y = c(1.2, 2.5, 2.3, 3.1, 4.4)
+)
+
+data2 <- tibble(
+    x = c(1, 2, 3, 4, 5),
+    y = c(2, 2.5, 3.3, 4.1, 6.4)
+
+
+)
+
+```
+
+## You are here
+
+## Model building 
+
+## Linear model review
+
+- how would we specify this model 
+- how would we write it in R 
+
+- estimate the free paramters 
+
+## Estimate free parameters
+
+```{r}
+
+# with base R 
+lm(y ~ 1 + x, data = data)
+
+
+# with infer workflow 
+data %>%
+    specify(y ~ 1 + x) %>%
+    fit()
+
+
+```
+
+
+
+## Model fitting basics
+
+
+Linear model 
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+data <- tibble(
+    x = c(1, 2, 3, 4, 5),
+    y = c(1.2, 2.5, 2.3, 3.1, 4.4)
+)
+
+data2 <- tibble(
+    x = c(1, 2, 3, 4, 5),
+    y = c(2, 2.5, 3.3, 4.1, 6.4)
+
+
+)
+
+print(data)
+
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred")
+
+
+```
+
+We can see which fits better with our eyes. 
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+#| layout-nrow: 3
+
+
+
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "A", title = "Fits well")
+
+
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(
+    data = data2, 
+    mapping = aes(x = x, y = y), 
+    method = "lm", formula = "y ~ x", se = FALSE) +
+    coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "B", title = "Fits poorly")
+
+```
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+#| layout-nrow: 3
+
+
+
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "A", title = "Low MSE")
+
+
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(
+    data = data2, 
+    mapping = aes(x = x, y = y), 
+    method = "lm", formula = "y ~ x", se = FALSE) +
+    coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "B", title = "High MSE")
+
+modelA <- lm(y ~ x, data = data)
+modelB <- lm(y ~ x, data = data2)
+
+mseA <- data %>% add_predictions(modelA) %>%
+    mutate(err = y - pred, sq_err = err^2)
+kable(mseA)
+
+mseB <- data %>% add_predictions(modelB) %>%
+    mutate(err = y - pred, sq_err = err^2)
+kable(mseB)
+
+
+
+```
+
+
+```{r}
+mean(mseA$sq_err)
+mean(mseB$sq_err)
+```
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+ggplot(mseA, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+geom_segment(aes(xend = x, yend = pred)) +
+coord_cartesian(ylim = c(0, 7))  +
+labs(tag = "A", title = "Low MSE")
+
+
+
+ggplot(mseB, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(
+    data = data2, 
+    mapping = aes(x = x, y = y), 
+    method = "lm", formula = "y ~ x", se = FALSE) +
+    geom_segment(aes(xend = x, yend = pred)) +
+    coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "B", title = "High MSE")
+
+
+
+```
+
+
+
+
+
+
+```{r}
+
+lm(y ~ 1 + x, data = data)
+
+data %>%
+    specify(y ~ 1 + x) %>%
+    fit()
+
+
+
+
+```
+
+
+```{r}
+b0 <- seq(from = 0, to = 3, by = 0.1)
+b1 <- seq(from = 0, to = 3, by = 0.1)
+possible_weights <- expand.grid(b0 = b0, b1 = b1)
+
+ggplot(data = possible_weights, 
+    mapping = aes(x = b0, y = b1)) +
+    geom_point()
+
+
+# compute the sum of squares for those weights on a dataframe
+sum_squares <- function(b0, b1) {
+
+    data %>% 
+        mutate(pred = b0 + b1*x) %>%
+        mutate(err = pred-y) %>%
+        mutate(sq_err = err^2) %>%
+        select(sq_err) %>%
+        sum()
+   
+}
+error_surf <- possible_weights %>% 
+    rowwise() %>%
+    mutate(sum_sq =  sum_squares(b0, b1)) %>%
+    ungroup
+
+error_surf
+
+error_surf  %>% filter(sum_sq < 0.608)
+
+ggplot(error_surf, aes(b0, b1, z = sum_sq)) +
+    geom_contour_filled()
+
+    
+        
+        # %>%
+        # sum(.$sq_err)
+       # summarise(sum_sq = sum(sq_err)) %>%
+
+
+# return sum of squares as a column next to 
+
+# mse <- function(data, b0, b1) {
+#   model_value <- b0 + b1*data[1]
+#   resid <- data[2] - model_value
+#   sq_err <- resid^2
+#   sum(sq_err)
+# }
+
+# possible_weights %>% mutate(
+#     mse = mse(1, 1, b0, b1)
+# )
+
+```
+
+- in context of model building more broadly 
+- a genear overview of the concept 
+
+## Mean squared error 
+
+Cost function. 
+
+## Error surface
+
+- We can visualize the error surface for simple example: 2 parameters, $\beta_0$ and $\beta_1$, and the cost function (mean square error). 
+- Show nonlinear model v linear model figs 
+- goal is to find the minimum point
+- notice the nonlinear model can have local minimums but lm has only 1. Because lm is a **convex** function. 
+
+## Gradient descent 
+
+IF we want to estimate the free parameters in a way that would work broadly, for linear or nonlinear models, we can use **gradient descent**. 
+
+- machine learning / optimization. 
+- If we have a lot of data, we could use **stochastic gradient descent** which is the same except we... 
+
+## Ordinary least squares 
+
+As we saw above, linear models have the special property that they have a solution, the OLS. Rather than searching the error surface iteratively via gradient descent (optimization), we can solve for this point directly with **linear algebra**. 
+
+- matrix approach: we write the 3-step function. 
+- use lm() in R. 
+- infer approach: 
+    - specify(), fit() 
+
+
+
+### Further reading 
+
+- [Ch. 8 Fitting models to data](https://dtkaplan.github.io/SM2-bookdown/fitting-models-to-data.html) in Statistical Modeling
+
+
+

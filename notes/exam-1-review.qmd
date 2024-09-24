@@ -9,7 +9,7 @@ format:
     pdf: default
 ---
 
-### Additional study materials 
+**Additional study materials**
 
 - [Practice exam 1](/exams/exam-01-practice.qmd)
 - [Provided reference sheets](/assests/pdfs/R-and-tidyverse-referencesheet.pdf) (you will have this on the exam)

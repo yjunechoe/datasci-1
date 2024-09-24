@@ -1,28 +1,27 @@
 ---
-title:  "Exam 1 (Practice)"
+title:  "(Practice) Exam 1"
 subtitle: "Data Science for Studying Language & the Mind"
 # author: 
 #     name: Katie Schuler
 #     affiliation: University of Pennsylvania
 number-sections: false
 format: 
-  html: default
   pdf: default
 
 ---
 
-::: {.callout-tip}
-## Estimated time: 60 minutes
-
-You may need more time if programming is completely new to you, or less if you have some experience already.
-:::
-
 **Instructions**
 
-- This exam is closed book/note/computer/phone
-- If you need to use the restroom, leave your exam and phone with the TA
-- You have 90 minutes to complete the exam. If you finish early, you may turn in your exam and leave early
+The exam is worth **97 points**. You have **1 hours and 30 minutes** to complete the exam. 
 
+- The exam is closed book/note/computer/phone except for the provided reference sheets
+- If you need to use the restroom, leave your exam and phone with the TAs
+- If you finish early, you may turn in your exam and leave early
+
+<!-- For all multiple choice questions, **only one choice is correct**: 
+
+- [ ] Choose this option
+- [ ] Or this option, but not both! -->
 
 ```{r}
 #| echo: false
@@ -33,13 +32,39 @@ library(tidyverse)
 \newcommand\answerbox{%%
     \framebox(400,50){}}
 
-\begin{flushleft}
-\makebox[12cm]{\textbf{Name}:\ \hrulefill}
-\medskip
-\makebox[12cm]{\textbf{PennKey}:\ \hrulefill}
-\medskip
-\makebox[12cm]{\textbf{Lab section TA}:\ \hrulefill}
-\end{flushleft}
+\newcommand\shorteranswerbox{%%
+    \framebox(400,20){}}
+
+\newcommand\biggeranswerbox{%%
+    \framebox(400,100){}}
+
+
+
+**Preliminary questions**
+
+Please complete these questions *before* the exam begins. 
+
+(a) **(1 point)** What is your full name? 
+
+    \shorteranswerbox
+
+(b) **(1 point)** What is your penn ID number? 
+
+    \shorteranswerbox
+
+(c) **(1 point)** What is your lab section TA's name? 
+
+    \shorteranswerbox
+
+(d) **(1 point)** Who is sitting to your left? 
+
+    \shorteranswerbox
+
+(e) **(1 point)** Who is sitting to your right? 
+
+    \shorteranswerbox
+
+
 
 <!-- \begin{center}
 \textbf{Score by topic area}\\
@@ -58,11 +83,9 @@ Total & \\ \hline
 \clearpage
 
 
-## Part 1: Data science with R
+### 1. (8 points) R basics: general {.unnumbered}
 
-### 1 R basics: general {.unnumbered}
-
-(a) Suppose you run the following code. Which command could you run to remove the `y` variable from the current environment? 
+(a) **(2 points)** Suppose you run the following code. Which command could you run to remove the `y` variable from the current environment? Choose one.
 
     ```r
     x <- 1 + 2 
@@ -73,35 +96,35 @@ Total & \\ \hline
     - [ ] `rm(3 + 4)`
     - [ ] `rm(y)` 
     - [ ] `environment(remove = 'y')`
-    - All of the above
+    - [ ] All of the above
 
-(b) Write an expression that would assign the value `10` to the variable name `my_var`? 
+(b) **(2 points)** Write an expression that would assign the value `10` to the variable name `my_var`?
 
     \answerbox
 
-(c) Which of the following would install the `praise` package? Choose all that apply.
+(c) **(2 points)** Which of the following would install the `praise` package? Choose one.
     - [ ] `library(praise)`
     - [ ] `load(praise)`
     - [ ] `install.packages("praise")`
-    - [ ] `package::praise`
+    - [ ] `install(praise)`
     - [ ] All of the above
 
-(d) Suppose you run the following code. Which functions would return the structure of the object you defined? Choose one.
+(d) **(2 points)** Suppose you run the following code. Which functions would return the structure of the object you defined? Choose one.
 
     ```r
     x <- c("bus", "stop")
     ```
-    - [ ] `length(x)`
     - [ ] `print(x)`
     - [ ] `str(x)`
     - [ ] `attributes(x)` 
+    - [ ] Both `str(x)` and `attributes(x)`
     - [ ] None of the above
 
 \clearpage 
 
-### R basics: vectors, operations, subsetting {.unnumbered}
+### 2. (9 points) R basics: vectors, operations, subsetting {.unnumbered}
 
-(a) Suppose you run the following code. What will length(x) return? Write your answer in the box below.
+(a) **(2 points)** Suppose you run the following code. What will length(x) return? Write your answer in the box below.
 
     ```r
     x <- 1:5
@@ -110,7 +133,7 @@ Total & \\ \hline
 
 
 
-(b) Suppose you run the following code. What will `y > 4` return? Write your answer in the box below and **show your work**.
+(b) **(3 points)** Suppose you run the following code. What will `y > 4` return? Write your answer in the box below and *show your work*.
 
     ```r
     x <- seq(2, 8, by = 2)
@@ -118,7 +141,7 @@ Total & \\ \hline
     ```
     \answerbox
 
-(c) Suppose you run the following code. What will `typeof(x)` return? 
+(c) **(2 points)** Suppose you run the following code. What will `typeof(x)` return? Choose one.
 
     ```r
     x <- c("apple", "banana", "pear", "orange")
@@ -129,7 +152,7 @@ Total & \\ \hline
     - [ ] `logical`
     - [ ] Error: No type attribute for x
 
-(d) Suppose you create the following data frame and assign it to the `df` variable. What will `sum(df$antique)` return?
+(d) **(2 points)** Suppose you create the following data frame and assign it to the `df` variable. What will `sum(df$antique)` return? Choose one.
 
     ```{r}
     #| echo: false
@@ -145,15 +168,15 @@ Total & \\ \hline
 
     ```
 
-    - [ ] NULL
-    - [ ] Error: Cannot sum on value "antique"
     - [ ] 6
     - [ ] 9 
     - [ ] 15
+    - [ ] NULL
+    - [ ] Error: Cannot sum on value "antique"
 
-### Data importing {.unnumbered}
+### 3. (10 points) Data importing {.unnumbered}
 
-(a) Which `tidyverse` package do we use to import data? 
+(a) **(2 points)** Which `tidyverse` package do we use to import data? Choose one.
     - [ ] `dplyr`
     - [ ] `readr`
     - [ ] `importr`
@@ -161,7 +184,7 @@ Total & \\ \hline
     - [ ] `googlesheets2`
     - [ ] `purrr`
 
-(b) True or false, the following code blocks return the same tibble. 
+(b) **(2 points)** True or false, the following code blocks return the same tibble. 
 
     ```r
     tibble(
@@ -182,7 +205,7 @@ Total & \\ \hline
     - [ ] True
     - [ ] False
 
-(c) Suppose you import "junesales.csv", shown below, with the following code. What would `data$Sale` return? Choose one.
+(c) **(3 points)** Suppose you import "junesales.csv", shown below, with the following code. What would `data$Sale` return? Choose one.
 
     ```
     Year, Month, Day, Sale
@@ -202,7 +225,7 @@ Total & \\ \hline
     - [ ] A double vector with values `NA NA NA NA`
     - [ ] Error: Cannot coerce col to logical
 
-(d) Suppose you import a dataset with but when you `print(data)` you notice that the `age` column was identified as `character` when you were expecting `double`. Given the resulting tibble, which of the following arguments could you include in blank in the code below to solve this problem?
+(d) **(3 points)** Suppose you import a dataset with but when you `print(data)` you notice that the `age` column was identified as `character` when you were expecting `double`. Given the resulting tibble, which of the following arguments could you include in blank in the code below to solve this problem? Choose one.
 
 
     ```{r}
@@ -227,205 +250,33 @@ Total & \\ \hline
 
 \clearpage
 
-### Data visualization: basics {.unnumbered}
+### 4. (11 points) Data visualization: basics {.unnumbered}
 
-LEFT OFF HERE 
-
-Section 5 makes use of the `durationsGe` dataset and plots A, B, and C in the appendix.
-
-
-(a) Which of the plots above (A and B) did the code blocks below generate?
-
-    ```r
-    # code 1
-    ggplot(durationsGe, aes(x = DurationOfPrefix, fill = Sex)) +
-        geom_density(fill = "lightgray") +
-        theme_classic(base_size = 12) +
-        labs(y = "") +
-        scale_fill_manual(values = c("white", "gray", "black"))
-    # code 2
-    ggplot(durationsGe, aes(x = DurationOfPrefix)) +
-        geom_density(fill = "lightgray") +
-        theme_classic(base_size = 12) +
-        labs(y = "")
-    ```
-    - [ ] Code 1 generates plot A, code 2 generates plot B
-    - [ ] Code 2 generates plot A, code 1 generates plot B
-    - [ ] Code 1 and 2 both generate plot A
-    - [ ] Code 1 and 2 both generate plot B 
-    - [ ] Code 1 and 2 generate neither plot A nor plot B
-
-(b) Which geoms could be depicted in plots A and B? Choose all that apply. 
-
-    - [ ] `geom_histogram()`
-    - [ ] `geom_smooth()`
-    - [ ] `geom_line()`
-    - [ ] `geom_density()`
-    - [ ] `geom_bar()`
-
-\clearpage
-
-(c) True or false, the following code blocks generate the same figure. Write your answer in the following box and **explain why**.
-
-    ```r
-    # code block 1
-    ggplot(
-        data=durationsGe, 
-        mapping = aes(y = DurationOfPrefix, x = Sex)) + 
-            geom_bar(stat = "identity") 
-
-    # code block 2
-      ggplot(
-        aes(y = DurationOfPrefix, x = Sex),
-        durationsGe) + 
-            geom_bar(stat = "identity") 
-
-    ```
-
-    \answerbox
-
-
-(d) The code below makes use of a new geom, `geom_rug()`, to generate plot C, in which each individual data point is plotted along the x-axis like a "rug". In the box below, rewrite the code such the color of the rug is mapped to the `Sex` variable and the bars of the histogram are filled in with the color "lightblue". 
-
-    ```r
-    ggplot(durationsGe, aes(x = DurationOfPrefix)) +
-        geom_rug() + 
-        geom_histogram() +
-        theme_classic(base_size = 12) 
-
-    ```
-
-    \answerbox
-
-
-\clearpage
-
-### Data visualization: layers {.unnumbered}
-
-Section 5 makes use of the `durationsGe` dataset and plots D, E, and F in the appendix.
-
-
-
-(a) Which of the following would add a small amount of random noise around each point in plot D? Choose all that apply.
-
-    - [ ] add the argument `position = "jitter"` to `geom_point()`
-    - [ ] add the argument `position = "random"` to `geom_point()`
-    - [ ] add the argument `rand_noise = TRUE` to `geom_point()`
-    - [ ] replace `geom_point()` with `geom_jitter()`
-    - [ ] replace `geom_point()` with `geom_noise()` 
-
-
-(b) Which of the following could change plot D to plot E? Choose all that apply
-
-    - [ ] add `facet_wrap(~Sex)`
-    - [ ] add `facet_wrap(~Sex, ncol = 2)`
-    - [ ] add `facet_wrap(~Sex, ncol = 3)`
-    - [ ] add `facet_grid(Sex~.)`
-    - [ ] add `facet_grid(.~Sex)`
-    - [ ] add `facet(.by = c(Sex))`
-
-
-(c) Which of the following arguments to `geom_histogram()` could be present in the code that returned plot F? Choose all that apply.
-
-    - [ ] `bins=12`
-    - [ ] `bins=11`
-    - [ ] `binwidth=1`
-    - [ ] `binwidth=3`
-    - [ ] `stat="identity"`
-
-(d) Which of the following layers are required to produce plot F? Note that the plot uses the complete theme `theme_minimal()` and the font is 20pt Palatino. Choose all that apply.
-
-    - [ ] `theme_minimal(use=TRUE)`
-    - [ ] `theme_minimal(base_size = 20, base_family = "Palatino")`
-    - [ ] `labs(title = "Histogram of speech rate")`
-    - [ ] `font(size=20, family="Palatino")`
-    - [ ] `scale_fill_manual(values = c("gray"))`
-
-\clearpage
-
-### Data wrangling {.unnumbered}
-
-Section 6 makes use of the `durationsGe` dataset in the appendix.
-
-
-(a) The `Sex` variable in the `durationsGe` dataset has the following distinct values: `"male" "female" NA`. How many rows would be in the object returned by the following code block? Write your answer in the box below.
-
-    ```{r}
-    #| echo: false
-
-    library(languageR)
-    ```
-
-    ```r
-    durationsGe %>% 
-        filter(Sex %in% c("female")) %>%
-        summarise(minBirthYear=min(YearOfBirth, na.rm=TRUE), .by=c(Sex))
-    ```
-
-    \answerbox
-
-
-(b) True or false, the following code options are equivalent.
-
-    ```r
-    # option 1
-    durationsGe %>% 
-        select(Frequency) %>% 
-        filter(Frequency > 40) %>%
-        distinct()
-
-    # option 2
-    just_freq <- select(durationsGe, Frequency)
-    freq_under_40 <- filter(just_freq, Frequency > 40)
-    distinct(freq_under_40)
-    ```
-
-    - [ ] True
-    - [ ] False
-
-(c) Fill in the blank in the code below such that it returns a new column called "count", which counts of the number of rows in the `durationsGe` dataset per `Sex`
-
-    ```r
-    ratings %>% group_by(Sex) %>% summarise(_________)
-    ```
-
-    \answerbox
-
-(d) True or false, the following code options are equivalent. 
-
-    ```r
-    # option 1
-    durationsGe %>% 
-        select(Freq=Frequency, Speaker:DurationOfPrefix) %>% 
-        mutate(AgeInYears = 2023 - YearOfBirth, .before = Freq)
-
-    # option 2
-    durationsGe %>% 
-        select(Frequency:DurationOfPrefix) %>% 
-        rename(Freq = Frequency) %>%
-        mutate(AgeInYears = 2023 - YearOfBirth, .before = 1)
-
-    ```
-
-    - [ ] True
-    - [ ] False
-
-\clearpage
-
-
-### Appendix A: Data {.unnumbered}
-
-
-Sections 4-6 make use of `durationsGe` data in the `languageR` package. The dataset includes the duration of the prefix ge- in Dutch by various speakers from the Spoken Dutch Corpus. 
+Suppose you are analyzing the `durationsGe` dataset, which includes the duration of the prefix ge- in Dutch by various speakers from the Spoken Dutch Corpus, glimpsed here.
 
 ```{r}
+#| echo: false
+
 library(languageR)
 glimpse(durationsGe)
 ```
 
-\clearpage 
+Then, you use the following code to generate the plots below. 
 
-### Appendix B: Plots section 4 {.unnumbered}
+```r
+# Code 1
+ggplot(durationsGe, aes(x = DurationOfPrefix, fill = Sex)) +
+    geom_density(fill = "lightgray") +
+    theme_classic(base_size = 12) +
+    labs(y = "") +
+    scale_fill_manual(values = c("white", "gray", "black"))
+
+# Code 2
+ggplot(durationsGe, aes(x = DurationOfPrefix)) +
+    geom_density(fill = "lightgray") +
+    theme_classic(base_size = 12) +
+    labs(y = "")
+```
 
 ```{r}
 #| echo: false
@@ -447,23 +298,78 @@ ggplot(durationsGe, aes(x = DurationOfPrefix, fill = Sex)) +
 ```
 
 
+(a) **(3 points)** Which of plots A and B did Code 1 and 2 generate? Choose one.
 
-```{r}
-#| echo: false
-#| warning: false
-#| layout-ncol: 2
-#| layout-valign: bottom
-#| cap-location: bottom
-ggplot(durationsGe, aes(x = DurationOfPrefix)) +
-    geom_rug() + 
-    geom_histogram() +
-    theme_classic(base_size = 12) +
-    labs(tag = "C")
-```
+
+    - [ ] Code 1 generates plot A, code 2 generates plot B
+    - [ ] Code 2 generates plot A, code 1 generates plot B
+    - [ ] Code 1 and 2 both generate plot A
+    - [ ] Code 1 and 2 both generate plot B 
+    - [ ] Code 1 and 2 generate neither plot A nor plot B
+
+(b) **(2 points)** Which geoms could be depicted in plots A and B above? Choose all that apply. 
+
+    - [ ] `geom_histogram()`
+    - [ ] `geom_smooth()`
+    - [ ] `geom_line()`
+    - [ ] `geom_density()`
+    - [ ] `geom_bar()`
+
+
+(c) **(3 points)** Consider the following code blocks 3 and 4. Would they generate identical figures? Explain why or why not in the box below. 
+
+    ```r
+    # Code 3
+    ggplot(
+        data=durationsGe, 
+        mapping = aes(y = DurationOfPrefix, x = Sex)) + 
+            geom_bar(stat = "identity") 
+
+    # Code 4
+      ggplot(
+        aes(y = DurationOfPrefix, x = Sex), durationsGe) + 
+        geom_bar(stat = "identity") 
+
+    ```
+
+    \biggeranswerbox
+
 
 \clearpage
 
-### Appendix C: Plots section 5 {.unnumbered}
+(d) **(3 points)** The code below makes use of a new geom, `geom_rug()`, to generate plot C, in which each individual data point is plotted along the x-axis like a "rug". 
+
+    ```r
+    ggplot(durationsGe, aes(x = DurationOfPrefix)) +
+        geom_rug() + 
+        geom_histogram() +
+        theme_classic(base_size = 12) 
+
+    ```
+        
+    ```{r}
+    #| echo: false
+    #| warning: false
+    #| layout-ncol: 2
+    #| layout-valign: bottom
+    #| cap-location: bottom
+    ggplot(durationsGe, aes(x = DurationOfPrefix)) +
+        geom_rug() + 
+        geom_histogram() +
+        theme_classic(base_size = 12) +
+        labs(tag = "C")
+    ```
+
+    In the box below, rewrite the code such the color of the rug is mapped to the `Sex` variable and the bars of the histogram are filled in with the color "lightblue". 
+
+    \biggeranswerbox
+
+
+\clearpage
+
+### 5. (9 points) Data visualization: layers {.unnumbered}
+
+Suppose you now want to visualize the `SpeechRate` variable in the `durationsGe` dataset, which codes a speakers speech rate in number of sylalbuse per second.
 
 ```{r}
 #| echo: false
@@ -485,23 +391,142 @@ ggplot(durationsGe, aes(x = SpeechRate, y = DurationOfPrefix)) +
     theme_classic(base_size = 15) +
     labs(tag = "E")
 
-```
-
-```{r}
-#| echo: false
-#| warning: false
-#| layout-ncol: 2
-#| layout-valign: bottom
-#| cap-location: bottom
-#| 
 ggplot(data = durationsGe, mapping = aes(x = SpeechRate)) +
     geom_histogram(fill = "lightgray", bins = 12) +
-    theme_minimal(base_family = "Palatino", base_size = 20) +
+    theme_minimal(base_size = 15) +
     labs(title = "Histogram of speech rate", tag="F") 
     
 ```
 
-## Part 2
+(a) **(2 points)** True of false, adding the argument `position = "jitter"` to `geom_point()` would add a small amount of random noise around each point in plot D? 
+
+    - [ ] True
+    - [ ] False
+
+(b) **(2 points)** Which of the following would change plot D to plot E? Choose one.
+
+    - [ ] add layer `facet_wrap(~ Sex)`
+    - [ ] add layer `facet_grid(. ~ Sex)`
+    - [ ] add layer `facet_grid(Sex ~ .)`
+    - [ ] add layer `facet_grid(Word ~ Sex)`
+    - [ ] add layer `facet_by_sex()`
+
+\clearpage
+
+(c) **(2 points)** Which of the following arguments to `geom_histogram()` could be present in the code that returned plot F? Choose all that apply.
+
+    - [ ] `bins=12`
+    - [ ] `bins=1`
+    - [ ] `binwidth=1`
+    - [ ] `binwidth=12`
+
+(c) **(3 points)** Which of the following layers must be present in the code that returned plot F? Choose all that apply.
+
+    - [ ] `theme_minimal(base_size = 15)`
+    - [ ] `theme_minimal(font_size = 15)`
+    - [ ] `labs(title = "Histogram of speech rate")`
+    - [ ] `labs(caption = "Histogram of speech rate")`
+    - [ ] `facet_grid(.~ count)`
+
+
+\clearpage
+
+### 6. (15 points) Data wrangling {.unnumbered}
+
+Now that you've done some initial visualizations of the `durationsGe` data, you realize you need to do some data wrangling. Here's a glimpse at the data again to refresh your memory. 
+
+```{r}
+#| echo: false
+
+glimpse(durationsGe)
+```
+
+(a) **(3 points)** The `Sex` variable in the `durationsGe` dataset has the following distinct values: `"male" "female" NA`. How many rows would be in the object returned by the following code block? Choose one.
+
+    ```r
+    durationsGe %>% 
+        filter(Sex %in% c("female")) %>%
+        summarise(minBirthYear=min(YearOfBirth, na.rm=TRUE), .by=c(Sex))
+    ```
+
+    - [ ] 1
+    - [ ] 3
+    - [ ] 428
+    - [ ] However many female speakers there were in the dataset 
+    - [ ] However many birth years there were in the dataset 
+
+\clearpage
+
+(b) **(6 points)** Fill in the blanks in the partially completed code below such that it returns the following tibble, including the `mean` and `sd` of the `DurationOfPrefix` variable. 
+
+    ```r
+    durationsGe %>% group_by(__a__) %>% summarise(____b_____, _____c_______)
+    ```
+
+    ```{r}
+    #| echo: false
+
+    durationsGe %>% group_by(Sex) %>% summarise(
+        mean = mean(DurationOfPrefix), 
+        sd = sd(DurationOfPrefix))
+    ```
+
+    (i) **(2 points)** Fill in blank a. 
+
+    \hspace{2em}\answerbox
+
+    (ii) **(2 points)** Fill in blank b. 
+
+    \hspace{2em}\answerbox
+
+    (i) **(2 points)** Fill in blank c.  
+
+    \hspace{2em}\answerbox
+
+\clearpage
+
+
+(c) **(3 points)** Consider the following code options. Would they return identical tibbles? Explain why or why not in the box below.
+
+    ```r
+    # option 1
+    durationsGe %>% 
+        select(Frequency) %>% 
+        filter(Frequency > 40) %>%
+        distinct()
+
+    # option 2
+    just_freq <- select(durationsGe, Frequency)
+    freq_under_40 <- filter(just_freq, Frequency > 40)
+    distinct(freq_under_40)
+    ```
+
+    \biggeranswerbox
+
+(d) **(3 points)** Consider the following code options. Would they return identical tibbles? Explain why or why not in the box below.
+
+    ```r
+    # option 1
+    durationsGe %>% 
+        select(Freq=Frequency, Speaker:DurationOfPrefix) %>% 
+        mutate(AgeInYears = 2023 - YearOfBirth, .before = Freq)
+
+    # option 2
+    durationsGe %>% 
+        select(Frequency:DurationOfPrefix) %>% 
+        rename(Freq = Frequency) %>%
+        mutate(AgeInYears = 2023 - YearOfBirth, .before = 1)
+
+    ```
+
+    \biggeranswerbox
+
+\clearpage
+
+### 7. (10 points) Sampling distribution {.unnumbered}
+
+The following data was simulated from Johnson & Newport (1989), a study investigating the English language proficiency of 46 native Korean or Chinese speakers who arrived in the US between the ages of 3 and 39. The researchers were interested in whether the participants' age of arrival to the United States played a role in their English language proficiency. 
+
 
 ```{r}
 #| echo: false
@@ -539,6 +564,8 @@ mutate(langGroup = ifelse(ageGroup == "0", "native", "non-native"))
 
 ```
 
+
+
 <!-- \newcommand\answerbox{%%
     \framebox(400,50){}}
 
@@ -564,40 +591,32 @@ Total & \\ \hline
 
 \clearpage -->
 
-### The data {.unnumbered}
-
-This quiz refers to data simulated from Johnson & Newport (1989), who studied the English language proficiency of 46 native Korean or Chinese speakers who arrived in the US between the ages of 3 and 39. The researchers were interested in whether the participants' age of arrival to the United States played a role in their English language proficiency. 
-
-The simulated data are stored in the tibble `johnson_newport_1989`. Here is a `glimpse()` at the tibble for your reference: 
+Suppose we returned a tibble with the number of data points (`n`), the `median`, and the IQR (`lower` and `upper`) grouped by `ageGroup`. 
 
 ```{r}
-glimpse(johnson_newport_1989)
-```
+#| echo: false
+#| warning: false
 
-### Sampling distribution {.unnumbered}
-
-Johnson and Newport (1989) reported the mean and standard deviation of participants' scores on the English proficiency test, grouped by an `ageGroup` variable, which divides age into 5 groups. Below we computed the **median** and **IQR** as the descriptive statistics on our simulated data. Then, we used `infer` to generate the sampling distribution for the **17-39 year old age group**, visualize the distribution, and shade the confidence interval. 
-
-```{r}
 # A. compute descriptive statistics by group 
 johnson_newport_1989 %>% group_by(ageGroup) %>%
     summarise(n = n(), median = median(score), 
         lower = quantile(score, 0.25), upper = quantile(score, 0.75))
 ```
-
+ 
+Then, suppose we used `infer` to generate the sampling distribution for the median proficiancy of the **17-39 year old age group**, visualize the distribution, and shade the confidence interval. 
 
 ```{r}
+#| echo: false
+#| warning: false
+#| layout-ncol: 2
+
 # B. generate the sampling distribution 17-39 group
 samp_distribution <- johnson_newport_1989 %>%
     filter(ageGroup == "17-39") %>%
     specify(response = score) %>%
     generate(reps = 1000, type = "bootstrap") %>% 
     calculate(stat = "median") 
-```
 
-```{r}
-#| echo: false
-#| message: false
 
 # hide ci so we can ask about getting the ci a few ways
 ci <- samp_distribution %>%
@@ -606,17 +625,9 @@ ci <- samp_distribution %>%
 ci2 <- samp_distribution %>%
     get_confidence_interval(type = "se", point_estimate = 271)
 
-```
 
-```r
-# C. get confidence interval 
 ci <- samp_distribution %>%
     get_confidence_interval(type = "percentile", level = 0.68)
-
-```
-
-```{r}
-#| layout-ncol: 2
 
 # D. visualize sampling distribution and confidence interval 
 samp_distribution %>%
@@ -625,12 +636,16 @@ samp_distribution %>%
 ```
 
 
-(a) True or false, the descriptive statistics reported above are parametric.
+\clearpage
 
-    - [ ] True 
-    - [ ] False
+(a) **(2 points)** Which of the following best describes the statistics in the tibble?
 
-(b) The sampling distribution of the median looks approximately Gaussian. The probability densitiy function for the Gaussian distribution is given by which of the following equations? 
+    - [ ] Both median and IQR are parametric
+    - [ ] Both median and IQR are nonparametric 
+    - [ ] Meidan is parametric, but IQR is nonparametric 
+    - [ ] Median is nonparametric, but IQR is parametric
+
+(b) **(2 points)** The sampling distribution of the median looks approximately Gaussian. The probability densitiy function for the Gaussian distribution is given by which of the following equations? 
 
 
     - [ ] $\frac{\sum_{i=i}^{n} x_{i}}{n}$
@@ -638,24 +653,31 @@ samp_distribution %>%
     - [ ] $\frac{1}{max-min}$
     - [ ] $\sqrt{\frac{\sum_{i=1}^n (x_i - \overline{x})^2}{n-1}}$
 
-(c)  Fill in the blanks in the sentence below to describe what happens *on each repeat* in code B above, in which we constructed the sampling distribution.
+(c)  **(3 points)** Fill in the blanks in the sentence below to describe what happens *on each repeat* in which we construct the sampling distribution via bootstrapping.
 
 > Draw __________ data points _____________ replacement, compute the ____________. 
 
-(d) The shaded area of the figure shows a 68% confidence interval. If we were to increase the `level` of confidence to 95%, the confidence interval would become:
+(d) **(3 points)** The shaded area of the figure shows a 68% confidence interval. If we were to increase the `level` of confidence to 95%, the confidence interval would become:
 
     - [ ] Narrower
-    - [ ] Broader
-    - [ ] Stay the same
+    - [ ] Wider
+    - [ ] Unchanged
     - [ ] There's insufficient information to determine this
 
-### Hypothesis testing {.unnumbered}
+\clearpage
 
-Suppose we want to know whether the participants who arrived as adults (17-39 age group) acheived native performance. We decide to address this question via the 3-step hypothesis testing framework in which we investigate the difference in **medians** between the native English speakers (0 age group) and the 17-39 age group. 
+### 8. (11 points) Hypothesis testing {.unnumbered}
+
+Suppose we want to know whether the participants who arrived as adults (17-39 age group) acheived native performance. We decide to address this question via the 3-step hypothesis testing framework in which we investigate the difference in **medians** between the native English speakers (0 age group) and the adults (17-39 age group). 
+
+We begin by visualizing the data. 
 
 
 ```{r}
+#| echo: false
+#| warning: false
 #| layout-ncol: 2
+
 # A. visualize difference with a boxplot
 johnson_newport_1989 %>%
     filter(ageGroup %in% c("0", "17-39")) %>%
@@ -664,18 +686,19 @@ johnson_newport_1989 %>%
 
 ```
 
-\clearpage 
+Then, we use `infer` to generate the sampling distribution for the difference in **median proficiency** between the native English speakers (0 age group) and the adults (17-39 age group). 
 
 ```{r}
+#| echo: false
+#| warning: false
+#| layout-ncol: 2
+
 # B. compute observed difference in means
 diff_medians <- johnson_newport_1989 %>%
     filter(ageGroup %in% c("0", "17-39")) %>%
     specify(response = score, explanatory = ageGroup) %>%
     calculate(stat = "diff in medians", order = c("0", "17-39"))
 
-```
-
-```{r}
 # C. construct the null distribution with infer
 null_distribution <- johnson_newport_1989 %>%
     filter(ageGroup %in% c("0", "17-39")) %>%
@@ -683,10 +706,6 @@ null_distribution <- johnson_newport_1989 %>%
     hypothesize(null = "independence") %>%
     generate(reps = 1000, type = "permute") %>%
     calculate(stat = "diff in medians", order = c("0", "17-39")) 
-```
-
-```{r}
-#| layout-ncol: 2
 
 # D. visualize the null and shade p-value
 null_distribution %>%
@@ -695,32 +714,43 @@ null_distribution %>%
 ```
 
 
-(a) Step 1 is to pose the null hypothesis. True or false, the null hypothesis here is that the observed difference in medians is due age group (age of arrival in the US). 
+(a) **(2 points)** Which geom is best for our initial visualization of the data? Choose one. 
+
+    - [ ] `geom_histogram()`
+    - [ ] `geom_violin()`
+    - [ ] `geom_boxplot()`
+    - [ ] `geom_density()`
+    - [ ] `geom_bar(stat = "identity")`
+
+
+(b) **(2 points)** Step 1 of the 3-step hypothesis testing framework is to pose the null hypothesis. True or false, the null hypothesis here is that the observed difference in medians is due age group (age of arrival in the US). 
 
     - [ ] True
     - [ ] False
 
-\clearpage 
 
-(b) Step 2 is to ask, if the null hypothesis is true, how likely is our observed pattern of results? We quantify this likelihood with:
+(c) **(2 points)** Step 2 is to ask, if the null hypothesis is true, how likely is our observed pattern of results? We quantify this likelihood with:
 
-    - [ ] diff in medians
+    - [ ] difference in medians
     - [ ] correlation
     - [ ] liklihood estimation
     - [ ] p-value
 
-(c) Step 3 is to decide whether to reject the null hypothesis. Johnson and Newport concluded that the two groups were significantly different from each other, suggesting that participants who arrived to the US after age 17 did not acheive native proficiency. This implies that they:
+(c) **(2 points)** Step 3 is to decide whether to reject the null hypothesis. In the original paper, Johnson and Newport (1989) concluded that the two groups were significantly different from each other, suggesting that participants who arrived to the US after age 17 did not acheive native proficiency. This implies that they (choose one):
 
-    - [ ] Reject the null hypothesis
-    - [ ] Fail to reject the null hypothesis
-    - [ ] Prove the research hypothesis to be true
-    - [ ] Prove the null hypothesis to be true
+    - [ ] Rejected the null hypothesis
+    - [ ] Failed to reject the null hypothesis
+    - [ ] Proved the research hypothesis to be true
+    - [ ] Proved the null hypothesis to be true
+    - [ ] All of the above
 
-(d) When we calculate the p-value from the simulated null distribution using the `get_p_value()` function, we get **p = 0**. Is this a problem? Why or why not? Explain what a p-value of 0 means in this context.
+(d) **(3 points)** When we calculate the p-value from the simulated null distribution using the `get_p_value()` function, we get **p = 0**. Is this a problem? Why or why not? Explain what a p-value of 0 means in this context.
 
-    \answerbox
+    \biggeranswerbox
 
-### Correlation {.unnumbered}
+\clearpage 
+
+### 9. (9 points) Correlation {.unnumbered}
 
 Johnson and Newport (1989) also wanted to ask whether years of exposure to English predicted score on the English proficiency task. To address this, they computed the correlation between score and exposure.
 
@@ -740,65 +770,66 @@ geom_point(alpha = .8)
 ```
 
 
-\clearpage 
-
-(a) Given the scatterplot of these data, which of the following could be their observed correlation? 
+(a) **(2 points)** Given the scatterplot of these data, which of the following could be their observed correlation? 
 
     - [ ] $-0.88$
     - [ ] $0.88$
     - [ ] $0.16$
     - [ ] $0.5$
 
-(b) True or false, the correlations computed on these data were subject to sampling variability.
+(b) **(2 points)** True or false, the correlations computed on these data were subject to sampling variability.
 
     - [ ] True
     - [ ] False
 
-(c) Johnson and Newport used hypothesis testing to determine whether the correlation they observed was significantly different from zero. We computed a p-value of `0.624` on the correlation we observed in our simulated data. Which figure could represent this p-value visualized on a null distribution generated nonparametrically from 1000 repetitions?
+\clearpage
 
-```{r}
-#| echo: false
+(c) **(3 points)** Johnson and Newport used hypothesis testing to determine whether the correlation they observed was significantly different from zero. We computed a p-value of `0.624` on the correlation we observed in our simulated data. Which figure could represent this p-value visualized on a null distribution generated nonparametrically from 1000 repetitions?
 
-
-obs_corr <- dat %>%
-    specify(response = score, explanatory = exposure) %>%
-    calculate(stat = "correlation") 
-
-
-null_distribution <- dat %>%
-    specify(response = score, explanatory = exposure) %>%
-    hypothesize(null = "independence") %>%
-    generate(reps = 1000, type = "permute") %>%
-    calculate(stat = "correlation") 
-
-```
+    ```{r}
+    #| echo: false
+    #| warning: false
+    #| layout-ncol: 3
 
 
-```{r}
-#| echo: false 
-#| layout-ncol: 3
+    obs_corr <- dat %>%
+        specify(response = score, explanatory = exposure) %>%
+        calculate(stat = "correlation") 
 
 
-null_distribution %>%
-    visualize() +
-    shade_p_value(0.23, direction = "two-sided") +
-    labs(tag = "A")
+    null_distribution <- dat %>%
+        specify(response = score, explanatory = exposure) %>%
+        hypothesize(null = "independence") %>%
+        generate(reps = 1000, type = "permute") %>%
+        calculate(stat = "correlation") 
 
-null_distribution %>%
-    visualize() +
-    shade_p_value(0.624, direction = "two-sided") +
-    labs(tag = "B")
 
-null_distribution %>%
-    visualize() +
-    shade_p_value(obs_corr, direction = "two-sided") +
-    labs(tag = "C")
+    null_distribution %>%
+        visualize() +
+        shade_p_value(0.23, direction = "two-sided") +
+        labs(tag = "A")
+
+    null_distribution %>%
+        visualize() +
+        shade_p_value(0.624, direction = "two-sided") +
+        labs(tag = "B")
+
+    null_distribution %>%
+        visualize() +
+        shade_p_value(obs_corr, direction = "two-sided") +
+        labs(tag = "C")
 
 
 
-```
+    ```
 
-(d) What type of relationship does the correlation between years of exposure and score suggest?
+    - [ ] A
+    - [ ] B 
+    - [ ] C 
+    - [ ] A or B, there is not sufficient information to differentiate
+    - [ ] A or C, there is not sufficient information to differentiate
+
+(d) **(2 points)** What type of relationship does the correlation between years of exposure and score suggest?
 
     - [ ] Linear
     - [ ] Nonlinear

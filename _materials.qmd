@@ -9,7 +9,7 @@ Study guides include weekly study guides and additional resources from each week
 - [Week 3: Data import, tidy, wrangle](notes/data-wrangling.qmd) 
 - [Week 4: Sampling distribution](notes/sampling-distribution.qmd) 
 - [Week 5: Hypothesis testing](notes/hypothesis-testing.qmd) 
-- [Week 6: Exam 1 review](notes/midterm-1.qmd)
+- [Week 6: Exam 1 review](notes/exam-1-review.qmd), [practice exam](/exams/exam-01-practice.qmd)
 - Week 7: Model specification 
 - Week 8: Model fitting
 - Week 9: Model accuracy 

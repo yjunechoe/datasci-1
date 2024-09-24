@@ -12,8 +12,8 @@ format:
 **Additional study materials**
 
 - [Practice exam 1](/exams/exam-01-practice.qmd)
-- [Provided reference sheets](/assests/pdfs/R-and-tidyverse-referencesheet.pdf) (you will have this on the exam)
-- Practice exam 1 solutions
+- [Provided reference sheets](/assests/pdfs/R-and-tidyverse-referencesheet.pdf) (you will have a copy of this on the exam)
+- [Practice exam 1 solutions](/exams/exam-01-practice-solutions.pdf)
 
 The first exam will test the following learning objectives, divided into the following topic areas. For each topic area, you should be able to do the list that follows. You can think of this as a studying checklist!
 

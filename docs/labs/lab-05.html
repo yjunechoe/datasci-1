@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Katie Schuler">
-<meta name="dcterms.date" content="2024-09-19">
+<meta name="dcterms.date" content="2024-09-26">
 
-<title>Lab 4: Sampling distribution – DataSci for Lang &amp; Mind</title>
+<title>Lab 5: Hypothesis testing – DataSci for Lang &amp; Mind</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -206,10 +206,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link active" data-scroll-target="#descriptive-statistics"><span class="header-section-number">1</span> Descriptive statistics</a></li>
-  <li><a href="#probability-distributions" id="toc-probability-distributions" class="nav-link" data-scroll-target="#probability-distributions"><span class="header-section-number">2</span> Probability distributions</a></li>
-  <li><a href="#sampling-variability" id="toc-sampling-variability" class="nav-link" data-scroll-target="#sampling-variability"><span class="header-section-number">3</span> Sampling variability</a></li>
-  <li><a href="#bootstrapping" id="toc-bootstrapping" class="nav-link" data-scroll-target="#bootstrapping"><span class="header-section-number">4</span> Bootstrapping</a></li>
+  <li><a href="#visualize-a-categorical-variable" id="toc-visualize-a-categorical-variable" class="nav-link active" data-scroll-target="#visualize-a-categorical-variable"><span class="header-section-number">1</span> Visualize a categorical variable</a></li>
+  <li><a href="#hypothesis-testing-framework" id="toc-hypothesis-testing-framework" class="nav-link" data-scroll-target="#hypothesis-testing-framework"><span class="header-section-number">2</span> Hypothesis testing framework</a></li>
+  <li><a href="#there-is-only-one-test" id="toc-there-is-only-one-test" class="nav-link" data-scroll-target="#there-is-only-one-test"><span class="header-section-number">3</span> There is only one test</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="header-section-number">4</span> Correlation</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-05.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -218,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 4: Sampling distribution</h1>
+<h1 class="title">Lab 5: Hypothesis testing</h1>
 <p class="subtitle lead">Not graded, just practice</p>
 </div>
 
@@ -236,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 19, 2024</p>
+      <p class="date">September 26, 2024</p>
     </div>
   </div>
   
@@ -262,157 +262,99 @@ Tip
 <p>More than one answer may be correct!</p>
 </div>
 </div>
-<p>If you would like to practice with a set of data, you can import the following dataset with <code>read_csv</code>:</p>
+<p>If you would like to practice with a set of data, you can import the following dataset with <code>read_csv</code>. Note that females are coded as NA in this dataset!</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># brain volumes simulated from Ritchie et al</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">"http://kathrynschuler.com/datasets/brain_volume.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="descriptive-statistics" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">1</span> Descriptive statistics</h2>
+<section id="visualize-a-categorical-variable" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="visualize-a-categorical-variable"><span class="header-section-number">1</span> Visualize a categorical variable</h2>
 <ol type="a">
-<li>Which of the following is the best choice to visualize the frequency distribution of a set of data? Choose one.</li>
-</ol>
-<div id="radio_YFFEDRORGW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YFFEDRORGW" value=""> <span><code>geom_rug()</code></span></label><label><input type="radio" autocomplete="off" name="radio_YFFEDRORGW" value="answer"> <span><code>geom_histogram()</code></span></label><label><input type="radio" autocomplete="off" name="radio_YFFEDRORGW" value=""> <span><code>geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_YFFEDRORGW" value=""> <span><code>geom_smooth()</code></span></label>
+<li><p>Which of the following is the best choice to visualize a categorical variable? Choose one.</p>
+<div id="radio_IGSPJOVPAA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IGSPJOVPAA" value=""> <span><code>geom_rug()</code></span></label><label><input type="radio" autocomplete="off" name="radio_IGSPJOVPAA" value=""> <span><code>geom_histogram()</code></span></label><label><input type="radio" autocomplete="off" name="radio_IGSPJOVPAA" value="answer"> <span><code>geom_boxplot()</code></span></label><label><input type="radio" autocomplete="off" name="radio_IGSPJOVPAA" value=""> <span><code>geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_IGSPJOVPAA" value=""> <span><code>geom_smooth()</code></span></label>
+</div></li>
+<li><p>Which of the following figures shows a box plot?</p>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 5216 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): sex
+dbl (1): volume
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<ol start="2" type="a">
-<li>Which of the following would summarize the central tendency of a set of data? Choose all that apply.</li>
-</ol>
-<div id="radio_WFEQBWWDJD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WFEQBWWDJD" value="answer"> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_WFEQBWWDJD" value="answer"> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_WFEQBWWDJD" value=""> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_WFEQBWWDJD" value=""> <span>inter quartile range (IQR)</span></label>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="lab-05_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
-<ol start="3" type="a">
-<li>Which of the following would summarize the spread of a set of data? Choose all that apply</li>
-</ol>
-<div id="radio_IYXPEUGLKP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IYXPEUGLKP" value=""> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_IYXPEUGLKP" value=""> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_IYXPEUGLKP" value="answer"> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_IYXPEUGLKP" value="answer"> <span>inter quartile range (IQR)</span></label>
-</div>
-<ol start="4" type="a">
-<li>Which of the following are paramteric statistics?</li>
-</ol>
-<div id="radio_AVKGXSDWTR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AVKGXSDWTR" value="answer"> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_AVKGXSDWTR" value=""> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_AVKGXSDWTR" value="answer"> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_AVKGXSDWTR" value=""> <span>inter quartile range (IQR)</span></label>
-</div>
-<ol start="5" type="a">
-<li>Given the following figure, which summary statistics would best describe these data?</li>
-</ol>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lab-05_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="lab-05_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
-<div id="radio_ZEIBLBKUJH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ZEIBLBKUJH" value=""> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_ZEIBLBKUJH" value="answer"> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_ZEIBLBKUJH" value=""> <span>standard deviation</span></label><label><input type="radio" autocomplete="off" name="radio_ZEIBLBKUJH" value="answer"> <span>inter quartile range (IQR)</span></label>
-</div>
-<ol start="6" type="a">
-<li><p>Given the following code, which of the following would fill in the blank to return the value below which 20% of the data fall.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(y, ________)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_OWMWFUHSRU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_OWMWFUHSRU" value=""> <span>20</span></label><label><input type="radio" autocomplete="off" name="radio_OWMWFUHSRU" value=""> <span>-20</span></label><label><input type="radio" autocomplete="off" name="radio_OWMWFUHSRU" value=""> <span>below</span></label><label><input type="radio" autocomplete="off" name="radio_OWMWFUHSRU" value="answer"> <span>0.2</span></label>
+<div id="radio_XMPLJVBCFO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XMPLJVBCFO" value="answer"> <span>left</span></label><label><input type="radio" autocomplete="off" name="radio_XMPLJVBCFO" value=""> <span>right</span></label><label><input type="radio" autocomplete="off" name="radio_XMPLJVBCFO" value=""> <span>both the left and right</span></label><label><input type="radio" autocomplete="off" name="radio_XMPLJVBCFO" value=""> <span>neither the left and right</span></label>
+</div></li>
+<li><p>True or false, the difference in means between male and female participants in our sample is subject to sampling variability?</p>
+<div id="radio_UDMUHUPAMU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UDMUHUPAMU" value="answer"> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_UDMUHUPAMU" value=""> <span>False</span></label>
 </div></li>
 </ol>
 </section>
-<section id="probability-distributions" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="probability-distributions"><span class="header-section-number">2</span> Probability distributions</h2>
+<section id="hypothesis-testing-framework" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="hypothesis-testing-framework"><span class="header-section-number">2</span> Hypothesis testing framework</h2>
 <ol type="a">
-<li>Write code to generate 200 data points, sampled from a gaussian distribution with a mean of 0 and a standard deviation of 1.</li>
+<li><p>Fill in the blanks about the 3-step hypothesis testing framework: (1) First we pose a <input class="webex-solveme nospaces" size="10" data-answer="[&quot;null hypothesis&quot;]">, (2) then we ask if true, how likly is our observed pattern of results? This likelihood is quanitfied with a (<input class="webex-solveme nospaces" size="10" data-answer="[&quot;p-value&quot;]">), and (3) finally if the liklihood is leass than some thershold, we (<input class="webex-solveme nospaces" size="10" data-answer="[&quot;reject&quot;]">) the null hypothesis.</p></li>
+<li><p>What is the practical reason we pose a null hypothesis?</p>
+<div id="radio_STQYOYFPPF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_STQYOYFPPF" value=""> <span>It is the hypothesis most likely to be true.</span></label><label><input type="radio" autocomplete="off" name="radio_STQYOYFPPF" value=""> <span>It allows us to generate predictions based on prior beliefs.</span></label><label><input type="radio" autocomplete="off" name="radio_STQYOYFPPF" value="answer"> <span>It is the hypothesis for which we can simulate data.</span></label><label><input type="radio" autocomplete="off" name="radio_STQYOYFPPF" value=""> <span>It ensures that the alternative hypothesis is proven false.</span></label>
+</div></li>
+<li><p>True or false, Randomization simulates a world in which there is no relationship between brain volume and sex.</p>
+<div id="radio_ZCBPSKHJVV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZCBPSKHJVV" value="answer"> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_ZCBPSKHJVV" value=""> <span>False</span></label>
+</div></li>
+<li><p>Which of the following would compute a p-value?</p>
+<div id="radio_YYPHLAOLLV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YYPHLAOLLV" value="answer"> <span>Count the number of values in our null distribution that are more extreme than our observed value.</span></label><label><input type="radio" autocomplete="off" name="radio_YYPHLAOLLV" value="answer"> <span>Call <code>get_p_value()</code> on an infer object in which we have constructed a null distribution.</span></label><label><input type="radio" autocomplete="off" name="radio_YYPHLAOLLV" value=""> <span>p-values are not computed.</span></label><label><input type="radio" autocomplete="off" name="radio_YYPHLAOLLV" value=""> <span>Add up all of the differences in means</span></label>
+</div></li>
+<li><p>A large p-value means our observed value is very <input class="webex-solveme nospaces" size="10" data-answer="[&quot;likely&quot;]"> under the null hypothesis. A small p-value means our observed value is very <input class="webex-solveme nospaces" size="10" data-answer="[&quot;unlikely&quot;]"> under the null hypothesis.</p></li>
+<li><p>True or false, a p-value of less than 0.05 indicates obtaining our observed value under the null is <em>impossible</em></p>
+<div id="radio_MIKQTROCTC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MIKQTROCTC" value=""> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_MIKQTROCTC" value="answer"> <span>False</span></label>
+</div></li>
+<li><p>A type I error is also known as a <input class="webex-solveme nospaces" size="10" data-answer="[&quot;false positive&quot;]">(wrongly thinking that the effect is present); a type II error is also known as a <input class="webex-solveme nospaces" size="10" data-answer="[&quot;false negative&quot;]"> (wrongly thikning the effect is absent)</p></li>
 </ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Answer</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<ol start="2" type="a">
-<li>Suppose you sampled 500 data points from a uniform distribution and stored the result in <code>data</code>. Then, you use the following code to compute the summary stats. What is the height of the probability density function at a value of 5?</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(y), </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(y), </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(y, <span class="dv">0</span>), </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(y, <span class="dv">1</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 5
-      n  mean    sd lower upper
-  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1   500  7.42  1.47  5.01  9.99</code></pre>
-</div>
-</div>
-<p><input class="webex-solveme nospaces ignorecase" size="1" data-answer="[&quot;0&quot;]"></p>
-<ol start="3" type="a">
-<li>Suppose your data is normally distributed and has a mean of 25 and a standard deviation of 5. What is the probability a random value drawn from your dataset will be less than 20? Select the closest value.</li>
-</ol>
-<div id="radio_QZBNYNXUHP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QZBNYNXUHP" value=""> <span>0.0483</span></label><label><input type="radio" autocomplete="off" name="radio_QZBNYNXUHP" value="answer"> <span>0.1589</span></label><label><input type="radio" autocomplete="off" name="radio_QZBNYNXUHP" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_QZBNYNXUHP" value=""> <span>0</span></label>
-</div>
 </section>
-<section id="sampling-variability" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="sampling-variability"><span class="header-section-number">3</span> Sampling variability</h2>
+<section id="there-is-only-one-test" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="there-is-only-one-test"><span class="header-section-number">3</span> There is only one test</h2>
 <ol type="a">
-<li>True or false, the <code>parameter</code> is the mean of the population and the <code>parameter estimate</code> is the mean of your sample?</li>
+<li><p>There are two ways we can construct a sampling distribution: (1) <input class="webex-solveme nospaces" size="10" data-answer="[&quot;nonparametrically&quot;]">, via brute computational force; and (2) <input class="webex-solveme nospaces" size="10" data-answer="[&quot;parametrically&quot;]">, by assuming the data were sampled from a known probability distribution.</p></li>
+<li><p>True or false, we can use the <code>t.test()</code> function or <code>assume(distribution = "t")</code> with an infer object to calcuate a p-value for a t-test.</p></li>
 </ol>
-<div id="radio_CMPOBLFOLM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CMPOBLFOLM" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_CMPOBLFOLM" value=""> <span>FALSE</span></label>
-</div>
-<ol start="2" type="a">
-<li>What do we call the probability distribution of the values our parameter estimate can take on?</li>
-</ol>
-<p><input class="webex-solveme nospaces ignorecase" size="21" data-answer="[&quot;sampling distribution&quot;]"></p>
-<ol start="3" type="a">
-<li>Suppose we want to quantify the spread of the sampling distribution. What method could we choose? Choose all that apply.</li>
-</ol>
-<div id="radio_RCVIFKAUHH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RCVIFKAUHH" value=""> <span>mean</span></label><label><input type="radio" autocomplete="off" name="radio_RCVIFKAUHH" value=""> <span>median</span></label><label><input type="radio" autocomplete="off" name="radio_RCVIFKAUHH" value="answer"> <span>standard error</span></label><label><input type="radio" autocomplete="off" name="radio_RCVIFKAUHH" value="answer"> <span>confidence interval</span></label>
-</div>
-<ol start="4" type="a">
-<li>For a typical experiment, how many samples from the population is practical for us to take? Enter a number.</li>
-</ol>
-<p><input class="webex-solveme nospaces ignorecase" size="1" data-answer="[&quot;1&quot;]"></p>
 </section>
-<section id="bootstrapping" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="bootstrapping"><span class="header-section-number">4</span> Bootstrapping</h2>
+<section id="correlation" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="correlation"><span class="header-section-number">4</span> Correlation</h2>
 <ol type="a">
-<li>True or false, when we generate the bootstrap sampling distribution, we sample our original sample <em>with replacement</em>.</li>
+<li><p>We can explore the relationship between two quantities visually with a scatter plot. Which geom is best suited for this?</p>
+<div id="radio_NJQNTQESMM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NJQNTQESMM" value=""> <span><code>geom_histogram()</code></span></label><label><input type="radio" autocomplete="off" name="radio_NJQNTQESMM" value=""> <span><code>geom_boxplot()</code></span></label><label><input type="radio" autocomplete="off" name="radio_NJQNTQESMM" value="answer"> <span><code>geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_NJQNTQESMM" value=""> <span><code>geom_dotplot()</code></span></label><label><input type="radio" autocomplete="off" name="radio_NJQNTQESMM" value=""> <span><code>geom_density()</code></span></label>
+</div></li>
+<li><p>If there is no relationship between variables, we say they are <input class="webex-solveme nospaces" size="10" data-answer="[&quot;independent&quot;]"></p></li>
+<li><p>One way to quantify <input class="webex-solveme nospaces" size="10" data-answer="[&quot;linear&quot;]"> relationships is with correlation.</p></li>
+<li><p>Correlation ranges from -1 to 1, where:</p>
+<div id="radio_KTLNZPYQCH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KTLNZPYQCH" value=""> <span>-1 means mostly negative and 1 means mostly positive</span></label><label><input type="radio" autocomplete="off" name="radio_KTLNZPYQCH" value="answer"> <span>-1 means perfectly negative and 1 means pefectly positive</span></label><label><input type="radio" autocomplete="off" name="radio_KTLNZPYQCH" value=""> <span>-1 means low correlation and 1 means high correlation</span></label>
+</div></li>
+<li><p>True or false, on an infer object, we can calcuate the correlation with <code>calcuate(stat = "correlation")</code></p>
+<div id="radio_YUFEBUWKEH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YUFEBUWKEH" value="answer"> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_YUFEBUWKEH" value=""> <span>False</span></label>
+</div></li>
+<li><p>Suppose we quantify how likely our observed correlation is under the null hypothesis and our p-value is 0.68. Should we reject the null hypothesis?</p>
+<div id="radio_HSNPIWMLBS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HSNPIWMLBS" value=""> <span>Yes</span></label><label><input type="radio" autocomplete="off" name="radio_HSNPIWMLBS" value="answer"> <span>No</span></label>
+</div></li>
 </ol>
-<div id="radio_SLUFFLJVHN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SLUFFLJVHN" value="answer"> <span>TRUE</span></label><label><input type="radio" autocomplete="off" name="radio_SLUFFLJVHN" value=""> <span>FALSE</span></label>
-</div>
-<ol start="2" type="a">
-<li>Suppose we want to generate the bootstrap sampling distribution for the mean of set of data, <code>data</code>, with one variable: <code>reaction_time</code>. Write code that uses the <code>infer</code> package to accomplish this, generating 1000 samples.</li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Answer</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(<span class="at">response =</span> reaction_time) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<ol start="3" type="a">
-<li>Suppose we store our bootstrap sampling distribution from part b in a variable called <code>bootstrap_distribution</code>. Which two arguments should we add to the code below to compute the 68% confidence interval and assign it to the value <code>ci</code>?</li>
-</ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> bootstrap_distribution <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_confidence_interval</span>(______, ________)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_QSTSHRBRRT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QSTSHRBRRT" value=""> <span><code>type="se", level = 68</code></span></label><label><input type="radio" autocomplete="off" name="radio_QSTSHRBRRT" value=""> <span><code>type="se", level = 0.68</code></span></label><label><input type="radio" autocomplete="off" name="radio_QSTSHRBRRT" value="answer"> <span><code>type="percentage", level = 0.68</code></span></label><label><input type="radio" autocomplete="off" name="radio_QSTSHRBRRT" value=""> <span><code>type="percentage", level = 68</code></span></label>
-</div>
-<ol start="4" type="a">
-<li>Suppose we store our bootstrap sampling distribution in <code>bootstrap_distribution</code> and we want to visualize the confidence interval we just computed in c.&nbsp;Which of the following could we add to the code below? Choose all that apply.</li>
-</ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bootstrap_distribution <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">visualize</span>() <span class="sc">+</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    _____________</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="radio_JXFSBJOORH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JXFSBJOORH" value=""> <span><code>get_confidence_interval(endpoints = ci)</code></span></label><label><input type="radio" autocomplete="off" name="radio_JXFSBJOORH" value="answer"> <span><code>shade_ci(endpoints = ci)</code></span></label><label><input type="radio" autocomplete="off" name="radio_JXFSBJOORH" value="answer"> <span><code>shade_confidence_interval(endpoints = ci)</code></span></label><label><input type="radio" autocomplete="off" name="radio_JXFSBJOORH" value=""> <span><code>get_ci(endpoints = ci)</code></span></label>
-</div>
 
 
 </section>

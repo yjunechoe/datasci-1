@@ -172,6 +172,20 @@ If you would like to practice with a set of data, you can import the following d
 
 (b) True or false, we can use the `t.test()` function or `assume(distribution = "t")` with an infer object to calcuate a p-value for a t-test. 
 
+    ```{r}
+    #| echo: false
+    #| results: asis
+
+    # Define the answer choices
+    choices <- c(
+       answer = "True", 
+        "False"
+    )
+
+
+    cat(longmcq(choices))
+    ``` 
+
 ## Correlation 
 
 (a) We can explore the relationship between two quantities visually with a scatter plot. Which geom is best suited for this? 

@@ -1,5 +1,5 @@
 ---
-title:  "Exam 1"
+title:  "(Practice) Exam 1"
 subtitle: "Data Science for Studying Language & the Mind"
 # author: 
 #     name: Katie Schuler
@@ -12,7 +12,7 @@ format:
 
 **Instructions**
 
-The exam is worth **XXX points**. You have **1 hours and 30 minutes** to complete the exam. 
+The exam is worth **97 points**. You have **1 hours and 30 minutes** to complete the exam. 
 
 - The exam is closed book/note/computer/phone except for the provided reference sheets
 - If you need to use the restroom, leave your exam and phone with the TAs
@@ -40,7 +40,7 @@ library(tidyverse)
 
 
 
-**(5 points) Preliminary questions**
+**Preliminary questions**
 
 Please complete these questions *before* the exam begins. 
 
@@ -65,111 +65,188 @@ Please complete these questions *before* the exam begins.
     \shorteranswerbox
 
 
+
+<!-- \begin{center}
+\textbf{Score by topic area}\\
+\begin{tabular}{|l|l|}\hline
+R basics: general &   \\ \hline
+R basics: vectors, operations, subsetting &  \\ \hline
+Data importing &  \\ \hline
+Data visualization: basics &  \\ \hline
+Data visualization: layers  &  \\ \hline
+Data wrangling &  \\ \hline
+Total & \\ \hline
+
+\end{tabular}
+\end{center} -->
+
 \clearpage
 
 
-### 1. (6 points) R basics: general {.unnumbered}
+### 1. (8 points) R basics: general {.unnumbered}
 
-(a) **(2 points)** Which of the following are expressions? Choose all that apply.
-
-    - [ ] `x <- 5`
-    - [ ] `mean(data)`
-    - [ ] `4 + 2`
-    - [ ] `"Hello, world!"`
-    - [ ] `y <- 4 + mean(2)`
-
-(b) **(2 points)** Which of the following occur in the code block below? Choose all that apply
+(a) **(2 points)** Suppose you run the following code. Which command could you run to remove the `y` variable from the current environment? Choose one.
 
     ```r
-    x <- 5 + 3
+    x <- 1 + 2 
+    y <- 3 + 4
+    z <- 0
     ```
+    - [ ] `ls(y)`
+    - [ ] `rm(3 + 4)`
+    - [ ] `rm(y)` 
+    - [ ] `environment(remove = 'y')`
+    - [ ] All of the above
 
-    - [ ] a message
-    - [ ] a comment 
-    - [ ] a function
-    - [ ] the assignment operator 
-
-(c) **(2 points)** What additional step do we need to take to start a new R notebook in Google Colab with `File  > New notebook`? Choose one.
-
-    - [ ] `File > Download > Download .ipynb` 
-    - [ ] `File > Download > Download .py` 
-    - [ ] `Runtime > Change runtime type` and select R 
-    - [ ] No further action needed. R is the default notebook for Google Colab    
-
-\clearpage 
-
-
-### 2. (16 points) R basics: vectors, operations, subsetting {.unnumbered}
-
-    
-(a) **(3 points)** Use the `seq()` function to write an expression that would return the vector `100 200 300 400 500` and store it as `my_vector`
-
-    \answerbox 
-
-(b) **(2 points)** Suppose you run the following code. What will `typeof(x)` return and why? Choose one.
-
-    ```r
-    x <- c(30, 40, 50, "sixty", 70, 80)
-    ```
-    - [ ] `double` due to implicit coercion 
-    - [ ] `double` due to explicit coercion
-    - [ ] `character` due to implicit coercion
-    - [ ] `character` due to explicit coercion 
-    - [ ] `Error: vectors must be atomic` 
-
-
-(c) **(2 points)** What will the following code block return? Choose one.
-
-    ```r
-    x <- 50:60
-    typeof(x)
-    ```
-    - [ ] `integer`
-    - [ ] `double`
-    - [ ] `matrix`
-    - [ ] `vector`
-
-
-(d) **(3 points)** Suppose you run the following code. What will be returned? Choose one.
-
-    ```r
-    c(1, 2, 3) * c(1, 2, 3)
-    ```
-    - [ ] `2 4 6`
-    - [ ] `1 4 9`
-    - [ ] `1 2 3 2 4 6 3 6 9`
-    - [ ] `2 3 4 3 4 5 3 5 6`
-    - [ ] Error: non-numeric argument to binary operator`
-
-\clearpage 
-
-(e) **(2 points)** Suppose you run the following code. What will `x[c(2,4)]` return? Write your answer in the box below and *show your work*.
-
-    ```r
-    x <- seq(1, 10, by = 2)
-    ```
+(b) **(2 points)** Write an expression that would assign the value `10` to the variable name `my_var`?
 
     \answerbox
 
-(f) **(2 points)** In R, how are complex objects like matricies or arrays built? Choose one.
+(c) **(2 points)** Which of the following would install the `praise` package? Choose one.
+    - [ ] `library(praise)`
+    - [ ] `load(praise)`
+    - [ ] `install.packages("praise")`
+    - [ ] `install(praise)`
+    - [ ] All of the above
 
-    - [ ] lists with named elements 
-    - [ ] vectors with attributes
-    - [ ] arrays of numbers
-    - [ ] nested loops
-    - [ ] none of the above
-
-(g) **(2 points)** Suppose we run the following code. What will `is.na(x)` return? Choose one.
+(d) **(2 points)** Suppose you run the following code. Which functions would return the structure of the object you defined? Choose one.
 
     ```r
-    x <- c("apple", NA, "na", "orange") 
+    x <- c("bus", "stop")
+    ```
+    - [ ] `print(x)`
+    - [ ] `str(x)`
+    - [ ] `attributes(x)` 
+    - [ ] Both `str(x)` and `attributes(x)`
+    - [ ] None of the above
+
+\clearpage 
+
+### 2. (9 points) R basics: vectors, operations, subsetting {.unnumbered}
+
+(a) **(2 points)** Suppose you run the following code. What will length(x) return? Write your answer in the box below.
+
+    ```r
+    x <- 1:5
+    ```
+    \answerbox
+
+
+
+(b) **(3 points)** Suppose you run the following code. What will `y > 4` return? Write your answer in the box below and *show your work*.
+
+    ```r
+    x <- seq(2, 8, by = 2)
+    y <- x[2:4]
+    ```
+    \answerbox
+
+(c) **(2 points)** Suppose you run the following code. What will `typeof(x)` return? Choose one.
+
+    ```r
+    x <- c("apple", "banana", "pear", "orange")
+    ```
+    - [ ] `fruit`
+    - [ ] `character`
+    - [ ] `vector`
+    - [ ] `logical`
+    - [ ] Error: No type attribute for x
+
+(d) **(2 points)** Suppose you create the following data frame and assign it to the `df` variable. What will `sum(df$antique)` return? Choose one.
+
+    ```{r}
+    #| echo: false
+
+
+    df <- data.frame(
+        antique = 1:3,
+        age = 2:4,
+        show = c("a", "b", "c")
+        
+    )
+    print(df)
+
     ```
 
-    - [ ] `TRUE`
-    - [ ] `FALSE`
-    - [ ] `FALSE TRUE FALSE FALSE`
-    - [ ] `FALSE TRUE TRUE FALSE` 
-    - [ ] `2` 
+    - [ ] 6
+    - [ ] 9 
+    - [ ] 15
+    - [ ] NULL
+    - [ ] Error: Cannot sum on value "antique"
+
+### 3. (10 points) Data importing {.unnumbered}
+
+(a) **(2 points)** Which `tidyverse` package do we use to import data? Choose one.
+    - [ ] `dplyr`
+    - [ ] `readr`
+    - [ ] `importr`
+    - [ ] `ggplot2`
+    - [ ] `googlesheets2`
+    - [ ] `purrr`
+
+(b) **(2 points)** True or false, the following code blocks return the same tibble. 
+
+    ```r
+    tibble(
+        x = 1:2,
+        y = 3:4,
+        z = 5:6
+    )
+    ```
+
+    ```r
+    tribble(
+        ~x, ~y, ~z,
+        ~1, 3, 5,
+        ~2, 4, 6
+    )
+    ```
+
+    - [ ] True
+    - [ ] False
+
+(c) **(3 points)** Suppose you import "junesales.csv", shown below, with the following code. What would `data$Sale` return? Choose one.
+
+    ```
+    Year, Month, Day, Sale
+    2023, June, 1, 0
+    2023, June, 2, 1
+    2023, June, 3, 0
+    2023, June, 4, 1
+    ```
+
+    ```r
+    data <- read_csv("junesales.csv",
+        col_types = list(Sale = col_logical())
+    )
+    ```
+    - [ ] A `double` vector with values `0 1 0 1`
+    - [ ] A `logical` vector with values `FALSE TRUE FALSE TRUE`
+    - [ ] A double vector with values `NA NA NA NA`
+    - [ ] Error: Cannot coerce col to logical
+
+(d) **(3 points)** Suppose you import a dataset with but when you `print(data)` you notice that the `age` column was identified as `character` when you were expecting `double`. Given the resulting tibble, which of the following arguments could you include in blank in the code below to solve this problem? Choose one.
+
+
+    ```{r}
+    #| echo: false
+    data <- tibble(
+        age = c(18, "na", 25, 21), 
+        graduated = c(F, F, T, T), 
+        gpa = c(NA, 3.8, 2.9, 3.1)
+    )
+    print(data)
+    ```
+
+    ```r
+    data <- read_csv("data.csv", ________)
+    ```
+
+    - [ ] `.drop = NA`
+    - [ ] `skip = 2`
+    - [ ] `guess_max = Inf`
+    - [ ] `na = c("na")`
+    - [ ] `col_names = FALSE`
 
 \clearpage
 
@@ -181,6 +258,7 @@ Suppose you are analyzing the `durationsGe` dataset, which includes the duration
 #| echo: false
 
 library(languageR)
+glimpse(durationsGe)
 ```
 
 Then, you use the following code to generate the plots below. 
@@ -352,84 +430,6 @@ ggplot(data = durationsGe, mapping = aes(x = SpeechRate)) +
 
 
 \clearpage
-
-### 3. (10 points) Data importing {.unnumbered}
-
-(a) **(2 points)** Which `tidyverse` package do we use to import data? Choose one.
-    - [ ] `dplyr`
-    - [ ] `readr`
-    - [ ] `importr`
-    - [ ] `ggplot2`
-    - [ ] `googlesheets2`
-    - [ ] `purrr`
-
-(b) **(2 points)** True or false, the following code blocks return the same tibble. 
-
-    ```r
-    tibble(
-        x = 1:2,
-        y = 3:4,
-        z = 5:6
-    )
-    ```
-
-    ```r
-    tribble(
-        ~x, ~y, ~z,
-        ~1, 3, 5,
-        ~2, 4, 6
-    )
-    ```
-
-    - [ ] True
-    - [ ] False
-
-(c) **(3 points)** Suppose you import "junesales.csv", shown below, with the following code. What would `data$Sale` return? Choose one.
-
-    ```
-    Year, Month, Day, Sale
-    2023, June, 1, 0
-    2023, June, 2, 1
-    2023, June, 3, 0
-    2023, June, 4, 1
-    ```
-
-    ```r
-    data <- read_csv("junesales.csv",
-        col_types = list(Sale = col_logical())
-    )
-    ```
-    - [ ] A `double` vector with values `0 1 0 1`
-    - [ ] A `logical` vector with values `FALSE TRUE FALSE TRUE`
-    - [ ] A double vector with values `NA NA NA NA`
-    - [ ] Error: Cannot coerce col to logical
-
-(d) **(3 points)** Suppose you import a dataset with but when you `print(data)` you notice that the `age` column was identified as `character` when you were expecting `double`. Given the resulting tibble, which of the following arguments could you include in blank in the code below to solve this problem? Choose one.
-
-
-    ```{r}
-    #| echo: false
-    data <- tibble(
-        age = c(18, "na", 25, 21), 
-        graduated = c(F, F, T, T), 
-        gpa = c(NA, 3.8, 2.9, 3.1)
-    )
-    print(data)
-    ```
-
-    ```r
-    data <- read_csv("data.csv", ________)
-    ```
-
-    - [ ] `.drop = NA`
-    - [ ] `skip = 2`
-    - [ ] `guess_max = Inf`
-    - [ ] `na = c("na")`
-    - [ ] `col_names = FALSE`
-
-\clearpage
-
-
 
 ### 6. (15 points) Data wrangling {.unnumbered}
 

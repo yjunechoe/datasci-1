@@ -10,6 +10,7 @@ website:
     tools: 
       - icon: code-square
         href: https://drive.google.com/drive/folders/16A8wY2H3Yt_CNQWwRB2RgjC0RdIVRPRH?usp=sharing
+      - icon: facebook
     contents:
     - text: Syllabus
       href: index.qmd

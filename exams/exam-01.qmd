@@ -181,6 +181,12 @@ Suppose we measure the reaction times (in milliseconds) of both native and non-n
 ```{r}
 #| echo: false
 
+rt_by_speaker <- read_csv('https://kathrynschuler.com/datasci/assests/csv/reaction-time-by-speaker.csv')
+```
+
+```{r}
+#| echo: false
+
 library(languageR)
 ```
 

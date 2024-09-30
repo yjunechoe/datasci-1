@@ -8,7 +8,7 @@ author:
 ### Materials from lecture {.unnumbered}
 
 - Tuesday (class was cancelled)
-- Thursday: [slides](/slides/hypothesis-testing.qmd)
+- Thursday: [slides](/slides/hypothesis-testing.qmd) and [demo](https://colab.research.google.com/drive/1JPAlg3xBwJgtRSgbJdWUTLhrFZQ-3MEa?usp=drive_link)
 
 
 ```{r}

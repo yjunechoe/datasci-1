@@ -8,7 +8,7 @@ author: Katie Schuler
 # Materials from lecture
 
 - Tuesday: [Slides](/slides/data-visualization-1.qmd) and [Demo](https://colab.research.google.com/drive/1ysdt1PlLb4M8VT2eFbXT52H_sJaxXDpl?usp=sharing)
-- Thursday: [Slides](/slides/data-visualization-2.qmd)
+- Thursday: [Slides](/slides/data-visualization-2.qmd) and [Demo](https://colab.research.google.com/drive/1ysdt1PlLb4M8VT2eFbXT52H_sJaxXDpl?usp=drive_link)
 
 
 ::: {.callout-note title="Acknowledgement"}

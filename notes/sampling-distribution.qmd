@@ -14,8 +14,8 @@ These notes are inspired by a MATLAB course by Kendrick Kay
 
 ## Materials from lecture {.unnumbered}
 
-- Tuesday: [slides](/slides/sampling-distribution.qmd)
-- Thursday: [slides](/slides/sampling-distribution-demo.qmd)
+- Tuesday: [slides](/slides/sampling-distribution.qmd) and [demo](https://colab.research.google.com/drive/1eWDyQ65E8sC9YQClFq_cE1VWGCXzKX-u?usp=drive_link)
+- Thursday: [slides](/slides/sampling-distribution-demo.qmd) and [demo](https://colab.research.google.com/drive/1gvVM-70uKpcgR3D4e5j365H61Nvr8r4-?usp=drive_link)
 
 ## Exploring a simple dataset
 

@@ -6,7 +6,7 @@
 | 2 | Sep 2 | [Data visualization](notes/data-visualization.qmd) |  [Lab 2](labs/lab-02.qmd) |  |
 | 3 | Sep 9 | [Data import, tidy, wrangle](notes/data-wrangling.qmd) |  [Lab 3](labs/lab-03.qmd) | [Problem set 1](psets/pset-01.qmd) |
 | 4 | Sep 16 | [Sampling distribution](notes/sampling-distribution.qmd) |  [Lab 4](labs/lab-04.qmd) |  | 
-| 5 | Sep 23 | Hypothesis testing (Tue/Thu)<br>[Exam 1 review (Fri)](notes/exam-1-review.qmd)  | Lab 5 | [Problem set 2](/psets/pset-02.qmd) |
+| 5 | Sep 23 | [Hypothesis testing (Thu)](notes/hypothesis-testing.qmd)<br>[Exam 1 review (Fri)](notes/exam-1-review.qmd)  | Lab 5 | [Problem set 2](/psets/pset-02.qmd) |
 | 6 | Sep 30 | Exam 1 (Tue in class)<br> **Fall break** (Thu)| | |
 | 7 | Oct 7 | Model specification |  Lab 6 |  | 
 | 8 | Oct 14 | Model fitting | Lab 7 | Problem set 3 | 

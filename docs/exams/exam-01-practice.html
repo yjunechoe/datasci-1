@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exam 1 (Practice) – DataSci for Lang &amp; Mind</title>
+<title>(Practice) Exam 1 – DataSci for Lang &amp; Mind</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -233,25 +233,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#part-1-data-science-with-r" id="toc-part-1-data-science-with-r" class="nav-link active" data-scroll-target="#part-1-data-science-with-r">Part 1: Data science with R</a>
-  <ul class="collapse">
-  <li><a href="#r-basics-general" id="toc-r-basics-general" class="nav-link" data-scroll-target="#r-basics-general">1 R basics: general</a></li>
-  <li><a href="#r-basics-vectors-operations-subsetting" id="toc-r-basics-vectors-operations-subsetting" class="nav-link" data-scroll-target="#r-basics-vectors-operations-subsetting">R basics: vectors, operations, subsetting</a></li>
-  <li><a href="#data-importing" id="toc-data-importing" class="nav-link" data-scroll-target="#data-importing">Data importing</a></li>
-  <li><a href="#data-visualization-basics" id="toc-data-visualization-basics" class="nav-link" data-scroll-target="#data-visualization-basics">Data visualization: basics</a></li>
-  <li><a href="#data-visualization-layers" id="toc-data-visualization-layers" class="nav-link" data-scroll-target="#data-visualization-layers">Data visualization: layers</a></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data wrangling</a></li>
-  <li><a href="#appendix-a-data" id="toc-appendix-a-data" class="nav-link" data-scroll-target="#appendix-a-data">Appendix A: Data</a></li>
-  <li><a href="#appendix-b-plots-section-4" id="toc-appendix-b-plots-section-4" class="nav-link" data-scroll-target="#appendix-b-plots-section-4">Appendix B: Plots section 4</a></li>
-  <li><a href="#appendix-c-plots-section-5" id="toc-appendix-c-plots-section-5" class="nav-link" data-scroll-target="#appendix-c-plots-section-5">Appendix C: Plots section 5</a></li>
-  </ul></li>
-  <li><a href="#part-2" id="toc-part-2" class="nav-link" data-scroll-target="#part-2">Part 2</a>
-  <ul class="collapse">
-  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
-  <li><a href="#sampling-distribution" id="toc-sampling-distribution" class="nav-link" data-scroll-target="#sampling-distribution">Sampling distribution</a></li>
-  <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis testing</a></li>
-  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation">Correlation</a></li>
-  </ul></li>
+  <li><a href="#points-r-basics-general" id="toc-points-r-basics-general" class="nav-link active" data-scroll-target="#points-r-basics-general">1. (8 points) R basics: general</a></li>
+  <li><a href="#points-r-basics-vectors-operations-subsetting" id="toc-points-r-basics-vectors-operations-subsetting" class="nav-link" data-scroll-target="#points-r-basics-vectors-operations-subsetting">2. (9 points) R basics: vectors, operations, subsetting</a></li>
+  <li><a href="#points-data-importing" id="toc-points-data-importing" class="nav-link" data-scroll-target="#points-data-importing">3. (10 points) Data importing</a></li>
+  <li><a href="#points-data-visualization-basics" id="toc-points-data-visualization-basics" class="nav-link" data-scroll-target="#points-data-visualization-basics">4. (11 points) Data visualization: basics</a></li>
+  <li><a href="#points-data-visualization-layers" id="toc-points-data-visualization-layers" class="nav-link" data-scroll-target="#points-data-visualization-layers">5. (9 points) Data visualization: layers</a></li>
+  <li><a href="#points-data-wrangling" id="toc-points-data-wrangling" class="nav-link" data-scroll-target="#points-data-wrangling">6. (15 points) Data wrangling</a></li>
+  <li><a href="#points-sampling-distribution" id="toc-points-sampling-distribution" class="nav-link" data-scroll-target="#points-sampling-distribution">7. (10 points) Sampling distribution</a></li>
+  <li><a href="#points-hypothesis-testing" id="toc-points-hypothesis-testing" class="nav-link" data-scroll-target="#points-hypothesis-testing">8. (11 points) Hypothesis testing</a></li>
+  <li><a href="#points-correlation" id="toc-points-correlation" class="nav-link" data-scroll-target="#points-correlation">9. (9 points) Correlation</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="exam-01-practice.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -260,7 +250,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exam 1 (Practice)</h1>
+<h1 class="title">(Practice) Exam 1</h1>
 <p class="subtitle lead">Data Science for Studying Language &amp; the Mind</p>
 </div>
 
@@ -279,18 +269,25 @@ window.Quarto = {
 
 
 <p><strong>Instructions</strong></p>
-<p>You have <strong>1 hours and 30 minutes</strong> to complete the exam.</p>
+<p>The exam is worth <strong>97 points</strong>. You have <strong>1 hours and 30 minutes</strong> to complete the exam.</p>
 <ul>
-<li>The exam is closed book/note/computer/phone except for the provided <a href="../assests/pdfs/R-and-tidyverse-referencesheet.pdf">R and tidyverse reference sheets</a></li>
-<li>Mark you answers clearly in the spaces provided.</li>
+<li>The exam is closed book/note/computer/phone except for the provided reference sheets</li>
 <li>If you need to use the restroom, leave your exam and phone with the TAs</li>
 <li>If you finish early, you may turn in your exam and leave early</li>
 </ul>
-<p>For all multiple choice questions, <strong>only one choice is correct</strong>:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Choose this option</label></li>
-<li><label><input type="checkbox">Or this option, but not both!</label></li>
-</ul>
+<!-- For all multiple choice questions, **only one choice is correct**: 
+
+- [ ] Choose this option
+- [ ] Or this option, but not both! -->
+<p><strong>Preliminary questions</strong></p>
+<p>Please complete these questions <em>before</em> the exam begins.</p>
+<ol type="a">
+<li><p><strong>(1 point)</strong> What is your full name?</p></li>
+<li><p><strong>(1 point)</strong> What is your penn ID number?</p></li>
+<li><p><strong>(1 point)</strong> What is your lab section TA’s name?</p></li>
+<li><p><strong>(1 point)</strong> Who is sitting to your left?</p></li>
+<li><p><strong>(1 point)</strong> Who is sitting to your right?</p></li>
+</ol>
 <!-- \begin{center}
 \textbf{Score by topic area}\\
 \begin{tabular}{|l|l|}\hline
@@ -304,51 +301,49 @@ Total & \\ \hline
 
 \end{tabular}
 \end{center} -->
-<section id="part-1-data-science-with-r" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-data-science-with-r">Part 1: Data science with R</h2>
-<section id="r-basics-general" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="r-basics-general">1 R basics: general</h3>
+<section id="points-r-basics-general" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="points-r-basics-general">1. (8 points) R basics: general</h3>
 <ol type="a">
-<li><p>Suppose you run the following code. Which command could you run to remove the <code>y</code> variable from the current environment?</p>
+<li><p><strong>(2 points)</strong> Suppose you run the following code. Which command could you run to remove the <code>y</code> variable from the current environment? Choose one.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">4</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
+<ul class="task-list">
 <li><label><input type="checkbox"><code>ls(y)</code></label></li>
 <li><label><input type="checkbox"><code>rm(3 + 4)</code></label></li>
 <li><label><input type="checkbox"><code>rm(y)</code></label></li>
 <li><label><input type="checkbox"><code>environment(remove = 'y')</code></label></li>
-<li>All of the above</li>
+<li><label><input type="checkbox">All of the above</label></li>
 </ul></li>
-<li><p>Write an expression that would assign the value <code>10</code> to the variable name <code>my_var</code>?</p></li>
-<li><p>Which of the following would install the <code>praise</code> package? Choose all that apply.</p>
+<li><p><strong>(2 points)</strong> Write an expression that would assign the value <code>10</code> to the variable name <code>my_var</code>?</p></li>
+<li><p><strong>(2 points)</strong> Which of the following would install the <code>praise</code> package? Choose one.</p>
 <ul class="task-list">
 <li><label><input type="checkbox"><code>library(praise)</code></label></li>
 <li><label><input type="checkbox"><code>load(praise)</code></label></li>
 <li><label><input type="checkbox"><code>install.packages("praise")</code></label></li>
-<li><label><input type="checkbox"><code>package::praise</code></label></li>
+<li><label><input type="checkbox"><code>install(praise)</code></label></li>
 <li><label><input type="checkbox">All of the above</label></li>
 </ul></li>
-<li><p>Suppose you run the following code. Which functions would return the structure of the object you defined? Choose one.</p>
+<li><p><strong>(2 points)</strong> Suppose you run the following code. Which functions would return the structure of the object you defined? Choose one.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"bus"</span>, <span class="st">"stop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul class="task-list">
-<li><label><input type="checkbox"><code>length(x)</code></label></li>
 <li><label><input type="checkbox"><code>print(x)</code></label></li>
 <li><label><input type="checkbox"><code>str(x)</code></label></li>
 <li><label><input type="checkbox"><code>attributes(x)</code></label></li>
+<li><label><input type="checkbox">Both <code>str(x)</code> and <code>attributes(x)</code></label></li>
 <li><label><input type="checkbox">None of the above</label></li>
 </ul></li>
 </ol>
 </section>
-<section id="r-basics-vectors-operations-subsetting" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="r-basics-vectors-operations-subsetting">R basics: vectors, operations, subsetting</h3>
+<section id="points-r-basics-vectors-operations-subsetting" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="points-r-basics-vectors-operations-subsetting">2. (9 points) R basics: vectors, operations, subsetting</h3>
 <ol type="a">
-<li><p>Suppose you run the following code. What will length(x) return? Write your answer in the box below.</p>
+<li><p><strong>(2 points)</strong> Suppose you run the following code. What will length(x) return? Write your answer in the box below.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Suppose you run the following code. What will <code>y &gt; 4</code> return? Write your answer in the box below and <strong>show your work</strong>.</p>
+<li><p><strong>(3 points)</strong> Suppose you run the following code. What will <code>y &gt; 4</code> return? Write your answer in the box below and <em>show your work</em>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">8</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Suppose you run the following code. What will <code>typeof(x)</code> return?</p>
+<li><p><strong>(2 points)</strong> Suppose you run the following code. What will <code>typeof(x)</code> return? Choose one.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>, <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul class="task-list">
 <li><label><input type="checkbox"><code>fruit</code></label></li>
@@ -357,7 +352,7 @@ Total & \\ \hline
 <li><label><input type="checkbox"><code>logical</code></label></li>
 <li><label><input type="checkbox">Error: No type attribute for x</label></li>
 </ul></li>
-<li><p>Suppose you create the following data frame and assign it to the <code>df</code> variable. What will <code>sum(df$antique)</code> return?</p>
+<li><p><strong>(2 points)</strong> Suppose you create the following data frame and assign it to the <code>df</code> variable. What will <code>sum(df$antique)</code> return? Choose one.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>  antique age show
@@ -367,18 +362,18 @@ Total & \\ \hline
 </div>
 </div>
 <ul class="task-list">
-<li><label><input type="checkbox">NULL</label></li>
-<li><label><input type="checkbox">Error: Cannot sum on value “antique”</label></li>
 <li><label><input type="checkbox">6</label></li>
 <li><label><input type="checkbox">9</label></li>
 <li><label><input type="checkbox">15</label></li>
+<li><label><input type="checkbox">NULL</label></li>
+<li><label><input type="checkbox">Error: Cannot sum on value “antique”</label></li>
 </ul></li>
 </ol>
 </section>
-<section id="data-importing" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="data-importing">Data importing</h3>
+<section id="points-data-importing" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="points-data-importing">3. (10 points) Data importing</h3>
 <ol type="a">
-<li><p>Which <code>tidyverse</code> package do we use to import data?</p>
+<li><p><strong>(2 points)</strong> Which <code>tidyverse</code> package do we use to import data? Choose one.</p>
 <ul class="task-list">
 <li><label><input type="checkbox"><code>dplyr</code></label></li>
 <li><label><input type="checkbox"><code>readr</code></label></li>
@@ -387,7 +382,7 @@ Total & \\ \hline
 <li><label><input type="checkbox"><code>googlesheets2</code></label></li>
 <li><label><input type="checkbox"><code>purrr</code></label></li>
 </ul></li>
-<li><p>True or false, the following code blocks return the same tibble.</p>
+<li><p><strong>(2 points)</strong> True or false, the following code blocks return the same tibble.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>,</span>
@@ -402,7 +397,7 @@ Total & \\ \hline
 <li><label><input type="checkbox">True</label></li>
 <li><label><input type="checkbox">False</label></li>
 </ul></li>
-<li><p>Suppose you import “junesales.csv”, shown below, with the following code. What would <code>data$Sale</code> return? Choose one.</p>
+<li><p><strong>(3 points)</strong> Suppose you import “junesales.csv”, shown below, with the following code. What would <code>data$Sale</code> return? Choose one.</p>
 <pre><code>Year, Month, Day, Sale
 2023, June, 1, 0
 2023, June, 2, 1
@@ -417,7 +412,7 @@ Total & \\ \hline
 <li><label><input type="checkbox">A double vector with values <code>NA NA NA NA</code></label></li>
 <li><label><input type="checkbox">Error: Cannot coerce col to logical</label></li>
 </ul></li>
-<li><p>Suppose you import a dataset with but when you <code>print(data)</code> you notice that the <code>age</code> column was identified as <code>character</code> when you were expecting <code>double</code>. Given the resulting tibble, which of the following arguments could you include in blank in the code below to solve this problem?</p>
+<li><p><strong>(3 points)</strong> Suppose you import a dataset with but when you <code>print(data)</code> you notice that the <code>age</code> column was identified as <code>character</code> when you were expecting <code>double</code>. Given the resulting tibble, which of the following arguments could you include in blank in the code below to solve this problem? Choose one.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 3
@@ -439,146 +434,10 @@ Total & \\ \hline
 </ul></li>
 </ol>
 </section>
-<section id="data-visualization-basics" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="data-visualization-basics">Data visualization: basics</h3>
-<p>LEFT OFF HERE</p>
-<p>Section 5 makes use of the <code>durationsGe</code> dataset and plots A, B, and C in the appendix.</p>
-<ol type="a">
-<li><p>Which of the plots above (A and B) did the code blocks below generate?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code 1</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(durationsGe, <span class="fu">aes</span>(<span class="at">x =</span> DurationOfPrefix, <span class="at">fill =</span> Sex)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"lightgray"</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"gray"</span>, <span class="st">"black"</span>))</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># code 2</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(durationsGe, <span class="fu">aes</span>(<span class="at">x =</span> DurationOfPrefix)) <span class="sc">+</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"lightgray"</span>) <span class="sc">+</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul class="task-list">
-<li><label><input type="checkbox">Code 1 generates plot A, code 2 generates plot B</label></li>
-<li><label><input type="checkbox">Code 2 generates plot A, code 1 generates plot B</label></li>
-<li><label><input type="checkbox">Code 1 and 2 both generate plot A</label></li>
-<li><label><input type="checkbox">Code 1 and 2 both generate plot B</label></li>
-<li><label><input type="checkbox">Code 1 and 2 generate neither plot A nor plot B</label></li>
-</ul></li>
-<li><p>Which geoms could be depicted in plots A and B? Choose all that apply.</p>
-<ul class="task-list">
-<li><label><input type="checkbox"><code>geom_histogram()</code></label></li>
-<li><label><input type="checkbox"><code>geom_smooth()</code></label></li>
-<li><label><input type="checkbox"><code>geom_line()</code></label></li>
-<li><label><input type="checkbox"><code>geom_density()</code></label></li>
-<li><label><input type="checkbox"><code>geom_bar()</code></label></li>
-</ul></li>
-</ol>
-<ol start="3" type="a">
-<li><p>True or false, the following code blocks generate the same figure. Write your answer in the following box and <strong>explain why</strong>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code block 1</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>durationsGe, </span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> DurationOfPrefix, <span class="at">x =</span> Sex)) <span class="sc">+</span> </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># code block 2</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> DurationOfPrefix, <span class="at">x =</span> Sex),</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    durationsGe) <span class="sc">+</span> </span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>The code below makes use of a new geom, <code>geom_rug()</code>, to generate plot C, in which each individual data point is plotted along the x-axis like a “rug”. In the box below, rewrite the code such the color of the rug is mapped to the <code>Sex</code> variable and the bars of the histogram are filled in with the color “lightblue”.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(durationsGe, <span class="fu">aes</span>(<span class="at">x =</span> DurationOfPrefix)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rug</span>() <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-</section>
-<section id="data-visualization-layers" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="data-visualization-layers">Data visualization: layers</h3>
-<p>Section 5 makes use of the <code>durationsGe</code> dataset and plots D, E, and F in the appendix.</p>
-<ol type="a">
-<li><p>Which of the following would add a small amount of random noise around each point in plot D? Choose all that apply.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">add the argument <code>position = "jitter"</code> to <code>geom_point()</code></label></li>
-<li><label><input type="checkbox">add the argument <code>position = "random"</code> to <code>geom_point()</code></label></li>
-<li><label><input type="checkbox">add the argument <code>rand_noise = TRUE</code> to <code>geom_point()</code></label></li>
-<li><label><input type="checkbox">replace <code>geom_point()</code> with <code>geom_jitter()</code></label></li>
-<li><label><input type="checkbox">replace <code>geom_point()</code> with <code>geom_noise()</code></label></li>
-</ul></li>
-<li><p>Which of the following could change plot D to plot E? Choose all that apply</p>
-<ul class="task-list">
-<li><label><input type="checkbox">add <code>facet_wrap(~Sex)</code></label></li>
-<li><label><input type="checkbox">add <code>facet_wrap(~Sex, ncol = 2)</code></label></li>
-<li><label><input type="checkbox">add <code>facet_wrap(~Sex, ncol = 3)</code></label></li>
-<li><label><input type="checkbox">add <code>facet_grid(Sex~.)</code></label></li>
-<li><label><input type="checkbox">add <code>facet_grid(.~Sex)</code></label></li>
-<li><label><input type="checkbox">add <code>facet(.by = c(Sex))</code></label></li>
-</ul></li>
-<li><p>Which of the following arguments to <code>geom_histogram()</code> could be present in the code that returned plot F? Choose all that apply.</p>
-<ul class="task-list">
-<li><label><input type="checkbox"><code>bins=12</code></label></li>
-<li><label><input type="checkbox"><code>bins=11</code></label></li>
-<li><label><input type="checkbox"><code>binwidth=1</code></label></li>
-<li><label><input type="checkbox"><code>binwidth=3</code></label></li>
-<li><label><input type="checkbox"><code>stat="identity"</code></label></li>
-</ul></li>
-<li><p>Which of the following layers are required to produce plot F? Note that the plot uses the complete theme <code>theme_minimal()</code> and the font is 20pt Palatino. Choose all that apply.</p>
-<ul class="task-list">
-<li><label><input type="checkbox"><code>theme_minimal(use=TRUE)</code></label></li>
-<li><label><input type="checkbox"><code>theme_minimal(base_size = 20, base_family = "Palatino")</code></label></li>
-<li><label><input type="checkbox"><code>labs(title = "Histogram of speech rate")</code></label></li>
-<li><label><input type="checkbox"><code>font(size=20, family="Palatino")</code></label></li>
-<li><label><input type="checkbox"><code>scale_fill_manual(values = c("gray"))</code></label></li>
-</ul></li>
-</ol>
-</section>
-<section id="data-wrangling" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="data-wrangling">Data wrangling</h3>
-<p>Section 6 makes use of the <code>durationsGe</code> dataset in the appendix.</p>
-<ol type="a">
-<li><p>The <code>Sex</code> variable in the <code>durationsGe</code> dataset has the following distinct values: <code>"male" "female" NA</code>. How many rows would be in the object returned by the following code block? Write your answer in the box below.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>durationsGe <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"female"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">minBirthYear=</span><span class="fu">min</span>(YearOfBirth, <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="at">.by=</span><span class="fu">c</span>(Sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>True or false, the following code options are equivalent.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># option 1</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>durationsGe <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Frequency) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Frequency <span class="sc">&gt;</span> <span class="dv">40</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>()</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># option 2</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>just_freq <span class="ot">&lt;-</span> <span class="fu">select</span>(durationsGe, Frequency)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>freq_under_40 <span class="ot">&lt;-</span> <span class="fu">filter</span>(just_freq, Frequency <span class="sc">&gt;</span> <span class="dv">40</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">distinct</span>(freq_under_40)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul class="task-list">
-<li><label><input type="checkbox">True</label></li>
-<li><label><input type="checkbox">False</label></li>
-</ul></li>
-<li><p>Fill in the blank in the code below such that it returns a new column called “count”, which counts of the number of rows in the <code>durationsGe</code> dataset per <code>Sex</code></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ratings <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Sex) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(_________)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>True or false, the following code options are equivalent.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># option 1</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>durationsGe <span class="sc">%&gt;%</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">Freq=</span>Frequency, Speaker<span class="sc">:</span>DurationOfPrefix) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">AgeInYears =</span> <span class="dv">2023</span> <span class="sc">-</span> YearOfBirth, <span class="at">.before =</span> Freq)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># option 2</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>durationsGe <span class="sc">%&gt;%</span> </span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Frequency<span class="sc">:</span>DurationOfPrefix) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Freq =</span> Frequency) <span class="sc">%&gt;%</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">AgeInYears =</span> <span class="dv">2023</span> <span class="sc">-</span> YearOfBirth, <span class="at">.before =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul class="task-list">
-<li><label><input type="checkbox">True</label></li>
-<li><label><input type="checkbox">False</label></li>
-</ul></li>
-</ol>
-</section>
-<section id="appendix-a-data" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="appendix-a-data">Appendix A: Data</h3>
-<p>Sections 4-6 make use of <code>durationsGe</code> data in the <code>languageR</code> package. The dataset includes the duration of the prefix ge- in Dutch by various speakers from the Spoken Dutch Corpus.</p>
+<section id="points-data-visualization-basics" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="points-data-visualization-basics">4. (11 points) Data visualization: basics</h3>
+<p>Suppose you are analyzing the <code>durationsGe</code> dataset, which includes the duration of the prefix ge- in Dutch by various speakers from the Spoken Dutch Corpus, glimpsed here.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(durationsGe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 428
 Columns: 8
@@ -592,62 +451,215 @@ $ SpeechRate          &lt;dbl&gt; 3.144654, 6.882591, 6.870229, 7.217848, 5.8666
 $ NumberSegmentsOnset &lt;int&gt; 2, 2, 1, 2, 2, 1, 2, 2, 1, 3, 1, 2, 1, 2, 3, 1, 2,…</code></pre>
 </div>
 </div>
-</section>
-<section id="appendix-b-plots-section-4" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="appendix-b-plots-section-4">Appendix B: Plots section 4</h3>
+<p>Then, you use the following code to generate the plots below.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code 1</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(durationsGe, <span class="fu">aes</span>(<span class="at">x =</span> DurationOfPrefix, <span class="at">fill =</span> Sex)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"lightgray"</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"gray"</span>, <span class="st">"black"</span>))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Code 2</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(durationsGe, <span class="fu">aes</span>(<span class="at">x =</span> DurationOfPrefix)) <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"lightgray"</span>) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-cap-location="bottom" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-cap-location="bottom">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<ol type="a">
+<li><p><strong>(3 points)</strong> Which of plots A and B did Code 1 and 2 generate? Choose one.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Code 1 generates plot A, code 2 generates plot B</label></li>
+<li><label><input type="checkbox">Code 2 generates plot A, code 1 generates plot B</label></li>
+<li><label><input type="checkbox">Code 1 and 2 both generate plot A</label></li>
+<li><label><input type="checkbox">Code 1 and 2 both generate plot B</label></li>
+<li><label><input type="checkbox">Code 1 and 2 generate neither plot A nor plot B</label></li>
+</ul></li>
+<li><p><strong>(2 points)</strong> Which geoms could be depicted in plots A and B above? Choose all that apply.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>geom_histogram()</code></label></li>
+<li><label><input type="checkbox"><code>geom_smooth()</code></label></li>
+<li><label><input type="checkbox"><code>geom_line()</code></label></li>
+<li><label><input type="checkbox"><code>geom_density()</code></label></li>
+<li><label><input type="checkbox"><code>geom_bar()</code></label></li>
+</ul></li>
+<li><p><strong>(3 points)</strong> Consider the following code blocks 3 and 4. Would they generate identical figures? Explain why or why not in the box below.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code 3</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>durationsGe, </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> DurationOfPrefix, <span class="at">x =</span> Sex)) <span class="sc">+</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Code 4</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> DurationOfPrefix, <span class="at">x =</span> Sex), durationsGe) <span class="sc">+</span> </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<ol start="4" type="a">
+<li><p><strong>(3 points)</strong> The code below makes use of a new geom, <code>geom_rug()</code>, to generate plot C, in which each individual data point is plotted along the x-axis like a “rug”.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(durationsGe, <span class="fu">aes</span>(<span class="at">x =</span> DurationOfPrefix)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rug</span>() <span class="sc">+</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-cap-location="bottom">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="exam-01-practice_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</div>
+<p>In the box below, rewrite the code such the color of the rug is mapped to the <code>Sex</code> variable and the bars of the histogram are filled in with the color “lightblue”.</p></li>
+</ol>
+</section>
+<section id="points-data-visualization-layers" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="points-data-visualization-layers">5. (9 points) Data visualization: layers</h3>
+<p>Suppose you now want to visualize the <code>SpeechRate</code> variable in the <code>durationsGe</code> dataset, which codes a speakers speech rate in number of sylalbuse per second.</p>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-cap-location="bottom" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-cap-location="bottom">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="exam-01-practice_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="appendix-c-plots-section-5" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="appendix-c-plots-section-5">Appendix C: Plots section 5</h3>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-cap-location="bottom" data-layout-ncol="2">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-cap-location="bottom" data-layout-ncol="2">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
+<ol type="a">
+<li><p><strong>(2 points)</strong> True of false, adding the argument <code>position = "jitter"</code> to <code>geom_point()</code> would add a small amount of random noise around each point in plot D?</p>
+<ul class="task-list">
+<li><label><input type="checkbox">True</label></li>
+<li><label><input type="checkbox">False</label></li>
+</ul></li>
+<li><p><strong>(2 points)</strong> Which of the following would change plot D to plot E? Choose one.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">add layer <code>facet_wrap(~ Sex)</code></label></li>
+<li><label><input type="checkbox">add layer <code>facet_grid(. ~ Sex)</code></label></li>
+<li><label><input type="checkbox">add layer <code>facet_grid(Sex ~ .)</code></label></li>
+<li><label><input type="checkbox">add layer <code>facet_grid(Word ~ Sex)</code></label></li>
+<li><label><input type="checkbox">add layer <code>facet_by_sex()</code></label></li>
+</ul></li>
+</ol>
+<ol start="3" type="a">
+<li><p><strong>(2 points)</strong> Which of the following arguments to <code>geom_histogram()</code> could be present in the code that returned plot F? Choose all that apply.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>bins=12</code></label></li>
+<li><label><input type="checkbox"><code>bins=1</code></label></li>
+<li><label><input type="checkbox"><code>binwidth=1</code></label></li>
+<li><label><input type="checkbox"><code>binwidth=12</code></label></li>
+</ul></li>
+<li><p><strong>(3 points)</strong> Which of the following layers must be present in the code that returned plot F? Choose all that apply.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>theme_minimal(base_size = 15)</code></label></li>
+<li><label><input type="checkbox"><code>theme_minimal(font_size = 15)</code></label></li>
+<li><label><input type="checkbox"><code>labs(title = "Histogram of speech rate")</code></label></li>
+<li><label><input type="checkbox"><code>labs(caption = "Histogram of speech rate")</code></label></li>
+<li><label><input type="checkbox"><code>facet_grid(.~ count)</code></label></li>
+</ul></li>
+</ol>
 </section>
+<section id="points-data-wrangling" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="points-data-wrangling">6. (15 points) Data wrangling</h3>
+<p>Now that you’ve done some initial visualizations of the <code>durationsGe</code> data, you realize you need to do some data wrangling. Here’s a glimpse at the data again to refresh your memory.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 428
+Columns: 8
+$ Word                &lt;fct&gt; geprikt, gepresteerd, gevolgd, geprikkeld, gestaak…
+$ Frequency           &lt;int&gt; 13, 25, 309, 16, 40, 42, 1301, 10, 73, 19, 39, 6, …
+$ Speaker             &lt;fct&gt; N01159, N01077, N01032, N01128, N01204, N01151, N0…
+$ Sex                 &lt;fct&gt; male, male, female, female, female, female, male, …
+$ YearOfBirth         &lt;int&gt; 1944, 1980, 1939, 1979, 1963, 1956, 1979, 1944, 19…
+$ DurationOfPrefix    &lt;dbl&gt; 0.238703, 0.082057, 0.120832, 0.106897, 0.133441, …
+$ SpeechRate          &lt;dbl&gt; 3.144654, 6.882591, 6.870229, 7.217848, 5.866667, …
+$ NumberSegmentsOnset &lt;int&gt; 2, 2, 1, 2, 2, 1, 2, 2, 1, 3, 1, 2, 1, 2, 3, 1, 2,…</code></pre>
+</div>
+</div>
+<ol type="a">
+<li><p><strong>(3 points)</strong> The <code>Sex</code> variable in the <code>durationsGe</code> dataset has the following distinct values: <code>"male" "female" NA</code>. How many rows would be in the object returned by the following code block? Choose one.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>durationsGe <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"female"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">minBirthYear=</span><span class="fu">min</span>(YearOfBirth, <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="at">.by=</span><span class="fu">c</span>(Sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">1</label></li>
+<li><label><input type="checkbox">3</label></li>
+<li><label><input type="checkbox">428</label></li>
+<li><label><input type="checkbox">However many female speakers there were in the dataset</label></li>
+<li><label><input type="checkbox">However many birth years there were in the dataset</label></li>
+</ul></li>
+</ol>
+<ol start="2" type="a">
+<li><p><strong>(6 points)</strong> Fill in the blanks in the partially completed code below such that it returns the following tibble, including the <code>mean</code> and <code>sd</code> of the <code>DurationOfPrefix</code> variable.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>durationsGe <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(__a__) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(____b_____, _____c_______)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  Sex      mean      sd
+  &lt;fct&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 female 0.125   0.0480
+2 male   0.126   0.0468
+3 &lt;NA&gt;   0.0960 NA     </code></pre>
+</div>
+</div>
+<ol type="i">
+<li><strong>(2 points)</strong> Fill in blank a.</li>
+</ol>
+<ol start="2" type="i">
+<li><strong>(2 points)</strong> Fill in blank b.</li>
+</ol>
+<ol type="i">
+<li><strong>(2 points)</strong> Fill in blank c.&nbsp;</li>
+</ol></li>
+</ol>
+<ol start="3" type="a">
+<li><p><strong>(3 points)</strong> Consider the following code options. Would they return identical tibbles? Explain why or why not in the box below.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># option 1</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>durationsGe <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Frequency) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Frequency <span class="sc">&gt;</span> <span class="dv">40</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># option 2</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>just_freq <span class="ot">&lt;-</span> <span class="fu">select</span>(durationsGe, Frequency)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>freq_under_40 <span class="ot">&lt;-</span> <span class="fu">filter</span>(just_freq, Frequency <span class="sc">&gt;</span> <span class="dv">40</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">distinct</span>(freq_under_40)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>(3 points)</strong> Consider the following code options. Would they return identical tibbles? Explain why or why not in the box below.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># option 1</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>durationsGe <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">Freq=</span>Frequency, Speaker<span class="sc">:</span>DurationOfPrefix) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">AgeInYears =</span> <span class="dv">2023</span> <span class="sc">-</span> YearOfBirth, <span class="at">.before =</span> Freq)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># option 2</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>durationsGe <span class="sc">%&gt;%</span> </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Frequency<span class="sc">:</span>DurationOfPrefix) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Freq =</span> Frequency) <span class="sc">%&gt;%</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">AgeInYears =</span> <span class="dv">2023</span> <span class="sc">-</span> YearOfBirth, <span class="at">.before =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
 </section>
-<section id="part-2" class="level2">
-<h2 class="anchored" data-anchor-id="part-2">Part 2</h2>
+<section id="points-sampling-distribution" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="points-sampling-distribution">7. (10 points) Sampling distribution</h3>
+<p>The following data was simulated from Johnson &amp; Newport (1989), a study investigating the English language proficiency of 46 native Korean or Chinese speakers who arrived in the US between the ages of 3 and 39. The researchers were interested in whether the participants’ age of arrival to the United States played a role in their English language proficiency.</p>
 <!-- \newcommand\answerbox{%%
     \framebox(400,50){}}
 
@@ -672,30 +684,8 @@ Total & \\ \hline
 \end{center}
 
 \clearpage -->
-<section id="the-data" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="the-data">The data</h3>
-<p>This quiz refers to data simulated from Johnson &amp; Newport (1989), who studied the English language proficiency of 46 native Korean or Chinese speakers who arrived in the US between the ages of 3 and 39. The researchers were interested in whether the participants’ age of arrival to the United States played a role in their English language proficiency.</p>
-<p>The simulated data are stored in the tibble <code>johnson_newport_1989</code>. Here is a <code>glimpse()</code> at the tibble for your reference:</p>
+<p>Suppose we returned a tibble with the number of data points (<code>n</code>), the <code>median</code>, and the IQR (<code>lower</code> and <code>upper</code>) grouped by <code>ageGroup</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(johnson_newport_1989)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 69
-Columns: 4
-$ score     &lt;dbl&gt; 270.8899, 270.2497, 267.1322, 268.3546, 263.7737, 263.8069, …
-$ age       &lt;dbl&gt; 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, …
-$ ageGroup  &lt;chr&gt; "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", …
-$ langGroup &lt;chr&gt; "native", "native", "native", "native", "native", "native", …</code></pre>
-</div>
-</div>
-</section>
-<section id="sampling-distribution" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="sampling-distribution">Sampling distribution</h3>
-<p>Johnson and Newport (1989) reported the mean and standard deviation of participants’ scores on the English proficiency test, grouped by an <code>ageGroup</code> variable, which divides age into 5 groups. Below we computed the <strong>median</strong> and <strong>IQR</strong> as the descriptive statistics on our simulated data. Then, we used <code>infer</code> to generate the sampling distribution for the <strong>17-39 year old age group</strong>, visualize the distribution, and shade the confidence interval.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A. compute descriptive statistics by group </span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>johnson_newport_1989 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(ageGroup) <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">median =</span> <span class="fu">median</span>(score), </span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower =</span> <span class="fu">quantile</span>(score, <span class="fl">0.25</span>), <span class="at">upper =</span> <span class="fu">quantile</span>(score, <span class="fl">0.75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 5
   ageGroup     n median lower upper
@@ -707,21 +697,110 @@ $ langGroup &lt;chr&gt; "native", "native", "native", "native", "native", "nativ
 5 8-10         8   263.  256.  266.</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># B. generate the sampling distribution 17-39 group</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>samp_distribution <span class="ot">&lt;-</span> johnson_newport_1989 <span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(ageGroup <span class="sc">==</span> <span class="st">"17-39"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(<span class="at">response =</span> score) <span class="sc">%&gt;%</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"median"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, suppose we used <code>infer</code> to generate the sampling distribution for the median proficiancy of the <strong>17-39 year old age group</strong>, visualize the distribution, and shade the confidence interval.</p>
+<div>
+
 </div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># C. get confidence interval </span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> samp_distribution <span class="sc">%&gt;%</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"percentile"</span>, <span class="at">level =</span> <span class="fl">0.68</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># D. visualize sampling distribution and confidence interval </span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>samp_distribution <span class="sc">%&gt;%</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">visualize</span>() <span class="sc">+</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">shade_ci</span>(<span class="at">endpoints =</span> ci)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<ol type="a">
+<li><p><strong>(2 points)</strong> Which of the following best describes the statistics in the tibble?</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Both median and IQR are parametric</label></li>
+<li><label><input type="checkbox">Both median and IQR are nonparametric</label></li>
+<li><label><input type="checkbox">Meidan is parametric, but IQR is nonparametric</label></li>
+<li><label><input type="checkbox">Median is nonparametric, but IQR is parametric</label></li>
+</ul></li>
+<li><p><strong>(2 points)</strong> The sampling distribution of the median looks approximately Gaussian. The probability densitiy function for the Gaussian distribution is given by which of the following equations?</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="math inline">\(\frac{\sum_{i=i}^{n} x_{i}}{n}\)</span></label></li>
+<li><label><input type="checkbox"><span class="math inline">\(\frac{1}{\sigma\sqrt{2\pi}}\exp\left(-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^{2}\right)\)</span></label></li>
+<li><label><input type="checkbox"><span class="math inline">\(\frac{1}{max-min}\)</span></label></li>
+<li><label><input type="checkbox"><span class="math inline">\(\sqrt{\frac{\sum_{i=1}^n (x_i - \overline{x})^2}{n-1}}\)</span></label></li>
+</ul></li>
+<li><p><strong>(3 points)</strong> Fill in the blanks in the sentence below to describe what happens <em>on each repeat</em> in which we construct the sampling distribution via bootstrapping.</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>Draw __________ data points _____________ replacement, compute the ____________.</p>
+</blockquote>
+<ol start="4" type="a">
+<li><p><strong>(3 points)</strong> The shaded area of the figure shows a 68% confidence interval. If we were to increase the <code>level</code> of confidence to 95%, the confidence interval would become:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Narrower</label></li>
+<li><label><input type="checkbox">Wider</label></li>
+<li><label><input type="checkbox">Unchanged</label></li>
+<li><label><input type="checkbox">There’s insufficient information to determine this</label></li>
+</ul></li>
+</ol>
+</section>
+<section id="points-hypothesis-testing" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="points-hypothesis-testing">8. (11 points) Hypothesis testing</h3>
+<p>Suppose we want to know whether the participants who arrived as adults (17-39 age group) acheived native performance. We decide to address this question via the 3-step hypothesis testing framework in which we investigate the difference in <strong>medians</strong> between the native English speakers (0 age group) and the adults (17-39 age group).</p>
+<p>We begin by visualizing the data.</p>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<p>Then, we use <code>infer</code> to generate the sampling distribution for the difference in <strong>median proficiency</strong> between the native English speakers (0 age group) and the adults (17-39 age group).</p>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<ol type="a">
+<li><p><strong>(2 points)</strong> Which geom is best for our initial visualization of the data? Choose one.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>geom_histogram()</code></label></li>
+<li><label><input type="checkbox"><code>geom_violin()</code></label></li>
+<li><label><input type="checkbox"><code>geom_boxplot()</code></label></li>
+<li><label><input type="checkbox"><code>geom_density()</code></label></li>
+<li><label><input type="checkbox"><code>geom_bar(stat = "identity")</code></label></li>
+</ul></li>
+<li><p><strong>(2 points)</strong> Step 1 of the 3-step hypothesis testing framework is to pose the null hypothesis. True or false, the null hypothesis here is that the observed difference in medians is due age group (age of arrival in the US).</p>
+<ul class="task-list">
+<li><label><input type="checkbox">True</label></li>
+<li><label><input type="checkbox">False</label></li>
+</ul></li>
+<li><p><strong>(2 points)</strong> Step 2 is to ask, if the null hypothesis is true, how likely is our observed pattern of results? We quantify this likelihood with:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">difference in medians</label></li>
+<li><label><input type="checkbox">correlation</label></li>
+<li><label><input type="checkbox">liklihood estimation</label></li>
+<li><label><input type="checkbox">p-value</label></li>
+</ul></li>
+<li><p><strong>(2 points)</strong> Step 3 is to decide whether to reject the null hypothesis. In the original paper, Johnson and Newport (1989) concluded that the two groups were significantly different from each other, suggesting that participants who arrived to the US after age 17 did not acheive native proficiency. This implies that they (choose one):</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Rejected the null hypothesis</label></li>
+<li><label><input type="checkbox">Failed to reject the null hypothesis</label></li>
+<li><label><input type="checkbox">Proved the research hypothesis to be true</label></li>
+<li><label><input type="checkbox">Proved the null hypothesis to be true</label></li>
+<li><label><input type="checkbox">All of the above</label></li>
+</ul></li>
+<li><p><strong>(3 points)</strong> When we calculate the p-value from the simulated null distribution using the <code>get_p_value()</code> function, we get <strong>p = 0</strong>. Is this a problem? Why or why not? Explain what a p-value of 0 means in this context.</p></li>
+</ol>
+</section>
+<section id="points-correlation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="points-correlation">9. (9 points) Correlation</h3>
+<p>Johnson and Newport (1989) also wanted to ask whether years of exposure to English predicted score on the English proficiency task. To address this, they computed the correlation between score and exposure.</p>
+<div>
+
+</div>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -730,159 +809,45 @@ $ langGroup &lt;chr&gt; "native", "native", "native", "native", "native", "nativ
 </div>
 </div>
 <ol type="a">
-<li><p>True or false, the descriptive statistics reported above are parametric.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">True</label></li>
-<li><label><input type="checkbox">False</label></li>
-</ul></li>
-<li><p>The sampling distribution of the median looks approximately Gaussian. The probability densitiy function for the Gaussian distribution is given by which of the following equations?</p>
-<ul class="task-list">
-<li><label><input type="checkbox"><span class="math inline">\(\frac{\sum_{i=i}^{n} x_{i}}{n}\)</span></label></li>
-<li><label><input type="checkbox"><span class="math inline">\(\frac{1}{\sigma\sqrt{2\pi}}\exp\left(-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^{2}\right)\)</span></label></li>
-<li><label><input type="checkbox"><span class="math inline">\(\frac{1}{max-min}\)</span></label></li>
-<li><label><input type="checkbox"><span class="math inline">\(\sqrt{\frac{\sum_{i=1}^n (x_i - \overline{x})^2}{n-1}}\)</span></label></li>
-</ul></li>
-<li><p>Fill in the blanks in the sentence below to describe what happens <em>on each repeat</em> in code B above, in which we constructed the sampling distribution.</p></li>
-</ol>
-<blockquote class="blockquote">
-<p>Draw __________ data points _____________ replacement, compute the ____________.</p>
-</blockquote>
-<ol start="4" type="a">
-<li><p>The shaded area of the figure shows a 68% confidence interval. If we were to increase the <code>level</code> of confidence to 95%, the confidence interval would become:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Narrower</label></li>
-<li><label><input type="checkbox">Broader</label></li>
-<li><label><input type="checkbox">Stay the same</label></li>
-<li><label><input type="checkbox">There’s insufficient information to determine this</label></li>
-</ul></li>
-</ol>
-</section>
-<section id="hypothesis-testing" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="hypothesis-testing">Hypothesis testing</h3>
-<p>Suppose we want to know whether the participants who arrived as adults (17-39 age group) acheived native performance. We decide to address this question via the 3-step hypothesis testing framework in which we investigate the difference in <strong>medians</strong> between the native English speakers (0 age group) and the 17-39 age group.</p>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A. visualize difference with a boxplot</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>johnson_newport_1989 <span class="sc">%&gt;%</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(ageGroup <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"17-39"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> score, <span class="at">x =</span> ageGroup)) <span class="sc">+</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># B. compute observed difference in means</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>diff_medians <span class="ot">&lt;-</span> johnson_newport_1989 <span class="sc">%&gt;%</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(ageGroup <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"17-39"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(<span class="at">response =</span> score, <span class="at">explanatory =</span> ageGroup) <span class="sc">%&gt;%</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in medians"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"17-39"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># C. construct the null distribution with infer</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="ot">&lt;-</span> johnson_newport_1989 <span class="sc">%&gt;%</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(ageGroup <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"17-39"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(<span class="at">response =</span> score, <span class="at">explanatory =</span> ageGroup) <span class="sc">%&gt;%</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in medians"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"17-39"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># D. visualize the null and shade p-value</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">visualize</span>()  <span class="sc">+</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> diff_medians, <span class="at">direction =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in (function (mapping = NULL, data = NULL, stat = "identity", position = "identity", : All aesthetics have length 1, but the data has 1000 rows.
-ℹ Did you mean to use `annotate()`?</code></pre>
-</div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
-<ol type="a">
-<li><p>Step 1 is to pose the null hypothesis. True or false, the null hypothesis here is that the observed difference in medians is due age group (age of arrival in the US).</p>
-<ul class="task-list">
-<li><label><input type="checkbox">True</label></li>
-<li><label><input type="checkbox">False</label></li>
-</ul></li>
-</ol>
-<ol start="2" type="a">
-<li><p>Step 2 is to ask, if the null hypothesis is true, how likely is our observed pattern of results? We quantify this likelihood with:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">diff in medians</label></li>
-<li><label><input type="checkbox">correlation</label></li>
-<li><label><input type="checkbox">liklihood estimation</label></li>
-<li><label><input type="checkbox">p-value</label></li>
-</ul></li>
-<li><p>Step 3 is to decide whether to reject the null hypothesis. Johnson and Newport concluded that the two groups were significantly different from each other, suggesting that participants who arrived to the US after age 17 did not acheive native proficiency. This implies that they:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Reject the null hypothesis</label></li>
-<li><label><input type="checkbox">Fail to reject the null hypothesis</label></li>
-<li><label><input type="checkbox">Prove the research hypothesis to be true</label></li>
-<li><label><input type="checkbox">Prove the null hypothesis to be true</label></li>
-</ul></li>
-<li><p>When we calculate the p-value from the simulated null distribution using the <code>get_p_value()</code> function, we get <strong>p = 0</strong>. Is this a problem? Why or why not? Explain what a p-value of 0 means in this context.</p></li>
-</ol>
-</section>
-<section id="correlation" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="correlation">Correlation</h3>
-<p>Johnson and Newport (1989) also wanted to ask whether years of exposure to English predicted score on the English proficiency task. To address this, they computed the correlation between score and exposure.</p>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
-<ol type="a">
-<li><p>Given the scatterplot of these data, which of the following could be their observed correlation?</p>
+<li><p><strong>(2 points)</strong> Given the scatterplot of these data, which of the following could be their observed correlation?</p>
 <ul class="task-list">
 <li><label><input type="checkbox"><span class="math inline">\(-0.88\)</span></label></li>
 <li><label><input type="checkbox"><span class="math inline">\(0.88\)</span></label></li>
 <li><label><input type="checkbox"><span class="math inline">\(0.16\)</span></label></li>
 <li><label><input type="checkbox"><span class="math inline">\(0.5\)</span></label></li>
 </ul></li>
-<li><p>True or false, the correlations computed on these data were subject to sampling variability.</p>
+<li><p><strong>(2 points)</strong> True or false, the correlations computed on these data were subject to sampling variability.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">True</label></li>
 <li><label><input type="checkbox">False</label></li>
 </ul></li>
-<li><p>Johnson and Newport used hypothesis testing to determine whether the correlation they observed was significantly different from zero. We computed a p-value of <code>0.624</code> on the correlation we observed in our simulated data. Which figure could represent this p-value visualized on a null distribution generated nonparametrically from 1000 repetitions?</p></li>
 </ol>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in (function (mapping = NULL, data = NULL, stat = "identity", position = "identity", : All aesthetics have length 1, but the data has 1000 rows.
-ℹ Did you mean to use `annotate()`?</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in (function (mapping = NULL, data = NULL, stat = "identity", position = "identity", : All aesthetics have length 1, but the data has 1000 rows.
-ℹ Did you mean to use `annotate()`?</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in (function (mapping = NULL, data = NULL, stat = "identity", position = "identity", : All aesthetics have length 1, but the data has 1000 rows.
-ℹ Did you mean to use `annotate()`?</code></pre>
+<ol start="3" type="a">
+<li><p><strong>(3 points)</strong> Johnson and Newport used hypothesis testing to determine whether the correlation they observed was significantly different from zero. We computed a p-value of <code>0.624</code> on the correlation we observed in our simulated data. Which figure could represent this p-value visualized on a null distribution generated nonparametrically from 1000 repetitions?</p>
+<div>
+
 </div>
 <div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-23-2.png" class="img-fluid" width="672"></p>
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-23-3.png" class="img-fluid" width="672"></p>
+<p><img src="exam-01-practice_files/figure-html/unnamed-chunk-17-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
-<ol start="4" type="a">
-<li><p>What type of relationship does the correlation between years of exposure and score suggest?</p>
+<ul class="task-list">
+<li><label><input type="checkbox">A</label></li>
+<li><label><input type="checkbox">B</label></li>
+<li><label><input type="checkbox">C</label></li>
+<li><label><input type="checkbox">A or B, there is not sufficient information to differentiate</label></li>
+<li><label><input type="checkbox">A or C, there is not sufficient information to differentiate</label></li>
+</ul></li>
+<li><p><strong>(2 points)</strong> What type of relationship does the correlation between years of exposure and score suggest?</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Linear</label></li>
 <li><label><input type="checkbox">Nonlinear</label></li>
@@ -892,7 +857,6 @@ $ langGroup &lt;chr&gt; "native", "native", "native", "native", "native", "nativ
 </ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

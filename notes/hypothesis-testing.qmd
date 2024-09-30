@@ -5,9 +5,10 @@ author:
     - Katie Schuler
 ---
 
-::: {.callout-warning title="Under Construction"}
-Notes my change before class, this is a sneak peek!
-:::
+### Materials from lecture {.unnumbered}
+
+- Tuesday (class was cancelled)
+- Thursday: [slides](/slides/hypothesis-testing.qmd)
 
 
 ```{r}

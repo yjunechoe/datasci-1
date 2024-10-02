@@ -10,8 +10,9 @@ format:
 
 ::: {.callout-note title="Announcements"}
 
-- Katie will hold an Exam 1 review session on Friday 27th from 5:15pm - 6:45pm in our usual classroom!
-- A practice Exam 1 has been posted to [Exam 1 study guide](/notes/exam-1-review.qmd)
+- [Exam 1 solutions](exams/exam-01-solutions.pdf) have been posted
+- Partial credit was issued wherever possible
+- Exam 1 grades will be released by Thursday 
 
 :::
 

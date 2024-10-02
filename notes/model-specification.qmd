@@ -2,11 +2,9 @@
 title: "Model specification"
 author: 
     - Katie Schuler
-date: 2023-10-03
+date: 2024-10-08
 ---
 
-::: {.callout-warning title="Under Construction"}
-:::
 
 ## Correlation as model building 
 

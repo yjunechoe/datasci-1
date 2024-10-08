@@ -819,6 +819,22 @@ ggplot(data_nonlinear, aes(x = x, y = y)) +
 
 ```
 
+## 💪 In-class Exercise 7.3 {.smaller}
+
+*Take a few minutes to try this yourself!*
+
+Load the following data, which shows brain size and body weight for several different animals. 
+
+- [animal_brain_body_size.csv](/assests/csv/animal_brain_body_size.csv)
+
+Explore the data to specify the type of model we should use to predict brain size by body weight. 
+
+- Supervised or unsupervised? 
+- Regression or classification?
+- Linear or nonlinear? 
+
+
+
 
 
 # To be continued ... 

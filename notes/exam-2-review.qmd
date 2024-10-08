@@ -1,0 +1,29 @@
+---
+title:  "Exam 2 study guide"
+date:   2024-10-08
+author: 
+    - Katie Schuler
+format:
+    html: 
+        toc-depth: 3
+    pdf: default
+---
+
+**Additional study materials**
+
+- To be posted in week 12
+
+The second exam will test the following learning objectives, divided into the following topic areas. For each topic area, you should be able to do the list that follows. You can think of this as a studying checklist!
+
+1. **Model specification**
+    - 
+2. **Model fitting** 
+    - TBA
+4. **Model accuracy**
+    - TBA
+5. **Model reliability**
+    - TBA
+3. **Classification**
+    - TBA
+6. **Inference**
+    - TBA

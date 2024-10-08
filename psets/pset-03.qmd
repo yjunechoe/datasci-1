@@ -1,0 +1,55 @@
+---
+title:  "Problem set 3"
+subtitle: "due Monday, October 14, 2024 at noon"
+# author: 
+#     name: Katie Schuler
+#     affiliation: University of Pennsylvania
+number-sections: false
+format: 
+  html: 
+    number-sections: false
+  pdf: default
+
+---
+
+Instructions
+: Upload your `.ipynb` notebook to gradescope by 11:59am (noon) on the due date. Please include your name, Problem set number, and any collaborators you worked with at the top of your notebook. Please also number your problems and include comments in your code to indicate what part of a problem you are working on.  
+
+
+## Problem 1
+
+Hypothesis testing 
+
+## Problem 2
+
+Hypothesis testing with correlation 
+
+
+## Problem 3
+
+Linear model correlation - zscore and specify and fit 
+
+
+## Problem 4
+
+explore, specify, and plot model with geom_smooth 
+
+## Problem 5
+
+4 with log
+
+## Problem 6
+
+4 with polynomial? 
+
+
+
+## Problem 7 
+
+4 with transformation term? 
+
+
+## Challenge (optional)
+
+How might you use what you already know about the infer package to estimate the uncertainty around the free parameter estimates ?? Show the figure of what I mean — in infer pipeline : get confidence interval, and visualize. Call lm() on your specified model.  What do you notice about the estimates and se? 
+

@@ -81,11 +81,11 @@ library(tidyverse)
     #| results: asis
 
     # Define the answer choices
-    choices <-  c(
-  "Predicting whether an email is spam or not",
-  answer = "Predicting the price of a house based on its features",
-  "Identifying the species of a flower",
-  "Grouping customers into clusters based on purchasing behavior"
+   choices <- c(
+  answer = "Regression predicts a continuous value, while classification predicts a category",
+  "Regression is a type of unsupervised learning, while classification is supervised",
+  "Classification uses linear relationships, while regression uses non-linear relationships",
+  "Classification focuses on finding patterns in data, while regression doesn’t"
 )
 
     cat(longmcq(choices))
@@ -348,6 +348,6 @@ or similar
 
 Work together with support from TAs on **problem set 3, questions 5**: 
 
-Suppose your roommate is keeping a bunch of plants in your apartment. You notice that the plants exposed to more light seem to be taller, and — as an emerging data scientist — you record these data in a csv file: [polynomial_plants.csv](/assests/csv/polynomial_plants.csv). Explore the relationship between light_exposure and plant_height across different plant species by plotting the data using an appropriate geom. Then, specify, fit and compare polynomial models of increasing degrees (linear, quadratic, and cubic) to the data. Start by specifying and fitting a simple linear model. Next, specify and fit second- and third-degree polynomial models, and visualize each using geom_smooth(). Which best captures the relationship between light_exposure and plant_height? For each model, make sure you specify as a mathematical expression first in LaTex, then use `infer` to specify and fit the model.  
+Suppose your roommate is keeping a bunch of plants in your apartment. You notice that the plants exposed to more light seem to be taller, and — as an emerging data scientist — you record these data in a csv file: [polynomial_plants.csv](/assests/csv/polynomial_plants.csv). Explore the relationship between light_exposure and plant_height across different plant species by plotting the data using an appropriate geom. Then, specify, fit, and plot  polynomial models of increasing degrees (linear, quadratic, and cubic) to the data. Start by specifying and fitting a simple linear model. Next, specify and fit second- and third-degree polynomial models, and visualize each in ggplot. Which best captures the relationship between light_exposure and plant_height? For each model, make sure you specify as a mathematical expression first in LaTex, then use `infer` to specify and fit the model.  
 
 

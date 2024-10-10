@@ -38,12 +38,42 @@ Explore the songbird data by plotting each of the explanatory variables in the d
 
 ## Problem 4
 
-Based on your decisions in problem 3, specify the linear model that expresses neuron density as a weighted sum of the input variables you selected. Specify the model first as a formula, using Google Colab's LaTeX (`$$`) formatting. Then, specify and fit the model with `infer`. Use the `predict()` function to calculate the predicted neuron densities ($y$) based on your model. Finally, plot your data and model together. 
+Based on your decisions in problem 3, specify the linear model that expresses neuron density as a weighted sum of the input variables you selected. Specify the model first as a formula, using Google Colab's LaTeX (`$$`) formatting. Then, specify and fit the model with ~~`infer`~~  `lm()`. Use the `predict()` function to calculate the predicted neuron densities ($y$) based on your model. Finally, plot your data and model together. 
+
+::: {.callout-tip title="Hint"}
+Google Colab can render LaTex math expression if you put them in between two dollar signs `$y = w_1x_1 + w_2x_2$` becomes $y = w_1x_1 + w_2x_2$. Here is an equation builder to help you generate what you need: https://editor.codecogs.com/
+:::
 
 
 ## Problem 5
 
 Suppose your roommate is keeping a bunch of plants in your apartment. You notice that the plants exposed to more light seem to be taller, and — as an emerging data scientist — you record these data in a csv file: [polynomial_plants.csv](/assests/csv/polynomial_plants.csv). Explore the relationship between light_exposure and plant_height across different plant species by plotting the data using an appropriate geom. Then, specify, fit and compare polynomial models of increasing degrees (linear, quadratic, and cubic) to the data. Start by specifying and fitting a simple linear model. Next, specify and fit second- and third-degree polynomial models, and visualize each using geom_smooth(). Which best captures the relationship between light_exposure and plant_height? For each model, make sure you specify as a mathematical expression first in LaTex, then use `infer` to specify and fit the model.  
+
+::: {.callout-tip title="Hint"}
+
+We can express polynomials in R in a few ways. But importantly we are **expanding the input space** of the model by adding inputs. Consider a cubic polynomial, which we can express like this:
+
+- `y ~ 1 + x + I(x^2) + I(x^3)`
+
+or with this shorthand, which expresses the same model: 
+
+- `y ~ 1 + poly(x, 3)`
+
+Both of the model specifications above include: 
+
+- an intercept: 1
+- a linear term: `x`
+- a quadratic term: `I(x^2)`
+- a cublic term: `I(x^3)`. 
+
+The `poly(x, 3)` way is just shorthand for `y ~ x + I(x^2) + I(x^3)`. But importantly, neither are equivalent to: 
+
+- `y ~ 1 + x + I(x^3)`
+
+Which is missing the quadratic term `I(x^2)`. When we use the `I()` way, we have to explicitly add every term to the model. 
+
+
+:::
 
 ## Problem 6
 

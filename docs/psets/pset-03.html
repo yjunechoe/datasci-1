@@ -260,11 +260,56 @@ Upload your <code>.ipynb</code> notebook to gradescope by 11:59am (noon) on the 
 </section>
 <section id="problem-4" class="level2">
 <h2 class="anchored" data-anchor-id="problem-4">Problem 4</h2>
-<p>Based on your decisions in problem 3, specify the linear model that expresses neuron density as a weighted sum of the input variables you selected. Specify the model first as a formula, using Google Colab’s LaTeX (<code>$$</code>) formatting. Then, specify and fit the model with <code>infer</code>. Use the <code>predict()</code> function to calculate the predicted neuron densities (<span class="math inline">\(y\)</span>) based on your model. Finally, plot your data and model together.</p>
+<p>Based on your decisions in problem 3, specify the linear model that expresses neuron density as a weighted sum of the input variables you selected. Specify the model first as a formula, using Google Colab’s LaTeX (<code>$$</code>) formatting. Then, specify and fit the model with <del><code>infer</code></del> <code>lm()</code>. Use the <code>predict()</code> function to calculate the predicted neuron densities (<span class="math inline">\(y\)</span>) based on your model. Finally, plot your data and model together.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Google Colab can render LaTex math expression if you put them in between two dollar signs <code>$y = w_1x_1 + w_2x_2$</code> becomes <span class="math inline">\(y = w_1x_1 + w_2x_2\)</span>. Here is an equation builder to help you generate what you need: https://editor.codecogs.com/</p>
+</div>
+</div>
 </section>
 <section id="problem-5" class="level2">
 <h2 class="anchored" data-anchor-id="problem-5">Problem 5</h2>
 <p>Suppose your roommate is keeping a bunch of plants in your apartment. You notice that the plants exposed to more light seem to be taller, and — as an emerging data scientist — you record these data in a csv file: <a href="../assests/csv/polynomial_plants.csv">polynomial_plants.csv</a>. Explore the relationship between light_exposure and plant_height across different plant species by plotting the data using an appropriate geom. Then, specify, fit and compare polynomial models of increasing degrees (linear, quadratic, and cubic) to the data. Start by specifying and fitting a simple linear model. Next, specify and fit second- and third-degree polynomial models, and visualize each using geom_smooth(). Which best captures the relationship between light_exposure and plant_height? For each model, make sure you specify as a mathematical expression first in LaTex, then use <code>infer</code> to specify and fit the model.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can express polynomials in R in a few ways. But importantly we are <strong>expanding the input space</strong> of the model by adding inputs. Consider a cubic polynomial, which we can express like this:</p>
+<ul>
+<li><code>y ~ 1 + x + I(x^2) + I(x^3)</code></li>
+</ul>
+<p>or with this shorthand, which expresses the same model:</p>
+<ul>
+<li><code>y ~ 1 + poly(x, 3)</code></li>
+</ul>
+<p>Both of the model specifications above include:</p>
+<ul>
+<li>an intercept: 1</li>
+<li>a linear term: <code>x</code></li>
+<li>a quadratic term: <code>I(x^2)</code></li>
+<li>a cublic term: <code>I(x^3)</code>.</li>
+</ul>
+<p>The <code>poly(x, 3)</code> way is just shorthand for <code>y ~ x + I(x^2) + I(x^3)</code>. But importantly, neither are equivalent to:</p>
+<ul>
+<li><code>y ~ 1 + x + I(x^3)</code></li>
+</ul>
+<p>Which is missing the quadratic term <code>I(x^2)</code>. When we use the <code>I()</code> way, we have to explicitly add every term to the model.</p>
+</div>
+</div>
 </section>
 <section id="problem-6" class="level2">
 <h2 class="anchored" data-anchor-id="problem-6">Problem 6</h2>

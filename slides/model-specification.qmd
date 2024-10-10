@@ -867,7 +867,9 @@ ggplot(aes(x = x, y = y)) +
   xlim(c(0,3))
 ```
 
-## Specify our first model 
+## 💪 In class exercise 7.4
+
+Specify our model! 
 
 ```{dot}
 //|echo: false
@@ -986,8 +988,12 @@ ggplot(aes(x = x, y = y)) +
 :::
 ::::
 
+## We can have super complex models
 
-## 💪 In class exercise 7.4 
+- Matrix way allows us to appreciate that we can expand this toy example to an number of data points and any number of unknowns. 
+
+
+## 💪 In class exercise 7.5
 
 Ask chatGPT how many parameters it has. 
 
@@ -1003,6 +1009,10 @@ How have world swim records in the 100m changed over time?
 library(mosaic)
 glimpse(SwimRecords)
 ```
+
+## 💪 In class exercise 7.6
+
+Plot the swim records data, then use your model specification worksheet to specify the model. 
 
 ## Response variable $y$ {.smaller}
 

@@ -1074,7 +1074,7 @@ Model terms describe *how* to include our explanatory variables in our model for
 
 ## Intercept  {.smaller}
 
-  - in R: `y ~ 1`, in eq: $y=\w_1x_1$
+  - in R: `y ~ 1`, in eq: $y=w_1x_1$
 
 ```{r}
 #| echo: false

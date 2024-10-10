@@ -52,8 +52,6 @@ ggplot(data, aes(x = x, y = y)) +
     annotate(x = 1.2, y = 5.5, geom = "text", label = "--- Model", size = 6, color = "blue") + 
     annotate("text", x = 5.5, y = 1.0, label = "model specification", size = 6) +
       annotate("text", x = 5.5, y = 0.4, label = expression(y == a * x + b), size = 6)
-
-
 ```
 
 

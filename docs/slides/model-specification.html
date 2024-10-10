@@ -1468,33 +1468,23 @@ Null Hypothesis: independence
 </div><div class="column" style="width:50%;">
 <ul>
 <li class="fragment"><strong>Linear models</strong> are models in which the output (y) is a weighted sum of the inputs</li>
+<li class="fragment">Easy to understand and fit</li>
 <li class="fragment"><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
 <li class="fragment"><span class="math inline">\(y = ax + b\)</span> is this!</li>
-<li class="fragment">Easy to understand and fit</li>
 </ul>
 </div></div>
 </section>
-<section id="y-ax-b-as-ysum_i1nw_ix_i" class="slide level2">
-<h2><span class="math inline">\(y = ax + b\)</span> as <span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
+<section id="linear-model-equation" class="slide level2">
+<h2>Linear model equation</h2>
+<p><span class="math inline">\(y = ax + b\)</span> <em>can be expressed</em> <span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></p>
 <ul>
 <li class="fragment">implicit constant: <span class="math inline">\(y=ax+b\mathbf{1}\)</span><br>
 </li>
 <li class="fragment">let <span class="math inline">\(x_1=x\)</span> and <span class="math inline">\(x_2=\mathbf{1}\)</span></li>
+<li class="fragment">we have <span class="math inline">\(y=ax_1 + bx_2\)</span></li>
+<li class="fragment">express <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> as weights: <span class="math inline">\(a=w_1\)</span> and <span class="math inline">\(b=w_2\)</span></li>
 <li class="fragment"><span class="math inline">\(y=w_1x_1 + w_2x_2\)</span> where <span class="math inline">\(w_1\)</span> and <span class="math inline">\(w_2\)</span> are free parameters</li>
 </ul>
-</div></div>
 </section>
 <section id="types-of-models-3" class="slide level2">
 <h2>Types of models</h2>
@@ -1602,10 +1592,10 @@ Null Hypothesis: independence
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-27-2.png" width="960"></p>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-26-2.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -1613,27 +1603,440 @@ Null Hypothesis: independence
 <section id="in-class-exercise-7.3" class="slide level2 smaller">
 <h2>💪 In-class Exercise 7.3</h2>
 <p><em>Take a few minutes to try this yourself!</em></p>
-<p>Load the following data, which shows brain size and body weight for several different animals.</p>
+<p>Load the following data, which shows brain size and body weight for several different animals:</p>
+<div>
 <ul>
-<li class="fragment"><a href="../assests/csv/animal_brain_body_size.csv">animal_brain_body_size.csv</a></li>
+<li><a href="../assests/csv/animal_brain_body_size.csv">animal_brain_body_size.csv</a></li>
 </ul>
+</div>
 <p>Explore the data to specify the type of model we should use to predict brain size by body weight.</p>
+<div>
 <ul>
-<li class="fragment">Supervised or unsupervised?</li>
-<li class="fragment">Regression or classification?</li>
-<li class="fragment">Linear or nonlinear?</li>
+<li>Supervised or unsupervised?</li>
+<li>Regression or classification?</li>
+<li>Linear or nonlinear?</li>
 </ul>
+</div>
 </section></section>
-<section id="to-be-continued" class="title-slide slide level1 center">
-<h1>To be continued …</h1>
-<p>on Thursday</p>
+<section>
+<section id="thursday" class="title-slide slide level1 center">
+<h1>Thursday</h1>
 
-<div class="quarto-auto-generated-content">
+</section>
+<section id="model-specification" class="slide level2 smaller">
+<h2>Model specification</h2>
+<p>Recall that <code>model specification</code> is one aspect of the model building process in which we select the form of the model (the type of model)</p>
+<ol type="1">
+<li class="fragment"><strong>Response variable (<span class="math inline">\(y\)</span>):</strong> Specify the variable you want to predict/explain (output).</li>
+<li class="fragment"><strong>Explanatory variables(<span class="math inline">\(x_i\)</span>):</strong> Specify the variables that may explain the variation in the response (inputs).</li>
+<li class="fragment"><strong>Functional form:</strong> Specify the relationship between the response and explanatory variables. <em>For linear models, we use the linear model equation!</em></li>
+<li class="fragment"><strong>Model terms:</strong> Specify <em>how</em> to include your explanatory variables in the model (since they can be included in more than one way).</li>
+</ol>
+</section>
+<section id="model-specification-1" class="slide level2 smaller">
+<h2>Model specification</h2>
+<p>The following issues can also be considered part of the model specification process.</p>
+<ul>
+<li class="fragment"><strong>Model assumptions:</strong> Check any assumptions underlying the model you selected (e.g.&nbsp;does the model assume the relationship is linear?).</li>
+<li class="fragment"><strong>Model complexity:</strong> Simple models are easier to interpret but may not capture all complexities in the data. Complex models may suffer from overfitting the data or being difficult to interpret.</li>
+</ul>
+<div class="fragment">
+<p><em>A well-specified model should be based on a clear understanding of the data, the underlying relationships, and the research question.</em></p>
+</div>
+</section>
+<section id="specifying-the-functional-form" class="slide level2">
+<h2>Specifying the functional form</h2>
+<ul>
+<li class="fragment">Literally specifying the mathematical formula we’re going to use to represent the relationship between our response and explanatory variables.</li>
+<li class="fragment">We already know it: <strong>linear models</strong> are models in whch the response variable (<span class="math inline">\(y\)</span>) is a weighted sum of the explanatory variables (<span class="math inline">\(x_i\)</span>)</li>
+<li class="fragment"><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
+</ul>
+</section>
+<section id="aliases-of-ysum_i1nw_ix_i" class="slide level2">
+<h2>🥸 Aliases of <span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></h2>
+<p>The <strong>linear model equation</strong> can be expressed in many ways, but <em>they are all this same thing</em></p>
+<ol type="1">
+<li class="fragment">in <strong>high school algebra</strong>: <span class="math inline">\(y=ax+b\)</span>.</li>
+<li class="fragment">in <strong>machine learning</strong>: <span class="math inline">\(y = w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n\)</span></li>
+<li class="fragment">in <strong>statistics</strong>: <span class="math inline">\(y = β_0 + β_1x_1 + β_2x_2 + ... + β_nx_n + ε\)</span></li>
+<li class="fragment">in <strong>matrix</strong> notation: <span class="math inline">\(y = Xβ + ε\)</span></li>
+</ol>
+</section>
+<section id="specify-our-first-model" class="slide level2">
+<h2>Specify our first model</h2>
+<p>To illustrate how this simple equation scales up to complex models, let’s start with a simple case (“toy”, “tractable”).</p>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code># A tibble: 2 × 2
+      x     y
+  &lt;dbl&gt; &lt;dbl&gt;
+1     1     3
+2     2     5</code></pre>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="specify-our-first-model-1" class="slide level2">
+<h2>Specify our first model</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 296.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 292,-256 292,4 -4,4"></polygon>
+<!-- x1 -->
+<g id="node1" class="node">
+<title>x1</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-234" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-229.8" font-family="Times,serif" font-size="14.00">x1</text>
+</g>
+<!-- model -->
+<g id="node4" class="node">
+<title>model</title>
+<polygon fill="lightgrey" stroke="black" points="198,-162 90,-162 90,-90 198,-90 198,-162"></polygon>
+<text text-anchor="middle" x="144" y="-121.8" font-family="Times,serif" font-size="14.00">Linear model</text>
+</g>
+<!-- x1&#45;&gt;model -->
+<g id="edge1" class="edge">
+<title>x1-&gt;model</title>
+<path fill="none" stroke="black" d="M43.51,-219.43C57.26,-206.52 78.05,-187 97.07,-169.13"></path>
+<polygon fill="black" stroke="black" points="99.64,-171.52 104.53,-162.12 94.85,-166.42 99.64,-171.52"></polygon>
+</g>
+<!-- x2 -->
+<g id="node2" class="node">
+<title>x2</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-180" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-175.8" font-family="Times,serif" font-size="14.00">x2</text>
+</g>
+<!-- x2&#45;&gt;model -->
+<g id="edge2" class="edge">
+<title>x2-&gt;model</title>
+<path fill="none" stroke="black" d="M49.63,-169.84C58.58,-165.64 69.45,-160.54 80.57,-155.31"></path>
+<polygon fill="black" stroke="black" points="82.38,-158.33 89.94,-150.92 79.4,-152 82.38,-158.33"></polygon>
+</g>
+<!-- x3 -->
+<g id="node3" class="node">
+<title>x3</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-126" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-121.8" font-family="Times,serif" font-size="14.00">x3</text>
+</g>
+<!-- x3&#45;&gt;model -->
+<g id="edge3" class="edge">
+<title>x3-&gt;model</title>
+<path fill="none" stroke="black" d="M54.1,-126C61.8,-126 70.59,-126 79.57,-126"></path>
+<polygon fill="black" stroke="black" points="79.75,-129.5 89.75,-126 79.75,-122.5 79.75,-129.5"></polygon>
+</g>
+<!-- y -->
+<g id="node5" class="node">
+<title>y</title>
+<ellipse fill="none" stroke="black" cx="261" cy="-126" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="261" y="-121.8" font-family="Times,serif" font-size="14.00">y</text>
+</g>
+<!-- model&#45;&gt;y -->
+<g id="edge6" class="edge">
+<title>model-&gt;y</title>
+<path fill="none" stroke="black" d="M198.12,-126C206.72,-126 215.44,-126 223.52,-126"></path>
+<polygon fill="black" stroke="black" points="223.71,-129.5 233.71,-126 223.71,-122.5 223.71,-129.5"></polygon>
+</g>
+<!-- x4 -->
+<g id="node6" class="node">
+<title>x4</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-72" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-67.8" font-family="Times,serif" font-size="14.00">x4</text>
+</g>
+<!-- x4&#45;&gt;model -->
+<g id="edge4" class="edge">
+<title>x4-&gt;model</title>
+<path fill="none" stroke="black" d="M49.63,-82.16C58.58,-86.36 69.45,-91.46 80.57,-96.69"></path>
+<polygon fill="black" stroke="black" points="79.4,-100 89.94,-101.08 82.38,-93.67 79.4,-100"></polygon>
+</g>
+<!-- x5 -->
+<g id="node7" class="node">
+<title>x5</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">x5</text>
+</g>
+<!-- x5&#45;&gt;model -->
+<g id="edge5" class="edge">
+<title>x5-&gt;model</title>
+<path fill="none" stroke="black" d="M43.51,-32.57C57.26,-45.48 78.05,-65 97.07,-82.87"></path>
+<polygon fill="black" stroke="black" points="94.85,-85.58 104.53,-89.88 99.64,-80.48 94.85,-85.58"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="system-of-equations" class="slide level2">
+<h2>System of equations</h2>
+<p>In our simple dataset, we can appreciate that we have a system of equations. We have <strong>two unknowns</strong> (free parameters) and <strong>two datapoints</strong></p>
+<ul>
+<li class="fragment">so we have 2 equations, 2 unknowns.
+<ul>
+<li class="fragment"><code>c(1, 3) -&gt;</code> <span class="math inline">\(w_11 + w_21 = 3\)</span></li>
+<li class="fragment"><code>c(2, 5) -&gt;</code> <span class="math inline">\(w_11 + w_22 = 5\)</span></li>
+</ul></li>
+<li class="fragment">which have a solution:
+<ul>
+<li class="fragment"><span class="math inline">\(w_1 = 1\)</span> and <span class="math inline">\(w_2 = 2\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="fit-our-model-to-our-data" class="slide level2 smaller">
+<h2>🪄 Fit our model to our data</h2>
+<p>We’ll learn what is going on under the hood of model fitting next week, but for now, we can appreciate that we are solving a system of equations:</p>
+<div class="fragment">
+<p>with <code>lm()</code>:</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> toy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ x, data = toy)
+
+Coefficients:
+(Intercept)            x  
+          1            2  </code></pre>
+</div>
+</div></div>
+</div>
+<div class="fragment">
+<p>with <code>infer</code>:</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>toy <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> y, <span class="at">explanatory =</span> x) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a></a>  <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  term      estimate
+  &lt;chr&gt;        &lt;dbl&gt;
+1 intercept     1.00
+2 x             2   </code></pre>
+</div>
+</div></div>
+</div>
+</section>
+<section id="many-equations-many-unknowns" class="slide level2">
+<h2>Many equations, many unknowns</h2>
+<p>When we have multiple data points, we are essentially solving for the best line (or hyperplane, in higher dimensions) that fits the data.</p>
+<ul>
+<li class="fragment">For each data point, we create an equation based on the linear model</li>
+<li class="fragment">Which leads to a system of equations.</li>
+<li class="fragment">With 2 unknowns and 2 data points, we have 2 equations.</li>
+</ul>
+</section>
+<section id="enter-the-matrix-y-xβ-ε" class="slide level2">
+<h2>Enter the matrix <span class="math inline">\(y = Xβ + ε\)</span></h2>
+<p>When we have <strong>more equations than unknowns</strong> we cannot solve the system directly (we have an <strong>overdetermined system</strong>), but we can find a soulution with linear algebra.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<span class="math display">\[\begin{aligned}
+  \begin{bmatrix}
+  3 \\
+  5
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  1 &amp; 1 \\
+  1 &amp; 2
+  \end{bmatrix}
+  \begin{bmatrix}
+  w_1 \\
+  w_0
+  \end{bmatrix}
+
+\end{aligned}\]</span>
+</div></div>
+</section>
+<section id="in-class-exercise-7.4" class="slide level2">
+<h2>💪 In class exercise 7.4</h2>
+<p>Ask chatGPT how many parameters it has.</p>
+</section></section>
+<section>
+<section id="swim-records" class="title-slide slide level1 center">
+<h1>Swim Records</h1>
+<p>Applied to a more complex problem</p>
+</section>
+<section id="specify-a-model-for-swimrecords" class="slide level2">
+<h2>Specify a model for <code>SwimRecords</code></h2>
+<p>How have world swim records in the 100m changed over time?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb21-2"><a></a><span class="fu">glimpse</span>(SwimRecords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 62
+Columns: 3
+$ year &lt;int&gt; 1905, 1908, 1910, 1912, 1918, 1920, 1922, 1924, 1934, 1935, 1936,…
+$ time &lt;dbl&gt; 65.80, 65.60, 62.80, 61.60, 61.40, 60.40, 58.60, 57.40, 56.80, 56…
+$ sex  &lt;fct&gt; M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M,…</code></pre>
+</div>
+</div>
+</section>
+<section id="response-variable-y" class="slide level2 smaller">
+<h2>Response variable <span class="math inline">\(y\)</span></h2>
+<p>What is the thing you are trying to understand?</p>
+
+<img data-src="model-specification_files/figure-revealjs/unnamed-chunk-33-1.png" width="960" class="r-stretch"></section>
+<section id="explanatory-variables-x_i" class="slide level2 smaller">
+<h2>Explanatory variable(s) <span class="math inline">\(x_i\)</span></h2>
+<p>What could <strong>explain</strong> the variation in your response variable?</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">year</a></li><li><a href="#tabset-1-2">year + sex</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-35-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="functional-form" class="slide level2">
+<h2>Functional form</h2>
+<ul>
+<li class="fragment">Linear model</li>
+<li class="fragment"><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
+</ul>
+</section>
+<section id="model-terms" class="slide level2 smaller">
+<h2>Model terms</h2>
+<p>Model terms describe <em>how</em> to include our explanatory variables in our model formula — there is more than one way!</p>
+<ol type="1">
+<li class="fragment">Intercept</li>
+<li class="fragment">Main</li>
+<li class="fragment">Interaction</li>
+<li class="fragment">Transformation</li>
+</ol>
+</section>
+<section id="intercept" class="slide level2 smaller">
+<h2>Intercept</h2>
+<ul>
+<li class="fragment">in R: <code>y ~ 1</code>, in eq: <span class="math inline">\(y=\w_1x_1\)</span></li>
+</ul>
+
+<img data-src="model-specification_files/figure-revealjs/unnamed-chunk-36-1.png" width="960" class="r-stretch"></section>
+<section id="main" class="slide level2 smaller">
+<h2>Main</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">year</a></li><li><a href="#tabset-2-2">sex</a></li><li><a href="#tabset-2-3">year + sex</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<ul>
+<li class="fragment">in R: <code>y ~ 1 + year</code>, in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2\)</span></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-37-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<ul>
+<li class="fragment">in R: <code>y ~ 1 + sex</code>, in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2\)</span></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-38-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
+<ul>
+<li class="fragment">in R: <code>y ~ 1 + year</code>, in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2 + w_3x_3\)</span></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-39-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="interaction" class="slide level2 smaller">
+<h2>Interaction</h2>
+<ul>
+<li class="fragment">in R: <code>y ~ 1 + year + gender + year:gender</code>
+<ul>
+<li class="fragment">or the short way: <code>y ~ 1 + year * gender</code></li>
+</ul></li>
+<li class="fragment">in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2 + w_3x_3 + w_4x_4\)</span> where <span class="math inline">\(x_4\)</span> is <span class="math inline">\(x_2x_3\)</span></li>
+</ul>
+
+<img data-src="model-specification_files/figure-revealjs/unnamed-chunk-40-1.png" width="960" class="r-stretch"></section>
+<section id="transformation" class="slide level2 smaller">
+<h2>Transformation</h2>
+<ul>
+<li class="fragment">in R: <code>y ~ 1 + year * sex + I(year^2)</code></li>
+<li class="fragment">in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2 + w_3x_3 + w_4x_4\)</span> + <span class="math inline">\(w_5x_5\)</span>
+<ul>
+<li class="fragment">where <span class="math inline">\(x_4\)</span> is <span class="math inline">\(x_2x_3\)</span> and <span class="math inline">\(x_5\)</span> is <span class="math inline">\(x_2^2\)</span></li>
+</ul></li>
+</ul>
+
+
+<img data-src="model-specification_files/figure-revealjs/unnamed-chunk-41-1.png" width="960" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://kathrynschuler.com/datasci/">https://kathrynschuler.com/datasci</a></p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

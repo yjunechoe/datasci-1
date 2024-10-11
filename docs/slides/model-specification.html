@@ -1,418 +1,480 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Katie Schuler">
-<meta name="dcterms.date" content="2024-09-17">
-
-<title>Week 07: Model Specification – DataSci for Lang &amp; Mind</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-</style>
-
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<html lang="en"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.56">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
+  <meta name="author" content="Katie Schuler">
+  <meta name="dcterms.date" content="2024-10-08">
+  <title>DataSci for Lang &amp; Mind – Week 07: Model Specification</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
   }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
-<link rel="stylesheet" href="../include/webex.css">
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
 </head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
 
-<body class="nav-sidebar docked">
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Week 07: Model Specification</h1>
+  <p class="subtitle">Data Science for Studying Language and the Mind</p>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      DataSci for Lang &amp; Mind
-      </li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../">DataSci for Lang &amp; Mind</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Syllabus</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html#resources" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Resources</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../index.html#materials" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Materials</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html#study-guides" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Study guides</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html#problem-sets" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Problem sets</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html#exams" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exams</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html#lab-exercises" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab exercises</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html#schedule" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schedule</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#tuesday" id="toc-tuesday" class="nav-link active" data-scroll-target="#tuesday"><span class="header-section-number">1</span> Tuesday</a>
-  <ul class="collapse">
-  <li><a href="#announcements" id="toc-announcements" class="nav-link" data-scroll-target="#announcements"><span class="header-section-number">1.1</span> Announcements</a></li>
-  <li><a href="#thanks-for-your-feedback" id="toc-thanks-for-your-feedback" class="nav-link" data-scroll-target="#thanks-for-your-feedback"><span class="header-section-number">1.2</span> Thanks for your feedback</a></li>
-  <li><a href="#you-are-here" id="toc-you-are-here" class="nav-link" data-scroll-target="#you-are-here"><span class="header-section-number">1.3</span> You are <code>here</code></a></li>
-  </ul></li>
-  <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review"><span class="header-section-number">2</span> Review</a>
-  <ul class="collapse">
-  <li><a href="#exploring-relationships" id="toc-exploring-relationships" class="nav-link" data-scroll-target="#exploring-relationships"><span class="header-section-number">2.1</span> Exploring relationships</a></li>
-  <li><a href="#is-there-a-relationship" id="toc-is-there-a-relationship" class="nav-link" data-scroll-target="#is-there-a-relationship"><span class="header-section-number">2.2</span> Is there a relationship?</a></li>
-  <li><a href="#yes-a-linear-relationship" id="toc-yes-a-linear-relationship" class="nav-link" data-scroll-target="#yes-a-linear-relationship"><span class="header-section-number">2.3</span> Yes, a linear relationship</a></li>
-  <li><a href="#quantify-with-correlation" id="toc-quantify-with-correlation" class="nav-link" data-scroll-target="#quantify-with-correlation"><span class="header-section-number">2.4</span> Quantify with correlation</a></li>
-  <li><a href="#computing-correlation-in-r" id="toc-computing-correlation-in-r" class="nav-link" data-scroll-target="#computing-correlation-in-r"><span class="header-section-number">2.5</span> Computing correlation in R</a></li>
-  <li><a href="#correlation-uncertainty" id="toc-correlation-uncertainty" class="nav-link" data-scroll-target="#correlation-uncertainty"><span class="header-section-number">2.6</span> Correlation uncertainty</a></li>
-  <li><a href="#in-class-exercise-7.1" id="toc-in-class-exercise-7.1" class="nav-link" data-scroll-target="#in-class-exercise-7.1"><span class="header-section-number">2.7</span> 💪 In-class Exercise 7.1</a></li>
-  <li><a href="#hypothesis-testing-our-correlation" id="toc-hypothesis-testing-our-correlation" class="nav-link" data-scroll-target="#hypothesis-testing-our-correlation"><span class="header-section-number">2.8</span> Hypothesis testing our correlation</a></li>
-  <li><a href="#hypothesis-testing-our-correlation-1" id="toc-hypothesis-testing-our-correlation-1" class="nav-link" data-scroll-target="#hypothesis-testing-our-correlation-1"><span class="header-section-number">2.9</span> Hypothesis testing our correlation</a></li>
-  </ul></li>
-  <li><a href="#model-building" id="toc-model-building" class="nav-link" data-scroll-target="#model-building"><span class="header-section-number">3</span> Model building</a>
-  <ul class="collapse">
-  <li><a href="#correlation-is-model-building" id="toc-correlation-is-model-building" class="nav-link" data-scroll-target="#correlation-is-model-building"><span class="header-section-number">3.1</span> Correlation is model building</a></li>
-  <li><a href="#correlation-is-model-building-1" id="toc-correlation-is-model-building-1" class="nav-link" data-scroll-target="#correlation-is-model-building-1"><span class="header-section-number">3.2</span> Correlation is model building</a></li>
-  <li><a href="#how-do-we-get-r-0.48" id="toc-how-do-we-get-r-0.48" class="nav-link" data-scroll-target="#how-do-we-get-r-0.48"><span class="header-section-number">3.3</span> How do we get <span class="math inline">\(r = 0.48\)</span> ?</a></li>
-  <li><a href="#correlation-is-the-slope-of-the-model" id="toc-correlation-is-the-slope-of-the-model" class="nav-link" data-scroll-target="#correlation-is-the-slope-of-the-model"><span class="header-section-number">3.4</span> Correlation is the slope of the model</a></li>
-  <li><a href="#model-building-overview" id="toc-model-building-overview" class="nav-link" data-scroll-target="#model-building-overview"><span class="header-section-number">3.5</span> Model building overview</a></li>
-  <li><a href="#types-of-models" id="toc-types-of-models" class="nav-link" data-scroll-target="#types-of-models"><span class="header-section-number">3.6</span> Types of models</a></li>
-  <li><a href="#in-class-exercise-7.2" id="toc-in-class-exercise-7.2" class="nav-link" data-scroll-target="#in-class-exercise-7.2"><span class="header-section-number">3.7</span> 💪 In-class Exercise 7.2</a></li>
-  <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning"><span class="header-section-number">3.8</span> Supervised learning</a></li>
-  <li><a href="#supervised-learning-1" id="toc-supervised-learning-1" class="nav-link" data-scroll-target="#supervised-learning-1"><span class="header-section-number">3.9</span> Supervised learning</a></li>
-  <li><a href="#supervised-learning-2" id="toc-supervised-learning-2" class="nav-link" data-scroll-target="#supervised-learning-2"><span class="header-section-number">3.10</span> Supervised learning</a></li>
-  <li><a href="#types-of-models-1" id="toc-types-of-models-1" class="nav-link" data-scroll-target="#types-of-models-1"><span class="header-section-number">3.11</span> Types of models</a></li>
-  <li><a href="#regression-v-classification" id="toc-regression-v-classification" class="nav-link" data-scroll-target="#regression-v-classification"><span class="header-section-number">3.12</span> Regression v classification</a></li>
-  <li><a href="#types-of-models-2" id="toc-types-of-models-2" class="nav-link" data-scroll-target="#types-of-models-2"><span class="header-section-number">3.13</span> Types of models</a></li>
-  <li><a href="#linear-models" id="toc-linear-models" class="nav-link" data-scroll-target="#linear-models"><span class="header-section-number">3.14</span> Linear models</a></li>
-  <li><a href="#linear-model-equation" id="toc-linear-model-equation" class="nav-link" data-scroll-target="#linear-model-equation"><span class="header-section-number">3.15</span> Linear model equation</a></li>
-  <li><a href="#types-of-models-3" id="toc-types-of-models-3" class="nav-link" data-scroll-target="#types-of-models-3"><span class="header-section-number">3.16</span> Types of models</a></li>
-  <li><a href="#nonlinear-models" id="toc-nonlinear-models" class="nav-link" data-scroll-target="#nonlinear-models"><span class="header-section-number">3.17</span> Nonlinear models</a></li>
-  <li><a href="#in-class-exercise-7.3" id="toc-in-class-exercise-7.3" class="nav-link" data-scroll-target="#in-class-exercise-7.3"><span class="header-section-number">3.18</span> 💪 In-class Exercise 7.3</a></li>
-  </ul></li>
-  <li><a href="#thursday" id="toc-thursday" class="nav-link" data-scroll-target="#thursday"><span class="header-section-number">4</span> Thursday</a>
-  <ul class="collapse">
-  <li><a href="#model-specification" id="toc-model-specification" class="nav-link" data-scroll-target="#model-specification"><span class="header-section-number">4.1</span> Model specification</a></li>
-  <li><a href="#model-specification-1" id="toc-model-specification-1" class="nav-link" data-scroll-target="#model-specification-1"><span class="header-section-number">4.2</span> Model specification</a></li>
-  <li><a href="#specifying-the-functional-form" id="toc-specifying-the-functional-form" class="nav-link" data-scroll-target="#specifying-the-functional-form"><span class="header-section-number">4.3</span> Specifying the functional form</a></li>
-  <li><a href="#aliases-of-ysum_i1nw_ix_i" id="toc-aliases-of-ysum_i1nw_ix_i" class="nav-link" data-scroll-target="#aliases-of-ysum_i1nw_ix_i"><span class="header-section-number">4.4</span> 🥸 Aliases of <span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></a></li>
-  <li><a href="#specify-our-first-model" id="toc-specify-our-first-model" class="nav-link" data-scroll-target="#specify-our-first-model"><span class="header-section-number">4.5</span> Specify our first model</a></li>
-  <li><a href="#in-class-exercise-7.4" id="toc-in-class-exercise-7.4" class="nav-link" data-scroll-target="#in-class-exercise-7.4"><span class="header-section-number">4.6</span> 💪 In class exercise 7.4</a></li>
-  <li><a href="#system-of-equations" id="toc-system-of-equations" class="nav-link" data-scroll-target="#system-of-equations"><span class="header-section-number">4.7</span> System of equations</a></li>
-  <li><a href="#fit-our-model-to-our-data" id="toc-fit-our-model-to-our-data" class="nav-link" data-scroll-target="#fit-our-model-to-our-data"><span class="header-section-number">4.8</span> 🪄 Fit our model to our data</a></li>
-  <li><a href="#many-equations-many-unknowns" id="toc-many-equations-many-unknowns" class="nav-link" data-scroll-target="#many-equations-many-unknowns"><span class="header-section-number">4.9</span> Many equations, many unknowns</a></li>
-  <li><a href="#enter-the-matrix-y-xβ-ε" id="toc-enter-the-matrix-y-xβ-ε" class="nav-link" data-scroll-target="#enter-the-matrix-y-xβ-ε"><span class="header-section-number">4.10</span> Enter the matrix <span class="math inline">\(y = Xβ + ε\)</span></a></li>
-  <li><a href="#we-can-have-super-complex-models" id="toc-we-can-have-super-complex-models" class="nav-link" data-scroll-target="#we-can-have-super-complex-models"><span class="header-section-number">4.11</span> We can have super complex models</a></li>
-  <li><a href="#in-class-exercise-7.5" id="toc-in-class-exercise-7.5" class="nav-link" data-scroll-target="#in-class-exercise-7.5"><span class="header-section-number">4.12</span> 💪 In class exercise 7.5</a></li>
-  </ul></li>
-  <li><a href="#swim-records" id="toc-swim-records" class="nav-link" data-scroll-target="#swim-records"><span class="header-section-number">5</span> Swim Records</a>
-  <ul class="collapse">
-  <li><a href="#specify-a-model-for-swimrecords" id="toc-specify-a-model-for-swimrecords" class="nav-link" data-scroll-target="#specify-a-model-for-swimrecords"><span class="header-section-number">5.1</span> Specify a model for <code>SwimRecords</code></a></li>
-  <li><a href="#in-class-exercise-7.6" id="toc-in-class-exercise-7.6" class="nav-link" data-scroll-target="#in-class-exercise-7.6"><span class="header-section-number">5.2</span> 💪 In class exercise 7.6</a></li>
-  <li><a href="#response-variable-y" id="toc-response-variable-y" class="nav-link" data-scroll-target="#response-variable-y"><span class="header-section-number">5.3</span> Response variable <span class="math inline">\(y\)</span></a></li>
-  <li><a href="#explanatory-variables-x_i" id="toc-explanatory-variables-x_i" class="nav-link" data-scroll-target="#explanatory-variables-x_i"><span class="header-section-number">5.4</span> Explanatory variable(s) <span class="math inline">\(x_i\)</span></a></li>
-  <li><a href="#functional-form" id="toc-functional-form" class="nav-link" data-scroll-target="#functional-form"><span class="header-section-number">5.5</span> Functional form</a></li>
-  <li><a href="#model-terms" id="toc-model-terms" class="nav-link" data-scroll-target="#model-terms"><span class="header-section-number">5.6</span> Model terms</a></li>
-  <li><a href="#intercept" id="toc-intercept" class="nav-link" data-scroll-target="#intercept"><span class="header-section-number">5.7</span> Intercept</a></li>
-  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main"><span class="header-section-number">5.8</span> Main</a></li>
-  <li><a href="#interaction" id="toc-interaction" class="nav-link" data-scroll-target="#interaction"><span class="header-section-number">5.9</span> Interaction</a></li>
-  <li><a href="#transformation" id="toc-transformation" class="nav-link" data-scroll-target="#transformation"><span class="header-section-number">5.10</span> Transformation</a></li>
-  </ul></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="model-specification.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Week 07: Model Specification</h1>
-<p class="subtitle lead">Data Science for Studying Language and the Mind</p>
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Katie Schuler 
+</div>
+</div>
 </div>
 
+  <p class="date">2024-10-08</p>
+</section>
+<section>
+<section id="tuesday" class="title-slide slide level1 center">
+<h1>Tuesday</h1>
 
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Katie Schuler </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 17, 2024</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="tuesday" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Tuesday</h1>
-<section id="announcements" class="level2 smaller" data-number="1.1">
-<h2 class="smaller anchored" data-number="1.1" data-anchor-id="announcements"><span class="header-section-number">1.1</span> Announcements</h2>
+</section>
+<section id="announcements" class="slide level2 smaller">
+<h2>Announcements</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img src="../assests/images/exam-1-scores.png" class="img-fluid"></p>
+<p><img data-src="../assests/images/exam-1-scores.png"></p>
 </div><div class="column" style="width:50%;">
 <ul>
-<li>You did great on the exam!</li>
-<li>You can replace your lowest exam score with the optional final</li>
-<li>The final exam is cumulative: another opportunity to show mastery of the material.</li>
+<li class="fragment">You did great on the exam!</li>
+<li class="fragment">You can replace your lowest exam score with the optional final</li>
+<li class="fragment">The final exam is cumulative: another opportunity to show mastery of the material.</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
-<section id="thanks-for-your-feedback" class="level2 smaller" data-number="1.2">
-<h2 class="smaller anchored" data-number="1.2" data-anchor-id="thanks-for-your-feedback"><span class="header-section-number">1.2</span> Thanks for your feedback</h2>
-<p>. . .</p>
+<section id="thanks-for-your-feedback" class="slide level2 smaller">
+<h2>Thanks for your feedback</h2>
+<div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
-<section id="adding" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="adding"><span class="header-section-number">1.2.1</span> Adding</h3>
+<h3 id="adding">Adding</h3>
 <ol type="1">
-<li><strong>Demos more accessible</strong></li>
+<li class="fragment"><strong>Demos more accessible</strong></li>
 </ol>
 <ul>
-<li>Posted before class</li>
-<li>Make font bigger</li>
-<li>Not so fast, please 😅</li>
+<li class="fragment">Posted before class</li>
+<li class="fragment">Make font bigger</li>
+<li class="fragment">Not so fast, please 😅</li>
 </ul>
 <ol start="2" type="1">
-<li><strong>In-class exercises</strong> (not graded)</li>
+<li class="fragment"><strong>In-class exercises</strong> (not graded)</li>
 </ol>
 <ul>
-<li>Slightly more interactive</li>
+<li class="fragment">Slightly more interactive</li>
 </ul>
 <ol start="3" type="1">
-<li><strong>Challenge questions</strong></li>
+<li class="fragment"><strong>Challenge questions</strong></li>
 </ol>
 <ul>
-<li>On labs or homework (optional)</li>
+<li class="fragment">On labs or homework (optional)</li>
 </ul>
-</section>
 </div><div class="column" style="width:50%;">
-<section id="not-adding" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="not-adding"><span class="header-section-number">1.2.2</span> Not adding</h3>
+<h3 id="not-adding">Not adding</h3>
 <ol start="4" type="1">
-<li><strong>Projects</strong> instead of exams</li>
-<li><strong>R Studio</strong> instead of Google Colab</li>
+<li class="fragment"><strong>Projects</strong> instead of exams</li>
+<li class="fragment"><strong>R Studio</strong> instead of Google Colab</li>
 </ol>
-</section>
+</div></div>
 </div>
-</div>
 </section>
-<section id="you-are-here" class="level2 smaller" data-number="1.3">
-<h2 class="smaller anchored" data-number="1.3" data-anchor-id="you-are-here"><span class="header-section-number">1.3</span> You are <code>here</code></h2>
+<section id="you-are-here" class="slide level2 smaller">
+<h2>You are <code>here</code></h2>
 <div class="columns">
 <div class="column" style="width:33%;">
-<section id="data-science-with-r" class="level5" data-number="1.3.0.0.1">
-<h5 data-number="1.3.0.0.1" class="anchored" data-anchor-id="data-science-with-r"><span class="header-section-number">1.3.0.0.1</span> Data science with R</h5>
-<div class="nonincremental">
+<h5 id="data-science-with-r">Data science with R</h5>
+<div>
 <ul>
 <li>R basics</li>
 <li>Data visualization</li>
 <li>Data wrangling</li>
 </ul>
 </div>
-</section>
 </div><div class="column" style="width:33%;">
-<section id="stats-model-building" class="level5" data-number="1.3.0.0.2">
-<h5 data-number="1.3.0.0.2" class="anchored" data-anchor-id="stats-model-building"><span class="header-section-number">1.3.0.0.2</span> Stats &amp; Model building</h5>
-<div class="nonincremental">
+<h5 id="stats-model-building">Stats &amp; Model building</h5>
+<div>
 <ul>
 <li>Sampling distribution</li>
 <li>Hypothesis testing</li>
@@ -422,95 +484,101 @@ window.Quarto = {
 <li>Model reliability</li>
 </ul>
 </div>
-</section>
 </div><div class="column" style="width:33%;">
-<section id="more-advanced" class="level5" data-number="1.3.0.0.3">
-<h5 data-number="1.3.0.0.3" class="anchored" data-anchor-id="more-advanced"><span class="header-section-number">1.3.0.0.3</span> More advanced</h5>
-<div class="nonincremental">
+<h5 id="more-advanced">More advanced</h5>
+<div>
 <ul>
 <li>Classification</li>
 <li>Inference for regression</li>
 <li>Mixed-effect models</li>
 </ul>
 </div>
-</section>
-</div>
-</div>
-</section>
-</section>
-<section id="review" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Review</h1>
+</div></div>
+</section></section>
+<section>
+<section id="review" class="title-slide slide level1 center">
+<h1>Review</h1>
 <p>Sampling distribution and hypothesis testing with Correlation!</p>
-<section id="exploring-relationships" class="level2 smaller" data-number="2.1">
-<h2 class="smaller anchored" data-number="2.1" data-anchor-id="exploring-relationships"><span class="header-section-number">2.1</span> Exploring relationships</h2>
+</section>
+<section id="exploring-relationships" class="slide level2 smaller">
+<h2>Exploring relationships</h2>
 <p>To review what we learned before break, let’s explore the relationship between Frequency and meanFamiliarity in the <code>ratings</code> dataset of the <code>languageR</code> package.</p>
-<p>. . .</p>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="480"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-2-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="is-there-a-relationship" class="level2 smaller" data-number="2.2">
-<h2 class="smaller anchored" data-number="2.2" data-anchor-id="is-there-a-relationship"><span class="header-section-number">2.2</span> Is there a relationship?</h2>
+<section id="is-there-a-relationship" class="slide level2 smaller">
+<h2>Is there a relationship?</h2>
 <p>If there was no relationship, we’d say there are <strong>independent</strong>: knowing the value of one provides no information about about the other. But that’s not the case here.</p>
-<p>. . .</p>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="480"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="yes-a-linear-relationship" class="level2 smaller" data-number="2.3">
-<h2 class="smaller anchored" data-number="2.3" data-anchor-id="yes-a-linear-relationship"><span class="header-section-number">2.3</span> Yes, a linear relationship</h2>
+<section id="yes-a-linear-relationship" class="slide level2 smaller">
+<h2>Yes, a linear relationship</h2>
 <p>In a linear relationship, when one variable goes up the other goes up (positive); or when one goes up the other goes down (negative).</p>
-<p>. . .</p>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="quantify-with-correlation" class="level2 smaller" data-number="2.4">
-<h2 class="smaller anchored" data-number="2.4" data-anchor-id="quantify-with-correlation"><span class="header-section-number">2.4</span> Quantify with correlation</h2>
+<section id="quantify-with-correlation" class="slide level2 smaller">
+<h2>Quantify with correlation</h2>
 <p>One way to quantify linear relationships is with <strong>correlation</strong> (<span class="math inline">\(r\)</span>). Correlation expresses the linear relationship as a range from -1 (perfectly negative) to 1 (perfectly positive).</p>
-<p><img src="../assests/images/correlation.jpeg" class="img-fluid"></p>
-</section>
-<section id="computing-correlation-in-r" class="level2 smaller" data-number="2.5">
-<h2 class="smaller anchored" data-number="2.5" data-anchor-id="computing-correlation-in-r"><span class="header-section-number">2.5</span> Computing correlation in R</h2>
+
+<img data-src="../assests/images/correlation.jpeg" class="r-stretch"></section>
+<section id="computing-correlation-in-r" class="slide level2 smaller">
+<h2>Computing correlation in R</h2>
 <p>We can compute a correlation with R’s built in <code>cor(x,y)</code> function</p>
-<p>. . .</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> ratings<span class="sc">$</span>Frequency, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> ratings<span class="sc">$</span>meanFamiliarity</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">cor</span>(</span>
+<span id="cb1-2"><a></a>  <span class="at">x =</span> ratings<span class="sc">$</span>Frequency, </span>
+<span id="cb1-3"><a></a>  <span class="at">y =</span> ratings<span class="sc">$</span>meanFamiliarity</span>
+<span id="cb1-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4820286</code></pre>
 </div>
+</div></div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p>Or via the <code>infer</code> pacakge.</p>
-<p>. . .</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(obs_corr <span class="ot">&lt;-</span> ratings <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> meanFamiliarity, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">explanatory =</span> Frequency</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"correlation"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>(obs_corr <span class="ot">&lt;-</span> ratings <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">specify</span>(</span>
+<span id="cb3-3"><a></a>    <span class="at">response =</span> meanFamiliarity, </span>
+<span id="cb3-4"><a></a>    <span class="at">explanatory =</span> Frequency</span>
+<span id="cb3-5"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"correlation"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>Response: meanFamiliarity (numeric)
 Explanatory: Frequency (numeric)
@@ -519,24 +587,28 @@ Explanatory: Frequency (numeric)
   &lt;dbl&gt;
 1 0.482</code></pre>
 </div>
+</div></div>
 </div>
 </section>
-<section id="correlation-uncertainty" class="level2 smaller" data-number="2.6">
-<h2 class="smaller anchored" data-number="2.6" data-anchor-id="correlation-uncertainty"><span class="header-section-number">2.6</span> Correlation uncertainty</h2>
+<section id="correlation-uncertainty" class="slide level2 smaller">
+<h2>Correlation uncertainty</h2>
 <p>Just like the mean — and all other test statistics! — <span class="math inline">\(r\)</span> is subject to sampling variability. We can indicate our uncertainty around the correlation the same way we always have:</p>
-<p>. . .</p>
+<div class="fragment">
 <p>Construct the sampling distribution for the correlation:</p>
-<p>. . .</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sampling_distribution <span class="ot">&lt;-</span> ratings <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> meanFamiliarity, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">explanatory =</span> Frequency</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"correlation"</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sampling_distribution)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>sampling_distribution <span class="ot">&lt;-</span> ratings <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">specify</span>(</span>
+<span id="cb5-3"><a></a>    <span class="at">response =</span> meanFamiliarity, </span>
+<span id="cb5-4"><a></a>    <span class="at">explanatory =</span> Frequency</span>
+<span id="cb5-5"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"correlation"</span>)</span>
+<span id="cb5-8"><a></a></span>
+<span id="cb5-9"><a></a><span class="fu">head</span>(sampling_distribution)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>Response: meanFamiliarity (numeric)
 Explanatory: Frequency (numeric)
@@ -550,55 +622,64 @@ Explanatory: Frequency (numeric)
 5         5 0.573
 6         6 0.579</code></pre>
 </div>
+</div></div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p>Compute a confidence interval</p>
-<p>. . .</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> sampling_distribution <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_ci</span>(<span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="st">"percentile"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>ci <span class="ot">&lt;-</span> sampling_distribution <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">get_ci</span>(<span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="st">"percentile"</span>)</span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   lower_ci upper_ci
      &lt;dbl&gt;    &lt;dbl&gt;
 1    0.305    0.635</code></pre>
 </div>
+</div></div>
 </div>
 </section>
-<section id="in-class-exercise-7.1" class="level2 smaller" data-number="2.7">
-<h2 class="smaller anchored" data-number="2.7" data-anchor-id="in-class-exercise-7.1"><span class="header-section-number">2.7</span> 💪 In-class Exercise 7.1</h2>
+<section id="in-class-exercise-7.1" class="slide level2 smaller">
+<h2>💪 In-class Exercise 7.1</h2>
 <p><em>Take a few minutes to try this yourself!</em></p>
 <p>Use the <code>infer</code> way to visualize the sampling distribution and shade the confidence interval we just computed. Change the x-axis label to <strong>stat (correlation)</strong> as pictured below.</p>
-<p>. . .</p>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="768"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-9-1.png" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="hypothesis-testing-our-correlation" class="level2 smaller" data-number="2.8">
-<h2 class="smaller anchored" data-number="2.8" data-anchor-id="hypothesis-testing-our-correlation"><span class="header-section-number">2.8</span> Hypothesis testing our correlation</h2>
+<section id="hypothesis-testing-our-correlation" class="slide level2 smaller">
+<h2>Hypothesis testing our correlation</h2>
 <p>How do we test whether the correlation we observed is significantly different from zero? Hypothesis test!</p>
-<p>. . .</p>
+<div class="fragment">
 <p>Step 1: Construct the null distribution, the sampling distribution of the null hypothesis</p>
-<p>. . .</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>null_distribution_corr <span class="ot">&lt;-</span> ratings <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> meanFamiliarity, </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">explanatory =</span> Frequency</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"correlation"</span>) </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>null_distribution_corr <span class="sc">%&gt;%</span> head</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>null_distribution_corr <span class="ot">&lt;-</span> ratings <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">specify</span>(</span>
+<span id="cb9-3"><a></a>    <span class="at">response =</span> meanFamiliarity, </span>
+<span id="cb9-4"><a></a>    <span class="at">explanatory =</span> Frequency</span>
+<span id="cb9-5"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"correlation"</span>) </span>
+<span id="cb9-9"><a></a></span>
+<span id="cb9-10"><a></a>null_distribution_corr <span class="sc">%&gt;%</span> head</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>Response: meanFamiliarity (numeric)
 Explanatory: Frequency (numeric)
@@ -613,101 +694,114 @@ Null Hypothesis: independence
 5         5 -0.0674
 6         6 -0.0242</code></pre>
 </div>
+</div></div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p>Step 2: How likley is our observed value under the null? Get a p-value.</p>
-<p>. . .</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> null_distribution_corr <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">obs_stat =</span> obs_corr, </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">direction =</span> <span class="st">"both"</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p <span class="ot">&lt;-</span> null_distribution_corr <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">get_p_value</span>(</span>
+<span id="cb11-3"><a></a>    <span class="at">obs_stat =</span> obs_corr, </span>
+<span id="cb11-4"><a></a>    <span class="at">direction =</span> <span class="st">"both"</span>)</span>
+<span id="cb11-5"><a></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   p_value
     &lt;dbl&gt;
 1       0</code></pre>
 </div>
+</div></div>
 </div>
 </section>
-<section id="hypothesis-testing-our-correlation-1" class="level2 smaller" data-number="2.9">
-<h2 class="smaller anchored" data-number="2.9" data-anchor-id="hypothesis-testing-our-correlation-1"><span class="header-section-number">2.9</span> Hypothesis testing our correlation</h2>
+<section id="hypothesis-testing-our-correlation-1" class="slide level2 smaller">
+<h2>Hypothesis testing our correlation</h2>
 <p>How do we test whether the correlation we observed is significantly different from zero? Hypothesis test!</p>
-<p>. . .</p>
+<div class="fragment">
 <p>Step 3: Decide whether to reject the null!</p>
-<p>. . .</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>null_distribution_corr <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">visualize</span>() <span class="sc">+</span> </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">obs_stat =</span> obs_corr, </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">direction =</span> <span class="st">"two-sided"</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>null_distribution_corr <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">visualize</span>() <span class="sc">+</span> </span>
+<span id="cb13-3"><a></a>  <span class="fu">shade_p_value</span>(</span>
+<span id="cb13-4"><a></a>    <span class="at">obs_stat =</span> obs_corr, </span>
+<span id="cb13-5"><a></a>    <span class="at">direction =</span> <span class="st">"two-sided"</span></span>
+<span id="cb13-6"><a></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="960"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
 </figure>
 </div>
 </div>
+</div></div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p>Interpret our p-value. Should we reject the null hypothesis?</p>
-</section>
-</section>
-<section id="model-building" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Model building</h1>
+</div>
+</section></section>
+<section>
+<section id="model-building" class="title-slide slide level1 center">
+<h1>Model building</h1>
 <p>Big picture overview of the model building process and the types of models we might encounter in our research.</p>
-<section id="correlation-is-model-building" class="level2 smaller" data-number="3.1">
-<h2 class="smaller anchored" data-number="3.1" data-anchor-id="correlation-is-model-building"><span class="header-section-number">3.1</span> Correlation is model building</h2>
+</section>
+<section id="correlation-is-model-building" class="slide level2 smaller">
+<h2>Correlation is model building</h2>
 <p>Correlation is a simple case of model building, in which we use one value (<span class="math inline">\(x\)</span>) to predict another (<span class="math inline">\(y\)</span>).</p>
-<p>. . .</p>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="480"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-13-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="correlation-is-model-building-1" class="level2 smaller" data-number="3.2">
-<h2 class="smaller anchored" data-number="3.2" data-anchor-id="correlation-is-model-building-1"><span class="header-section-number">3.2</span> Correlation is model building</h2>
+<section id="correlation-is-model-building-1" class="slide level2 smaller">
+<h2>Correlation is model building</h2>
 <p>Even more specifically — formally, the <strong>model specification</strong> — we are fitting the linear model <span class="math inline">\(y = ax+b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are free parameters.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="480"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-14-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
-<li>Model specification: <span class="math inline">\(y = ax + b\)</span></li>
-<li>Estimate free parameters: <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></li>
-<li>Fitted model: <span class="math inline">\(y = 0.39x + 2.02\)</span></li>
+<li class="fragment">Model specification: <span class="math inline">\(y = ax + b\)</span></li>
+<li class="fragment">Estimate free parameters: <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></li>
+<li class="fragment">Fitted model: <span class="math inline">\(y = 0.39x + 2.02\)</span></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
-<section id="how-do-we-get-r-0.48" class="level2 smaller" data-number="3.3">
-<h2 class="smaller anchored" data-number="3.3" data-anchor-id="how-do-we-get-r-0.48"><span class="header-section-number">3.3</span> How do we get <span class="math inline">\(r = 0.48\)</span> ?</h2>
+<section id="how-do-we-get-r-0.48" class="slide level2 smaller">
+<h2>How do we get <span class="math inline">\(r = 0.48\)</span> ?</h2>
 <p>The link between correlation and linear models is understood when we normalize our variables with a z-score.</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>z_ratings <span class="ot">&lt;-</span> ratings <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Frequency, meanFamiliarity) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">z_Freq =</span> <span class="fu">scale</span>(Frequency), </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">z_meanFamil =</span> <span class="fu">scale</span>(meanFamiliarity)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>z_ratings <span class="sc">%&gt;%</span> head</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>z_ratings <span class="ot">&lt;-</span> ratings <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">select</span>(Frequency, meanFamiliarity) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb14-4"><a></a>    <span class="at">z_Freq =</span> <span class="fu">scale</span>(Frequency), </span>
+<span id="cb14-5"><a></a>    <span class="at">z_meanFamil =</span> <span class="fu">scale</span>(meanFamiliarity)</span>
+<span id="cb14-6"><a></a>  )</span>
+<span id="cb14-7"><a></a></span>
+<span id="cb14-8"><a></a>z_ratings <span class="sc">%&gt;%</span> head</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>  Frequency meanFamiliarity     z_Freq z_meanFamil
 1  4.204693            3.72 -0.4387602  -0.1573220
@@ -717,13 +811,13 @@ Null Hypothesis: independence
 5  3.663562            3.68 -0.8654029  -0.1962917
 6  3.433987            4.12 -1.0464062   0.2323747</code></pre>
 </div>
-</div>
+</div></div>
 <ul>
-<li>A z-score gets the number of standard deviations a data point is from the mean.</li>
+<li class="fragment">A z-score gets the number of standard deviations a data point is from the mean.</li>
 </ul>
 </section>
-<section id="correlation-is-the-slope-of-the-model" class="level2 smaller" data-number="3.4">
-<h2 class="smaller anchored" data-number="3.4" data-anchor-id="correlation-is-the-slope-of-the-model"><span class="header-section-number">3.4</span> Correlation is the slope of the model</h2>
+<section id="correlation-is-the-slope-of-the-model" class="slide level2 smaller">
+<h2>Correlation is the slope of the model</h2>
 <p>Correlation is the slope of the line that best predicts <span class="math inline">\(y\)</span> from <span class="math inline">\(x\)</span> (after z-scoring)</p>
 <div>
 
@@ -731,32 +825,32 @@ Null Hypothesis: independence
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-16-1.png" class="img-fluid" width="960"></p>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-16-2.png" class="img-fluid" width="960"></p>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-16-2.png" width="960"></p>
 </div>
 </div>
 </div>
 </section>
-<section id="model-building-overview" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="model-building-overview"><span class="header-section-number">3.5</span> Model building overview</h2>
+<section id="model-building-overview" class="slide level2">
+<h2>Model building overview</h2>
 <ul>
-<li><code>Model specification</code> (this week): specify the functional form of the model.</li>
-<li><code>Model fitting</code>: you have the form, how do you estimate the free parameters?</li>
-<li><code>Model accuracy</code>: you’ve estimated the parameters, how well does that model describe your data?</li>
-<li><code>Model reliability</code>: when you estimate the parameters, you want to quantify your uncertainty on your estimates</li>
+<li class="fragment"><code>Model specification</code> (this week): specify the functional form of the model.</li>
+<li class="fragment"><code>Model fitting</code>: you have the form, how do you estimate the free parameters?</li>
+<li class="fragment"><code>Model accuracy</code>: you’ve estimated the parameters, how well does that model describe your data?</li>
+<li class="fragment"><code>Model reliability</code>: when you estimate the parameters, you want to quantify your uncertainty on your estimates</li>
 </ul>
 </section>
-<section id="types-of-models" class="level2 smaller" data-number="3.6">
-<h2 class="smaller anchored" data-number="3.6" data-anchor-id="types-of-models"><span class="header-section-number">3.6</span> Types of models</h2>
-<p>. . .</p>
+<section id="types-of-models" class="slide level2 smaller">
+<h2>Types of models</h2>
+<div class="fragment">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class=""><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 390.44 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="960" height="480" viewbox="0.00 0.00 390.44 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
 <title>G</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-112 386.44,-112 386.44,4 -4,4"></polygon>
@@ -797,23 +891,25 @@ Null Hypothesis: independence
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="in-class-exercise-7.2" class="level2 smaller" data-number="3.7">
-<h2 class="smaller anchored" data-number="3.7" data-anchor-id="in-class-exercise-7.2"><span class="header-section-number">3.7</span> 💪 In-class Exercise 7.2</h2>
+<section id="in-class-exercise-7.2" class="slide level2 smaller">
+<h2>💪 In-class Exercise 7.2</h2>
 <p><em>Take a few minutes to try this yourself!</em></p>
 <p>Ask ChatGPT what type of model it is made with?</p>
-<p>. . .</p>
-<p><img src="../assests/images/chatgpt-exercise.png" class="img-fluid"></p>
+<div class="fragment">
+<p><img data-src="../assests/images/chatgpt-exercise.png"></p>
+</div>
 </section>
-<section id="supervised-learning" class="level2 smaller" data-number="3.8">
-<h2 class="smaller anchored" data-number="3.8" data-anchor-id="supervised-learning"><span class="header-section-number">3.8</span> Supervised learning</h2>
-<p>. . .</p>
+<section id="supervised-learning" class="slide level2 smaller">
+<h2>Supervised learning</h2>
+<div class="fragment">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class=""><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 296.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="960" height="480" viewbox="0.00 0.00 296.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-256 292,-256 292,4 -4,4"></polygon>
@@ -872,15 +968,16 @@ Null Hypothesis: independence
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="supervised-learning-1" class="level2 smaller" data-number="3.9">
-<h2 class="smaller anchored" data-number="3.9" data-anchor-id="supervised-learning-1"><span class="header-section-number">3.9</span> Supervised learning</h2>
+<section id="supervised-learning-1" class="slide level2 smaller">
+<h2>Supervised learning</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class=""><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 296.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="960" height="480" viewbox="0.00 0.00 296.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-256 292,-256 292,4 -4,4"></polygon>
@@ -965,14 +1062,14 @@ Null Hypothesis: independence
 </div>
 </div>
 </section>
-<section id="supervised-learning-2" class="level2 smaller" data-number="3.10">
-<h2 class="smaller anchored" data-number="3.10" data-anchor-id="supervised-learning-2"><span class="header-section-number">3.10</span> Supervised learning</h2>
+<section id="supervised-learning-2" class="slide level2 smaller">
+<h2>Supervised learning</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class=""><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 296.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="960" height="480" viewbox="0.00 0.00 296.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-256 292,-256 292,4 -4,4"></polygon>
@@ -1062,14 +1159,14 @@ Null Hypothesis: independence
 </div>
 </div>
 </section>
-<section id="types-of-models-1" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="types-of-models-1"><span class="header-section-number">3.11</span> Types of models</h2>
+<section id="types-of-models-1" class="slide level2">
+<h2>Types of models</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class=""><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 419.77 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="960" height="480" viewbox="0.00 0.00 419.77 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
 <title>G</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-184 415.77,-184 415.77,4 -4,4"></polygon>
@@ -1135,14 +1232,14 @@ Null Hypothesis: independence
 </div>
 </div>
 </section>
-<section id="regression-v-classification" class="level2 smaller" data-number="3.12">
-<h2 class="smaller anchored" data-number="3.12" data-anchor-id="regression-v-classification"><span class="header-section-number">3.12</span> Regression v classification</h2>
+<section id="regression-v-classification" class="slide level2 smaller">
+<h2>Regression v classification</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class=""><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 524.89 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="960" height="480" viewbox="0.00 0.00 524.89 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-256 520.89,-256 520.89,4 -4,4"></polygon>
@@ -1258,14 +1355,14 @@ Null Hypothesis: independence
 </div>
 </div>
 </section>
-<section id="types-of-models-2" class="level2" data-number="3.13">
-<h2 data-number="3.13" class="anchored" data-anchor-id="types-of-models-2"><span class="header-section-number">3.13</span> Types of models</h2>
+<section id="types-of-models-2" class="slide level2">
+<h2>Types of models</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class=""><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 511.38 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="960" height="480" viewbox="0.00 0.00 511.38 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-256 507.38,-256 507.38,4 -4,4"></polygon>
@@ -1355,49 +1452,48 @@ Null Hypothesis: independence
 </div>
 </div>
 </section>
-<section id="linear-models" class="level2" data-number="3.14">
-<h2 data-number="3.14" class="anchored" data-anchor-id="linear-models"><span class="header-section-number">3.14</span> Linear models</h2>
+<section id="linear-models" class="slide level2">
+<h2>Linear models</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="960"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
-<li><strong>Linear models</strong> are models in which the output (y) is a weighted sum of the inputs</li>
-<li>Easy to understand and fit</li>
-<li><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
-<li><span class="math inline">\(y = ax + b\)</span> is this!</li>
+<li class="fragment"><strong>Linear models</strong> are models in which the output (y) is a weighted sum of the inputs</li>
+<li class="fragment">Easy to understand and fit</li>
+<li class="fragment"><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
+<li class="fragment"><span class="math inline">\(y = ax + b\)</span> is this!</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
-<section id="linear-model-equation" class="level2" data-number="3.15">
-<h2 data-number="3.15" class="anchored" data-anchor-id="linear-model-equation"><span class="header-section-number">3.15</span> Linear model equation</h2>
+<section id="linear-model-equation" class="slide level2">
+<h2>Linear model equation</h2>
 <p><span class="math inline">\(y = ax + b\)</span> <em>can be expressed</em> <span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></p>
 <ul>
-<li>implicit constant: <span class="math inline">\(y=ax+b\mathbf{1}\)</span><br>
+<li class="fragment">implicit constant: <span class="math inline">\(y=ax+b\mathbf{1}\)</span><br>
 </li>
-<li>let <span class="math inline">\(x_1=x\)</span> and <span class="math inline">\(x_2=\mathbf{1}\)</span></li>
-<li>we have <span class="math inline">\(y=ax_1 + bx_2\)</span></li>
-<li>express <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> as weights: <span class="math inline">\(a=w_1\)</span> and <span class="math inline">\(b=w_2\)</span></li>
-<li><span class="math inline">\(y=w_1x_1 + w_2x_2\)</span> where <span class="math inline">\(w_1\)</span> and <span class="math inline">\(w_2\)</span> are free parameters</li>
+<li class="fragment">let <span class="math inline">\(x_1=x\)</span> and <span class="math inline">\(x_2=\mathbf{1}\)</span></li>
+<li class="fragment">we have <span class="math inline">\(y=ax_1 + bx_2\)</span></li>
+<li class="fragment">express <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> as weights: <span class="math inline">\(a=w_1\)</span> and <span class="math inline">\(b=w_2\)</span></li>
+<li class="fragment"><span class="math inline">\(y=w_1x_1 + w_2x_2\)</span> where <span class="math inline">\(w_1\)</span> and <span class="math inline">\(w_2\)</span> are free parameters</li>
 </ul>
 </section>
-<section id="types-of-models-3" class="level2" data-number="3.16">
-<h2 data-number="3.16" class="anchored" data-anchor-id="types-of-models-3"><span class="header-section-number">3.16</span> Types of models</h2>
+<section id="types-of-models-3" class="slide level2">
+<h2>Types of models</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class=""><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 511.38 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="960" height="480" viewbox="0.00 0.00 511.38 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-256 507.38,-256 507.38,4 -4,4"></polygon>
@@ -1487,8 +1583,8 @@ Null Hypothesis: independence
 </div>
 </div>
 </section>
-<section id="nonlinear-models" class="level2 smaller" data-number="3.17">
-<h2 class="smaller anchored" data-number="3.17" data-anchor-id="nonlinear-models"><span class="header-section-number">3.17</span> Nonlinear models</h2>
+<section id="nonlinear-models" class="slide level2 smaller">
+<h2>Nonlinear models</h2>
 <p>Output (y) cannot be expressed as a weighted sum of inputs(<span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span> ); pattern is better captured by more complex functions. (But often we can linearize them!)</p>
 <div>
 
@@ -1496,75 +1592,78 @@ Null Hypothesis: independence
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-26-1.png" class="img-fluid" width="960"></p>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-26-2.png" class="img-fluid" width="960"></p>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-26-2.png" width="960"></p>
 </div>
 </div>
 </div>
 </section>
-<section id="in-class-exercise-7.3" class="level2 smaller" data-number="3.18">
-<h2 class="smaller anchored" data-number="3.18" data-anchor-id="in-class-exercise-7.3"><span class="header-section-number">3.18</span> 💪 In-class Exercise 7.3</h2>
+<section id="in-class-exercise-7.3" class="slide level2 smaller">
+<h2>💪 In-class Exercise 7.3</h2>
 <p><em>Take a few minutes to try this yourself!</em></p>
 <p>Load the following data, which shows brain size and body weight for several different animals:</p>
-<div class="nonincremental">
+<div>
 <ul>
 <li><a href="../assests/csv/animal_brain_body_size.csv">animal_brain_body_size.csv</a></li>
 </ul>
 </div>
 <p>Explore the data to specify the type of model we should use to predict brain size by body weight.</p>
-<div class="nonincremental">
+<div>
 <ul>
 <li>Supervised or unsupervised?</li>
 <li>Regression or classification?</li>
 <li>Linear or nonlinear?</li>
 </ul>
 </div>
+</section></section>
+<section>
+<section id="thursday" class="title-slide slide level1 center">
+<h1>Thursday</h1>
+
 </section>
-</section>
-<section id="thursday" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Thursday</h1>
-<section id="model-specification" class="level2 smaller" data-number="4.1">
-<h2 class="smaller anchored" data-number="4.1" data-anchor-id="model-specification"><span class="header-section-number">4.1</span> Model specification</h2>
+<section id="model-specification" class="slide level2 smaller">
+<h2>Model specification</h2>
 <p>Recall that <code>model specification</code> is one aspect of the model building process in which we select the form of the model (the type of model)</p>
 <ol type="1">
-<li><strong>Response variable (<span class="math inline">\(y\)</span>):</strong> Specify the variable you want to predict/explain (output).</li>
-<li><strong>Explanatory variables(<span class="math inline">\(x_i\)</span>):</strong> Specify the variables that may explain the variation in the response (inputs).</li>
-<li><strong>Functional form:</strong> Specify the relationship between the response and explanatory variables. <em>For linear models, we use the linear model equation!</em></li>
-<li><strong>Model terms:</strong> Specify <em>how</em> to include your explanatory variables in the model (since they can be included in more than one way).</li>
+<li class="fragment"><strong>Response variable (<span class="math inline">\(y\)</span>):</strong> Specify the variable you want to predict/explain (output).</li>
+<li class="fragment"><strong>Explanatory variables(<span class="math inline">\(x_i\)</span>):</strong> Specify the variables that may explain the variation in the response (inputs).</li>
+<li class="fragment"><strong>Functional form:</strong> Specify the relationship between the response and explanatory variables. <em>For linear models, we use the linear model equation!</em></li>
+<li class="fragment"><strong>Model terms:</strong> Specify <em>how</em> to include your explanatory variables in the model (since they can be included in more than one way).</li>
 </ol>
 </section>
-<section id="model-specification-1" class="level2 smaller" data-number="4.2">
-<h2 class="smaller anchored" data-number="4.2" data-anchor-id="model-specification-1"><span class="header-section-number">4.2</span> Model specification</h2>
+<section id="model-specification-1" class="slide level2 smaller">
+<h2>Model specification</h2>
 <p>The following issues can also be considered part of the model specification process.</p>
 <ul>
-<li><strong>Model assumptions:</strong> Check any assumptions underlying the model you selected (e.g.&nbsp;does the model assume the relationship is linear?).</li>
-<li><strong>Model complexity:</strong> Simple models are easier to interpret but may not capture all complexities in the data. Complex models may suffer from overfitting the data or being difficult to interpret.</li>
+<li class="fragment"><strong>Model assumptions:</strong> Check any assumptions underlying the model you selected (e.g.&nbsp;does the model assume the relationship is linear?).</li>
+<li class="fragment"><strong>Model complexity:</strong> Simple models are easier to interpret but may not capture all complexities in the data. Complex models may suffer from overfitting the data or being difficult to interpret.</li>
 </ul>
-<p>. . .</p>
+<div class="fragment">
 <p><em>A well-specified model should be based on a clear understanding of the data, the underlying relationships, and the research question.</em></p>
+</div>
 </section>
-<section id="specifying-the-functional-form" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="specifying-the-functional-form"><span class="header-section-number">4.3</span> Specifying the functional form</h2>
+<section id="specifying-the-functional-form" class="slide level2">
+<h2>Specifying the functional form</h2>
 <ul>
-<li>Literally specifying the mathematical formula we’re going to use to represent the relationship between our response and explanatory variables.</li>
-<li>We already know it: <strong>linear models</strong> are models in whch the response variable (<span class="math inline">\(y\)</span>) is a weighted sum of the explanatory variables (<span class="math inline">\(x_i\)</span>)</li>
-<li><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
+<li class="fragment">Literally specifying the mathematical formula we’re going to use to represent the relationship between our response and explanatory variables.</li>
+<li class="fragment">We already know it: <strong>linear models</strong> are models in whch the response variable (<span class="math inline">\(y\)</span>) is a weighted sum of the explanatory variables (<span class="math inline">\(x_i\)</span>)</li>
+<li class="fragment"><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
 </ul>
 </section>
-<section id="aliases-of-ysum_i1nw_ix_i" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="aliases-of-ysum_i1nw_ix_i"><span class="header-section-number">4.4</span> 🥸 Aliases of <span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></h2>
+<section id="aliases-of-ysum_i1nw_ix_i" class="slide level2">
+<h2>🥸 Aliases of <span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></h2>
 <p>The <strong>linear model equation</strong> can be expressed in many ways, but <em>they are all this same thing</em></p>
 <ol type="1">
-<li>in <strong>high school algebra</strong>: <span class="math inline">\(y=ax+b\)</span>.</li>
-<li>in <strong>machine learning</strong>: <span class="math inline">\(y = w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n\)</span></li>
-<li>in <strong>statistics</strong>: <span class="math inline">\(y = β_0 + β_1x_1 + β_2x_2 + ... + β_nx_n + ε\)</span></li>
-<li>in <strong>matrix</strong> notation: <span class="math inline">\(y = Xβ + ε\)</span></li>
+<li class="fragment">in <strong>high school algebra</strong>: <span class="math inline">\(y=ax+b\)</span>.</li>
+<li class="fragment">in <strong>machine learning</strong>: <span class="math inline">\(y = w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n\)</span></li>
+<li class="fragment">in <strong>statistics</strong>: <span class="math inline">\(y = β_0 + β_1x_1 + β_2x_2 + ... + β_nx_n + ε\)</span></li>
+<li class="fragment">in <strong>matrix</strong> notation: <span class="math inline">\(y = Xβ + ε\)</span></li>
 </ol>
 </section>
-<section id="specify-our-first-model" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="specify-our-first-model"><span class="header-section-number">4.5</span> Specify our first model</h2>
+<section id="specify-our-first-model" class="slide level2">
+<h2>Specify our first model</h2>
 <p>To illustrate how this simple equation scales up to complex models, let’s start with a simple case (“toy”, “tractable”).</p>
 <div>
 
@@ -1579,20 +1678,20 @@ Null Hypothesis: independence
 2     2     5</code></pre>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-27-1.png" class="img-fluid" width="960"></p>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
 </div>
 </div>
 </div>
 </section>
-<section id="in-class-exercise-7.4" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="in-class-exercise-7.4"><span class="header-section-number">4.6</span> 💪 In class exercise 7.4</h2>
+<section id="in-class-exercise-7.4" class="slide level2">
+<h2>💪 In class exercise 7.4</h2>
 <p>Specify our model!</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class=""><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 296.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="960" height="480" viewbox="0.00 0.00 296.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-256 292,-256 292,4 -4,4"></polygon>
@@ -1682,28 +1781,30 @@ Null Hypothesis: independence
 </div>
 </div>
 </section>
-<section id="system-of-equations" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="system-of-equations"><span class="header-section-number">4.7</span> System of equations</h2>
+<section id="system-of-equations" class="slide level2">
+<h2>System of equations</h2>
 <p>In our simple dataset, we can appreciate that we have a system of equations. We have <strong>two unknowns</strong> (free parameters) and <strong>two datapoints</strong></p>
 <ul>
-<li>so we have 2 equations, 2 unknowns.
+<li class="fragment">so we have 2 equations, 2 unknowns.
 <ul>
-<li><code>c(1, 3) -&gt;</code> <span class="math inline">\(w_11 + w_21 = 3\)</span></li>
-<li><code>c(2, 5) -&gt;</code> <span class="math inline">\(w_11 + w_22 = 5\)</span></li>
+<li class="fragment"><code>c(1, 3) -&gt;</code> <span class="math inline">\(w_11 + w_21 = 3\)</span></li>
+<li class="fragment"><code>c(2, 5) -&gt;</code> <span class="math inline">\(w_11 + w_22 = 5\)</span></li>
 </ul></li>
-<li>which have a solution:
+<li class="fragment">which have a solution:
 <ul>
-<li><span class="math inline">\(w_1 = 1\)</span> and <span class="math inline">\(w_2 = 2\)</span></li>
+<li class="fragment"><span class="math inline">\(w_1 = 1\)</span> and <span class="math inline">\(w_2 = 2\)</span></li>
 </ul></li>
 </ul>
 </section>
-<section id="fit-our-model-to-our-data" class="level2 smaller" data-number="4.8">
-<h2 class="smaller anchored" data-number="4.8" data-anchor-id="fit-our-model-to-our-data"><span class="header-section-number">4.8</span> 🪄 Fit our model to our data</h2>
+<section id="fit-our-model-to-our-data" class="slide level2 smaller">
+<h2>🪄 Fit our model to our data</h2>
 <p>We’ll learn what is going on under the hood of model fitting next week, but for now, we can appreciate that we are solving a system of equations:</p>
-<p>. . .</p>
+<div class="fragment">
 <p>with <code>lm()</code>:</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> toy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> toy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1713,13 +1814,16 @@ Coefficients:
 (Intercept)            x  
           1            2  </code></pre>
 </div>
+</div></div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p>with <code>infer</code>:</p>
-<div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>toy <span class="sc">%&gt;%</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> y, <span class="at">explanatory =</span> x) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>toy <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> y, <span class="at">explanatory =</span> x) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a></a>  <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   term      estimate
@@ -1727,27 +1831,28 @@ Coefficients:
 1 intercept     1.00
 2 x             2   </code></pre>
 </div>
+</div></div>
 </div>
 </section>
-<section id="many-equations-many-unknowns" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="many-equations-many-unknowns"><span class="header-section-number">4.9</span> Many equations, many unknowns</h2>
+<section id="many-equations-many-unknowns" class="slide level2">
+<h2>Many equations, many unknowns</h2>
 <p>When we have multiple data points, we are essentially solving for the best line (or hyperplane, in higher dimensions) that fits the data.</p>
 <ul>
-<li>For each data point, we create an equation based on the linear model</li>
-<li>Which leads to a system of equations.</li>
-<li>With 2 unknowns and 2 data points, we have 2 equations.</li>
+<li class="fragment">For each data point, we create an equation based on the linear model</li>
+<li class="fragment">Which leads to a system of equations.</li>
+<li class="fragment">With 2 unknowns and 2 data points, we have 2 equations.</li>
 </ul>
 </section>
-<section id="enter-the-matrix-y-xβ-ε" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="enter-the-matrix-y-xβ-ε"><span class="header-section-number">4.10</span> Enter the matrix <span class="math inline">\(y = Xβ + ε\)</span></h2>
+<section id="enter-the-matrix-y-xβ-ε" class="slide level2">
+<h2>Enter the matrix <span class="math inline">\(y = Xβ + ε\)</span></h2>
 <p>When we have <strong>more equations than unknowns</strong> we cannot solve the system directly (we have an <strong>overdetermined system</strong>), but we can find a soulution with linear algebra.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="960"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1769,29 +1874,29 @@ Coefficients:
   \end{bmatrix}
 
 \end{aligned}\]</span>
-</div>
-</div>
+</div></div>
 </section>
-<section id="we-can-have-super-complex-models" class="level2" data-number="4.11">
-<h2 data-number="4.11" class="anchored" data-anchor-id="we-can-have-super-complex-models"><span class="header-section-number">4.11</span> We can have super complex models</h2>
+<section id="we-can-have-super-complex-models" class="slide level2">
+<h2>We can have super complex models</h2>
 <ul>
-<li>Matrix way allows us to appreciate that we can expand this toy example to an number of data points and any number of unknowns.</li>
+<li class="fragment">Matrix way allows us to appreciate that we can expand this toy example to an number of data points and any number of unknowns.</li>
 </ul>
 </section>
-<section id="in-class-exercise-7.5" class="level2" data-number="4.12">
-<h2 data-number="4.12" class="anchored" data-anchor-id="in-class-exercise-7.5"><span class="header-section-number">4.12</span> 💪 In class exercise 7.5</h2>
+<section id="in-class-exercise-7.5" class="slide level2">
+<h2>💪 In class exercise 7.5</h2>
 <p>Ask chatGPT how many parameters it has.</p>
-</section>
-</section>
-<section id="swim-records" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Swim Records</h1>
+</section></section>
+<section>
+<section id="swim-records" class="title-slide slide level1 center">
+<h1>Swim Records</h1>
 <p>Applied to a more complex problem</p>
-<section id="specify-a-model-for-swimrecords" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="specify-a-model-for-swimrecords"><span class="header-section-number">5.1</span> Specify a model for <code>SwimRecords</code></h2>
+</section>
+<section id="specify-a-model-for-swimrecords" class="slide level2">
+<h2>Specify a model for <code>SwimRecords</code></h2>
 <p>How have world swim records in the 100m changed over time?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(SwimRecords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb21-2"><a></a><span class="fu">glimpse</span>(SwimRecords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 62
 Columns: 3
@@ -1801,46 +1906,38 @@ $ sex  &lt;fct&gt; M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M
 </div>
 </div>
 </section>
-<section id="in-class-exercise-7.6" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="in-class-exercise-7.6"><span class="header-section-number">5.2</span> 💪 In class exercise 7.6</h2>
+<section id="in-class-exercise-7.6" class="slide level2">
+<h2>💪 In class exercise 7.6</h2>
 <p>Plot the swim records data, then use your model specification worksheet to specify the model.</p>
 </section>
-<section id="response-variable-y" class="level2 smaller" data-number="5.3">
-<h2 class="smaller anchored" data-number="5.3" data-anchor-id="response-variable-y"><span class="header-section-number">5.3</span> Response variable <span class="math inline">\(y\)</span></h2>
+<section id="response-variable-y" class="slide level2 smaller">
+<h2>Response variable <span class="math inline">\(y\)</span></h2>
 <p>What is the thing you are trying to understand?</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="explanatory-variables-x_i" class="level2 smaller" data-number="5.4">
-<h2 class="smaller anchored" data-number="5.4" data-anchor-id="explanatory-variables-x_i"><span class="header-section-number">5.4</span> Explanatory variable(s) <span class="math inline">\(x_i\)</span></h2>
+
+<img data-src="model-specification_files/figure-revealjs/unnamed-chunk-33-1.png" width="960" class="r-stretch"></section>
+<section id="explanatory-variables-x_i" class="slide level2 smaller">
+<h2>Explanatory variable(s) <span class="math inline">\(x_i\)</span></h2>
 <p>What could <strong>explain</strong> the variation in your response variable?</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">year</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">year + sex</a></li></ul>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">year</a></li><li><a href="#tabset-1-2">year + sex</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="tabset-1-1">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="960"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="tabset-1-2">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="960"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-35-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1849,80 +1946,72 @@ $ sex  &lt;fct&gt; M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M
 </div>
 </div>
 </section>
-<section id="functional-form" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="functional-form"><span class="header-section-number">5.5</span> Functional form</h2>
+<section id="functional-form" class="slide level2">
+<h2>Functional form</h2>
 <ul>
-<li>Linear model</li>
-<li><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
+<li class="fragment">Linear model</li>
+<li class="fragment"><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
 </ul>
 </section>
-<section id="model-terms" class="level2 smaller" data-number="5.6">
-<h2 class="smaller anchored" data-number="5.6" data-anchor-id="model-terms"><span class="header-section-number">5.6</span> Model terms</h2>
+<section id="model-terms" class="slide level2 smaller">
+<h2>Model terms</h2>
 <p>Model terms describe <em>how</em> to include our explanatory variables in our model formula — there is more than one way!</p>
 <ol type="1">
-<li>Intercept</li>
-<li>Main</li>
-<li>Interaction</li>
-<li>Transformation</li>
+<li class="fragment">Intercept</li>
+<li class="fragment">Main</li>
+<li class="fragment">Interaction</li>
+<li class="fragment">Transformation</li>
 </ol>
 </section>
-<section id="intercept" class="level2 smaller" data-number="5.7">
-<h2 class="smaller anchored" data-number="5.7" data-anchor-id="intercept"><span class="header-section-number">5.7</span> Intercept</h2>
+<section id="intercept" class="slide level2 smaller">
+<h2>Intercept</h2>
 <ul>
-<li>in R: <code>y ~ 1</code>, in eq: <span class="math inline">\(y=w_1x_1\)</span></li>
+<li class="fragment">in R: <code>y ~ 1</code>, in eq: <span class="math inline">\(y=w_1x_1\)</span></li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="main" class="level2 smaller" data-number="5.8">
-<h2 class="smaller anchored" data-number="5.8" data-anchor-id="main"><span class="header-section-number">5.8</span> Main</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">year</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">sex</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">year + sex</a></li></ul>
+
+<img data-src="model-specification_files/figure-revealjs/unnamed-chunk-36-1.png" width="960" class="r-stretch"></section>
+<section id="main" class="slide level2 smaller">
+<h2>Main</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">year</a></li><li><a href="#tabset-2-2">sex</a></li><li><a href="#tabset-2-3">year + sex</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="tabset-2-1">
 <ul>
-<li>in R: <code>y ~ 1 + year</code>, in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2\)</span></li>
+<li class="fragment">in R: <code>y ~ 1 + year</code>, in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2\)</span></li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="960"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-37-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="tabset-2-2">
 <ul>
-<li>in R: <code>y ~ 1 + sex</code>, in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2\)</span></li>
+<li class="fragment">in R: <code>y ~ 1 + sex</code>, in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2\)</span></li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="960"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-38-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div id="tabset-2-3">
 <ul>
-<li>in R: <code>y ~ 1 + year</code>, in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2 + w_3x_3\)</span></li>
+<li class="fragment">in R: <code>y ~ 1 + year</code>, in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2 + w_3x_3\)</span></li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="960"></p>
+<figure>
+<p><img data-src="model-specification_files/figure-revealjs/unnamed-chunk-39-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1931,716 +2020,471 @@ $ sex  &lt;fct&gt; M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M, M
 </div>
 </div>
 </section>
-<section id="interaction" class="level2 smaller" data-number="5.9">
-<h2 class="smaller anchored" data-number="5.9" data-anchor-id="interaction"><span class="header-section-number">5.9</span> Interaction</h2>
+<section id="interaction" class="slide level2 smaller">
+<h2>Interaction</h2>
 <ul>
-<li>in R: <code>y ~ 1 + year + gender + year:gender</code>
+<li class="fragment">in R: <code>y ~ 1 + year + gender + year:gender</code>
 <ul>
-<li>or the short way: <code>y ~ 1 + year * gender</code></li>
+<li class="fragment">or the short way: <code>y ~ 1 + year * gender</code></li>
 </ul></li>
-<li>in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2 + w_3x_3 + w_4x_4\)</span> where <span class="math inline">\(x_4\)</span> is <span class="math inline">\(x_2x_3\)</span></li>
+<li class="fragment">in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2 + w_3x_3 + w_4x_4\)</span> where <span class="math inline">\(x_4\)</span> is <span class="math inline">\(x_2x_3\)</span></li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="transformation" class="level2 smaller" data-number="5.10">
-<h2 class="smaller anchored" data-number="5.10" data-anchor-id="transformation"><span class="header-section-number">5.10</span> Transformation</h2>
+
+<img data-src="model-specification_files/figure-revealjs/unnamed-chunk-40-1.png" width="960" class="r-stretch"></section>
+<section id="transformation" class="slide level2 smaller">
+<h2>Transformation</h2>
 <ul>
-<li>in R: <code>y ~ 1 + year * sex + I(year^2)</code></li>
-<li>in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2 + w_3x_3 + w_4x_4\)</span> + <span class="math inline">\(w_5x_5\)</span>
+<li class="fragment">in R: <code>y ~ 1 + year * sex + I(year^2)</code></li>
+<li class="fragment">in eq: <span class="math inline">\(y = w_1x_1 + w_2x_2 + w_3x_3 + w_4x_4\)</span> + <span class="math inline">\(w_5x_5\)</span>
 <ul>
-<li>where <span class="math inline">\(x_4\)</span> is <span class="math inline">\(x_2x_3\)</span> and <span class="math inline">\(x_5\)</span> is <span class="math inline">\(x_2^2\)</span></li>
+<li class="fragment">where <span class="math inline">\(x_4\)</span> is <span class="math inline">\(x_2x_3\)</span> and <span class="math inline">\(x_5\)</span> is <span class="math inline">\(x_2^2\)</span></li>
 </ul></li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="model-specification_files/figure-revealjs/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
+
+
+<img data-src="model-specification_files/figure-revealjs/unnamed-chunk-41-1.png" width="960" class="r-stretch"><div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+<p><a href="https://kathrynschuler.com/datasci/">https://kathrynschuler.com/datasci</a></p>
 </div>
 </div>
-</div>
+</section></section>
+    </div>
+  </div>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
 
-</section>
-</section>
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
-</main> <!-- /main -->
-<script>
+  <script>
 
-/* update total correct if #webex-total_correct exists */
-update_total_correct = function() {
-  console.log("webex: update total_correct");
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
 
-  var t = document.getElementsByClassName("webex-total_correct");
-  for (var i = 0; i < t.length; i++) {
-    p = t[i].parentElement;
-    var correct = p.getElementsByClassName("webex-correct").length;
-    var solvemes = p.getElementsByClassName("webex-solveme").length;
-    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
-    var selects = p.getElementsByClassName("webex-select").length;
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
 
-    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
-  }
-}
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
 
-/* webex-solution button toggling function */
-b_func = function() {
-  console.log("webex: toggle hide");
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
 
-  var cl = this.parentElement.classList;
-  if (cl.contains('open')) {
-    cl.remove("open");
-  } else {
-    cl.add("open");
-  }
-}
+        // Display a presentation progress bar
+        progress: true,
 
-/* check answers */
-check_func = function() {
-  console.log("webex: check answers");
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
 
-  var cl = this.parentElement.classList;
-  if (cl.contains('unchecked')) {
-    cl.remove("unchecked");
-    this.innerHTML = "Hide Answers";
-  } else {
-    cl.add("unchecked");
-    this.innerHTML = "Show Answers";
-  }
-}
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
 
-/* function for checking solveme answers */
-solveme_func = function(e) {
-  console.log("webex: check solveme");
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
 
-  var real_answers = JSON.parse(this.dataset.answer);
-  var my_answer = this.value;
-  var cl = this.classList;
-  if (cl.contains("ignorecase")) {
-    my_answer = my_answer.toLowerCase();
-  }
-  if (cl.contains("nospaces")) {
-    my_answer = my_answer.replace(/ /g, "")
-  }
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
 
-  if (my_answer == "") {
-    cl.remove("webex-correct");
-    cl.remove("webex-incorrect");
-  } else if (real_answers.includes(my_answer)) {
-    cl.add("webex-correct");
-    cl.remove("webex-incorrect");
-  } else {
-    cl.add("webex-incorrect");
-    cl.remove("webex-correct");
-  }
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
 
-  // match numeric answers within a specified tolerance
-  if(this.dataset.tol > 0){
-    var tol = JSON.parse(this.dataset.tol);
-    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
-    if (matches.reduce((a, b) => a + b, 0) > 0) {
-      cl.add("webex-correct");
-    } else {
-      cl.remove("webex-correct");
-    }
-  }
+        // Push each slide change to the browser history
+        history: true,
 
-  // added regex bit
-  if (cl.contains("regex")){
-    answer_regex = RegExp(real_answers.join("|"))
-    if (answer_regex.test(my_answer)) {
-      cl.add("webex-correct");
-    }
-  }
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
 
-  update_total_correct();
-}
+        // Enable the slide overview mode
+        overview: true,
 
-/* function for checking select answers */
-select_func = function(e) {
-  console.log("webex: check select");
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
 
-  var cl = this.classList
+        // Vertical centering of slides
+        center: false,
 
-  /* add style */
-  cl.remove("webex-incorrect");
-  cl.remove("webex-correct");
-  if (this.value == "answer") {
-    cl.add("webex-correct");
-  } else if (this.value != "blank") {
-    cl.add("webex-incorrect");
-  }
+        // Enables touch navigation on devices with touch input
+        touch: true,
 
-  update_total_correct();
-}
+        // Loop the presentation
+        loop: false,
 
-/* function for checking radiogroups answers */
-radiogroups_func = function(e) {
-  console.log("webex: check radiogroups");
+        // Change the presentation direction to be RTL
+        rtl: false,
 
-  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
-  var cl = checked_button.parentElement.classList;
-  var labels = checked_button.parentElement.parentElement.children;
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
 
-  /* get rid of styles */
-  for (i = 0; i < labels.length; i++) {
-    labels[i].classList.remove("webex-incorrect");
-    labels[i].classList.remove("webex-correct");
-  }
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
 
-  /* add style */
-  if (checked_button.value == "answer") {
-    cl.add("webex-correct");
-  } else {
-    cl.add("webex-incorrect");
-  }
+        // Turns fragments on and off globally
+        fragments: true,
 
-  update_total_correct();
-}
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
 
-window.onload = function() {
-  console.log("webex onload");
-  /* set up solution buttons */
-  var buttons = document.getElementsByTagName("button");
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
 
-  for (var i = 0; i < buttons.length; i++) {
-    if (buttons[i].parentElement.classList.contains('webex-solution')) {
-      buttons[i].onclick = b_func;
-    }
-  }
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
 
-  var check_sections = document.getElementsByClassName("webex-check");
-  console.log("check:", check_sections.length);
-  for (var i = 0; i < check_sections.length; i++) {
-    check_sections[i].classList.add("unchecked");
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
 
-    let btn = document.createElement("button");
-    btn.innerHTML = "Show Answers";
-    btn.classList.add("webex-check-button");
-    btn.onclick = check_func;
-    check_sections[i].appendChild(btn);
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
 
-    let spn = document.createElement("span");
-    spn.classList.add("webex-total_correct");
-    check_sections[i].appendChild(spn);
-  }
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
 
-  /* set up webex-solveme inputs */
-  var solveme = document.getElementsByClassName("webex-solveme");
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
 
-  for (var i = 0; i < solveme.length; i++) {
-    /* make sure input boxes don't auto-anything */
-    solveme[i].setAttribute("autocomplete","off");
-    solveme[i].setAttribute("autocorrect", "off");
-    solveme[i].setAttribute("autocapitalize", "off");
-    solveme[i].setAttribute("spellcheck", "false");
-    solveme[i].value = "";
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
 
-    /* adjust answer for ignorecase or nospaces */
-    var cl = solveme[i].classList;
-    var real_answer = solveme[i].dataset.answer;
-    if (cl.contains("ignorecase")) {
-      real_answer = real_answer.toLowerCase();
-    }
-    if (cl.contains("nospaces")) {
-      real_answer = real_answer.replace(/ /g, "");
-    }
-    solveme[i].dataset.answer = real_answer;
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
 
-    /* attach checking function */
-    solveme[i].onkeyup = solveme_func;
-    solveme[i].onchange = solveme_func;
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
 
-    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
-  }
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
 
-  /* set up radiogroups */
-  var radiogroups = document.getElementsByClassName("webex-radiogroup");
-  for (var i = 0; i < radiogroups.length; i++) {
-    radiogroups[i].onchange = radiogroups_func;
-  }
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
 
-  /* set up selects */
-  var selects = document.getElementsByClassName("webex-select");
-  for (var i = 0; i < selects.length; i++) {
-    selects[i].onchange = select_func;
-    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
-  }
+        // The display mode that will be used to show slides
+        display: 'block',
 
-  update_total_correct();
-}
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
 
-</script>
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
 
-<script>
-  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-  // slide changes (different for each slide format).
-  (function () {
-    // dispatch for htmlwidgets
-    function fireSlideEnter() {
-      const event = window.document.createEvent("Event");
-      event.initEvent("slideenter", true, true);
-      window.document.dispatchEvent(event);
-    }
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
 
-    function fireSlideChanged(previousSlide, currentSlide) {
-      fireSlideEnter();
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
 
-      // dispatch for shiny
-      if (window.jQuery) {
-        if (previousSlide) {
-          window.jQuery(previousSlide).trigger("hidden");
-        }
-        if (currentSlide) {
-          window.jQuery(currentSlide).trigger("shown");
-        }
-      }
-    }
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
 
-    // hookup for slidy
-    if (window.w3c_slidy) {
-      window.w3c_slidy.add_observer(function (slide_num) {
-        // slide_num starts at position 1
-        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
       });
-    }
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
 
-  })();
-</script>
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
         }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
       }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
       }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
       });
-    }
-  }
-});
-</script>
-</div> <!-- /content -->
-
-
-
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
 
 </body></html>

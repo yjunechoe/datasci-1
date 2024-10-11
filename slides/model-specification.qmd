@@ -2,7 +2,7 @@
 title: "Week 07: Model Specification"
 subtitle: "Data Science for Studying Language and the Mind"
 author: Katie Schuler
-date: 2024-09-17
+date: 2024-10-08
 echo: true
 format: 
     revealjs:

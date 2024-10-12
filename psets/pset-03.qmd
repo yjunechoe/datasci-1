@@ -1,6 +1,6 @@
 ---
 title:  "Problem set 3"
-subtitle: "due Monday, October 14, 2024 at noon"
+subtitle: "due Monday, October 21, 2024 at noon"
 # author: 
 #     name: Katie Schuler
 #     affiliation: University of Pennsylvania
@@ -11,6 +11,10 @@ format:
   pdf: default
 
 ---
+
+::: {.callout-warning Title="New deadline"}
+Deadline extended to Monday October 21 at noon!
+:::
 
 Instructions
 : Upload your `.ipynb` notebook to gradescope by 11:59am (noon) on the due date. Please include your name, Problem set number, and any collaborators you worked with at the top of your notebook. Please also number your problems and include comments in your code to indicate what part of a problem you are working on.  

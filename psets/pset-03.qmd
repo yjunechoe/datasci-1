@@ -12,7 +12,7 @@ format:
 
 ---
 
-::: {.callout-warning Title="New deadline"}
+::: {.callout-warning title="new deadline"}
 Deadline extended to Monday October 21 at noon!
 :::
 

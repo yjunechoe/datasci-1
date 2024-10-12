@@ -11,11 +11,11 @@ Study guides include weekly study guides and additional resources from each week
 - [Week 5: Hypothesis testing](notes/hypothesis-testing.qmd) 
 - [Week 6: Exam 1 review](notes/exam-1-review.qmd) ([practice exam](/exams/exam-01-practice.qmd), [solutions](/exams/exam-01-practice-solutions.pdf))
 - [Week 7: Model specification](notes/model-specification.qmd) ([slides](slides/model-specification.qmd), [demo](https://colab.research.google.com/drive/1Tf-0HLrVwvXzbUpBSNQyhjLSvBVzQYCk?usp=sharing))
-- Week 8: Model fitting (slides, [demo](https://colab.research.google.com/drive/1057npPxqL_uICzotn1nVABDcTwCU6pLG?usp=drive_link))
-- Week 9: Model accuracy (slides, [demo](https://colab.research.google.com/drive/1z8sCbtfCmvlfKB8ICTXGBCUURNuf8muM?usp=drive_link))
-- Week 10: Model reliability (slides, [demo](https://colab.research.google.com/drive/1pKCCQivt85v6GOiMO6_8BzpECZijNdBS?usp=drive_link))
-- Week 11: Classification (slides, [demo](https://colab.research.google.com/drive/1qkcfUtXBjhZLP8QFK5ezRuf2jPygPxFm?usp=drive_link))
-- Week 12: Inference (slides, [demo](https://colab.research.google.com/drive/1EH-G5f3JngVbFbP2HMrTPkrtuKi8eq-q?usp=drive_link))
+- [Week 8: Applied model specification](notes/model-specification-applied.qmd)
+- Week 9: Model fitting (slides, [demo](https://colab.research.google.com/drive/1057npPxqL_uICzotn1nVABDcTwCU6pLG?usp=drive_link))
+- Week 10: Model accuracy (slides, [demo](https://colab.research.google.com/drive/1z8sCbtfCmvlfKB8ICTXGBCUURNuf8muM?usp=drive_link))
+- Week 11: Model reliability (slides, [demo](https://colab.research.google.com/drive/1pKCCQivt85v6GOiMO6_8BzpECZijNdBS?usp=drive_link))
+- Week 12: Classification (slides, [demo](https://colab.research.google.com/drive/1qkcfUtXBjhZLP8QFK5ezRuf2jPygPxFm?usp=drive_link))
 - Week 13: Exam 2 review
 - WeeK 15: Multilevel Models (slides, [demo](https://colab.research.google.com/drive/1qVMAPeGZ5q5IKboKIgHi4RG0H7KFo7VW?usp=drive_link))
 

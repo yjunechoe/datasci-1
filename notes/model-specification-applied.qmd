@@ -1,0 +1,590 @@
+---
+title: "Applied model specification"
+author: 
+    - Katie Schuler
+date: 2024-10-08
+---
+
+::: {.callout-warning title="Under construction"}
+
+Still working on this!
+:::
+
+Now that we've covered the terminology and concepts, let's apply model specification to some real models. 
+
+```{r}
+#| message: false
+
+library(tidyverse)
+library(mosaic)
+```
+
+
+## "Toy" data 
+
+
+Let's start with the simplest possible example, a dataset with two data points. Suppose you record how many days you study over the next two days. On day 1, you study for 2 hours. On day 2, you study for 3 hours. Your dataset might look something like this. 
+
+::: {.panel-tabset}
+
+## Plot
+
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 3
+
+toy_data <- tibble(
+  x = c(1, 2, 3, 4, 5), 
+  y = c(2, 6, 7, 12, 13)
+)
+
+toy_data %>%
+  ggplot(aes(
+    x = x, 
+    y = y
+  )) +
+  geom_point() +
+  theme_bw(base_size = 14) 
+
+```
+
+
+## Data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+
+library(knitr)
+model
+```
+
+
+## Code
+
+```r
+toy_data <- tibble(
+  x = c(1, 2, 3, 4, 5), 
+  y = c(2, 6, 7, 12, 13)
+)
+
+toy_data %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point() +
+  theme_bw(base_size = 14) 
+
+```
+:::
+
+1. **Specify our response variable**, $y$: the response variable (🥸 data, output, prediction) is the variable you are trying to predict or explain with your model.
+    - `y`
+
+2. **Specify explantory variables**, $x_i$: the explanatory variables (🥸 regressors, inputs, predictors) are the predictors in your data that could help explain the response variable. Our data has only one possible: 
+    - `x` 
+
+3. **Specify the functional form**: the functional form describes the relationship between the response and explanatory variables with a mathematical expresson. In a linear model, we express this relationship as a weighted sum of inputs: 
+    - $y=\sum_{i=1}^{n}w_ix_i$
+
+4. **Specify model terms**: here we need to specify exactly *how* to express our explanatory variables in our functional form. The actual variables and constants that will be included in the model. There are four kinds of terms: (1) intercept, (2) main, (3) interaction, and (4) transformation. Here we have the simplest case of an intercept and one main term (no interactions or transformations necessary)
+    - $y = w_1\mathbf{1} + w_2x_2$
+    - in R: `y ~ 1 + x`
+
+::: {.panel-tabset}
+
+## Plot
+
+:::: {.columns}
+::: {.column width="50%"}
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 3
+
+model <- lm(y ~ 1 + x, data = toy_data)
+
+toy_data <- toy_data %>%
+  mutate(w_formula = -0.4*1 + 2.8*x) %>%
+  mutate(w_predict= predict(model, toy_data))
+
+toy_data %>%
+  ggplot(aes(
+    x = x, 
+    y = y
+  )) +
+  geom_point() +
+  geom_line(aes(y = w_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+
+:::
+::: {.column width="50%"}
+
+Model specification: <br>
+$y = w_1\mathbf{1} + w_2\mathbf{x}$
+
+```{r}
+#| echo: false
+
+lm(y ~ 1 + x, data = toy_data)
+```
+
+Fitted model: <br>
+$y = (-0.4)1 + (2.8)x$
+
+:::
+::::
+
+
+## Data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+
+model
+```
+
+
+## Code
+
+```r
+model <- lm(y ~ 1 + x, data = toy_data)
+
+toy_data <- toy_data %>%
+  mutate(with_formula = -0.4*1 + 2.8*x) %>%
+  mutate(with_predict= predict(model, toy_data))
+
+toy_data %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+:::
+
+## Swim records
+
+### One input
+
+
+::: {.panel-tabset}
+
+## Plot
+
+:::: {.columns}
+::: {.column width="50%"}
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 3
+
+model <- lm(time ~ 1, data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 59.92*1) %>%
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+
+:::
+::: {.column width="50%"}
+
+Model specification: <br>
+$y = w_1\mathbf{1}$
+
+```{r}
+#| echo: false
+
+model
+```
+
+Fitted model: <br>
+$y = (59.92)1$
+
+:::
+::::
+
+
+## Data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+
+library(knitr)
+kable(SwimRecords_predict)
+```
+
+
+## Code
+
+```r
+model <- lm(time ~ 1, data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 59.92*1) %>% 
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+:::
+
+
+### Two inputs
+
+
+::: {.panel-tabset}
+
+## Plot
+
+:::: {.columns}
+::: {.column width="50%"}
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 3
+
+model <- lm(time ~ 1 + year, data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+
+:::
+::: {.column width="50%"}
+
+Model specification: <br>
+$y = w_1\mathbf{1} + w_2\mathbf{year}$
+
+```{r}
+#| echo: false
+
+model
+```
+
+Fitted model: <br>
+$y = (567.2420)\mathbf{1} + (-0.2599)\mathbf{year}$
+
+:::
+::::
+
+
+## Data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+
+library(knitr)
+kable(SwimRecords_predict)
+```
+
+
+## Code
+
+```r
+model <- lm(time ~ 1 + year, data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+:::
+
+
+### Three inputs
+
+
+::: {.panel-tabset}
+
+## Plot
+
+:::: {.columns}
+::: {.column width="40%"}
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 3
+
+model <- lm(time ~ 1 + year + sex, data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time, shape = sex)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+
+:::
+::: {.column width="60%"}
+
+Model specification: <br>
+$y = w_1\mathbf{1} + w_2\mathbf{year} + w_3\mathbf{sex}$
+
+```{r}
+#| echo: false
+
+model
+```
+
+Fitted model: <br>
+$y = (555.7168)\mathbf{1} + (-0.2515 )\mathbf{year} + (-9.7980)\mathbf{sex}$
+
+:::
+::::
+
+
+## Data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+
+library(knitr)
+kable(SwimRecords_predict)
+```
+
+
+## Code
+
+```r
+model <- lm(time ~ 1 + year, data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+:::
+
+
+### Interaction 
+
+::: {.panel-tabset}
+
+## Plot
+
+:::: {.columns}
+::: {.column width="40%"}
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 3
+
+model <- lm(time ~ 1 + year * sex, data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time, shape = sex)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+
+:::
+::: {.column width="60%"}
+
+Model specification: <br>
+$y = w_1\mathbf{1} + w_2\mathbf{year} + w_3\mathbf{sex} + w_4\mathbf{year*sex}$
+
+```{r}
+#| echo: false
+
+model
+```
+
+Fitted model: <br>
+$y = (697.3012)\mathbf{1} + (-0.3240)\mathbf{year} + (-302.4638)\mathbf{sex} + (0.1499)\mathbf{year\times{sex}}$
+
+:::
+::::
+
+
+## Data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+
+library(knitr)
+kable(SwimRecords_predict)
+```
+
+
+## Code
+
+```r
+model <- lm(time ~ 1 + year, data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+:::
+
+
+### Transformation 
+
+::: {.panel-tabset}
+
+## Plot
+
+:::: {.columns}
+::: {.column width="40%"}
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 3
+
+model <- lm(time ~ 1 + year * sex +I(year^2), data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time, shape = sex)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+
+:::
+::: {.column width="60%"}
+
+Model specification: <br>
+$$
+y = w_1\mathbf{1} + w_2\mathbf{year} + w_3\mathbf{sex}+ w_4\mathbf{year\times{sex}} +w_5\mathbf{year}^2
+$$
+
+```{r}
+#| echo: false
+
+model
+```
+
+Fitted model: <br>
+$y = (697.3012)\mathbf{1} + (-0.3240)\mathbf{year} + (-302.4638)\mathbf{sex} + (0.1499)\mathbf{year\times{sex}}$
+
+:::
+::::
+
+
+## Data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+
+library(knitr)
+kable(SwimRecords_predict)
+```
+
+
+## Code
+
+```r
+model <- lm(time ~ 1 + year, data = SwimRecords)
+
+SwimRecords_predict <- SwimRecords %>%
+  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_predict= predict(model, SwimRecords))
+
+SwimRecords_predict %>%
+  ggplot(aes(x = year, y = time)) +
+  geom_point() +
+  geom_line(aes(y = with_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+:::
+
+
+
+## Brain size (log)
+
+## Plant heights (polynomials)
+
+
+
+
+
+
+
+## Further reading
+
+- [Ch 6: Language of models](https://dtkaplan.github.io/SM2-bookdown/language-of-models.html) in Statistical Modeling
+

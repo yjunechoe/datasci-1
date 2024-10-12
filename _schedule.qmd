@@ -9,11 +9,11 @@
 | 5 | Sep 23 | [Hypothesis testing (Thu)](notes/hypothesis-testing.qmd)<br>[Exam 1 review (Fri)](notes/exam-1-review.qmd)  | [Lab 5](labs/lab-05.qmd) | [Problem set 2](/psets/pset-02.qmd) |
 | 6 | Sep 30 | [Exam 1 (Tue in class)](exams/exam-01.qmd)<br> **Fall break** (Thu)| | |
 | 7 | Oct 7 | [Model specification](notes/model-specification.qmd) |  [Lab 6](labs/lab-06.qmd) |  | 
-| 8 | Oct 14 | Model fitting | Lab 7 | [Problem set 3](psets/pset-03.qmd) | 
-| 9 | Oct 21 | Model accuracy | Lab 8 |  | 
-| 10 | Oct 28 | Model reliability | Lab 9 | Problem set 4 |
-| 11 | Nov 4 | Classification | Lab 10 |  |
-| 12 | Nov 11 | Inference |  Lab 11 | Problem set 5 | 
+| 8 | Oct 14 | [Applied model specification](notes/model-specification-applied.qmd) | Lab 7 | | 
+| 9 | Oct 21 | Model fitting | Lab 8 | [Problem set 3](psets/pset-03.qmd)  | 
+| 10 | Oct 28 | Model accuracy | Lab 9 | Problem set 4 |
+| 11 | Nov 4 | Model reliability | Lab 10 |  |
+| 12 | Nov 11 | Classification |  Lab 11 | Problem set 5 | 
 | 13 | Nov 18 | Exam 2 review (Tue)<br>Exam 2 (Thu) |  |     | 
 | 14 | Nov 25 |**Thanksgiving break (no class)**  |   |
 | 15 | Dec 2 | Multilevel models |  Lab 12 |  |

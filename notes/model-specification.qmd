@@ -125,9 +125,191 @@ We've specified our response and explanatory variables and the functional form o
   - in R: `y ~ sq(year) * gender`
   - eq: $y = \beta_0 + \beta_1x_1^2 + \beta_2x_2 + \beta_3x_1^2x_2$
 
+## Applied model specifiation
+
+Now that we've covered the terminology and concepts, let's apply model specification to some real models. 
+
+```{r}
+#| message: false
+
+library(tidyverse)
+library(mosaic)
+```
 
 
-### Further reading
+### "Toy" data 
+
+
+Let's start with the simplest possible example, a dataset with two data points. Suppose you record how many days you study over the next two days. On day 1, you study for 2 hours. On day 2, you study for 3 hours. Your dataset might look something like this. 
+
+::: {.panel-tabset}
+
+## Plot
+
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 3
+
+toy_data <- tibble(
+  x = c(1, 2, 3, 4, 5), 
+  y = c(2, 6, 7, 12, 13)
+)
+
+toy_data %>%
+  ggplot(aes(
+    x = x, 
+    y = y
+  )) +
+  geom_point() +
+  theme_bw(base_size = 14) 
+
+```
+
+
+## Data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+
+library(knitr)
+kable(toy_data)
+```
+
+
+## Code
+
+```r
+toy_data <- tibble(
+  x = c(1, 2, 3, 4, 5), 
+  y = c(2, 6, 7, 12, 13)
+)
+
+toy_data %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point() +
+  theme_bw(base_size = 14) 
+
+```
+:::
+
+1. **Specify our response variable**, $y$: the response variable (🥸 data, output, prediction) is the variable you are trying to predict or explain with your model.
+    - `y`
+
+2. **Specify explantory variables**, $x_i$: the explanatory variables (🥸 regressors, inputs, predictors) are the predictors in your data that could help explain the response variable. Our data has only one possible: 
+    - `x` 
+
+3. **Specify the functional form**: the functional form describes the relationship between the response and explanatory variables with a mathematical expresson. In a linear model, we express this relationship as a weighted sum of inputs: 
+    - $y=\sum_{i=1}^{n}w_ix_i$
+
+4. **Specify model terms**: here we need to specify exactly *how* to express our explanatory variables in our functional form. The actual variables and constants that will be included in the model. There are four kinds of terms: (1) intercept, (2) main, (3) interaction, and (4) transformation. Here we have the simplest case of an intercept and one main term (no interactions or transformations necessary)
+    - $y = w_1\mathbf{1} + w_2x_2$
+    - in R: `y ~ 1 + x`
+
+::: {.panel-tabset}
+
+## Plot
+
+:::: {.columns}
+::: {.column width="50%"}
+
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 3
+
+model <- lm(y ~ 1 + x, data = toy_data)
+
+toy_data <- toy_data %>%
+  mutate(w_formula = -0.4*1 + 2.8*x) %>%
+  mutate(w_predict= predict(model, toy_data))
+
+toy_data %>%
+  ggplot(aes(
+    x = x, 
+    y = y
+  )) +
+  geom_point() +
+  geom_line(aes(y = w_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+
+:::
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+
+lm(y ~ 1 + x, data = toy_data)
+```
+
+$y = w_1\mathbf{1} + w_2\mathbf{x}$
+
+$y = (-0.4)1 + (2.8)x$
+
+:::
+::::
+
+
+## Data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+
+library(knitr)
+kable(toy_data)
+```
+
+
+## Code
+
+```r
+model <- lm(y ~ 1 + x, data = toy_data)
+
+toy_data <- toy_data %>%
+  mutate(w_formula = -0.4*1 + 2.8*x) %>%
+  mutate(w_predict= predict(model, toy_data))
+
+toy_data %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point() +
+  geom_line(aes(y = w_predict), color = "blue") +
+  theme_bw(base_size = 14) 
+
+```
+:::
+
+### Swim records
+
+#### One input
+
+#### Two inputs
+
+#### Three inputs
+
+#### Interaction 
+
+#### Transformation 
+
+### Brain size (log)
+
+### Plant heights (polynomials)
+
+
+
+
+
+
+
+## Further reading
 
 - [Ch 6: Language of models](https://dtkaplan.github.io/SM2-bookdown/language-of-models.html) in Statistical Modeling
 

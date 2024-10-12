@@ -330,7 +330,7 @@ Under construction
 {
     UseMethod("model")
 }
-&lt;bytecode: 0x11b467268&gt;
+&lt;bytecode: 0x135afaaa0&gt;
 &lt;environment: namespace:mosaic&gt;</code></pre>
 </div>
 </div>
@@ -384,7 +384,7 @@ Under construction
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<p>Model specification: <br> <span class="math inline">\(y = w_1\mathbf{1} + w_2\mathbf{x}\)</span></p>
+<p>Model specification: <br> <span class="math inline">\(y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{x}\)</span></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -396,7 +396,7 @@ Coefficients:
        -0.4          2.8  </code></pre>
 </div>
 </div>
-<p>Fitted model: <br> <span class="math inline">\(y = (-0.4)1 + (2.8)x\)</span></p>
+<p>Fitted model: <br> <span class="math inline">\(y = -0.4\cdot1 + 2.8\cdot x\)</span></p>
 </div>
 </div>
 </div>
@@ -454,7 +454,7 @@ Coefficients:
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<p>Model specification: <br> <span class="math inline">\(y = w_1\mathbf{1}\)</span></p>
+<p>Model specification: <br> <span class="math inline">\(y = w_1\cdot\mathbf{1}\)</span></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -962,7 +962,7 @@ Coefficients:
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<p>Model specification: <br> <span class="math inline">\(y = w_1\mathbf{1} + w_2\mathbf{year}\)</span></p>
+<p>Model specification: <br> <span class="math inline">\(y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{year}\)</span></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1461,6 +1461,12 @@ Coefficients:
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `with_formula = 555.7168 * 1 + -0.2515 * year + -9.798 * sex`.
+Caused by warning in `Ops.factor()`:
+! '*' not meaningful for factors</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1470,7 +1476,7 @@ Coefficients:
 </div>
 </div>
 </div><div class="column" style="width:60%;">
-<p>Model specification: <br> <span class="math inline">\(y = w_1\mathbf{1} + w_2\mathbf{year} + w_3\mathbf{sex}\)</span></p>
+<p>Model specification: <br> <span class="math inline">\(y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{year} + w_3\cdot\mathbf{sex}\)</span></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1508,434 +1514,434 @@ Coefficients:
 <td style="text-align: right;">1905</td>
 <td style="text-align: right;">65.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">72.1325</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">66.88051</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1908</td>
 <td style="text-align: right;">65.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">71.3528</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">66.12612</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1910</td>
 <td style="text-align: right;">62.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">70.8330</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">65.62319</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1912</td>
 <td style="text-align: right;">61.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">70.3132</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">65.12026</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1918</td>
 <td style="text-align: right;">61.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">68.7538</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">63.61148</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1920</td>
 <td style="text-align: right;">60.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">68.2340</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">63.10855</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1922</td>
 <td style="text-align: right;">58.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">67.7142</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">62.60563</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1924</td>
 <td style="text-align: right;">57.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">67.1944</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">62.10270</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1934</td>
 <td style="text-align: right;">56.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">64.5954</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">59.58806</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1935</td>
 <td style="text-align: right;">56.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">64.3355</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">59.33660</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1936</td>
 <td style="text-align: right;">56.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">64.0756</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">59.08513</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1944</td>
 <td style="text-align: right;">55.90</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">61.9964</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">57.07343</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1947</td>
 <td style="text-align: right;">55.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">61.2167</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">56.31903</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1948</td>
 <td style="text-align: right;">55.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">60.9568</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">56.06757</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1955</td>
 <td style="text-align: right;">54.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">59.1375</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">54.30732</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1957</td>
 <td style="text-align: right;">54.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">58.6177</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">53.80440</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1961</td>
 <td style="text-align: right;">53.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">57.5781</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">52.79854</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1964</td>
 <td style="text-align: right;">52.90</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">56.7984</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">52.04415</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1967</td>
 <td style="text-align: right;">52.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">56.0187</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">51.28976</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1968</td>
 <td style="text-align: right;">52.20</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">55.7588</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">51.03830</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1970</td>
 <td style="text-align: right;">51.90</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">55.2390</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">50.53537</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1972</td>
 <td style="text-align: right;">51.22</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">54.7192</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">50.03244</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1975</td>
 <td style="text-align: right;">50.59</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">53.9395</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">49.27805</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1976</td>
 <td style="text-align: right;">49.44</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">53.6796</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">49.02659</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1981</td>
 <td style="text-align: right;">49.36</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">52.3801</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">47.76927</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1985</td>
 <td style="text-align: right;">49.24</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">51.3405</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">46.76341</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1986</td>
 <td style="text-align: right;">48.74</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">51.0806</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">46.51195</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1988</td>
 <td style="text-align: right;">48.42</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">50.5608</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">46.00902</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1994</td>
 <td style="text-align: right;">48.21</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">49.0014</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">44.50024</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">48.18</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">47.4420</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">42.99146</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">47.84</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">47.4420</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">42.99146</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1908</td>
 <td style="text-align: right;">95.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">71.3528</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">75.92408</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1910</td>
 <td style="text-align: right;">86.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">70.8330</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">75.42115</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1911</td>
 <td style="text-align: right;">84.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">70.5731</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">75.16969</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1912</td>
 <td style="text-align: right;">78.80</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">70.3132</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">74.91822</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1915</td>
 <td style="text-align: right;">76.20</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">69.5335</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">74.16383</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1920</td>
 <td style="text-align: right;">73.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">68.2340</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">72.90651</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1923</td>
 <td style="text-align: right;">72.80</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">67.4543</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">72.15212</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1924</td>
 <td style="text-align: right;">72.20</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">67.1944</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">71.90066</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1926</td>
 <td style="text-align: right;">70.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">66.6746</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">71.39773</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1929</td>
 <td style="text-align: right;">69.40</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">65.8949</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">70.64334</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1930</td>
 <td style="text-align: right;">68.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">65.6350</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">70.39188</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1931</td>
 <td style="text-align: right;">66.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">65.3751</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">70.14041</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1933</td>
 <td style="text-align: right;">66.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">64.8553</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">69.63749</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1934</td>
 <td style="text-align: right;">65.40</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">64.5954</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">69.38602</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1936</td>
 <td style="text-align: right;">64.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">64.0756</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">68.88310</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1956</td>
 <td style="text-align: right;">62.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">58.8776</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">63.85382</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1958</td>
 <td style="text-align: right;">61.20</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">58.3578</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">63.35090</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1960</td>
 <td style="text-align: right;">60.20</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">57.8380</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">62.84797</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1962</td>
 <td style="text-align: right;">59.50</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">57.3182</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">62.34504</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1964</td>
 <td style="text-align: right;">58.90</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">56.7984</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">61.84211</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1972</td>
 <td style="text-align: right;">58.50</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">54.7192</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">59.83040</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1973</td>
 <td style="text-align: right;">57.54</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">54.4593</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">59.57894</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1974</td>
 <td style="text-align: right;">56.96</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">54.1994</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">59.32748</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1976</td>
 <td style="text-align: right;">55.65</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">53.6796</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">58.82455</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1978</td>
 <td style="text-align: right;">55.41</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">53.1598</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">58.32162</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1980</td>
 <td style="text-align: right;">54.79</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">52.6400</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">57.81869</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1986</td>
 <td style="text-align: right;">54.73</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">51.0806</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">56.30991</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1992</td>
 <td style="text-align: right;">54.48</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">49.5212</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">54.80113</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1994</td>
 <td style="text-align: right;">54.01</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">49.0014</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">54.29820</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">53.77</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">47.4420</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">52.78942</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2004</td>
 <td style="text-align: right;">53.52</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">46.4024</td>
+<td style="text-align: right;">NA</td>
 <td style="text-align: right;">51.78357</td>
 </tr>
 </tbody>
@@ -1945,17 +1951,17 @@ Coefficients:
 </div>
 </div>
 <div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(time <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> year, <span class="at">data =</span> SwimRecords)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="ot">&lt;-</span> SwimRecords <span class="sc">%&gt;%</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_formula =</span> <span class="fl">567.2420</span><span class="sc">*</span><span class="dv">1</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2599</span><span class="sc">*</span>year) <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_predict=</span> <span class="fu">predict</span>(model, SwimRecords))</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="sc">%&gt;%</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> time)) <span class="sc">+</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> with_predict), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(time <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> year, <span class="at">data =</span> SwimRecords)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="ot">&lt;-</span> SwimRecords <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_formula =</span> <span class="fl">555.7168</span><span class="sc">*</span><span class="dv">1</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2515</span><span class="sc">*</span>year <span class="sc">+</span> <span class="sc">-</span><span class="fl">9.7980</span> <span class="sc">*</span>sex) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_predict=</span> <span class="fu">predict</span>(model, SwimRecords))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="sc">%&gt;%</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> time)) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> with_predict), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1969,6 +1975,12 @@ Coefficients:
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "F" "M"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1978,7 +1990,7 @@ Coefficients:
 </div>
 </div>
 </div><div class="column" style="width:60%;">
-<p>Model specification: <br> <span class="math inline">\(y = w_1\mathbf{1} + w_2\mathbf{year} + w_3\mathbf{sex} + w_4\mathbf{year*sex}\)</span></p>
+<p>Model specification: <br> <span class="math inline">\(y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{year} + w_3\cdot\mathbf{sex} + w_4\cdot\mathbf{year\times{sex}}\)</span></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -2016,434 +2028,434 @@ Coefficients:
 <td style="text-align: right;">1905</td>
 <td style="text-align: right;">65.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">72.1325</td>
+<td style="text-align: right;">46.2726</td>
 <td style="text-align: right;">63.12106</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1908</td>
 <td style="text-align: right;">65.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">71.3528</td>
+<td style="text-align: right;">46.2000</td>
 <td style="text-align: right;">62.59867</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1910</td>
 <td style="text-align: right;">62.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">70.8330</td>
+<td style="text-align: right;">46.1516</td>
 <td style="text-align: right;">62.25041</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1912</td>
 <td style="text-align: right;">61.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">70.3132</td>
+<td style="text-align: right;">46.1032</td>
 <td style="text-align: right;">61.90215</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1918</td>
 <td style="text-align: right;">61.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">68.7538</td>
+<td style="text-align: right;">45.9580</td>
 <td style="text-align: right;">60.85738</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1920</td>
 <td style="text-align: right;">60.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">68.2340</td>
+<td style="text-align: right;">45.9096</td>
 <td style="text-align: right;">60.50912</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1922</td>
 <td style="text-align: right;">58.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">67.7142</td>
+<td style="text-align: right;">45.8612</td>
 <td style="text-align: right;">60.16086</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1924</td>
 <td style="text-align: right;">57.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">67.1944</td>
+<td style="text-align: right;">45.8128</td>
 <td style="text-align: right;">59.81260</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1934</td>
 <td style="text-align: right;">56.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">64.5954</td>
+<td style="text-align: right;">45.5708</td>
 <td style="text-align: right;">58.07131</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1935</td>
 <td style="text-align: right;">56.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">64.3355</td>
+<td style="text-align: right;">45.5466</td>
 <td style="text-align: right;">57.89718</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1936</td>
 <td style="text-align: right;">56.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">64.0756</td>
+<td style="text-align: right;">45.5224</td>
 <td style="text-align: right;">57.72305</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1944</td>
 <td style="text-align: right;">55.90</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">61.9964</td>
+<td style="text-align: right;">45.3288</td>
 <td style="text-align: right;">56.33002</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1947</td>
 <td style="text-align: right;">55.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">61.2167</td>
+<td style="text-align: right;">45.2562</td>
 <td style="text-align: right;">55.80763</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1948</td>
 <td style="text-align: right;">55.40</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">60.9568</td>
+<td style="text-align: right;">45.2320</td>
 <td style="text-align: right;">55.63350</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1955</td>
 <td style="text-align: right;">54.80</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">59.1375</td>
+<td style="text-align: right;">45.0626</td>
 <td style="text-align: right;">54.41459</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1957</td>
 <td style="text-align: right;">54.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">58.6177</td>
+<td style="text-align: right;">45.0142</td>
 <td style="text-align: right;">54.06634</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1961</td>
 <td style="text-align: right;">53.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">57.5781</td>
+<td style="text-align: right;">44.9174</td>
 <td style="text-align: right;">53.36982</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1964</td>
 <td style="text-align: right;">52.90</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">56.7984</td>
+<td style="text-align: right;">44.8448</td>
 <td style="text-align: right;">52.84743</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1967</td>
 <td style="text-align: right;">52.60</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">56.0187</td>
+<td style="text-align: right;">44.7722</td>
 <td style="text-align: right;">52.32504</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1968</td>
 <td style="text-align: right;">52.20</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">55.7588</td>
+<td style="text-align: right;">44.7480</td>
 <td style="text-align: right;">52.15091</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1970</td>
 <td style="text-align: right;">51.90</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">55.2390</td>
+<td style="text-align: right;">44.6996</td>
 <td style="text-align: right;">51.80266</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1972</td>
 <td style="text-align: right;">51.22</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">54.7192</td>
+<td style="text-align: right;">44.6512</td>
 <td style="text-align: right;">51.45440</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1975</td>
 <td style="text-align: right;">50.59</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">53.9395</td>
+<td style="text-align: right;">44.5786</td>
 <td style="text-align: right;">50.93201</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1976</td>
 <td style="text-align: right;">49.44</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">53.6796</td>
+<td style="text-align: right;">44.5544</td>
 <td style="text-align: right;">50.75788</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1981</td>
 <td style="text-align: right;">49.36</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">52.3801</td>
+<td style="text-align: right;">44.4334</td>
 <td style="text-align: right;">49.88723</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1985</td>
 <td style="text-align: right;">49.24</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">51.3405</td>
+<td style="text-align: right;">44.3366</td>
 <td style="text-align: right;">49.19072</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1986</td>
 <td style="text-align: right;">48.74</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">51.0806</td>
+<td style="text-align: right;">44.3124</td>
 <td style="text-align: right;">49.01659</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1988</td>
 <td style="text-align: right;">48.42</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">50.5608</td>
+<td style="text-align: right;">44.2640</td>
 <td style="text-align: right;">48.66833</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1994</td>
 <td style="text-align: right;">48.21</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">49.0014</td>
+<td style="text-align: right;">44.1188</td>
 <td style="text-align: right;">47.62355</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">48.18</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">47.4420</td>
+<td style="text-align: right;">43.9736</td>
 <td style="text-align: right;">46.57878</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">47.84</td>
 <td style="text-align: left;">M</td>
-<td style="text-align: right;">47.4420</td>
+<td style="text-align: right;">43.9736</td>
 <td style="text-align: right;">46.57878</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1908</td>
 <td style="text-align: right;">95.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">71.3528</td>
+<td style="text-align: right;">62.6546</td>
 <td style="text-align: right;">79.02170</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1910</td>
 <td style="text-align: right;">86.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">70.8330</td>
+<td style="text-align: right;">62.3064</td>
 <td style="text-align: right;">78.37361</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1911</td>
 <td style="text-align: right;">84.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">70.5731</td>
+<td style="text-align: right;">62.1323</td>
 <td style="text-align: right;">78.04956</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1912</td>
 <td style="text-align: right;">78.80</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">70.3132</td>
+<td style="text-align: right;">61.9582</td>
 <td style="text-align: right;">77.72552</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1915</td>
 <td style="text-align: right;">76.20</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">69.5335</td>
+<td style="text-align: right;">61.4359</td>
 <td style="text-align: right;">76.75338</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1920</td>
 <td style="text-align: right;">73.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">68.2340</td>
+<td style="text-align: right;">60.5654</td>
 <td style="text-align: right;">75.13315</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1923</td>
 <td style="text-align: right;">72.80</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">67.4543</td>
+<td style="text-align: right;">60.0431</td>
 <td style="text-align: right;">74.16101</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1924</td>
 <td style="text-align: right;">72.20</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">67.1944</td>
+<td style="text-align: right;">59.8690</td>
 <td style="text-align: right;">73.83697</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1926</td>
 <td style="text-align: right;">70.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">66.6746</td>
+<td style="text-align: right;">59.5208</td>
 <td style="text-align: right;">73.18887</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1929</td>
 <td style="text-align: right;">69.40</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">65.8949</td>
+<td style="text-align: right;">58.9985</td>
 <td style="text-align: right;">72.21674</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1930</td>
 <td style="text-align: right;">68.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">65.6350</td>
+<td style="text-align: right;">58.8244</td>
 <td style="text-align: right;">71.89269</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1931</td>
 <td style="text-align: right;">66.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">65.3751</td>
+<td style="text-align: right;">58.6503</td>
 <td style="text-align: right;">71.56864</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1933</td>
 <td style="text-align: right;">66.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">64.8553</td>
+<td style="text-align: right;">58.3021</td>
 <td style="text-align: right;">70.92055</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1934</td>
 <td style="text-align: right;">65.40</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">64.5954</td>
+<td style="text-align: right;">58.1280</td>
 <td style="text-align: right;">70.59651</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1936</td>
 <td style="text-align: right;">64.60</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">64.0756</td>
+<td style="text-align: right;">57.7798</td>
 <td style="text-align: right;">69.94842</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1956</td>
 <td style="text-align: right;">62.00</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">58.8776</td>
+<td style="text-align: right;">54.2978</td>
 <td style="text-align: right;">63.46750</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1958</td>
 <td style="text-align: right;">61.20</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">58.3578</td>
+<td style="text-align: right;">53.9496</td>
 <td style="text-align: right;">62.81941</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1960</td>
 <td style="text-align: right;">60.20</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">57.8380</td>
+<td style="text-align: right;">53.6014</td>
 <td style="text-align: right;">62.17131</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1962</td>
 <td style="text-align: right;">59.50</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">57.3182</td>
+<td style="text-align: right;">53.2532</td>
 <td style="text-align: right;">61.52322</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1964</td>
 <td style="text-align: right;">58.90</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">56.7984</td>
+<td style="text-align: right;">52.9050</td>
 <td style="text-align: right;">60.87513</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1972</td>
 <td style="text-align: right;">58.50</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">54.7192</td>
+<td style="text-align: right;">51.5122</td>
 <td style="text-align: right;">58.28276</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1973</td>
 <td style="text-align: right;">57.54</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">54.4593</td>
+<td style="text-align: right;">51.3381</td>
 <td style="text-align: right;">57.95872</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1974</td>
 <td style="text-align: right;">56.96</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">54.1994</td>
+<td style="text-align: right;">51.1640</td>
 <td style="text-align: right;">57.63467</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1976</td>
 <td style="text-align: right;">55.65</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">53.6796</td>
+<td style="text-align: right;">50.8158</td>
 <td style="text-align: right;">56.98658</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1978</td>
 <td style="text-align: right;">55.41</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">53.1598</td>
+<td style="text-align: right;">50.4676</td>
 <td style="text-align: right;">56.33849</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1980</td>
 <td style="text-align: right;">54.79</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">52.6400</td>
+<td style="text-align: right;">50.1194</td>
 <td style="text-align: right;">55.69040</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1986</td>
 <td style="text-align: right;">54.73</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">51.0806</td>
+<td style="text-align: right;">49.0748</td>
 <td style="text-align: right;">53.74612</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1992</td>
 <td style="text-align: right;">54.48</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">49.5212</td>
+<td style="text-align: right;">48.0302</td>
 <td style="text-align: right;">51.80185</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1994</td>
 <td style="text-align: right;">54.01</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">49.0014</td>
+<td style="text-align: right;">47.6820</td>
 <td style="text-align: right;">51.15375</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">53.77</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">47.4420</td>
+<td style="text-align: right;">46.6374</td>
 <td style="text-align: right;">49.20948</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2004</td>
 <td style="text-align: right;">53.52</td>
 <td style="text-align: left;">F</td>
-<td style="text-align: right;">46.4024</td>
+<td style="text-align: right;">45.9410</td>
 <td style="text-align: right;">47.91330</td>
 </tr>
 </tbody>
@@ -2453,17 +2465,21 @@ Coefficients:
 </div>
 </div>
 <div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(time <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> year, <span class="at">data =</span> SwimRecords)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="ot">&lt;-</span> SwimRecords <span class="sc">%&gt;%</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_formula =</span> <span class="fl">567.2420</span><span class="sc">*</span><span class="dv">1</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2599</span><span class="sc">*</span>year) <span class="sc">%&gt;%</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_predict=</span> <span class="fu">predict</span>(model, SwimRecords))</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="sc">%&gt;%</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> time)) <span class="sc">+</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> with_predict), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(time <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> year, <span class="at">data =</span> SwimRecords)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(SwimRecords<span class="sc">$</span>sex)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(SwimRecords<span class="sc">$</span>sex)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="ot">&lt;-</span> SwimRecords <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_formula =</span> <span class="fl">697.3012</span><span class="sc">*</span><span class="dv">1</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.3240</span><span class="sc">*</span>year <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span><span class="fl">302.4638</span><span class="sc">*</span><span class="fu">as.numeric</span>(sex) <span class="sc">+</span> <span class="fl">0.1499</span><span class="sc">*</span>(year<span class="sc">*</span><span class="fu">as.numeric</span>(sex))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_predict=</span> <span class="fu">predict</span>(model, SwimRecords))</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="sc">%&gt;%</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> time)) <span class="sc">+</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> with_predict), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2487,7 +2503,7 @@ Coefficients:
 </div>
 </div><div class="column" style="width:60%;">
 <p>Model specification: <br> <span class="math display">\[
-y = w_1\mathbf{1} + w_2\mathbf{year} + w_3\mathbf{sex}+ w_4\mathbf{year\times{sex}} +w_5\mathbf{year}^2
+y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{year} + w_3\cdot\mathbf{sex}+ w_4\cdot\mathbf{year\times{sex}} +w_5\cdot\mathbf{year}^2
 \]</span></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -2500,7 +2516,10 @@ Coefficients:
   1.110e+04   -1.098e+01   -3.171e+02    2.729e-03    1.575e-01  </code></pre>
 </div>
 </div>
-<p>Fitted model: <br> <span class="math inline">\(y = (697.3012)\mathbf{1} + (-0.3240)\mathbf{year} + (-302.4638)\mathbf{sex} + (0.1499)\mathbf{year\times{sex}}\)</span></p>
+<p>Fitted model: <br> <span class="math display">\[\begin{align}
+y = &amp;(1.110e+04)\mathbf{1} + (-1.098e+01)\mathbf{year} + (-3.171e+02)\mathbf{sex}\\
+&amp;+ (1.575e-01 )\mathbf{year\times{sex}} + (2.729e-03)\mathbf{year}^2
+\end{align}\]</span></p>
 </div>
 </div>
 </div>
@@ -2963,17 +2982,17 @@ Coefficients:
 </div>
 </div>
 <div id="tabset-7-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-3-tab">
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(time <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> year, <span class="at">data =</span> SwimRecords)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="ot">&lt;-</span> SwimRecords <span class="sc">%&gt;%</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_formula =</span> <span class="fl">567.2420</span><span class="sc">*</span><span class="dv">1</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2599</span><span class="sc">*</span>year) <span class="sc">%&gt;%</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_predict=</span> <span class="fu">predict</span>(model, SwimRecords))</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="sc">%&gt;%</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> time)) <span class="sc">+</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> with_predict), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(time <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> year, <span class="at">data =</span> SwimRecords)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="ot">&lt;-</span> SwimRecords <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_formula =</span> <span class="fl">567.2420</span><span class="sc">*</span><span class="dv">1</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2599</span><span class="sc">*</span>year) <span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">with_predict=</span> <span class="fu">predict</span>(model, SwimRecords))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>SwimRecords_predict <span class="sc">%&gt;%</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> time)) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> with_predict), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

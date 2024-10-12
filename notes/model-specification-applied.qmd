@@ -127,7 +127,7 @@ toy_data %>%
 ::: {.column width="50%"}
 
 Model specification: <br>
-$y = w_1\mathbf{1} + w_2\mathbf{x}$
+$y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{x}$
 
 ```{r}
 #| echo: false
@@ -136,7 +136,7 @@ lm(y ~ 1 + x, data = toy_data)
 ```
 
 Fitted model: <br>
-$y = (-0.4)1 + (2.8)x$
+$y = -0.4\cdot1 + 2.8\cdot x$
 
 :::
 ::::
@@ -207,7 +207,7 @@ SwimRecords_predict %>%
 ::: {.column width="50%"}
 
 Model specification: <br>
-$y = w_1\mathbf{1}$
+$y = w_1\cdot\mathbf{1}$
 
 ```{r}
 #| echo: false
@@ -287,7 +287,7 @@ SwimRecords_predict %>%
 ::: {.column width="50%"}
 
 Model specification: <br>
-$y = w_1\mathbf{1} + w_2\mathbf{year}$
+$y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{year}$
 
 ```{r}
 #| echo: false
@@ -352,7 +352,7 @@ SwimRecords_predict %>%
 model <- lm(time ~ 1 + year + sex, data = SwimRecords)
 
 SwimRecords_predict <- SwimRecords %>%
-  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_formula = 555.7168*1 + -0.2515*year + -9.7980 *sex) %>%
   mutate(with_predict= predict(model, SwimRecords))
 
 SwimRecords_predict %>%
@@ -367,7 +367,7 @@ SwimRecords_predict %>%
 ::: {.column width="60%"}
 
 Model specification: <br>
-$y = w_1\mathbf{1} + w_2\mathbf{year} + w_3\mathbf{sex}$
+$y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{year} + w_3\cdot\mathbf{sex}$
 
 ```{r}
 #| echo: false
@@ -400,7 +400,7 @@ kable(SwimRecords_predict)
 model <- lm(time ~ 1 + year, data = SwimRecords)
 
 SwimRecords_predict <- SwimRecords %>%
-  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_formula = 555.7168*1 + -0.2515*year + -9.7980 *sex) %>%
   mutate(with_predict= predict(model, SwimRecords))
 
 SwimRecords_predict %>%
@@ -430,8 +430,13 @@ SwimRecords_predict %>%
 
 model <- lm(time ~ 1 + year * sex, data = SwimRecords)
 
+levels(SwimRecords$sex)
+levels(as.numeric(SwimRecords$sex)[0])
+
+
 SwimRecords_predict <- SwimRecords %>%
-  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_formula = 697.3012*1 + -0.3240*year + -302.4638*as.numeric(sex) + 0.1499*year*as.numeric(sex)
+    ) %>%
   mutate(with_predict= predict(model, SwimRecords))
 
 SwimRecords_predict %>%
@@ -446,7 +451,7 @@ SwimRecords_predict %>%
 ::: {.column width="60%"}
 
 Model specification: <br>
-$y = w_1\mathbf{1} + w_2\mathbf{year} + w_3\mathbf{sex} + w_4\mathbf{year*sex}$
+$y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{year} + w_3\cdot\mathbf{sex} + w_4\cdot\mathbf{year\times{sex}}$
 
 ```{r}
 #| echo: false
@@ -477,9 +482,13 @@ kable(SwimRecords_predict)
 
 ```r
 model <- lm(time ~ 1 + year, data = SwimRecords)
+as.numeric(SwimRecords$sex)
+levels(SwimRecords$sex)
 
 SwimRecords_predict <- SwimRecords %>%
-  mutate(with_formula = 567.2420*1 + -0.2599*year) %>%
+  mutate(with_formula = 697.3012*1 + -0.3240*year +
+    -302.4638*as.numeric(sex) + 0.1499*(year*as.numeric(sex))
+    ) %>%
   mutate(with_predict= predict(model, SwimRecords))
 
 SwimRecords_predict %>%
@@ -526,7 +535,7 @@ SwimRecords_predict %>%
 
 Model specification: <br>
 $$
-y = w_1\mathbf{1} + w_2\mathbf{year} + w_3\mathbf{sex}+ w_4\mathbf{year\times{sex}} +w_5\mathbf{year}^2
+y = w_1\cdot\mathbf{1} + w_2\cdot\mathbf{year} + w_3\cdot\mathbf{sex}+ w_4\cdot\mathbf{year\times{sex}} +w_5\cdot\mathbf{year}^2
 $$
 
 ```{r}
@@ -536,7 +545,10 @@ model
 ```
 
 Fitted model: <br>
-$y = (697.3012)\mathbf{1} + (-0.3240)\mathbf{year} + (-302.4638)\mathbf{sex} + (0.1499)\mathbf{year\times{sex}}$
+\begin{align}
+y = &(1.110e+04)\mathbf{1} + (-1.098e+01)\mathbf{year} + (-3.171e+02)\mathbf{sex}\\
+&+ (1.575e-01 )\mathbf{year\times{sex}} + (2.729e-03)\mathbf{year}^2
+\end{align}
 
 :::
 ::::

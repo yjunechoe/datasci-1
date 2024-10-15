@@ -27,6 +27,7 @@ set.seed(123)
 ## Announcements 
 
 - Problem set 3 is extended to Monday Oct 21 at noon
+- Katie's office hours cancelled this week
 
 ## You are (still) `here` {.smaller} 
 

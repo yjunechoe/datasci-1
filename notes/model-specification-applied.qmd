@@ -19,7 +19,7 @@ library(mosaic)
 ## "Toy" data 
 
 
-Let's start with the simplest possible example, a dataset with two data points. Suppose you record how many days you study over the next two days. On day 1, you study for 2 hours. On day 2, you study for 3 hours. Your dataset might look something like this. 
+Let's start with the simplest possible example, a dataset with two data points. Suppose you record how many days you study over the next 5 days. On day 1, you study for 2 hours. On day 2, you study for 6 hours and so on. Your dataset might look something like this. 
 
 ::: {.panel-tabset}
 

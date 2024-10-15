@@ -11,8 +11,8 @@ Study guides include weekly study guides and additional resources from each week
 - [Week 5: Hypothesis testing](notes/hypothesis-testing.qmd) 
 - [Week 6: Exam 1 review](notes/exam-1-review.qmd) ([practice exam](/exams/exam-01-practice.qmd), [solutions](/exams/exam-01-practice-solutions.pdf))
 - [Week 7: Model specification](notes/model-specification.qmd) ([slides](slides/model-specification.qmd), [demo](https://colab.research.google.com/drive/1Tf-0HLrVwvXzbUpBSNQyhjLSvBVzQYCk?usp=sharing))
-- Week 8: Applied model specification
-- Week 9: Model fitting (slides, [demo](https://colab.research.google.com/drive/1057npPxqL_uICzotn1nVABDcTwCU6pLG?usp=drive_link))
+- [Week 8: Applied model specification](notes/model-specification-applied.qmd) (slides, [demo](https://colab.research.google.com/drive/1057npPxqL_uICzotn1nVABDcTwCU6pLG?usp=drive_link))
+- Week 9: Model fitting (slides, [demo](https://colab.research.google.com/drive/10LCVBpec_f3MEbGpIF-Qz_JtGRBFwUaJ?usp=drive_link))
 - Week 10: Model accuracy (slides, [demo](https://colab.research.google.com/drive/1z8sCbtfCmvlfKB8ICTXGBCUURNuf8muM?usp=drive_link))
 - Week 11: Model reliability (slides, [demo](https://colab.research.google.com/drive/1pKCCQivt85v6GOiMO6_8BzpECZijNdBS?usp=drive_link))
 - Week 12: Classification (slides, [demo](https://colab.research.google.com/drive/1qkcfUtXBjhZLP8QFK5ezRuf2jPygPxFm?usp=drive_link))
@@ -25,7 +25,7 @@ There are 6 problem sets, due to Gradescope by noon on the following Mondays. Yo
 
 - [Problem set 1 due Sep 9](psets/pset-01.qmd), [solutions](https://colab.research.google.com/drive/1nj3NLzLEb7ugXH0gssJwkd36_YFeMoCC?usp=sharing)
 - [Problem set 2 due Sep 23](psets/pset-02.qmd), [solutions](https://colab.research.google.com/drive/19rSMc6UTUC8E_2-iWXQNEpOjIYQ4prui?usp=sharing)
-- [Problem set 3 due Oct 14](psets/pset-03.qmd) 
+- [Problem set 3 due ~~Oct 14~~ Oct 21](psets/pset-03.qmd) 
 - Problem set 4 due Oct 28
 - Problem set 5 due Nov 11
 - Problem set 6 due Dec 9 

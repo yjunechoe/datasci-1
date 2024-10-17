@@ -627,6 +627,8 @@ geom_line(aes(y = y_predict))
 
 ## Matching plots to equations
 
+Match the following plots to the equations below. Each plot can be mapped to a unique expression of the linear model equation. 
+
 ```{r}
 #| echo: false
 #| message: false
@@ -712,13 +714,28 @@ geom_line(aes(y = model4), color = "blue")
 ```
 
 (a) $y = w_11$ `r fitb("B", 4)`
+
 (b) $y = w_11 + w_2x$ `r fitb("C", 4)`
+
 (c) $y = w_11 + w_2z$ `r fitb("D", 4)`
+
 (d) $y = w_11 + w_2x + w_3z$ `r fitb("F", 4)`
+
 (e) $y = w_11 + w_2x + w_3z + w_4x\times{z} + w_5x^2$ `r fitb("E", 4)`
+
 (f) $y = w_11 + w_2x + w_3x^2$ `r fitb("A", 4)`
 
+(g) Which of the equations above has the most inputs (enter a lowercase letter a-f)?
+
+    `r fitb("e", 4)`
+
+(h) Which of the equations above is the most complex model? (enter a lowercase letter a-f)?
+
+    `r fitb("e", 4)`
+
 ## Polynomials 
+
+
 
 1. What is the purpose of including polynomial terms in a linear model?
 
@@ -739,19 +756,12 @@ geom_line(aes(y = model4), color = "blue")
 
 2. Which of the following is an example of a quadratic polynomial term in a linear model?
 
+    a. $x$ 
+    b. $x^2$
+    c. $\sqrt{x}$
+    d. $\log{x}$
 
-    ```{r}
-    #| echo: false
-    #| results: asis
-
-    # Define the answer choices
-    choices <- c("x", 
-                    answer = "x^2", 
-                    "sqrt(x)", 
-                    "log(x)")
-
-    cat(longmcq(choices))
-    ```
+    `r fitb("b", 4)`
 
 3. Why might higher-degree polynomial terms lead to overfitting in a linear model?
 
@@ -771,16 +781,66 @@ geom_line(aes(y = model4), color = "blue")
 
 4. Which of the following models includes both linear and quadratic terms
 
+    a. $y = \beta_0 + \beta_1x$
+    b. $y = \beta_0 + \beta_1x^2$
+    c. $y = \beta_0 + \beta_1x + \beta_2x^2$
+    d. $y = \beta_0 + \beta_1x + \beta_2x^3$
+
+    `r fitb("c", 4)`
+
+<!-- 
+### Applied questions 
+
+The following plot shows cooling water. The temperature of water at time after starting to cool from boiling. 
+
+
+```{r}
+CoolingWater %>%
+    ggplot(aes(
+        x = time, 
+        y = temp
+    )) + 
+    geom_point()
+```
+
+a. True or false, these data can be model with linear regression. 
+
 
     ```{r}
     #| echo: false
     #| results: asis
 
     # Define the answer choices
-    choices <- c("y = β0 + β1x", 
-                    "y = β0 + β1x^2", 
-                    answer="y = β0 + β1x + β2x^2", 
-                    "y = β0 + β1x + β2x^3")
+    choices <- c(answer = "True", "false")
+
+    cat(longmcq(choices))
+    ```
+
+
+::: {.panel-tabset}
+## b. Question
+
+Specify the model that predicts temp as a weighted sum of time. 
+
+## Answer
+
+
+$temp= w_11 + w_2time + w_3time^2$
+
+:::
+
+c. If we want to perform linear regression, how should we handle the nonlinearity in the data? 
+
+
+    ```{r}
+    #| echo: false
+    #| results: asis
+
+    # Define the answer choices
+    choices <- c("Transform the time variable", 
+            answer = "Expand the input space with a polynomial",
+            "We need to fit a model other than linear regression here"
+        )
 
     cat(longmcq(choices))
     ```
@@ -789,3 +849,5 @@ geom_line(aes(y = model4), color = "blue")
 
 
 
+
+ -->

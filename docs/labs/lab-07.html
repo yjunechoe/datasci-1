@@ -320,24 +320,24 @@ $ group_size     &lt;dbl&gt; 6.68, 15.55, 5.93, 6.97, 3.00, 3.50, 3.51, 1.25, 16
 <h3 data-number="1.1" class="anchored" data-anchor-id="type-of-model"><span class="header-section-number">1.1</span> Type of model</h3>
 <ol type="a">
 <li><p>Is this a supervised or unsupervised learning problem?</p>
-<div id="radio_CKHHESLJHD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CKHHESLJHD" value="answer"> <span>Supervised</span></label><label><input type="radio" autocomplete="off" name="radio_CKHHESLJHD" value=""> <span>Unsupervised</span></label>
+<div id="radio_XKLPKMQZUM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XKLPKMQZUM" value="answer"> <span>Supervised</span></label><label><input type="radio" autocomplete="off" name="radio_XKLPKMQZUM" value=""> <span>Unsupervised</span></label>
 </div></li>
 <li><p>Is this regression or classification?</p>
-<div id="radio_UPOKYFPWLI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UPOKYFPWLI" value="answer"> <span>Regression</span></label><label><input type="radio" autocomplete="off" name="radio_UPOKYFPWLI" value=""> <span>Classification</span></label>
+<div id="radio_MHQUBZWLET" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MHQUBZWLET" value="answer"> <span>Regression</span></label><label><input type="radio" autocomplete="off" name="radio_MHQUBZWLET" value=""> <span>Classification</span></label>
 </div></li>
 <li><p>Is the relationship between <code>brain_weight_g</code> and <code>body_weight_g</code> linear or nonlinear?</p>
-<div id="radio_SKOCZIYDXW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SKOCZIYDXW" value=""> <span>Linear</span></label><label><input type="radio" autocomplete="off" name="radio_SKOCZIYDXW" value="answer"> <span>Nonlinear</span></label>
+<div id="radio_DSWSNWVNJO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DSWSNWVNJO" value=""> <span>Linear</span></label><label><input type="radio" autocomplete="off" name="radio_DSWSNWVNJO" value="answer"> <span>Nonlinear</span></label>
 </div></li>
 <li><p>Is the nonlinear relationship linearizable or non-linearizable?</p>
-<div id="radio_YVMPMSCVDW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YVMPMSCVDW" value="answer"> <span>Linearizable nonlinear</span></label><label><input type="radio" autocomplete="off" name="radio_YVMPMSCVDW" value=""> <span>Non-linearizable nonlinear</span></label><label><input type="radio" autocomplete="off" name="radio_YVMPMSCVDW" value=""> <span>Neither, the relationship is linear</span></label>
+<div id="radio_QECVODFYOX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QECVODFYOX" value="answer"> <span>Linearizable nonlinear</span></label><label><input type="radio" autocomplete="off" name="radio_QECVODFYOX" value=""> <span>Non-linearizable nonlinear</span></label><label><input type="radio" autocomplete="off" name="radio_QECVODFYOX" value=""> <span>Neither, the relationship is linear</span></label>
 </div></li>
 <li><p>What function could we choose to linearize this relationships?</p>
-<div id="radio_NEVLKIJFFI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NEVLKIJFFI" value=""> <span>Quadratic polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_NEVLKIJFFI" value=""> <span>Cubic polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_NEVLKIJFFI" value="answer"> <span>Log transformation</span></label><label><input type="radio" autocomplete="off" name="radio_NEVLKIJFFI" value=""> <span>None, the relationship is already linear</span></label><label><input type="radio" autocomplete="off" name="radio_NEVLKIJFFI" value=""> <span>None, the relationship is non-linearizable</span></label>
+<div id="radio_OJJAFUKHBO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OJJAFUKHBO" value=""> <span>Quadratic polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_OJJAFUKHBO" value=""> <span>Cubic polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_OJJAFUKHBO" value="answer"> <span>Log transformation</span></label><label><input type="radio" autocomplete="off" name="radio_OJJAFUKHBO" value=""> <span>None, the relationship is already linear</span></label><label><input type="radio" autocomplete="off" name="radio_OJJAFUKHBO" value=""> <span>None, the relationship is non-linearizable</span></label>
 </div></li>
 </ol>
 </section>
@@ -346,20 +346,20 @@ $ group_size     &lt;dbl&gt; 6.68, 15.55, 5.93, 6.97, 3.00, 3.50, 3.51, 1.25, 16
 <p>Suppose we specify the following model for the primate brains data: <span class="math inline">\(\log(brain\_weight\_g) = w_1  1 + w_2  \log(body\_weight\_g)\)</span></p>
 <ol type="a">
 <li><p>What is the response variable?</p>
-<div id="radio_JSHQCCKHGH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JSHQCCKHGH" value=""> <span>brain_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_JSHQCCKHGH" value=""> <span>body_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_JSHQCCKHGH" value="answer"> <span>log(brain_weight_g)</span></label><label><input type="radio" autocomplete="off" name="radio_JSHQCCKHGH" value=""> <span>log(body_weight_g)</span></label>
+<div id="radio_WCDDWSZNJP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WCDDWSZNJP" value=""> <span>brain_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_WCDDWSZNJP" value=""> <span>body_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_WCDDWSZNJP" value="answer"> <span>log(brain_weight_g)</span></label><label><input type="radio" autocomplete="off" name="radio_WCDDWSZNJP" value=""> <span>log(body_weight_g)</span></label>
 </div></li>
 <li><p>What is the explanatory variable?</p>
-<div id="radio_GXCERWQICW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GXCERWQICW" value=""> <span>brain_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_GXCERWQICW" value=""> <span>body_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_GXCERWQICW" value=""> <span>log(brain_weight_g)</span></label><label><input type="radio" autocomplete="off" name="radio_GXCERWQICW" value="answer"> <span>log(body_weight_g)</span></label>
+<div id="radio_PYZRJZVIHJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PYZRJZVIHJ" value=""> <span>brain_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_PYZRJZVIHJ" value=""> <span>body_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_PYZRJZVIHJ" value=""> <span>log(brain_weight_g)</span></label><label><input type="radio" autocomplete="off" name="radio_PYZRJZVIHJ" value="answer"> <span>log(body_weight_g)</span></label>
 </div></li>
 <li><p>True or false, the functional form of this model can be expressed as a weighted sum of inputs? <span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></p>
-<div id="radio_BXDSYUWWYY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BXDSYUWWYY" value="answer"> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_BXDSYUWWYY" value=""> <span>False</span></label>
+<div id="radio_IDBMNHJJKP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IDBMNHJJKP" value="answer"> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_IDBMNHJJKP" value=""> <span>False</span></label>
 </div></li>
 <li><p>Which of the following model terms are included in the model specification above? Choose all that apply.</p>
-<div id="radio_EZRTYSIPXG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EZRTYSIPXG" value="answer"> <span>Intercept</span></label><label><input type="radio" autocomplete="off" name="radio_EZRTYSIPXG" value="answer"> <span>Main</span></label><label><input type="radio" autocomplete="off" name="radio_EZRTYSIPXG" value=""> <span>Interaction</span></label><label><input type="radio" autocomplete="off" name="radio_EZRTYSIPXG" value="answer"> <span>Transformation</span></label>
+<div id="radio_MGCDSRIKXT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MGCDSRIKXT" value="answer"> <span>Intercept</span></label><label><input type="radio" autocomplete="off" name="radio_MGCDSRIKXT" value="answer"> <span>Main</span></label><label><input type="radio" autocomplete="off" name="radio_MGCDSRIKXT" value=""> <span>Interaction</span></label><label><input type="radio" autocomplete="off" name="radio_MGCDSRIKXT" value="answer"> <span>Transformation</span></label>
 </div></li>
 <li><p>Specify the model equation in R notation.</p></li>
 </ol>
@@ -392,16 +392,16 @@ Coefficients:
 </div>
 <ol type="a">
 <li><p>Which of the following is <span class="math inline">\(w_1\)</span> in the model specification <span class="math inline">\(\log(brain\_weight\_g) = w_1 1 + w_2 \log(body\_weight\_g)\)</span></p>
-<div id="radio_CMXINMKKKS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CMXINMKKKS" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_CMXINMKKKS" value="answer"> <span>-2.4649</span></label><label><input type="radio" autocomplete="off" name="radio_CMXINMKKKS" value=""> <span>0.7752</span></label><label><input type="radio" autocomplete="off" name="radio_CMXINMKKKS" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_SLOGRHOTQD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SLOGRHOTQD" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_SLOGRHOTQD" value="answer"> <span>-2.4649</span></label><label><input type="radio" autocomplete="off" name="radio_SLOGRHOTQD" value=""> <span>0.7752</span></label><label><input type="radio" autocomplete="off" name="radio_SLOGRHOTQD" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 <li><p>Which of the following is <span class="math inline">\(w_2\)</span> in the model specification <span class="math inline">\(\log(brain\_weight\_g) = w_1 1 + w_2 \log(body\_weight\_g)\)</span></p>
-<div id="radio_UPDYDRNYZR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UPDYDRNYZR" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_UPDYDRNYZR" value=""> <span>-2.4649</span></label><label><input type="radio" autocomplete="off" name="radio_UPDYDRNYZR" value="answer"> <span>0.7752</span></label><label><input type="radio" autocomplete="off" name="radio_UPDYDRNYZR" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_ZMDSWDTZWS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZMDSWDTZWS" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_ZMDSWDTZWS" value=""> <span>-2.4649</span></label><label><input type="radio" autocomplete="off" name="radio_ZMDSWDTZWS" value="answer"> <span>0.7752</span></label><label><input type="radio" autocomplete="off" name="radio_ZMDSWDTZWS" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 <li><p>Suppose a primate has a <span class="math inline">\(\log(body\_weight\_g)\)</span> equal to 10. Which of the following would the model predict to be the primate’s <span class="math inline">\(\log(brain\_weight\_g)\)</span>?</p>
-<div id="radio_JTPJEZPZJQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JTPJEZPZJQ" value=""> <span>25.21</span></label><label><input type="radio" autocomplete="off" name="radio_JTPJEZPZJQ" value="answer"> <span>5.29</span></label><label><input type="radio" autocomplete="off" name="radio_JTPJEZPZJQ" value=""> <span>-10.7752</span></label><label><input type="radio" autocomplete="off" name="radio_JTPJEZPZJQ" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_DRFRXRRTPN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DRFRXRRTPN" value=""> <span>25.21</span></label><label><input type="radio" autocomplete="off" name="radio_DRFRXRRTPN" value="answer"> <span>5.29</span></label><label><input type="radio" autocomplete="off" name="radio_DRFRXRRTPN" value=""> <span>-10.7752</span></label><label><input type="radio" autocomplete="off" name="radio_DRFRXRRTPN" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 <li><p>Which of the following figures could show the fitted model?</p></li>
 </ol>
@@ -414,8 +414,8 @@ Coefficients:
 </div>
 </div>
 </div>
-<div id="radio_WJBGDMQNTV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WJBGDMQNTV" value=""> <span>the blue line</span></label><label><input type="radio" autocomplete="off" name="radio_WJBGDMQNTV" value=""> <span>the red line</span></label><label><input type="radio" autocomplete="off" name="radio_WJBGDMQNTV" value="answer"> <span>the black line</span></label><label><input type="radio" autocomplete="off" name="radio_WJBGDMQNTV" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_BHADYUPTVC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BHADYUPTVC" value=""> <span>the blue line</span></label><label><input type="radio" autocomplete="off" name="radio_BHADYUPTVC" value=""> <span>the red line</span></label><label><input type="radio" autocomplete="off" name="radio_BHADYUPTVC" value="answer"> <span>the black line</span></label><label><input type="radio" autocomplete="off" name="radio_BHADYUPTVC" value=""> <span>Not enough information to determine this</span></label>
 </div>
 </section>
 </section>
@@ -470,16 +470,16 @@ Coefficients:
 </div>
 <ol start="3" type="a">
 <li><p>Given the figure above, which of the following could be the free paramter estimate for <span class="math inline">\(w_1\)</span>?</p>
-<div id="radio_JGGBYNWNKM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JGGBYNWNKM" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_JGGBYNWNKM" value=""> <span>0.66</span></label><label><input type="radio" autocomplete="off" name="radio_JGGBYNWNKM" value="answer"> <span>2.25</span></label><label><input type="radio" autocomplete="off" name="radio_JGGBYNWNKM" value=""> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_JGGBYNWNKM" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_KCJXIAFHFI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KCJXIAFHFI" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_KCJXIAFHFI" value=""> <span>0.66</span></label><label><input type="radio" autocomplete="off" name="radio_KCJXIAFHFI" value="answer"> <span>2.25</span></label><label><input type="radio" autocomplete="off" name="radio_KCJXIAFHFI" value=""> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_KCJXIAFHFI" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 <li><p>Given the figure above, which of the following could be the free paramter estimate for <span class="math inline">\(w_2\)</span>?</p>
-<div id="radio_EYADICTAEP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EYADICTAEP" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_EYADICTAEP" value="answer"> <span>0.66</span></label><label><input type="radio" autocomplete="off" name="radio_EYADICTAEP" value=""> <span>2.25</span></label><label><input type="radio" autocomplete="off" name="radio_EYADICTAEP" value=""> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_EYADICTAEP" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_UNRUODMESO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UNRUODMESO" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_UNRUODMESO" value="answer"> <span>0.66</span></label><label><input type="radio" autocomplete="off" name="radio_UNRUODMESO" value=""> <span>2.25</span></label><label><input type="radio" autocomplete="off" name="radio_UNRUODMESO" value=""> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_UNRUODMESO" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
-<li><p>Suppose we encounter a primate in a (log) group size of 4. What would the model predict for their (log) brain weight?</p>
-<div id="radio_OWFRKQYAVD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_OWFRKQYAVD" value=""> <span>3.5</span></label><label><input type="radio" autocomplete="off" name="radio_OWFRKQYAVD" value=""> <span>4.1</span></label><label><input type="radio" autocomplete="off" name="radio_OWFRKQYAVD" value="answer"> <span>4.9</span></label><label><input type="radio" autocomplete="off" name="radio_OWFRKQYAVD" value=""> <span>6.2</span></label><label><input type="radio" autocomplete="off" name="radio_OWFRKQYAVD" value=""> <span>Not enough information to determine this</span></label>
+<li><p>Suppose we encounter a primate in a (log) group size of 4. What could be the model prediction for their (log) brain weight?</p>
+<div id="radio_KJGLBMBYNQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KJGLBMBYNQ" value=""> <span>3.5</span></label><label><input type="radio" autocomplete="off" name="radio_KJGLBMBYNQ" value=""> <span>4.1</span></label><label><input type="radio" autocomplete="off" name="radio_KJGLBMBYNQ" value="answer"> <span>4.9</span></label><label><input type="radio" autocomplete="off" name="radio_KJGLBMBYNQ" value=""> <span>6.2</span></label><label><input type="radio" autocomplete="off" name="radio_KJGLBMBYNQ" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -577,14 +577,14 @@ Coefficients:
 <p>Notice we did not include an interaction term between body weight and diet category. Why might a modeler make this decision?</p>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<p>A modeler might choose not to include an interaction term between body size and diet category based on exploratory visualization if the data suggests that the relationship between body size and brain weight is consistent across both diet categories. For instance, if scatter plots show parallel trends for frugivorous and folivorous primates, this could indicate that body size influences brain weight similarly, regardless of diet.</p>
+<p>A modeler might choose not to include an interaction term based on exploratory visualization. The scatter plot shows roughly parallel lines for frugivorous and folivorous primates, which could indicate that body size influences brain weight similarly, regardless of diet.</p>
 </div>
 </div>
 </div>
 <ol start="3" type="a">
 <li><p>True or false: the <code>diet_category</code> variable is categorical, so this is a classification problem.</p>
-<div id="radio_YXJWIGYHNI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YXJWIGYHNI" value=""> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_YXJWIGYHNI" value="answer"> <span>False</span></label>
+<div id="radio_DMXFNYZROS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DMXFNYZROS" value=""> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_DMXFNYZROS" value="answer"> <span>False</span></label>
 </div></li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -600,8 +600,8 @@ Coefficients:
 </div>
 <ol start="4" type="a">
 <li><p>Based on the fitted model returned by <code>lm()</code> above, which level of <code>diet_category</code> is the reference level?</p>
-<div id="radio_AFXMHRRTZA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AFXMHRRTZA" value="answer"> <span>Fol</span></label><label><input type="radio" autocomplete="off" name="radio_AFXMHRRTZA" value=""> <span>Frug</span></label><label><input type="radio" autocomplete="off" name="radio_AFXMHRRTZA" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_DAEGZPCPKJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DAEGZPCPKJ" value="answer"> <span>Fol</span></label><label><input type="radio" autocomplete="off" name="radio_DAEGZPCPKJ" value=""> <span>Frug</span></label><label><input type="radio" autocomplete="off" name="radio_DAEGZPCPKJ" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -616,8 +616,29 @@ Coefficients:
 </div>
 </div>
 <ol start="6" type="a">
-<li>Which of the following could be a plot of the model?</li>
+<li>Fill in the blank: Figure <input class="webex-solveme nospaces" size="4" data-answer="[&quot;D&quot;]"> could be the plot of the model we specified.</li>
 </ol>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="lab-07_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="lab-07_files/figure-html/unnamed-chunk-29-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="lab-07_files/figure-html/unnamed-chunk-29-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="lab-07_files/figure-html/unnamed-chunk-29-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
 </section>
 <section id="matching-plots-to-equations" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="matching-plots-to-equations"><span class="header-section-number">4</span> Matching plots to equations</h2>
@@ -635,20 +656,20 @@ Coefficients:
 <h2 data-number="5" class="anchored" data-anchor-id="polynomials"><span class="header-section-number">5</span> Polynomials</h2>
 <ol type="1">
 <li><p>What is the purpose of including polynomial terms in a linear model?</p>
-<div id="radio_CNLWCHXDAV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CNLWCHXDAV" value=""> <span>To improve model interpretability</span></label><label><input type="radio" autocomplete="off" name="radio_CNLWCHXDAV" value="answer"> <span>To model nonlinear relationships</span></label><label><input type="radio" autocomplete="off" name="radio_CNLWCHXDAV" value=""> <span>To reduce overfitting in the model</span></label><label><input type="radio" autocomplete="off" name="radio_CNLWCHXDAV" value=""> <span>To ensure that residuals are normally distributed</span></label>
+<div id="radio_WDXYAAJRWB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WDXYAAJRWB" value=""> <span>To improve model interpretability</span></label><label><input type="radio" autocomplete="off" name="radio_WDXYAAJRWB" value="answer"> <span>To model nonlinear relationships</span></label><label><input type="radio" autocomplete="off" name="radio_WDXYAAJRWB" value=""> <span>To reduce overfitting in the model</span></label><label><input type="radio" autocomplete="off" name="radio_WDXYAAJRWB" value=""> <span>To ensure that residuals are normally distributed</span></label>
 </div></li>
 <li><p>Which of the following is an example of a quadratic polynomial term in a linear model?</p>
-<div id="radio_NQFDOUTHMK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NQFDOUTHMK" value=""> <span>x</span></label><label><input type="radio" autocomplete="off" name="radio_NQFDOUTHMK" value="answer"> <span>x^2</span></label><label><input type="radio" autocomplete="off" name="radio_NQFDOUTHMK" value=""> <span>sqrt(x)</span></label><label><input type="radio" autocomplete="off" name="radio_NQFDOUTHMK" value=""> <span>log(x)</span></label>
+<div id="radio_BHBOHHFYGA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BHBOHHFYGA" value=""> <span>x</span></label><label><input type="radio" autocomplete="off" name="radio_BHBOHHFYGA" value="answer"> <span>x^2</span></label><label><input type="radio" autocomplete="off" name="radio_BHBOHHFYGA" value=""> <span>sqrt(x)</span></label><label><input type="radio" autocomplete="off" name="radio_BHBOHHFYGA" value=""> <span>log(x)</span></label>
 </div></li>
 <li><p>Why might higher-degree polynomial terms lead to overfitting in a linear model?</p>
-<div id="radio_QXFWEKIZTR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QXFWEKIZTR" value=""> <span>Higher-degree terms make the model too simple</span></label><label><input type="radio" autocomplete="off" name="radio_QXFWEKIZTR" value="answer"> <span>Higher-degree terms force the model to fit the noise in the data</span></label><label><input type="radio" autocomplete="off" name="radio_QXFWEKIZTR" value=""> <span>Polynomial terms always reduce the model's flexibility</span></label><label><input type="radio" autocomplete="off" name="radio_QXFWEKIZTR" value=""> <span>Polynomial terms make the model biased</span></label>
+<div id="radio_IQPQYYXTTG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IQPQYYXTTG" value=""> <span>Higher-degree terms make the model too simple</span></label><label><input type="radio" autocomplete="off" name="radio_IQPQYYXTTG" value="answer"> <span>Higher-degree terms force the model to fit the noise in the data</span></label><label><input type="radio" autocomplete="off" name="radio_IQPQYYXTTG" value=""> <span>Polynomial terms always reduce the model's flexibility</span></label><label><input type="radio" autocomplete="off" name="radio_IQPQYYXTTG" value=""> <span>Polynomial terms make the model biased</span></label>
 </div></li>
 <li><p>Which of the following models includes both linear and quadratic terms</p>
-<div id="radio_PFDYLPOQUX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PFDYLPOQUX" value=""> <span>y = β0 + β1x</span></label><label><input type="radio" autocomplete="off" name="radio_PFDYLPOQUX" value=""> <span>y = β0 + β1x^2</span></label><label><input type="radio" autocomplete="off" name="radio_PFDYLPOQUX" value="answer"> <span>y = β0 + β1x + β2x^2</span></label><label><input type="radio" autocomplete="off" name="radio_PFDYLPOQUX" value=""> <span>y = β0 + β1x + β2x^3</span></label>
+<div id="radio_WLLUYOQOWW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WLLUYOQOWW" value=""> <span>y = β0 + β1x</span></label><label><input type="radio" autocomplete="off" name="radio_WLLUYOQOWW" value=""> <span>y = β0 + β1x^2</span></label><label><input type="radio" autocomplete="off" name="radio_WLLUYOQOWW" value="answer"> <span>y = β0 + β1x + β2x^2</span></label><label><input type="radio" autocomplete="off" name="radio_WLLUYOQOWW" value=""> <span>y = β0 + β1x + β2x^3</span></label>
 </div></li>
 </ol>
 

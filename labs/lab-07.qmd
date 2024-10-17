@@ -403,7 +403,7 @@ $\log(brain\_weight\_g) = w_1  1 + w_2  \log(group\_size)$
     cat(longmcq(choices))
     ```
 
-(e) Suppose we encounter a primate in a (log) group size of 4. What would the model predict for their (log) brain weight? 
+(e) Suppose we encounter a primate in a (log) group size of 4. What could be the model prediction for their (log) brain weight? 
 
     ```{r}
     #| echo: false
@@ -503,7 +503,7 @@ Notice we did not include an interaction term between body weight and diet categ
 ## Answer
 
 
-A modeler might choose not to include an interaction term between body size and diet category based on exploratory visualization if the data suggests that the relationship between body size and brain weight is consistent across both diet categories. For instance, if scatter plots show parallel trends for frugivorous and folivorous primates, this could indicate that body size influences brain weight similarly, regardless of diet.
+A modeler might choose not to include an interaction term based on exploratory visualization. The scatter plot shows roughly parallel lines for frugivorous and folivorous primates, which could indicate that body size influences brain weight similarly, regardless of diet.
 
 
 :::
@@ -565,8 +565,62 @@ $\log(brain\_size\_g) = -2.8047\times{1} + 0.7778\times{\mathbf{7}} + 0.4576\tim
 
 :::
 
-(f) Which of the following could be a plot of the model? 
+(f) Fill in the blank: Figure `r fitb("D", 4)` could be the plot of the model we specified.
 
+```{r}
+#| echo: false
+#| layout-ncol: 2
+#| layout-nrow: 2
+
+model1 <- lm(log(brain_weight_g) ~ log(body_weight_g) + diet_category, data = fruit_v_leaves)
+model2 <- lm(log(brain_weight_g) ~ log(body_weight_g) * diet_category + I(log(body_weight_g)^2), data = fruit_v_leaves)
+
+fruit_v_leaves <- fruit_v_leaves %>%
+    mutate(y_predict = predict(model1, fruit_v_leaves)) %>%
+    mutate(y_predict_foil = predict(model2, fruit_v_leaves))
+
+ggplot(fruit_v_leaves, aes(
+    x = log(body_weight_g), 
+    y = log(brain_weight_g), 
+    color = diet_category
+)
+) +
+geom_point() +
+labs(tag = "A") +
+geom_smooth(method = "lm", se = FALSE, formula = y ~ 1, color = "blue")
+
+ggplot(fruit_v_leaves, aes(
+    x = log(body_weight_g), 
+    y = log(brain_weight_g), 
+    color = diet_category
+)
+) +
+geom_point()+
+labs(tag = "B") +
+geom_smooth(method = "lm", se = FALSE, formula = y ~ x, color = "blue")
+
+
+ggplot(fruit_v_leaves, aes(
+    x = log(body_weight_g), 
+    y = log(brain_weight_g), 
+    color = diet_category
+)
+) +
+geom_point()+
+labs(tag = "C") + 
+geom_line(aes(y = y_predict_foil))
+
+ggplot(fruit_v_leaves, aes(
+    x = log(body_weight_g), 
+    y = log(brain_weight_g), 
+    color = diet_category
+)
+) +
+geom_point()+
+labs(tag = "D") + 
+geom_line(aes(y = y_predict))
+
+```
 
 
 

@@ -15,6 +15,7 @@ Practice your new *modeling* skills with these practice exam questions! Best to 
 
 library(webexercises)
 library(tidyverse)
+theme_set(theme_bw(base_size = 15))
 ```
 
 
@@ -121,7 +122,7 @@ ggplot(data, aes( x = body_weight_g, y = brain_weight_g)) +
 
 ### Model specification 
 
-Suppose we specify the following model for the primate brains data: $log\_brain\_weight = w_1 \cdot 1 + w_2 \cdot log\_body\_weight$
+Suppose we specify the following model for the primate brains data: $\log(brain\_weight\_g) = w_1  1 + w_2  \log(body\_weight\_g)$
 
 (a) What is the response variable? 
 
@@ -133,14 +134,14 @@ Suppose we specify the following model for the primate brains data: $log\_brain\
     choices <-  c(
   "brain_weight_g", 
   "body_weight_g", 
-  answer = "log_brain_weight",
-  "log_body_weight"
+  answer = "log(brain_weight_g)",
+  "log(body_weight_g)"
 )
 
     cat(longmcq(choices))
     ```
 
-(b) What is the explanatory variable(s)?
+(b) What is the explanatory variable?
 
     ```{r}
     #| echo: false
@@ -150,8 +151,8 @@ Suppose we specify the following model for the primate brains data: $log\_brain\
     choices <- c(
         "brain_weight_g", 
         "body_weight_g", 
-        "log_brain_weight",
-        answer = "log_body_weight"
+        "log(brain_weight_g)",
+        answer = "log(body_weight_g)"
     )
 
 
@@ -183,10 +184,10 @@ Suppose we specify the following model for the primate brains data: $log\_brain\
 
     # Define the answer choices
     choices <- c(
-       answer = "Intercept term",
-       answer = "Main term",
-       "Interaction term",
-       "Transformation term"
+       answer = "Intercept",
+       answer = "Main",
+       "Interaction",
+       answer = "Transformation"
     )
 
 
@@ -204,10 +205,10 @@ Suppose we specify the following model for the primate brains data: $log\_brain\
 #| eval: false
 
 # like this (explicit intercept)
-log_brain_weight ~ 1 + log_body_weight
+log(brain_weight_g) ~ 1 + log_(body_weight_g)
 
 # or like this (implicit intercept)
-log_brain_weight ~ log_body_weight
+log(brain_weight_g) ~ log(body_weight_g)
 
 ```
 
@@ -216,13 +217,13 @@ log_brain_weight ~ log_body_weight
 Suppose you fit the model with `lm()` and return the following: 
 
 ```{r}
-#| echo: false
+#| code-fold: false
 
 model <- lm(log(brain_weight_g) ~ 1 + log(body_weight_g), data = data)
 model
 ```
 
-(a) Which of the following is $w_1$ in the model specification $log\_brain\_weight = w_1 \cdot 1 + w_2 \cdot log\_body\_weight$
+(a) Which of the following is $w_1$ in the model specification $\log(brain\_weight\_g) = w_1 1 + w_2 \log(body\_weight\_g)$
 
     ```{r}
     #| echo: false
@@ -239,7 +240,7 @@ model
     cat(longmcq(choices))
     ```
 
-(b) Which of the following is $w_2$ in the model specification $log\_brain\_weight = w_1 \cdot 1 + w_2 \cdot log\_body\_weight$
+(b) Which of the following is $w_2$ in the model specification $\log(brain\_weight\_g) = w_1 1 + w_2 \log(body\_weight\_g)$
 
     ```{r}
     #| echo: false
@@ -256,7 +257,7 @@ model
     cat(longmcq(choices))
     ```
 
-(c) Suppose a primate has a $log\_body\_weight$ equal to 10. Which of the following would the model predict to be the primate's $log\_brain\_weight$? 
+(c) Suppose a primate has a $\log(body\_weight\_g)$ equal to 10. Which of the following would the model predict to be the primate's $\log(brain\_weight\_g)$? 
 
     ```{r}
     #| echo: false
@@ -276,7 +277,6 @@ model
 (d) Which of the following figures could show the fitted model? 
 
 ```{r}
-#| layout-ncol: 2
 #| echo: false
 
 primate_brains <- data %>%
@@ -334,8 +334,7 @@ ggplot(primate_brains, aes(,
     x = log(group_size))
 ) +
 geom_point(size = 2) +
-geom_line(color = "blue", aes(y = y_body_group)) +
-theme_bw(base_size = 15) 
+geom_line(color = "blue", aes(y = y_body_group)) 
 ```
 
 
@@ -350,7 +349,7 @@ Specify the model as an equation
 
 ## Answer
 
-$\log(brain\_weight\_g) = w_1 \cdot 1 + w_2 \cdot \log(group\_size)$
+$\log(brain\_weight\_g) = w_1  1 + w_2  \log(group\_size)$
 
 or, if you created new columns in your data with the the log transformed data, for example:
 
@@ -362,7 +361,7 @@ data <- data %>%
 
 then you could have written:
 
-$log\_brain\_weight = w_1 \cdot 1 + w_2 \cdot log\_group\_size$
+$\log(brain\_weight\_g) = w_1  1 + w_2  \log(group\_size)$
 
 :::
 
@@ -451,8 +450,7 @@ primate_brains %>%
         x = log(body_weight_g),
         color = diet_category
     )) +
-    geom_point(size = 2) +
-    theme_bw(base_size = 15)
+    geom_point(size = 2) 
 ```
 
 Frugivorous ("Frug") primates primarily eat fruit, while folivorous ("Fol") primates primarily consume leaves. The "Frug/Fol" category refers to primates that combine both fruit and leaf consumption in their diet. "Om" stands for omnivores, which we might suspect is similar to "Frug/Fol" with more variation in diet. To simplify things, let's focus our analysis on just the Fol and Frug categories. 
@@ -469,8 +467,7 @@ fruit_v_leaves %>%
         y = log(brain_weight_g), 
         color = diet_category
     )) +
-    geom_point() +
-    theme_bw(base_size = 15)
+    geom_point() 
 ```
 
 Suppose we specify a model that predicts brain weight by body size and diet category. 
@@ -651,6 +648,8 @@ Plots A-F
 
     cat(longmcq(choices))
     ```
+
+
 
 
 

@@ -565,7 +565,7 @@ $\log(brain\_size\_g) = -2.8047\times{1} + 0.7778\times{\mathbf{7}} + 0.4576\tim
 
 :::
 
-(f) Fill in the blank: Figure `r fitb("D", 4)` could be the plot of the model we specified.
+(f) Fill in the blank. Of the figures below, figure `r fitb("D", width = 4)` could be the plot of the model we specified.
 
 ```{r}
 #| echo: false
@@ -627,14 +627,96 @@ geom_line(aes(y = y_predict))
 
 ## Matching plots to equations
 
-Plots A-F 
+```{r}
+#| echo: false
+#| message: false
+#| layout-ncol: 2
+#| layout-nrow: 2
+library(mosaic)
+mod_Galton <- Galton %>% 
+    mutate(y = height, x = mother, z = sex) 
 
-(a) $y = w_11$ `r fitb("test")`
-(b) $y = w_11 + w_2x$ `r fitb("test")`
-(c) $y = w_11 + w_2z$ `r fitb("test")`
-(d) $y = w_11 + w_2x + w_3z$ `r fitb("test")`
-(e) $y = w_11 + w_2x + w_3z + w_4a\times{b}$ `r fitb("test")`
-(f) $y = w_11 + w_2x + w_3z^2$ `r fitb("test")`
+
+model1 <- lm(y ~ 1, data = mod_Galton)
+model2 <- lm(y ~ 1 + x , data = mod_Galton)
+model3 <- lm(y ~ 1 + z , data = mod_Galton)
+model4 <- lm(y ~ 1 + x + z , data = mod_Galton)
+model5 <- lm(y ~ 1 + x * z + I(x^2), data = mod_Galton)
+model6 <- lm(y ~ 1 + x + I(x^2), data = mod_Galton)
+
+mod_Galton <- mod_Galton%>%
+    mutate(model1 = predict(model1, mod_Galton)) %>%
+    mutate(model2 = predict(model2, mod_Galton)) %>%
+    mutate(model3 = predict(model3, mod_Galton)) %>%
+    mutate(model4 = predict(model4, mod_Galton)) %>%
+    mutate(model5 = predict(model5, mod_Galton)) %>%
+    mutate(model6 = predict(model6, mod_Galton)) 
+
+
+ggplot(mod_Galton, aes(
+    x = x, y = y, shape = z
+)
+) +
+geom_point() +
+labs(tag = "A") +
+geom_line(aes(y = model6), color = "blue")
+
+ggplot(mod_Galton, aes(
+    x = x, y = y, shape = z
+)
+) +
+geom_point() +
+labs(tag = "B") +
+geom_line(aes(y = model1), color = "blue")
+
+
+
+ggplot(mod_Galton, aes(
+    x = x, y = y, shape = z
+)
+) +
+geom_point() +
+labs(tag = "C") +
+geom_line(aes(y = model2), color = "blue")
+
+
+
+ggplot(mod_Galton, aes(
+    x = x, y = y, shape = z
+)
+) +
+geom_point() +
+labs(tag = "D") +
+geom_line(aes(y = model3), color = "blue")
+
+
+ggplot(mod_Galton, aes(
+    x = x, y = y, shape = z
+)
+) +
+geom_point() +
+labs(tag = "E") +
+geom_line(aes(y = model5), color = "blue")
+
+
+ggplot(mod_Galton, aes(
+    x = x, y = y, shape = z
+)
+) +
+geom_point() +
+labs(tag = "F") +
+geom_line(aes(y = model4), color = "blue")
+
+
+
+```
+
+(a) $y = w_11$ `r fitb("B", 4)`
+(b) $y = w_11 + w_2x$ `r fitb("C", 4)`
+(c) $y = w_11 + w_2z$ `r fitb("D", 4)`
+(d) $y = w_11 + w_2x + w_3z$ `r fitb("F", 4)`
+(e) $y = w_11 + w_2x + w_3z + w_4x\times{z} + w_5x^2$ `r fitb("E", 4)`
+(f) $y = w_11 + w_2x + w_3x^2$ `r fitb("A", 4)`
 
 ## Polynomials 
 

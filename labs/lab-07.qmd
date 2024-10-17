@@ -17,12 +17,26 @@ library(webexercises)
 library(tidyverse)
 ```
 
-[primate brains](/assests/csv/primate_brains.csv)
+
+## Primate brains
+
+Primates have brains of varying sizes, and one possible explanation for this variation is differences in body size. Larger-bodied primates may tend to have heavier brains, but this relationship is not always straightforward. To investigate whether body size can reliably explain differences in brain weight across primate species, let's fit a model that predicts brain weight based on body size. 
+
+The data, in case you want to work with it yourself: [primate brains](/assests/csv/primate_brains.csv)
 
 ```{r}
+#| code-fold: true
+#| message: false
+
+data <- read_csv("https://kathrynschuler.com/datasci/assests/csv/primate_brains.csv")
+glimpse(data)
+ggplot(data, aes( x = body_weight_g, y = brain_weight_g)) +
+    geom_point()
 ```
 
-(a) Which of the following best describes the goal of a regression model?
+### Type of model 
+
+(a) Is this a supervised or unsupervised learning problem? 
 
 
     ```{r}
@@ -31,16 +45,14 @@ library(tidyverse)
 
     # Define the answer choices
     choices <-c(
-    "To classify observations into distinct categories",
-    answer="To predict continuous outcomes",
-    "To find the median of the dataset",
-    "To determine the probability of each class"
+    answer ="Supervised",
+    "Unsupervised"
     )
 
     cat(longmcq(choices))
     ```
 
-(b) In classification tasks, the output variable (label) is typically:
+(b) Is this regression or classification? 
 
     ```{r}
     #| echo: false
@@ -48,16 +60,14 @@ library(tidyverse)
 
     # Define the answer choices
     choices <-c(
-    "Continuous",
-    answer = "Discrete",
-    "Ordinal",
-    "A linear function"
+    answer = "Regression", 
+    "Classification"
     )
 
     cat(longmcq(choices))
     ```
 
-(c) Which of the following is an example of a regression problem?
+(c) Is the relationship between `brain_weight_g` and `body_weight_g` linear or nonlinear? 
 
 
     ```{r}
@@ -66,16 +76,14 @@ library(tidyverse)
 
     # Define the answer choices
     choices <-  c(
-    "Predicting whether an email is spam or not",
-    answer = "Predicting the price of a house based on its features",
-    "Identifying the species of a flower",
-    "Grouping customers into clusters based on purchasing behavior"
+    "Linear",
+    answer ="Nonlinear"
     )
 
     cat(longmcq(choices))
     ```
 
-(d) What is the primary difference between regression and classification?
+(d) Is the nonlinear relationship linearizable or non-linearizable? 
 
 
     ```{r}
@@ -84,16 +92,38 @@ library(tidyverse)
 
     # Define the answer choices
    choices <- c(
-  answer = "Regression predicts a continuous value, while classification predicts a category",
-  "Regression is a type of unsupervised learning, while classification is supervised",
-  "Classification uses linear relationships, while regression uses non-linear relationships",
-  "Classification focuses on finding patterns in data, while regression doesn’t"
+    answer = "Linearizable nonlinear",
+    "Non-linearizable nonlinear",
+    "Neither, the relationship is linear"
 )
 
     cat(longmcq(choices))
     ```
 
-(d) Which of the following tasks is a classification problem?
+(e) What function could we choose to linearize this relationships? 
+
+    ```{r}
+    #| echo: false
+    #| results: asis
+
+    # Define the answer choices
+   choices <- c(
+    "Quadratic polynomial",
+    "Cubic polynomial",
+    answer = "Log transformation",
+    "None, the relationship is already linear",
+    "None, the relationship is non-linearizable"
+)
+
+    cat(longmcq(choices))
+    ```
+
+
+### Model specification 
+
+Suppose we specify the following model for the primate brains data: $log\_brain\_weight = w_1 \cdot 1 + w_2 \cdot log\_body\_weight$
+
+(a) What is the response variable? 
 
     ```{r}
     #| echo: false
@@ -101,16 +131,35 @@ library(tidyverse)
 
     # Define the answer choices
     choices <-  c(
-  "Estimating a person’s height based on their age",
-  answer="Predicting if a student will pass or fail a course",
-  "Predicting the temperature next week",
-  "Estimating the number of sales for the next quarter"
+  "brain_weight_g", 
+  "body_weight_g", 
+  answer = "log_brain_weight",
+  "log_body_weight"
 )
 
     cat(longmcq(choices))
     ```
 
-(f) True or false, supervised learning requires labeled data to train the model.
+(b) What is the explanatory variable(s)?
+
+    ```{r}
+    #| echo: false
+    #| results: asis
+
+    # Define the answer choices
+    choices <- c(
+        "brain_weight_g", 
+        "body_weight_g", 
+        "log_brain_weight",
+        answer = "log_body_weight"
+    )
+
+
+    cat(longmcq(choices))
+    ``` 
+
+(c) True or false, the functional form of this model can be expressed as a weighted sum of inputs? $y=\sum_{i=1}^{n}w_ix_i$
+
 
     ```{r}
     #| echo: false
@@ -126,8 +175,7 @@ library(tidyverse)
     cat(longmcq(choices))
     ``` 
 
-(g) True or false, in unsupervised learning, the model attempts to identify patterns or structures in data without any specific target variable.
-
+(d) Which of the following model terms are included in the model specification above? Choose all that apply.
 
     ```{r}
     #| echo: false
@@ -135,17 +183,46 @@ library(tidyverse)
 
     # Define the answer choices
     choices <- c(
-       answer = "True", 
-        "False"
+       answer = "Intercept term",
+       answer = "Main term",
+       "Interaction term",
+       "Transformation term"
     )
 
 
     cat(longmcq(choices))
     ``` 
 
-## Model specification 
 
-(a) Which of the following is the first step in model specification?
+
+
+(e) Specify the model equation in R notation. 
+
+```{r}
+#| code-fold: true
+#| code-summary: Answer
+#| eval: false
+
+# like this (explicit intercept)
+log_brain_weight ~ 1 + log_body_weight
+
+# or like this (implicit intercept)
+log_brain_weight ~ log_body_weight
+
+```
+
+### Fitted model 
+
+Suppose you fit the model with `lm()` and return the following: 
+
+```{r}
+#| echo: false
+
+model <- lm(log(brain_weight_g) ~ 1 + log(body_weight_g), data = data)
+model
+```
+
+(a) Which of the following is $w_1$ in the model specification $log\_brain\_weight = w_1 \cdot 1 + w_2 \cdot log\_body\_weight$
 
     ```{r}
     #| echo: false
@@ -153,66 +230,144 @@ library(tidyverse)
 
     # Define the answer choices
    choices <- c(
-  "Fitting the model",
-  answer = "Defining the response variable",
-  "Calculating residuals",
-  "Transforming variables"
+  "1",
+  answer = "-2.4649",
+  "0.7752",
+  "Not enough information to determine this"
 )
 
     cat(longmcq(choices))
     ```
 
-(b) What does model specification involve?
+(b) Which of the following is $w_2$ in the model specification $log\_brain\_weight = w_1 \cdot 1 + w_2 \cdot log\_body\_weight$
 
     ```{r}
     #| echo: false
     #| results: asis
 
     # Define the answer choices
- choices <- c(
-  "Estimating the parameters",
-  answer = "Defining the functional form of the model",
-  "Calculating prediction accuracy",
-  "Testing the model’s reliability"
+   choices <- c(
+  "1",
+  "-2.4649",
+  answer = "0.7752",
+  "Not enough information to determine this"
 )
+
     cat(longmcq(choices))
     ```
 
-(c) Which of the following is NOT part of model specification?
+(c) Suppose a primate has a $log\_body\_weight$ equal to 10. Which of the following would the model predict to be the primate's $log\_brain\_weight$? 
 
     ```{r}
     #| echo: false
     #| results: asis
 
     # Define the answer choices
+   choices <- c(
+  "25.21",
+  answer = "5.29", 
+  "-10.7752",
+  "Not enough information to determine this"
+)
+
+    cat(longmcq(choices))
+    ```
+
+(d) Which of the following figures could show the fitted model? 
+
+```{r}
+#| layout-ncol: 2
+#| echo: false
+
+primate_brains <- data %>%
+    mutate(y_hat = predict(model, data)) %>%
+    mutate(y_foil = 5 + -0.5 * log(body_weight_g))
+ggplot(primate_brains, aes(
+    x = log(body_weight_g), 
+    y = log(brain_weight_g))
+) + 
+geom_line(aes(y = y_hat))  +
+geom_line(aes(y = y_foil), color = "red") +
+geom_line(aes(y = 6), color = "blue") 
+
+```
+
+```{r}
+#| echo: false
+#| results: asis
+
+# Define the answer choices
 choices <- c(
-  "Choosing which variables to include",
-  "Defining the relationship between predictors and response",
-  answer = "Assessing the goodness-of-fit",
-  "Determining if interaction terms are necessary"
+"the blue line", 
+"the red line", 
+answer = "the black line",
+"Not enough information to determine this"
 )
 
-    cat(longmcq(choices))
-    ```
+cat(longmcq(choices))
+```
 
-(d) Which of the following describes a correctly specified model?
 
-    ```{r}
-    #| echo: false
-    #| results: asis
 
-    # Define the answer choices
- choices <- c(
-  "A model that includes irrelevant variables",
-  "A model that excludes important variables",
-  answer = "A model that represents the true relationship between predictors and response",
-  "A model that overfits the training data"
-)
+## Social brain hypothesis 
 
-    cat(longmcq(choices))
-    ```
+The **Social Brain Hypothesis** argues that the pressures of navigating increasingly complex social environments were a significant driver in the evolution of brain size and intelligence in humans and other primates.
 
-(e) True or false, Adding interaction terms between predictors is part of the model specification process.
+Let's specify and fit this model in R. 
+
+
+```{r}
+model <- lm(log(brain_weight_g) ~ 1 + log(group_size), 
+    data = primate_brains)
+
+```
+
+```{r}
+#| code-fold: true
+#| warning: false
+
+primate_brains <- primate_brains %>%
+    mutate(y_body_group = predict(model, primate_brains))
+
+ggplot(primate_brains, aes(, 
+    y = log(brain_weight_g),
+    x = log(group_size))
+) +
+geom_point(size = 2) +
+geom_line(color = "blue", aes(y = y_body_group)) +
+theme_bw(base_size = 15) 
+```
+
+
+(a) Fill in the blank: how many inputs does this model have? `r fitb(2)`
+
+
+::: {.panel-tabset}
+## b. Question
+
+Specify the model as an equation 
+
+
+## Answer
+
+$\log(brain\_weight\_g) = w_1 \cdot 1 + w_2 \cdot \log(group\_size)$
+
+or, if you created new columns in your data with the the log transformed data, for example:
+
+```r
+data <- data %>%
+    mutate(log_brain_weight = log(brain_weight_g)) %>%
+    mutate(log_group_size = log(group_size))
+```
+
+then you could have written:
+
+$log\_brain\_weight = w_1 \cdot 1 + w_2 \cdot log\_group\_size$
+
+:::
+
+(c) Given the figure above, which of the following could be the free paramter estimate for $w_1$?
+
 
     ```{r}
     #| echo: false
@@ -220,15 +375,18 @@ choices <- c(
 
     # Define the answer choices
     choices <- c(
-       answer = "True", 
-        "False"
+    1, 
+    0.66, 
+    answer = 2.25,
+    5,
+    "Not enough information to determine this"
     )
 
-
     cat(longmcq(choices))
-    ``` 
+    ```
 
-(f) Model specification is the final step in the model-building process.
+(d) Given the figure above, which of the following could be the free paramter estimate for $w_2$?
+
 
     ```{r}
     #| echo: false
@@ -236,120 +394,263 @@ choices <- c(
 
     # Define the answer choices
     choices <- c(
-       "True", 
-        answer = "False"
+    1, 
+    answer = 0.66, 
+    2.25,
+    5,
+    "Not enough information to determine this"
     )
 
+    cat(longmcq(choices))
+    ```
+
+(e) Suppose we encounter a primate in a (log) group size of 4. What would the model predict for their (log) brain weight? 
+
+    ```{r}
+    #| echo: false
+    #| results: asis
+
+    # Define the answer choices
+    choices <- c(
+    3.5, 
+    4.1, 
+    answer = 4.9,
+    6.2,
+    "Not enough information to determine this"
+    )
 
     cat(longmcq(choices))
-    ``` 
-
-## Functional form of linear models 
+    ```
 
 ::: {.panel-tabset}
-## Question
+## f. Question
 
-(a) Write the equation that expresses the response variable as a weighted sum of regressors (our favorite). 
+Suppose we wanted to include $\log(body\_size\_g)$ back into the model as an additional predictor of  $\log(brain\_size\_g)$. Specify the model in R. 
 
 ## Answer
 
-$y=\sum_{i=1}^{n}w_ix_i$ 
+
+```r
+log(brain_size_g) ~ 1 + log(group_size) + log(body_size_g)
+```
 
 :::
 
-(b) In the linear regression equation $y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n + \epsilon$ , what do the $\beta$’s represent?
+## Fruit v Leaf eaters 
 
-    ```{r}
-    #| echo: false
-    #| results: asis
+Diet may influence the relationship between brain and body size in primates because the type of food a species consumes can impact its ability to meet the energy demands of a larger brain. Fruit-eating primates have access to energy-rich, easily digestible food, which could support the metabolic costs of both a large body and a larger, more complex brain.
 
-    # Define the answer choices
-   choices <- c(
-    "The predicted values",
-    "The error terms",
-    answer = "The weights for each regressor",
-    "The intercept"
-    )
+Let's begin by adding `diet_category` to our plot mapped to the color aesthetic. 
 
+```{r}
+#| code-fold: true
 
-    cat(longmcq(choices))
-    ``` 
+primate_brains %>%
+    ggplot(aes(
+        y = log(brain_weight_g), 
+        x = log(body_weight_g),
+        color = diet_category
+    )) +
+    geom_point(size = 2) +
+    theme_bw(base_size = 15)
+```
+
+Frugivorous ("Frug") primates primarily eat fruit, while folivorous ("Fol") primates primarily consume leaves. The "Frug/Fol" category refers to primates that combine both fruit and leaf consumption in their diet. "Om" stands for omnivores, which we might suspect is similar to "Frug/Fol" with more variation in diet. To simplify things, let's focus our analysis on just the Fol and Frug categories. 
+
+```{r}
+#| code-fold: true
+
+fruit_v_leaves <- primate_brains %>%
+    filter(diet_category %in% c("Fol", "Frug")) 
+
+fruit_v_leaves %>%
+    ggplot(aes(
+        x = log(body_weight_g), 
+        y = log(brain_weight_g), 
+        color = diet_category
+    )) +
+    geom_point() +
+    theme_bw(base_size = 15)
+```
+
+Suppose we specify a model that predicts brain weight by body size and diet category. 
+
+```{r}
+#| code-fold: true
+model <- lm(log(brain_weight_g) ~ log(body_weight_g) + diet_category, data = fruit_v_leaves) 
+
+model
+```
 
 
 ::: {.panel-tabset}
-## Question
+## a. Question
 
-(c) Write the linear model equation in matrix notation. 
+Specify the model with a mathematical expression. 
+
 
 ## Answer
 
-$y = Xβ + ε$
 
-or similar
+
+$\log(brain\_size\_g) = w_11 + w_2\log(body\_size\_g) + w_3diet\_category$
+
 
 :::
 
-(d) In matrix notation, what is $\mathbf{X}$? 
+::: {.panel-tabset}
+## b. Question
+
+Notice we did not include an interaction term between body weight and diet category. Why might a modeler make this decision? 
+
+## Answer
+
+
+A modeler might choose not to include an interaction term between body size and diet category based on exploratory visualization if the data suggests that the relationship between body size and brain weight is consistent across both diet categories. For instance, if scatter plots show parallel trends for frugivorous and folivorous primates, this could indicate that body size influences brain weight similarly, regardless of diet.
+
+
+:::
+
+
+
+
+(c) True or false: the `diet_category` variable is categorical, so this is a classification problem.
 
     ```{r}
     #| echo: false
     #| results: asis
 
     # Define the answer choices
-  choices <- c(
-  "A vector of error terms",
-  answer = "A matrix of predictors (explanatory variables)",
-  "A vector of residuals",
-  "The coefficients of the model"
-)
-
+    choices <-  c("True", answer ="False")
 
     cat(longmcq(choices))
-    ``` 
+    ```
+
+::: {.panel-tabset}
+## c. Question
+
+Write the *fitted model* as a mathematical expression. 
+
+## Answer
+
+$\log(brain\_size\_g) = -2.8047\times{1} + 0.7778\times{\log(body\_size\_g)} + 0.4576\times{diet\_category}$
 
 
 
-(e) Suppose our `SwimRecords` data includes the year, sex, record time, swimsuit type, and swim cap type. Which of the following variables is most likely to be irrelevant for predicting swim times?
+:::
+
+(d) Based on the fitted model returned by `lm()` above, which level of `diet_category` is the reference level? 
 
     ```{r}
     #| echo: false
     #| results: asis
 
     # Define the answer choices
-  choices <- c(
-  answer = "suit type", 
-  "year", 
-  "sex", 
-  answer = "swim cap type"
-)
-
+    choices <-  c(answer = "Fol", "Frug", "Not enough information to determine this")
 
     cat(longmcq(choices))
-    ``` 
+    ```
 
-(f) What is the potential issue of including too many irrelevant variables in your model?
+
+
+
+
+::: {.panel-tabset}
+## e. Question
+
+What is the model's prediction for a primate with a (log) body weight of 7 who eats leaves? Write your answer as a mathematical expression without simplifying it. 
+
+## Answer
+
+$\log(brain\_size\_g) = -2.8047\times{1} + 0.7778\times{\mathbf{7}} + 0.4576\times{\mathbf{0}}$
+
+
+
+:::
+
+(f) Which of the following could be a plot of the model? 
+
+
+
+
+
+## Matching plots to equations
+
+Plots A-F 
+
+(a) $y = w_11$ `r fitb("test")`
+(b) $y = w_11 + w_2x$ `r fitb("test")`
+(c) $y = w_11 + w_2z$ `r fitb("test")`
+(d) $y = w_11 + w_2x + w_3z$ `r fitb("test")`
+(e) $y = w_11 + w_2x + w_3z + w_4a\times{b}$ `r fitb("test")`
+(f) $y = w_11 + w_2x + w_3z^2$ `r fitb("test")`
+
+## Polynomials 
+
+1. What is the purpose of including polynomial terms in a linear model?
+
 
     ```{r}
     #| echo: false
     #| results: asis
 
     # Define the answer choices
- choices <- c(
-  "It will improve model accuracy.",
-  answer = "It can lead to overfitting and increased model complexity.",
-  "It will simplify the interpretation of results.",
-  "It has no effect on the model."
-)
-
+    choices <-  c("To improve model interpretability", 
+                    answer = "To model nonlinear relationships", 
+                    "To reduce overfitting in the model", 
+                    "To ensure that residuals are normally distributed")
 
     cat(longmcq(choices))
-    ``` 
+    ```
 
 
-## Finished? 
+2. Which of the following is an example of a quadratic polynomial term in a linear model?
 
-Work together with support from TAs on **problem set 3, questions 5**: 
 
-Suppose your roommate is keeping a bunch of plants in your apartment. You notice that the plants exposed to more light seem to be taller, and — as an emerging data scientist — you record these data in a csv file: [polynomial_plants.csv](/assests/csv/polynomial_plants.csv). Explore the relationship between light_exposure and plant_height across different plant species by plotting the data using an appropriate geom. Then, specify, fit, and plot  polynomial models of increasing degrees (linear, quadratic, and cubic) to the data. Start by specifying and fitting a simple linear model. Next, specify and fit second- and third-degree polynomial models, and visualize each in ggplot. Which best captures the relationship between light_exposure and plant_height? For each model, make sure you specify as a mathematical expression first in LaTex, then use `infer` to specify and fit the model.  
+    ```{r}
+    #| echo: false
+    #| results: asis
+
+    # Define the answer choices
+    choices <- c("x", 
+                    answer = "x^2", 
+                    "sqrt(x)", 
+                    "log(x)")
+
+    cat(longmcq(choices))
+    ```
+
+3. Why might higher-degree polynomial terms lead to overfitting in a linear model?
+
+
+    ```{r}
+    #| echo: false
+    #| results: asis
+
+    # Define the answer choices
+    choices <- c("Higher-degree terms make the model too simple", 
+    answer = "Higher-degree terms force the model to fit the noise in the data", 
+    "Polynomial terms always reduce the model's flexibility", 
+    "Polynomial terms make the model biased")
+
+    cat(longmcq(choices))
+    ```
+
+4. Which of the following models includes both linear and quadratic terms
+
+
+    ```{r}
+    #| echo: false
+    #| results: asis
+
+    # Define the answer choices
+    choices <- c("y = β0 + β1x", 
+                    "y = β0 + β1x^2", 
+                    answer="y = β0 + β1x + β2x^2", 
+                    "y = β0 + β1x + β2x^3")
+
+    cat(longmcq(choices))
+    ```
+
 
 

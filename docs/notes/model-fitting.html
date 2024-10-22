@@ -235,18 +235,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#you-are-here" id="toc-you-are-here" class="nav-link active" data-scroll-target="#you-are-here"><span class="header-section-number">1</span> You are here</a></li>
-  <li><a href="#model-building" id="toc-model-building" class="nav-link" data-scroll-target="#model-building"><span class="header-section-number">2</span> Model building</a></li>
-  <li><a href="#linear-model-review" id="toc-linear-model-review" class="nav-link" data-scroll-target="#linear-model-review"><span class="header-section-number">3</span> Linear model review</a></li>
-  <li><a href="#estimate-free-parameters" id="toc-estimate-free-parameters" class="nav-link" data-scroll-target="#estimate-free-parameters"><span class="header-section-number">4</span> Estimate free parameters</a></li>
-  <li><a href="#model-fitting-basics" id="toc-model-fitting-basics" class="nav-link" data-scroll-target="#model-fitting-basics"><span class="header-section-number">5</span> Model fitting basics</a></li>
-  <li><a href="#mean-squared-error" id="toc-mean-squared-error" class="nav-link" data-scroll-target="#mean-squared-error"><span class="header-section-number">6</span> Mean squared error</a></li>
-  <li><a href="#error-surface" id="toc-error-surface" class="nav-link" data-scroll-target="#error-surface"><span class="header-section-number">7</span> Error surface</a></li>
-  <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent"><span class="header-section-number">8</span> Gradient descent</a></li>
-  <li><a href="#ordinary-least-squares" id="toc-ordinary-least-squares" class="nav-link" data-scroll-target="#ordinary-least-squares"><span class="header-section-number">9</span> Ordinary least squares</a>
-  <ul class="collapse">
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">9.1</span> Further reading</a></li>
-  </ul></li>
+  <li><a href="#fitting-models-in-r" id="toc-fitting-models-in-r" class="nav-link active" data-scroll-target="#fitting-models-in-r"><span class="header-section-number">1</span> Fitting Models in R</a></li>
+  <li><a href="#the-basics" id="toc-the-basics" class="nav-link" data-scroll-target="#the-basics"><span class="header-section-number">2</span> The Basics</a></li>
+  <li><a href="#iterative-optimization" id="toc-iterative-optimization" class="nav-link" data-scroll-target="#iterative-optimization"><span class="header-section-number">3</span> Iterative Optimization</a></li>
+  <li><a href="#ordinary-least-squares" id="toc-ordinary-least-squares" class="nav-link" data-scroll-target="#ordinary-least-squares"><span class="header-section-number">4</span> Ordinary Least-Squares</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="model-fitting.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -284,384 +276,187 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled" title="Under Construction">
+<div class="callout callout-style-default callout-warning callout-titled" title="Under construction">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Under Construction
+Under construction
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
-</div>
-</div>
-<section id="you-are-here" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="you-are-here"><span class="header-section-number">1</span> You are here</h2>
-</section>
-<section id="model-building" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="model-building"><span class="header-section-number">2</span> Model building</h2>
-</section>
-<section id="linear-model-review" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="linear-model-review"><span class="header-section-number">3</span> Linear model review</h2>
-<ul>
-<li><p>how would we specify this model</p></li>
-<li><p>how would we write it in R</p></li>
-<li><p>estimate the free paramters</p></li>
-</ul>
-</section>
-<section id="estimate-free-parameters" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="estimate-free-parameters"><span class="header-section-number">4</span> Estimate free parameters</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with base R </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = y ~ 1 + x, data = data)
-
-Coefficients:
-(Intercept)            x  
-        0.6          0.7  </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with infer workflow </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  term      estimate
-  &lt;chr&gt;        &lt;dbl&gt;
-1 intercept    0.600
-2 x            0.7  </code></pre>
-</div>
-</div>
-</section>
-<section id="model-fitting-basics" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="model-fitting-basics"><span class="header-section-number">5</span> Model fitting basics</h2>
-<p>Linear model</p>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<pre><code># A tibble: 5 × 2
-      x     y
-  &lt;dbl&gt; &lt;dbl&gt;
-1     1   1.2
-2     2   2.5
-3     3   2.3
-4     4   3.1
-5     5   4.4</code></pre>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
-<p>We can see which fits better with our eyes.</p>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">x</th>
-<th style="text-align: right;">y</th>
-<th style="text-align: right;">pred</th>
-<th style="text-align: right;">err</th>
-<th style="text-align: right;">sq_err</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">-0.1</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2.5</td>
-<td style="text-align: right;">2.0</td>
-<td style="text-align: right;">0.5</td>
-<td style="text-align: right;">0.25</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2.3</td>
-<td style="text-align: right;">2.7</td>
-<td style="text-align: right;">-0.4</td>
-<td style="text-align: right;">0.16</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3.1</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">-0.3</td>
-<td style="text-align: right;">0.09</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">4.1</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: right;">0.09</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">x</th>
-<th style="text-align: right;">y</th>
-<th style="text-align: right;">pred</th>
-<th style="text-align: right;">err</th>
-<th style="text-align: right;">sq_err</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">1.58</td>
-<td style="text-align: right;">-0.38</td>
-<td style="text-align: right;">0.1444</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2.5</td>
-<td style="text-align: right;">2.62</td>
-<td style="text-align: right;">-0.12</td>
-<td style="text-align: right;">0.0144</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2.3</td>
-<td style="text-align: right;">3.66</td>
-<td style="text-align: right;">-1.36</td>
-<td style="text-align: right;">1.8496</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3.1</td>
-<td style="text-align: right;">4.70</td>
-<td style="text-align: right;">-1.60</td>
-<td style="text-align: right;">2.5600</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">5.74</td>
-<td style="text-align: right;">-1.34</td>
-<td style="text-align: right;">1.7956</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>More coming for Thursday!</p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mseA<span class="sc">$</span>sq_err)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.12</code></pre>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parsnip)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(optimg)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># setup data </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">experience =</span> <span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">69</span>, <span class="dv">89</span>, <span class="dv">99</span>, <span class="dv">109</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">rt =</span> <span class="fu">c</span>(<span class="dv">124</span>, <span class="dv">95</span>, <span class="dv">71</span>, <span class="dv">45</span>, <span class="dv">18</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mseB<span class="sc">$</span>sq_err)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.2728</code></pre>
-</div>
-</div>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
+<p>Suppose that we have a set of data and we have specified the model we’d like to fit. The next step is to <strong>fit the model</strong> to the data. That is, to find the best estimate of the free parameters (weights) such that the model describes the data as well as possible.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = y ~ 1 + x, data = data)
-
-Coefficients:
-(Intercept)            x  
-        0.6          0.7  </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  term      estimate
-  &lt;chr&gt;        &lt;dbl&gt;
-1 intercept    0.600
-2 x            0.7  </code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>possible_weights <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">b0 =</span> b0, <span class="at">b1 =</span> b1)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> possible_weights, </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> b0, <span class="at">y =</span> b1)) <span class="sc">+</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="model-fitting_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the sum of squares for those weights on a dataframe</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sum_squares <span class="ot">&lt;-</span> <span class="cf">function</span>(b0, b1) {</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    data <span class="sc">%&gt;%</span> </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">pred =</span> b0 <span class="sc">+</span> b1<span class="sc">*</span>x) <span class="sc">%&gt;%</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">err =</span> pred<span class="sc">-</span>y) <span class="sc">%&gt;%</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">sq_err =</span> err<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(sq_err) <span class="sc">%&gt;%</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sum</span>()</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>error_surf <span class="ot">&lt;-</span> possible_weights <span class="sc">%&gt;%</span> </span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sum_sq =</span>  <span class="fu">sum_squares</span>(b0, b1)) <span class="sc">%&gt;%</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    ungroup</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>error_surf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="fitting-models-in-r" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="fitting-models-in-r"><span class="header-section-number">1</span> Fitting Models in R</h2>
+<p>We will fit linear models using three common methods. During model specification week, we already started fitting models with <code>lm()</code> and <code>infer</code>. Today we will expand to include the <code>parsnip</code> way.</p>
+<ol type="1">
+<li><p><strong><code>lm()</code></strong>: This is the most basic and widely used function for fitting linear models. It directly estimates model parameters based on the ordinary least-squares method, providing regression outputs such as coefficients, R-squared, etc.</p></li>
+<li><p><strong><code>infer</code> package</strong>: This package focuses on statistical inference using tidyverse syntax. It emphasizes hypothesis testing, confidence intervals, and bootstrapping, making it ideal for inferential analysis.</p></li>
+<li><p><strong><code>parsnip</code> package</strong>: Part of the <code>tidymodels</code> suite, <code>parsnip</code> provides a unified syntax for various modeling approaches (linear, logistic, random forest, etc.). It separates the model specification from the underlying engine, offering flexibility and consistency when working across multiple machine learning algorithms.</p></li>
+</ol>
+<p>Each method has its strengths: <code>lm()</code> for simplicity, <code>infer</code> for inferential statistics, and <code>parsnip</code> for robust model flexibility across different algorithms. To illustrate, we can fit the data in the figure above all 3 ways.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with lm()</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 961 × 3
-      b0    b1 sum_sq
-   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
- 1   0       0   42.0
- 2   0.1     0   39.3
- 3   0.2     0   36.8
- 4   0.3     0   34.3
- 5   0.4     0   32.0
- 6   0.5     0   29.7
- 7   0.6     0   27.6
- 8   0.7     0   25.5
- 9   0.8     0   23.6
-10   0.9     0   21.7
-# ℹ 951 more rows</code></pre>
+<pre><code>
+Call:
+lm(formula = rt ~ 1 + experience, data = data)
+
+Coefficients:
+(Intercept)   experience  
+    211.271       -1.695  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>error_surf  <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sum_sq <span class="sc">&lt;</span> <span class="fl">0.608</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with infer</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(<span class="at">formula =</span> rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 3
-     b0    b1 sum_sq
-  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
-1   0.6   0.7  0.600</code></pre>
+<pre><code># A tibble: 2 × 2
+  term       estimate
+  &lt;chr&gt;         &lt;dbl&gt;
+1 intercept    211.  
+2 experience    -1.69</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(error_surf, <span class="fu">aes</span>(b0, b1, <span class="at">z =</span> sum_sq)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_contour_filled</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with parsnip </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>parsnip model object
+
+
+Call:
+stats::lm(formula = rt ~ 1 + experience, data = data)
+
+Coefficients:
+(Intercept)   experience  
+    211.271       -1.695  </code></pre>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>        <span class="co"># %&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>        <span class="co"># sum(.$sq_err)</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       <span class="co"># summarise(sum_sq = sum(sq_err)) %&gt;%</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># return sum of squares as a column next to </span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># mse &lt;- function(data, b0, b1) {</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   model_value &lt;- b0 + b1*data[1]</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   resid &lt;- data[2] - model_value</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   sq_err &lt;- resid^2</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   sum(sq_err)</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># possible_weights %&gt;% mutate(</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co">#     mse = mse(1, 1, b0, b1)</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+</section>
+<section id="the-basics" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="the-basics"><span class="header-section-number">2</span> The Basics</h2>
+<p>In order to find the best fitting free parameters, we first need to quantify <em>goodness-of-fit</em>. Sum of squared error is one common approach, in which we find take the sum of the squares of the differences between the data and the model fit:</p>
+<p><span class="math inline">\(SSE=\sum_{i=i}^{n} (d_{i} - m_{i})^2\)</span></p>
 <ul>
-<li>in context of model building more broadly</li>
-<li>a genear overview of the concept</li>
+<li><span class="math inline">\(n\)</span> is the number of data points</li>
+<li><span class="math inline">\(d_i\)</span> is the <span class="math inline">\(i\)</span>-th data point</li>
+<li><span class="math inline">\(m_i\)</span> is the model fit for the <span class="math inline">\(i\)</span>-th data point</li>
 </ul>
+<p>Given this way of quantifying goodness of fit, our job is to figure out the set of parameter values that minimize the sum of squared error. But how do we do that? In this course, we will consider two ways:</p>
+<ol type="1">
+<li><strong>Iterative Optimization</strong> - for linear and nonlinear models</li>
+<li><strong>Ordinary Least-Squares</strong> - for linear models</li>
+</ol>
 </section>
-<section id="mean-squared-error" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="mean-squared-error"><span class="header-section-number">6</span> Mean squared error</h2>
-<p>Cost function.</p>
-</section>
-<section id="error-surface" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="error-surface"><span class="header-section-number">7</span> Error surface</h2>
+<section id="iterative-optimization" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="iterative-optimization"><span class="header-section-number">3</span> Iterative Optimization</h2>
+<p>We can think of finding the best fitting parameters as a search problem in which we have a <em>parameter space</em> and a <em>cost function</em> (or a “loss” function). To find the best fitting parameter estimates, we search through the space to find the point that minimizes the cost function.</p>
 <ul>
-<li>We can visualize the error surface for simple example: 2 parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, and the cost function (mean square error).</li>
-<li>Show nonlinear model v linear model figs</li>
-<li>goal is to find the minimum point</li>
-<li>notice the nonlinear model can have local minimums but lm has only 1. Because lm is a <strong>convex</strong> function.</li>
-</ul>
-</section>
-<section id="gradient-descent" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="gradient-descent"><span class="header-section-number">8</span> Gradient descent</h2>
-<p>IF we want to estimate the free parameters in a way that would work broadly, for linear or nonlinear models, we can use <strong>gradient descent</strong>.</p>
+<li>We already have a cost function: sum of squared error
 <ul>
-<li>machine learning / optimization.</li>
-<li>If we have a lot of data, we could use <strong>stochastic gradient descent</strong> which is the same except we…</li>
-</ul>
-</section>
-<section id="ordinary-least-squares" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="ordinary-least-squares"><span class="header-section-number">9</span> Ordinary least squares</h2>
-<p>As we saw above, linear models have the special property that they have a solution, the OLS. Rather than searching the error surface iteratively via gradient descent (optimization), we can solve for this point directly with <strong>linear algebra</strong>.</p>
-<ul>
-<li>matrix approach: we write the 3-step function.</li>
-<li>use lm() in R.</li>
-<li>infer approach:
-<ul>
-<li>specify(), fit()</li>
+<li><span class="math inline">\(\sum_{i=i}^{n} (d_{i} - m_{i})^2\)</span></li>
 </ul></li>
+<li>We can visualize iterative optimization as trying to find the minimum point on an <strong>error surface</strong></li>
+<li>If there is one parameter to estimate (one input to the model), the error surface will be a curvy line. If there are two parameters to estimate (two inputs to the model), the error surface will be a bumpy sheet.</li>
 </ul>
-<section id="further-reading" class="level3" data-number="9.1">
-<h3 data-number="9.1" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">9.1</span> Further reading</h3>
-<ul>
-<li><a href="https://dtkaplan.github.io/SM2-bookdown/fitting-models-to-data.html">Ch. 8 Fitting models to data</a> in Statistical Modeling</li>
-</ul>
+<p><img src="../assests/images/error-surface.png" class="img-fluid"></p>
+<p>To search through the parameter space via iterative optimization, we could use any number of iterative optimization algorithms. Many of them follow the same conceptual process (but differ in precise implementation):</p>
+<ol type="1">
+<li>Start at some point on the error surface (<em>initial seed</em>)</li>
+<li>Look at the error surface in a small region around that point</li>
+<li>Take a step in some direction that reduces the error</li>
+<li>Repeat steps 2-4 until improvements are very small (less than some very small predefined number).</li>
+</ol>
+<p><img src="../assests/images/gradient-descent.png" class="img-fluid"></p>
+<p><strong>Gradient descent</strong> is simple iterative optimization algorithm, widely used in machine learning applications. We can implement gradient descent in R with the <code>optimg</code> package to find the best fitting parameter estimates.</p>
+<ol type="1">
+<li>First we write our cost function — a literal function in R — which must take a <code>data</code> argument (our data set) and a <code>par</code> parameter (a vector of parameter estimates we want to test).</li>
+</ol>
+<div class="cell" data-output-location="column">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="cf">function</span>(data, par) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    data <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">prediction =</span> par[<span class="dv">1</span>] <span class="sc">+</span> par[<span class="dv">2</span>] <span class="sc">*</span> experience) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">error =</span> prediction <span class="sc">-</span> rt) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">squared_error =</span> error<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">with</span>(<span class="fu">sum</span>(squared_error))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Then we pass our data, cost function, and paramters to test to the <code>optimg</code> function to perform gradient descent.</li>
+</ol>
+<div class="cell" data-output-location="column">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">optimg</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> data,  <span class="co"># our data</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">par =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="co"># our starting parameters</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fn =</span> SSE,     <span class="co"># our cost function</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"STGD"</span> <span class="co"># our iterative optimization algorithm </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$par
+[1] 211.26155  -1.69473
 
+$value
+[1] 205.138
 
+$counts
+[1] 12
+
+$convergence
+[1] 0</code></pre>
+</div>
+</div>
+<p>We can compare <code>optimg</code>’s estimates to that of <code>lm()</code> to see that they are nearly identical:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rt ~ 1 + experience, data = data)
+
+Coefficients:
+(Intercept)   experience  
+    211.271       -1.695  </code></pre>
+</div>
+</div>
 </section>
+<section id="ordinary-least-squares" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="ordinary-least-squares"><span class="header-section-number">4</span> Ordinary Least-Squares</h2>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -5,297 +5,146 @@ author:
 date: 2024-10-22
 ---
 
-::: {.callout-warning title="Under Construction"}
+:::{.callout-warning title="Under construction"}
+More coming for Thursday! 
 :::
 
 ```{r}
-#| echo: false
+#| echo: true
+#| code-fold: true
 #| message: false
 library(tidyverse)
 library(modelr)
 library(infer)
 library(knitr)
-theme_set(theme_classic(base_size = 20))
+library(parsnip)
+library(optimg)
+library(kableExtra)
+theme_set(theme_classic(base_size = 12))
 
 # setup data 
 data <- tibble(
-    x = c(1, 2, 3, 4, 5),
-    y = c(1.2, 2.5, 2.3, 3.1, 4.4)
-)
-
-data2 <- tibble(
-    x = c(1, 2, 3, 4, 5),
-    y = c(2, 2.5, 3.3, 4.1, 6.4)
-
-
+    experience = c(49, 69, 89, 99, 109),
+    rt = c(124, 95, 71, 45, 18)
 )
 
 ```
 
-## You are here
-
-## Model building 
-
-## Linear model review
-
-- how would we specify this model 
-- how would we write it in R 
-
-- estimate the free paramters 
-
-## Estimate free parameters
+Suppose that we have a set of data and we have specified the model we'd like to fit. The next step is to **fit the model** to the data. That is, to find the best estimate of the free parameters (weights) such that the model describes the data as well as possible. 
 
 ```{r}
+#| echo: false
 
-# with base R 
-lm(y ~ 1 + x, data = data)
+ggplot(data, aes(x = experience, y = rt)) +
+    geom_point(size = 4, color = "darkred") +
+    geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+    labs(title = "Is reaction time predicted by experience?") 
+
+```
+
+## Fitting Models in R 
+
+We will fit linear models using three common methods. During model specification week, we already started fitting models with `lm()` and `infer`. Today we will expand to include the `parsnip` way. 
+
+1. **`lm()`**: This is the most basic and widely used function for fitting linear models. It directly estimates model parameters based on the ordinary least-squares method, providing regression outputs such as coefficients, R-squared, etc.
+
+2. **`infer` package**: This package focuses on statistical inference using tidyverse syntax. It emphasizes hypothesis testing, confidence intervals, and bootstrapping, making it ideal for inferential analysis.
+
+3. **`parsnip` package**: Part of the `tidymodels` suite, `parsnip` provides a unified syntax for various modeling approaches (linear, logistic, random forest, etc.). It separates the model specification from the underlying engine, offering flexibility and consistency when working across multiple machine learning algorithms.
 
 
-# with infer workflow 
+Each method has its strengths: `lm()` for simplicity, `infer` for inferential statistics, and `parsnip` for robust model flexibility across different algorithms. To illustrate, we can fit the data in the figure above all 3 ways. 
+
+```{r}
+# with lm()
+lm(rt ~ 1 + experience, data = data)
+
+# with infer
 data %>%
-    specify(y ~ 1 + x) %>%
+    specify(formula = rt ~ 1 + experience) %>%
     fit()
 
-
+# with parsnip 
+linear_reg() %>%
+    set_engine("lm") %>%
+    fit(rt ~ 1 + experience, data = data)
 ```
 
 
+## The Basics 
 
-## Model fitting basics
+In order to find the best fitting free parameters, we first need to quantify *goodness-of-fit*. Sum of squared error is one common approach, in which we find take the sum of the squares of the differences between the data and the model fit: 
 
+$SSE=\sum_{i=i}^{n} (d_{i} - m_{i})^2$  
 
-Linear model 
+- $n$ is the number of data points
+- $d_i$ is the $i$-th data point
+- $m_i$ is the model fit for the $i$-th data point 
 
-```{r}
-#| echo: false
-#| layout-ncol: 2
-data <- tibble(
-    x = c(1, 2, 3, 4, 5),
-    y = c(1.2, 2.5, 2.3, 3.1, 4.4)
-)
+Given this way of quantifying goodness of fit, our job is to figure out the set of parameter values that minimize the sum of squared error. But how do we do that? In this course, we will consider two ways: 
 
-data2 <- tibble(
-    x = c(1, 2, 3, 4, 5),
-    y = c(2, 2.5, 3.3, 4.1, 6.4)
+1. **Iterative Optimization** - for linear and nonlinear models
+2. **Ordinary Least-Squares** - for linear models
 
 
-)
+## Iterative Optimization 
 
-print(data)
+We can think of finding the best fitting parameters as a search problem in which we have a *parameter space* and a *cost function* (or a "loss" function). To find the best fitting parameter estimates, we search through the space to find the point that minimizes the cost function. 
 
-ggplot(data, aes(x = x, y = y)) +
-geom_point(size = 4, color = "darkred")
+- We already have a cost function: sum of squared error
+    - $\sum_{i=i}^{n} (d_{i} - m_{i})^2$ 
+- We can visualize iterative optimization as trying to find the minimum point on an **error surface** 
+- If there is one parameter to estimate (one input to the model), the error surface will be a curvy line. If there are two parameters to estimate (two inputs to the model), the error surface will be a bumpy sheet. 
 
+![](/assests/images/error-surface.png)
 
-```
+To search through the parameter space via iterative optimization, we could use any number of iterative optimization algorithms. Many of them follow the same conceptual process (but differ in precise implementation): 
 
-We can see which fits better with our eyes. 
+1. Start at some point on the error surface (*initial seed*)
+2. Look at the error surface in a small region around that point
+3. Take a step in some direction that reduces the error
+4. Repeat steps 2-4 until improvements are very small (less than some very small predefined number). 
 
-```{r}
-#| echo: false
-#| layout-ncol: 2
-#| layout-nrow: 3
-
-
-
-ggplot(data, aes(x = x, y = y)) +
-geom_point(size = 4, color = "darkred") +
-geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
-coord_cartesian(ylim = c(0, 7)) +
-labs(tag = "A", title = "Fits well")
+![](/assests/images/gradient-descent.png)
 
 
-ggplot(data, aes(x = x, y = y)) +
-geom_point(size = 4, color = "darkred") +
-geom_smooth(
-    data = data2, 
-    mapping = aes(x = x, y = y), 
-    method = "lm", formula = "y ~ x", se = FALSE) +
-    coord_cartesian(ylim = c(0, 7)) +
-labs(tag = "B", title = "Fits poorly")
+**Gradient descent** is simple iterative optimization algorithm, widely used in machine learning applications. We can implement gradient descent in R with the `optimg` package to find the best fitting parameter estimates. 
 
-```
+1. First we write our cost function — a literal function in R — which must take a `data` argument (our data set) and a `par` parameter (a vector of parameter estimates we want to test). 
 
 ```{r}
-#| echo: false
-#| layout-ncol: 2
-#| layout-nrow: 3
+#| output-location: column
 
-
-
-ggplot(data, aes(x = x, y = y)) +
-geom_point(size = 4, color = "darkred") +
-geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
-coord_cartesian(ylim = c(0, 7)) +
-labs(tag = "A", title = "Low MSE")
-
-
-ggplot(data, aes(x = x, y = y)) +
-geom_point(size = 4, color = "darkred") +
-geom_smooth(
-    data = data2, 
-    mapping = aes(x = x, y = y), 
-    method = "lm", formula = "y ~ x", se = FALSE) +
-    coord_cartesian(ylim = c(0, 7)) +
-labs(tag = "B", title = "High MSE")
-
-modelA <- lm(y ~ x, data = data)
-modelB <- lm(y ~ x, data = data2)
-
-mseA <- data %>% add_predictions(modelA) %>%
-    mutate(err = y - pred, sq_err = err^2)
-kable(mseA)
-
-mseB <- data %>% add_predictions(modelB) %>%
-    mutate(err = y - pred, sq_err = err^2)
-kable(mseB)
-
-
-
-```
-
-
-```{r}
-mean(mseA$sq_err)
-mean(mseB$sq_err)
-```
-
-```{r}
-#| echo: false
-#| layout-ncol: 2
-
-ggplot(mseA, aes(x = x, y = y)) +
-geom_point(size = 4, color = "darkred") +
-geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
-geom_segment(aes(xend = x, yend = pred)) +
-coord_cartesian(ylim = c(0, 7))  +
-labs(tag = "A", title = "Low MSE")
-
-
-
-ggplot(mseB, aes(x = x, y = y)) +
-geom_point(size = 4, color = "darkred") +
-geom_smooth(
-    data = data2, 
-    mapping = aes(x = x, y = y), 
-    method = "lm", formula = "y ~ x", se = FALSE) +
-    geom_segment(aes(xend = x, yend = pred)) +
-    coord_cartesian(ylim = c(0, 7)) +
-labs(tag = "B", title = "High MSE")
-
-
-
-```
-
-
-
-
-
-
-```{r}
-
-lm(y ~ 1 + x, data = data)
-
-data %>%
-    specify(y ~ 1 + x) %>%
-    fit()
-
-
-
-
-```
-
-
-```{r}
-b0 <- seq(from = 0, to = 3, by = 0.1)
-b1 <- seq(from = 0, to = 3, by = 0.1)
-possible_weights <- expand.grid(b0 = b0, b1 = b1)
-
-ggplot(data = possible_weights, 
-    mapping = aes(x = b0, y = b1)) +
-    geom_point()
-
-
-# compute the sum of squares for those weights on a dataframe
-sum_squares <- function(b0, b1) {
-
-    data %>% 
-        mutate(pred = b0 + b1*x) %>%
-        mutate(err = pred-y) %>%
-        mutate(sq_err = err^2) %>%
-        select(sq_err) %>%
-        sum()
-   
+SSE <- function(data, par) {
+    data %>%
+        mutate(prediction = par[1] + par[2] * experience) %>%
+        mutate(error = prediction - rt) %>%
+        mutate(squared_error = error^2) %>%
+        with(sum(squared_error))
 }
-error_surf <- possible_weights %>% 
-    rowwise() %>%
-    mutate(sum_sq =  sum_squares(b0, b1)) %>%
-    ungroup
-
-error_surf
-
-error_surf  %>% filter(sum_sq < 0.608)
-
-ggplot(error_surf, aes(b0, b1, z = sum_sq)) +
-    geom_contour_filled()
-
-    
-        
-        # %>%
-        # sum(.$sq_err)
-       # summarise(sum_sq = sum(sq_err)) %>%
-
-
-# return sum of squares as a column next to 
-
-# mse <- function(data, b0, b1) {
-#   model_value <- b0 + b1*data[1]
-#   resid <- data[2] - model_value
-#   sq_err <- resid^2
-#   sum(sq_err)
-# }
-
-# possible_weights %>% mutate(
-#     mse = mse(1, 1, b0, b1)
-# )
-
 ```
 
-- in context of model building more broadly 
-- a genear overview of the concept 
+2. Then we pass our data, cost function, and paramters to test to the `optimg` function to perform gradient descent. 
 
-## Mean squared error 
+```{r}
+#| output-location: column
 
-Cost function. 
+optimg(
+    data = data,  # our data
+    par = c(0,0), # our starting parameters
+    fn = SSE,     # our cost function
+    method = "STGD" # our iterative optimization algorithm 
+    )
+```
 
-## Error surface
+We can compare `optimg`'s estimates to that of `lm()` to see that they are nearly identical: 
 
-- We can visualize the error surface for simple example: 2 parameters, $\beta_0$ and $\beta_1$, and the cost function (mean square error). 
-- Show nonlinear model v linear model figs 
-- goal is to find the minimum point
-- notice the nonlinear model can have local minimums but lm has only 1. Because lm is a **convex** function. 
-
-## Gradient descent 
-
-IF we want to estimate the free parameters in a way that would work broadly, for linear or nonlinear models, we can use **gradient descent**. 
-
-- machine learning / optimization. 
-- If we have a lot of data, we could use **stochastic gradient descent** which is the same except we... 
-
-## Ordinary least squares 
-
-As we saw above, linear models have the special property that they have a solution, the OLS. Rather than searching the error surface iteratively via gradient descent (optimization), we can solve for this point directly with **linear algebra**. 
-
-- matrix approach: we write the 3-step function. 
-- use lm() in R. 
-- infer approach: 
-    - specify(), fit() 
+```{r}
+lm(rt ~ 1 + experience, data = data) 
+```
 
 
 
-### Further reading 
-
-- [Ch. 8 Fitting models to data](https://dtkaplan.github.io/SM2-bookdown/fitting-models-to-data.html) in Statistical Modeling
 
 
-
+## Ordinary Least-Squares 

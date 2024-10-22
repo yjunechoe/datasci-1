@@ -1,0 +1,836 @@
+---
+title: "Model Fitting"
+subtitle: "Data Science for Studying Language and the Mind"
+author: Katie Schuler
+date: 2024-10-22
+echo: true
+format: 
+    revealjs:
+        chalkboard: true
+        slide-number: true
+        incremental: true 
+        footer: "[https://kathrynschuler.com/datasci](https://kathrynschuler.com/datasci/)" 
+
+---
+
+```{r}
+#| echo: false
+#| message: false
+library(tidyverse)
+library(modelr)
+library(infer)
+library(knitr)
+library(parsnip)
+library(optimg)
+library(kableExtra)
+theme_set(theme_classic(base_size = 20))
+
+# setup data 
+data <- tibble(
+    experience = c(49, 69, 89, 99, 109),
+    rt = c(124, 95, 71, 45, 18)
+)
+
+```
+
+
+## You are `here` {.smaller} 
+
+:::: {.columns}
+
+::: {.column width="33%"}
+
+##### Data science with R 
+::: {.nonincremental}
+- R basics
+- Data visualization
+- Data wrangling
+:::
+:::
+
+::: {.column width="33%"}
+
+##### Stats & Model building
+::: {.nonincremental}
+- Sampling distribution
+- Hypothesis testing
+- Model specification
+- `Model fitting` 
+- Model accuracy
+- Model reliability
+:::
+:::
+
+::: {.column width="33%"}
+
+##### More advanced 
+::: {.nonincremental}
+
+- Classification
+- Inference for regression
+- Mixed-effect models
+::: 
+:::
+
+::::
+
+## Roadmap {.smaller}
+
+- Fitting linear models in R
+- Goodness of fit: quantifying our intuition 
+- Search problem: How do we find the best one? 
+    1. Gradient descent - iterative optimization algorithm
+    2. Ordinary least squares - analytical solution for linear regression
+- If time: another full example
+
+## Fit a linear model  {.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+
+
+
+```{r}
+#| echo: false
+ggplot(data, aes(x = experience, y = rt)) +
+    geom_point(size = 4, color = "darkred") +
+    geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+    labs(title = "Is reaction time predicted by experience?") 
+
+```
+
+
+| | model specification | 
+| -- | -- |
+| R syntax | `rt ~ 1 + experience` |
+| R syntax | `rt ~ experience` |
+| Equation | $y=w_0+w_1x_1$ |
+
+
+:::
+
+::: {.column width="40%"}
+
+```{dot}
+//|echo: false
+//|fig-width: 4
+
+digraph G {
+    
+  a [label = "Model specification"]
+  b [label = "Estimate free parameters"]
+  c [label = "Fitted model"]
+
+  a -> b;
+  b -> c;
+}
+```
+
+$y = 211.271 + -1.695x$
+:::
+::::
+
+## Fit a linear model in R {.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+
+
+
+```{r}
+#| echo: false
+ggplot(data, aes(x = experience, y = rt)) +
+    geom_point(size = 4, color = "darkred") +
+    geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+    labs(title = "Is reaction time predicted by experience?") 
+
+```
+
+
+
+| | model specification| 
+| -- | -- |
+| R syntax | `rt ~ 1 + experience` |
+| R syntax | `rt ~ experience` |
+| Equation | $y=w_0+w_1x_1$ |
+
+
+:::
+
+::: {.column width="40%"}
+
+::: {.fragment}
+
+```{r}
+lm(rt ~ experience, data = data)
+```
+
+:::
+
+::: {.fragment}
+
+```{r}
+data %>% 
+    specify(rt ~ experience) %>%
+    fit()
+```
+
+::: 
+
+::: {.fragment}
+
+```{r}
+linear_reg() %>%
+    set_engine("lm") %>%
+    fit(rt ~ experience, data = data)
+```
+
+
+:::
+:::
+::::
+
+
+## Fitting by intuition {.smaller}
+
+How would you draw a "best fit" line?  
+
+
+```{r}
+#| echo: false
+
+ggplot(data, aes(x = experience, y = rt)) +
+geom_point(size = 4, color = "darkred")
+
+```
+
+- Draw a straight line that goes through as many points as possible. 
+
+
+## Fitting by intuition {.smaller}
+
+Which line fits best?  How can you tell? 
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+#| layout-nrow: 3
+
+model1 <- lm(rt ~ 1 + experience, data = data)
+model2 <- lm(rt ~ 0 + experience, data = data)
+
+ggplot(data, aes(x = experience, y = rt)) +
+geom_point(size = 4, color = "darkred", color = "blue") +
+geom_smooth(method = "lm", formula = y ~ 1, se = FALSE, color = "blue") +
+labs(tag = "A")
+
+
+ggplot(data, aes(x = experience, y = rt)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(method = "lm", formula = y ~ x, se = FALSE, color = "blue") +
+labs(tag = "B")
+
+```
+
+- B, because the model is closer to the data (closer to more of the points)
+
+
+## Quantifying "goodness" of fit  {.smaller}
+
+We can measure how close the model is to the data
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+modelA <- lm(rt ~ 1, data = data)
+modelB <- lm(rt ~ experience, data = data)
+
+data %>% add_predictions(modelA) %>%
+    #mutate(err = rt - pred, sq_err = err^2)
+    ggplot(aes(x = experience, y = rt)) +
+    geom_point(size = 4, color = "darkred") +
+    geom_smooth(method = "lm", formula = 'y ~ 1', se = FALSE) +
+    geom_segment(aes(xend = experience, yend = pred), color = "darkred") 
+
+data %>% add_predictions(modelB) %>%
+    #mutate(err = rt - pred, sq_err = err^2)
+    ggplot(aes(x = experience, y = rt)) +
+    geom_point(size = 4, color = "darkred") +
+    geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+    geom_segment(aes(xend = experience, yend = pred), color = "darkred") 
+
+
+```
+
+- We call these the "errors" or "residuals". We want a single number that would represent goodness of fit. 
+
+
+## Sum of squared error {.smaller}
+
+We can quantify our intutition and express goodness of fit with sum of squared error. 
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+model <- lm(rt ~ experience, data = data)
+
+data %>%
+    add_predictions(model) %>% # modelr
+    ggplot(aes(x = experience, y = rt)) +
+    geom_point(size = 4, color = "darkred") +
+    geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+    geom_segment(aes(xend = experience, yend = pred)) 
+
+
+  SSE <- data %>%
+    mutate(prediction = predict(model, data)) %>%
+    mutate(error = prediction - rt) %>%
+    mutate(squared_error = error^2) 
+
+SSE %>%
+    kable() %>%
+    kable_styling(font_size = 16)
+
+sum(SSE$squared_error)
+
+
+```
+
+. . . 
+
+$SSE=\sum_{i=i}^{n} (d_{i} - m_{i})^2 = 205.1379$ 
+
+
+## Sum of squared error {.smaller}
+
+$SSE=\sum_{i=i}^{n} (d_{i} - m_{i})^2$  
+
+
+Given some data: 
+
+. . . 
+
+```{r}
+#| echo: false
+  data %>%
+    mutate(prediction =predict(model, data)) %>%
+    mutate(error = prediction - rt) %>%
+    mutate(squared_error = error^2) %>%
+    kable()  %>%
+    kable_styling(font_size = 18)
+
+```
+
+. . . 
+
+Compute the sum of squared error: 
+
+
+. . . 
+
+```{r}
+  data %>%
+    mutate(prediction = predict(model, data)) %>%
+    mutate(error = prediction - rt) %>%
+    mutate(squared_error = error^2) %>%
+    with(sum(squared_error))
+
+```
+
+$SSE=\sum_{i=i}^{n} (d_{i} - m_{i})^2 = 205.1379$ 
+
+## Problem 1: check model parameters {.smaller}
+
+- The `predict()` way uses a fitted model, which already has the best fitting free parameters. 
+- We need a way to check different *potential* model fits to see which one is best. 
+- Let's write a function! 
+
+. . . 
+
+```{r}
+SSE <- function(data, par) {
+    data %>%
+        mutate(prediction = par[1] + par[2] * experience) %>%
+        mutate(error = prediction - rt) %>%
+        mutate(squared_error = error^2) %>%
+        with(sum(squared_error))
+}
+```
+
+. . . 
+
+Now we can check any model parameters. 
+
+. . . 
+
+```{r}
+SSE(data, c(0,0))
+```
+
+. . . 
+
+```{r}
+SSE(data, c(100,2))
+```
+
+. . . 
+
+```{r}
+SSE(data, c(211.271,-1.695))
+```
+
+## Problem 2: yikes {.smaller}
+
+- That's a lot of parameters to test! (`Inf`?)
+- Also, how do we know when to stop? 
+
+## Simplests possible case is hard {.smaller}
+
+Check every para
+
+```{r}
+#| echo: false
+
+
+SSE2 <- function(data, par) {
+    data %>%
+        mutate(prediction = par[1]) %>%
+        mutate(error = prediction - rt) %>%
+        mutate(squared_error = error^2) %>%
+        with(sum(squared_error))
+}
+
+# Generate all combinations
+possible_params <- tibble(
+    param1 = seq(0, 100, by=0.01)
+)
+
+possible_params <- possible_params %>%
+    rowwise() %>%
+    mutate(error = SSE2(data, c(param1))) %>%
+    ungroup() 
+
+min_row = possible_params[which.min(possible_params$error), ]
+
+
+ ggplot(possible_params, aes(x = param1, y = error)) +
+ geom_point()  +
+ geom_point(size = 4, color = "red", aes(x = 70.6, y = 6869))
+
+```
+
+# Iterative optimization 
+
+## Search problem
+
+- We have a parameter space, a cost function, and our job is to search through the space to find the point that minimizes the cost function.
+- Since we are using the cost function of squared error, we can think of our job as trying to find the minimum point on an *error surface*
+
+## Error surface {.smaller}
+
+If there is only one parameter, the error surface of a function is a curvy line; if there are two parameters, it's a bumpy sheet; etc. 
+
+![](../assests/images/error-surface.png)
+
+
+## Iterative optimization 
+
+To search through a parameter space, we can use local, iterative optimization.
+
+- Start at some point in space (*initial seed*)
+- look at the error surface in a small neighborhood around that point 
+- move in some directoion in an attempt to reduce the error (cost)
+- and repeat until improvements are sufficiently small
+
+## Gradient descent 
+
+There are many iterative optimazation algorithms out there that vary in how they execute these steps. One simple example is **gradient descent**
+
+![](../assests/images/grad-desc-intuition.jpeg)
+
+## Gradient descent
+
+
+![](../assests/images/gradient-descent.png)
+
+
+
+## Gradient descent in R {.smaller}
+
+Define our cost function (step 1): 
+
+```{r}
+SSE <- function(data, par) {
+  data %>%
+    mutate(prediction = par[1] + par[2]* experience) %>%
+    mutate(error = prediction - rt) %>%
+    mutate(squared_error = error^2) %>%
+    with(sum(squared_error))
+}
+
+SSE(data = data, par = c(0, 0))
+
+```
+
+## Gradient descent in R {.smaller}
+
+Impliment gradient descent algorithm with `optimg` (step 2): 
+
+```{r}
+optimg(
+    data = data,  # our data
+    par = c(0,0), # our starting parameters
+    fn = SSE,     # our cost function
+    method = "STGD") # our iterative optimization algorithm 
+
+```
+
+
+## Ordinary least squares solution {.smaller}
+
+$y = w_0 + w_1x_1$
+
+. . . 
+
+We have a system of equations: 
+
+- $124 = w_01 + w_149$
+- $95 = w_01 + w_169$ 
+- ...
+- $18 = w_01 + w_1109$
+
+. . . 
+
+We can express them as a matrix: 
+$Y = Xw + \epsilon$ 
+
+. . . 
+
+And solve with linear algebra:
+$w = (X^TX)^{-1}X^TY$
+
+<!-- \[
+\begin{bmatrix}
+124\\
+95\\
+71\\
+45\\
+18\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 49\\
+1 & 69\\
+1 & 79\\
+1 & 89\\
+1 & 99\\
+1 & 109\\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+w_0\\
+w_1\\
+\end{bmatrix} 
+\] -->
+
+## Ordinary least squares solution in R {.smaller}
+
+```{r}
+ ols_matrix_way <- function(X, Y){
+  solve(t(X) %*% X) %*% t(X) %*% Y
+ }
+```
+
+. . . 
+
+We need to construct X and Y (must be matrices): 
+
+```{r}
+#| layout-ncol: 2
+(response_matrix <- data %>% select(rt) %>% as.matrix())
+(explanatory_matrix <- data %>% mutate(int = 1) %>% select(int, experience) %>% as.matrix())
+```
+
+. . . 
+
+Then we can use our function to generate the OLS solution: 
+```{r}
+ols_matrix_way(explanatory_matrix, response_matrix)
+```
+
+```{r}
+lm(rt ~ experience, data = data)
+```
+<!-- 
+
+## Linear model functional form
+
+| field | linear model eq |
+| --- | --------- |
+| `h.s. algebra` | $y=ax+b$ |
+| `machine learning` | $y = w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n$ |
+| `statistics` | $y = β_0 + β_1x_1 + β_2x_2 + ... + β_nx_n + ε$ |
+| `matrix` | $y = Xβ + ε$ |
+
+
+## Fitting a linear model {.smaller}
+
+:::: {.columns}
+
+::: {.column width="33%"}
+
+
+
+
+
+:::
+
+::: {.column width="67%"}
+
+```{r}
+#| echo: false
+
+data <- tibble(
+    x = c(1, 2, 3, 4, 5),
+    y = c(1.2, 2.5, 2.3, 3.1, 4.4)
+)
+
+data2 <- tibble(
+    x = c(1, 2, 3, 4, 5),
+    y = c(2, 2.5, 3.3, 4.1, 6.4)
+
+
+)
+
+
+```
+
+```{r}
+ggplot(data, aes(x = x, y = y)) +
+    geom_point(size = 4, color = "darkred") +
+    geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) 
+
+```
+
+:::
+
+
+
+::::
+
+## Fitting by intuition {.smaller}
+
+How would you draw a "best fit" line?  
+
+
+```{r}
+#| echo: false
+
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred")
+
+```
+
+## Fitting by intuition {.smaller}
+
+Which line fits best?  How can you tell? 
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+#| layout-nrow: 3
+
+
+
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "A")
+
+
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(
+    data = data2, 
+    mapping = aes(x = x, y = y), 
+    method = "lm", formula = "y ~ x", se = FALSE) +
+    coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "B")
+
+```
+
+
+## Quantifying "goodness" of fit  {.smaller}
+
+We can measure how close the model is to the data
+
+```{r}
+#| echo: false
+modelA <- lm(y ~ x, data = data)
+modelB <- lm(y ~ x, data = data2)
+
+mseA <- data %>% add_predictions(modelA) %>%
+    mutate(err = y - pred, sq_err = err^2)
+
+mseB <- data %>% add_predictions(modelB) %>%
+    mutate(err = y - pred, sq_err = err^2)
+
+```
+
+
+
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+ggplot(mseA, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+geom_segment(aes(xend = x, yend = pred)) +
+coord_cartesian(ylim = c(0, 7))  +
+labs(tag = "A", title = "Fits well")
+
+
+
+ggplot(mseB, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(
+    data = data2, 
+    mapping = aes(x = x, y = y), 
+    method = "lm", formula = "y ~ x", se = FALSE) +
+    geom_segment(aes(xend = x, yend = pred)) +
+    coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "B", title = "Fits less well")
+
+
+
+```
+
+. . . 
+
+`residuals`
+
+## {.smaller} 
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+#| layout-nrow: 2
+#| 
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(method = "lm", formula = 'y ~ x', se = FALSE) +
+coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "A", title = "Low SSE, y = 0.7x + 0.6", caption = "SSE = 0.6")
+
+
+ggplot(data, aes(x = x, y = y)) +
+geom_point(size = 4, color = "darkred") +
+geom_smooth(
+    data = data2, 
+    mapping = aes(x = x, y = y), 
+    method = "lm", formula = "y ~ x", se = FALSE) +
+    coord_cartesian(ylim = c(0, 7)) +
+labs(tag = "B", title = "High SSE", caption = "SSE = 6.364")
+
+kable(mseA)
+kable(mseB)
+
+
+
+
+```
+
+## But there are infinite possibilities
+
+We can't test all `Inf` of the possible free parameters
+
+$y=b_0+b_1x_1$
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+#### Free parameters to test
+
+![](../include/figures/error-surf-1.png)
+
+:::
+
+::: {.column width="50%"}
+
+#### Level = SSE
+
+![](../include/figures/error-surf-2.png)
+
+:::
+
+::::
+
+
+## Error surface 
+
+![](../include/figures/error-surface.png)
+
+## Gradient descent, intuition
+
+![](../include/figures/grad-desc-intuition.jpeg)
+
+## Gradient descent 
+
+![](../include/figures/gradient-descent.png)
+
+## Gradient descent linear model 
+
+![](../include/figures/error-surface-linear.png)
+
+Linear models are convex functions: one minimum
+
+## Ordinary least squares
+
+Linear models have a solution: we can solve for the values with linear algebra. 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+#### $y = ax + b$
+
+$1.2 = a1 + b$
+
+$2.5 = a2 + b$
+
+::: 
+
+::: {.column width="50%"}
+
+```{r}
+lm(y ~ 1 + x, data)
+```
+
+```{r}
+data %>%
+    specify(y ~ 1 + x) %>%
+    fit()
+```
+
+:::
+
+::::
+
+`ordinary least squares`
+
+
+
+
+
+
+
+
+
+
+
+ -->

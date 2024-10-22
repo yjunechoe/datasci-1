@@ -217,7 +217,7 @@ log(brain_weight_g) ~ log(body_weight_g)
 Suppose you fit the model with `lm()` and return the following: 
 
 ```{r}
-#| code-fold: false
+#| echo: false
 
 model <- lm(log(brain_weight_g) ~ 1 + log(body_weight_g), data = data)
 model
@@ -504,6 +504,8 @@ Notice we did not include an interaction term between body weight and diet categ
 
 
 A modeler might choose not to include an interaction term based on exploratory visualization. The scatter plot shows roughly parallel lines for frugivorous and folivorous primates, which could indicate that body size influences brain weight similarly, regardless of diet.
+
+You could have also said something relevant to model complexity: the modeler may have noticed in exploratory data analysis that body size seems to influence brain weight similarly, and decided to keep the model simpler and easier to interpret by leaving out the interaction. 
 
 
 :::

@@ -320,24 +320,24 @@ $ group_size     &lt;dbl&gt; 6.68, 15.55, 5.93, 6.97, 3.00, 3.50, 3.51, 1.25, 16
 <h3 data-number="1.1" class="anchored" data-anchor-id="type-of-model"><span class="header-section-number">1.1</span> Type of model</h3>
 <ol type="a">
 <li><p>Is this a supervised or unsupervised learning problem?</p>
-<div id="radio_PMIWOXIXMZ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PMIWOXIXMZ" value="answer"> <span>Supervised</span></label><label><input type="radio" autocomplete="off" name="radio_PMIWOXIXMZ" value=""> <span>Unsupervised</span></label>
+<div id="radio_YNTFWNGDHM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YNTFWNGDHM" value="answer"> <span>Supervised</span></label><label><input type="radio" autocomplete="off" name="radio_YNTFWNGDHM" value=""> <span>Unsupervised</span></label>
 </div></li>
 <li><p>Is this regression or classification?</p>
-<div id="radio_GLYLLKFQCK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GLYLLKFQCK" value="answer"> <span>Regression</span></label><label><input type="radio" autocomplete="off" name="radio_GLYLLKFQCK" value=""> <span>Classification</span></label>
+<div id="radio_BVTOUPARJQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BVTOUPARJQ" value="answer"> <span>Regression</span></label><label><input type="radio" autocomplete="off" name="radio_BVTOUPARJQ" value=""> <span>Classification</span></label>
 </div></li>
 <li><p>Is the relationship between <code>brain_weight_g</code> and <code>body_weight_g</code> linear or nonlinear?</p>
-<div id="radio_FXWCZBADJU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FXWCZBADJU" value=""> <span>Linear</span></label><label><input type="radio" autocomplete="off" name="radio_FXWCZBADJU" value="answer"> <span>Nonlinear</span></label>
+<div id="radio_KVNXFDEZRR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KVNXFDEZRR" value=""> <span>Linear</span></label><label><input type="radio" autocomplete="off" name="radio_KVNXFDEZRR" value="answer"> <span>Nonlinear</span></label>
 </div></li>
 <li><p>Is the nonlinear relationship linearizable or non-linearizable?</p>
-<div id="radio_CUWFFJZAFL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CUWFFJZAFL" value="answer"> <span>Linearizable nonlinear</span></label><label><input type="radio" autocomplete="off" name="radio_CUWFFJZAFL" value=""> <span>Non-linearizable nonlinear</span></label><label><input type="radio" autocomplete="off" name="radio_CUWFFJZAFL" value=""> <span>Neither, the relationship is linear</span></label>
+<div id="radio_YVZPXOOBGB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YVZPXOOBGB" value="answer"> <span>Linearizable nonlinear</span></label><label><input type="radio" autocomplete="off" name="radio_YVZPXOOBGB" value=""> <span>Non-linearizable nonlinear</span></label><label><input type="radio" autocomplete="off" name="radio_YVZPXOOBGB" value=""> <span>Neither, the relationship is linear</span></label>
 </div></li>
 <li><p>What function could we choose to linearize this relationships?</p>
-<div id="radio_RRZMOUDJSI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RRZMOUDJSI" value=""> <span>Quadratic polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_RRZMOUDJSI" value=""> <span>Cubic polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_RRZMOUDJSI" value="answer"> <span>Log transformation</span></label><label><input type="radio" autocomplete="off" name="radio_RRZMOUDJSI" value=""> <span>None, the relationship is already linear</span></label><label><input type="radio" autocomplete="off" name="radio_RRZMOUDJSI" value=""> <span>None, the relationship is non-linearizable</span></label>
+<div id="radio_SMZWYGOLXO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SMZWYGOLXO" value=""> <span>Quadratic polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_SMZWYGOLXO" value=""> <span>Cubic polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_SMZWYGOLXO" value="answer"> <span>Log transformation</span></label><label><input type="radio" autocomplete="off" name="radio_SMZWYGOLXO" value=""> <span>None, the relationship is already linear</span></label><label><input type="radio" autocomplete="off" name="radio_SMZWYGOLXO" value=""> <span>None, the relationship is non-linearizable</span></label>
 </div></li>
 </ol>
 </section>
@@ -346,20 +346,20 @@ $ group_size     &lt;dbl&gt; 6.68, 15.55, 5.93, 6.97, 3.00, 3.50, 3.51, 1.25, 16
 <p>Suppose we specify the following model for the primate brains data: <span class="math inline">\(\log(brain\_weight\_g) = w_1  1 + w_2  \log(body\_weight\_g)\)</span></p>
 <ol type="a">
 <li><p>What is the response variable?</p>
-<div id="radio_VSSUUHXSLS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VSSUUHXSLS" value=""> <span>brain_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_VSSUUHXSLS" value=""> <span>body_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_VSSUUHXSLS" value="answer"> <span>log(brain_weight_g)</span></label><label><input type="radio" autocomplete="off" name="radio_VSSUUHXSLS" value=""> <span>log(body_weight_g)</span></label>
+<div id="radio_VTCIUIJSJI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VTCIUIJSJI" value=""> <span>brain_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_VTCIUIJSJI" value=""> <span>body_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_VTCIUIJSJI" value="answer"> <span>log(brain_weight_g)</span></label><label><input type="radio" autocomplete="off" name="radio_VTCIUIJSJI" value=""> <span>log(body_weight_g)</span></label>
 </div></li>
 <li><p>What is the explanatory variable?</p>
-<div id="radio_QWUDPVOOKJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QWUDPVOOKJ" value=""> <span>brain_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_QWUDPVOOKJ" value=""> <span>body_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_QWUDPVOOKJ" value=""> <span>log(brain_weight_g)</span></label><label><input type="radio" autocomplete="off" name="radio_QWUDPVOOKJ" value="answer"> <span>log(body_weight_g)</span></label>
+<div id="radio_IKKBONVSVY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IKKBONVSVY" value=""> <span>brain_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_IKKBONVSVY" value=""> <span>body_weight_g</span></label><label><input type="radio" autocomplete="off" name="radio_IKKBONVSVY" value=""> <span>log(brain_weight_g)</span></label><label><input type="radio" autocomplete="off" name="radio_IKKBONVSVY" value="answer"> <span>log(body_weight_g)</span></label>
 </div></li>
 <li><p>True or false, the functional form of this model can be expressed as a weighted sum of inputs? <span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></p>
-<div id="radio_BYNGVOEFSN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BYNGVOEFSN" value="answer"> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_BYNGVOEFSN" value=""> <span>False</span></label>
+<div id="radio_BCSBHRXYOX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BCSBHRXYOX" value="answer"> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_BCSBHRXYOX" value=""> <span>False</span></label>
 </div></li>
 <li><p>Which of the following model terms are included in the model specification above? Choose all that apply.</p>
-<div id="radio_JKFWFOQCSF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JKFWFOQCSF" value="answer"> <span>Intercept</span></label><label><input type="radio" autocomplete="off" name="radio_JKFWFOQCSF" value="answer"> <span>Main</span></label><label><input type="radio" autocomplete="off" name="radio_JKFWFOQCSF" value=""> <span>Interaction</span></label><label><input type="radio" autocomplete="off" name="radio_JKFWFOQCSF" value="answer"> <span>Transformation</span></label>
+<div id="radio_XIEVZFQXLJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XIEVZFQXLJ" value="answer"> <span>Intercept</span></label><label><input type="radio" autocomplete="off" name="radio_XIEVZFQXLJ" value="answer"> <span>Main</span></label><label><input type="radio" autocomplete="off" name="radio_XIEVZFQXLJ" value=""> <span>Interaction</span></label><label><input type="radio" autocomplete="off" name="radio_XIEVZFQXLJ" value="answer"> <span>Transformation</span></label>
 </div></li>
 <li><p>Specify the model equation in R notation.</p></li>
 </ol>
@@ -378,8 +378,6 @@ $ group_size     &lt;dbl&gt; 6.68, 15.55, 5.93, 6.97, 3.00, 3.50, 3.51, 1.25, 16
 <h3 data-number="1.3" class="anchored" data-anchor-id="fitted-model"><span class="header-section-number">1.3</span> Fitted model</h3>
 <p>Suppose you fit the model with <code>lm()</code> and return the following:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(brain_weight_g) <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">log</span>(body_weight_g), <span class="at">data =</span> data)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -392,16 +390,16 @@ Coefficients:
 </div>
 <ol type="a">
 <li><p>Which of the following is <span class="math inline">\(w_1\)</span> in the model specification <span class="math inline">\(\log(brain\_weight\_g) = w_1 1 + w_2 \log(body\_weight\_g)\)</span></p>
-<div id="radio_HVPTQKGRVF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HVPTQKGRVF" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_HVPTQKGRVF" value="answer"> <span>-2.4649</span></label><label><input type="radio" autocomplete="off" name="radio_HVPTQKGRVF" value=""> <span>0.7752</span></label><label><input type="radio" autocomplete="off" name="radio_HVPTQKGRVF" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_SJLIRJJXFE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SJLIRJJXFE" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_SJLIRJJXFE" value="answer"> <span>-2.4649</span></label><label><input type="radio" autocomplete="off" name="radio_SJLIRJJXFE" value=""> <span>0.7752</span></label><label><input type="radio" autocomplete="off" name="radio_SJLIRJJXFE" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 <li><p>Which of the following is <span class="math inline">\(w_2\)</span> in the model specification <span class="math inline">\(\log(brain\_weight\_g) = w_1 1 + w_2 \log(body\_weight\_g)\)</span></p>
-<div id="radio_HUBDLYGJVA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HUBDLYGJVA" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_HUBDLYGJVA" value=""> <span>-2.4649</span></label><label><input type="radio" autocomplete="off" name="radio_HUBDLYGJVA" value="answer"> <span>0.7752</span></label><label><input type="radio" autocomplete="off" name="radio_HUBDLYGJVA" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_JIIVPJUOHU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JIIVPJUOHU" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_JIIVPJUOHU" value=""> <span>-2.4649</span></label><label><input type="radio" autocomplete="off" name="radio_JIIVPJUOHU" value="answer"> <span>0.7752</span></label><label><input type="radio" autocomplete="off" name="radio_JIIVPJUOHU" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 <li><p>Suppose a primate has a <span class="math inline">\(\log(body\_weight\_g)\)</span> equal to 10. Which of the following would the model predict to be the primate’s <span class="math inline">\(\log(brain\_weight\_g)\)</span>?</p>
-<div id="radio_GBBYSDXUHZ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GBBYSDXUHZ" value=""> <span>25.21</span></label><label><input type="radio" autocomplete="off" name="radio_GBBYSDXUHZ" value="answer"> <span>5.29</span></label><label><input type="radio" autocomplete="off" name="radio_GBBYSDXUHZ" value=""> <span>-10.7752</span></label><label><input type="radio" autocomplete="off" name="radio_GBBYSDXUHZ" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_MMZTGGCVGE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MMZTGGCVGE" value=""> <span>25.21</span></label><label><input type="radio" autocomplete="off" name="radio_MMZTGGCVGE" value="answer"> <span>5.29</span></label><label><input type="radio" autocomplete="off" name="radio_MMZTGGCVGE" value=""> <span>-10.7752</span></label><label><input type="radio" autocomplete="off" name="radio_MMZTGGCVGE" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 <li><p>Which of the following figures could show the fitted model?</p></li>
 </ol>
@@ -414,8 +412,8 @@ Coefficients:
 </div>
 </div>
 </div>
-<div id="radio_HLOHXZEZVU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HLOHXZEZVU" value=""> <span>the blue line</span></label><label><input type="radio" autocomplete="off" name="radio_HLOHXZEZVU" value=""> <span>the red line</span></label><label><input type="radio" autocomplete="off" name="radio_HLOHXZEZVU" value="answer"> <span>the black line</span></label><label><input type="radio" autocomplete="off" name="radio_HLOHXZEZVU" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_AJLSGMGCAH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_AJLSGMGCAH" value=""> <span>the blue line</span></label><label><input type="radio" autocomplete="off" name="radio_AJLSGMGCAH" value=""> <span>the red line</span></label><label><input type="radio" autocomplete="off" name="radio_AJLSGMGCAH" value="answer"> <span>the black line</span></label><label><input type="radio" autocomplete="off" name="radio_AJLSGMGCAH" value=""> <span>Not enough information to determine this</span></label>
 </div>
 </section>
 </section>
@@ -424,21 +422,21 @@ Coefficients:
 <p>The <strong>Social Brain Hypothesis</strong> argues that the pressures of navigating increasingly complex social environments were a significant driver in the evolution of brain size and intelligence in humans and other primates.</p>
 <p>Let’s specify and fit this model in R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(brain_weight_g) <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">log</span>(group_size), </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> primate_brains)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(brain_weight_g) <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">log</span>(group_size), </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> primate_brains)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>primate_brains <span class="ot">&lt;-</span> primate_brains <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">y_body_group =</span> <span class="fu">predict</span>(model, primate_brains))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(primate_brains, <span class="fu">aes</span>(, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">log</span>(brain_weight_g),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">log</span>(group_size))</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="fu">aes</span>(<span class="at">y =</span> y_body_group)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>primate_brains <span class="ot">&lt;-</span> primate_brains <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">y_body_group =</span> <span class="fu">predict</span>(model, primate_brains))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(primate_brains, <span class="fu">aes</span>(, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">log</span>(brain_weight_g),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">log</span>(group_size))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="fu">aes</span>(<span class="at">y =</span> y_body_group)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -460,9 +458,9 @@ Coefficients:
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p><span class="math inline">\(\log(brain\_weight\_g) = w_1  1 + w_2  \log(group\_size)\)</span></p>
 <p>or, if you created new columns in your data with the the log transformed data, for example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">log_brain_weight =</span> <span class="fu">log</span>(brain_weight_g)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">log_group_size =</span> <span class="fu">log</span>(group_size))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">log_brain_weight =</span> <span class="fu">log</span>(brain_weight_g)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">log_group_size =</span> <span class="fu">log</span>(group_size))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>then you could have written:</p>
 <p><span class="math inline">\(\log(brain\_weight\_g) = w_1  1 + w_2  \log(group\_size)\)</span></p>
 </div>
@@ -470,16 +468,16 @@ Coefficients:
 </div>
 <ol start="3" type="a">
 <li><p>Given the figure above, which of the following could be the free paramter estimate for <span class="math inline">\(w_1\)</span>?</p>
-<div id="radio_PPYFDMROBI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PPYFDMROBI" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_PPYFDMROBI" value=""> <span>0.66</span></label><label><input type="radio" autocomplete="off" name="radio_PPYFDMROBI" value="answer"> <span>2.25</span></label><label><input type="radio" autocomplete="off" name="radio_PPYFDMROBI" value=""> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_PPYFDMROBI" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_GRPDKSVIQR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GRPDKSVIQR" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_GRPDKSVIQR" value=""> <span>0.66</span></label><label><input type="radio" autocomplete="off" name="radio_GRPDKSVIQR" value="answer"> <span>2.25</span></label><label><input type="radio" autocomplete="off" name="radio_GRPDKSVIQR" value=""> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_GRPDKSVIQR" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 <li><p>Given the figure above, which of the following could be the free paramter estimate for <span class="math inline">\(w_2\)</span>?</p>
-<div id="radio_LZGNZSVRXT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LZGNZSVRXT" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_LZGNZSVRXT" value="answer"> <span>0.66</span></label><label><input type="radio" autocomplete="off" name="radio_LZGNZSVRXT" value=""> <span>2.25</span></label><label><input type="radio" autocomplete="off" name="radio_LZGNZSVRXT" value=""> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_LZGNZSVRXT" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_SRDAVPLMBB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SRDAVPLMBB" value=""> <span>1</span></label><label><input type="radio" autocomplete="off" name="radio_SRDAVPLMBB" value="answer"> <span>0.66</span></label><label><input type="radio" autocomplete="off" name="radio_SRDAVPLMBB" value=""> <span>2.25</span></label><label><input type="radio" autocomplete="off" name="radio_SRDAVPLMBB" value=""> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_SRDAVPLMBB" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 <li><p>Suppose we encounter a primate in a (log) group size of 4. What could be the model prediction for their (log) brain weight?</p>
-<div id="radio_QULCZADFUG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QULCZADFUG" value=""> <span>3.5</span></label><label><input type="radio" autocomplete="off" name="radio_QULCZADFUG" value=""> <span>4.1</span></label><label><input type="radio" autocomplete="off" name="radio_QULCZADFUG" value="answer"> <span>4.9</span></label><label><input type="radio" autocomplete="off" name="radio_QULCZADFUG" value=""> <span>6.2</span></label><label><input type="radio" autocomplete="off" name="radio_QULCZADFUG" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_RZVNALBRMH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RZVNALBRMH" value=""> <span>3.5</span></label><label><input type="radio" autocomplete="off" name="radio_RZVNALBRMH" value=""> <span>4.1</span></label><label><input type="radio" autocomplete="off" name="radio_RZVNALBRMH" value="answer"> <span>4.9</span></label><label><input type="radio" autocomplete="off" name="radio_RZVNALBRMH" value=""> <span>6.2</span></label><label><input type="radio" autocomplete="off" name="radio_RZVNALBRMH" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -489,7 +487,7 @@ Coefficients:
 <p>Suppose we wanted to include <span class="math inline">\(\log(body\_size\_g)\)</span> back into the model as an additional predictor of <span class="math inline">\(\log(brain\_size\_g)\)</span>. Specify the model in R.</p>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(brain_size_g) <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">log</span>(group_size) <span class="sc">+</span> <span class="fu">log</span>(body_size_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(brain_size_g) <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">log</span>(group_size) <span class="sc">+</span> <span class="fu">log</span>(body_size_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -501,13 +499,13 @@ Coefficients:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>primate_brains <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">log</span>(brain_weight_g), </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">log</span>(body_weight_g),</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> diet_category</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">+</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>primate_brains <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">log</span>(brain_weight_g), </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">log</span>(body_weight_g),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> diet_category</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -521,16 +519,16 @@ Coefficients:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fruit_v_leaves <span class="ot">&lt;-</span> primate_brains <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(diet_category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Fol"</span>, <span class="st">"Frug"</span>)) </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>fruit_v_leaves <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">log</span>(body_weight_g), </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">log</span>(brain_weight_g), </span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> diet_category</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">+</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fruit_v_leaves <span class="ot">&lt;-</span> primate_brains <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(diet_category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Fol"</span>, <span class="st">"Frug"</span>)) </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>fruit_v_leaves <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">log</span>(body_weight_g), </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">log</span>(brain_weight_g), </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> diet_category</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -544,9 +542,9 @@ Coefficients:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(brain_weight_g) <span class="sc">~</span> <span class="fu">log</span>(body_weight_g) <span class="sc">+</span> diet_category, <span class="at">data =</span> fruit_v_leaves) </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(brain_weight_g) <span class="sc">~</span> <span class="fu">log</span>(body_weight_g) <span class="sc">+</span> diet_category, <span class="at">data =</span> fruit_v_leaves) </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -578,13 +576,14 @@ Coefficients:
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <p>A modeler might choose not to include an interaction term based on exploratory visualization. The scatter plot shows roughly parallel lines for frugivorous and folivorous primates, which could indicate that body size influences brain weight similarly, regardless of diet.</p>
+<p>You could have also said something relevant to model complexity: the modeler may have noticed in exploratory data analysis that body size seems to influence brain weight similarly, and decided to keep the model simpler and easier to interpret by leaving out the interaction.</p>
 </div>
 </div>
 </div>
 <ol start="3" type="a">
 <li><p>True or false: the <code>diet_category</code> variable is categorical, so this is a classification problem.</p>
-<div id="radio_RPCRMVPGCD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RPCRMVPGCD" value=""> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_RPCRMVPGCD" value="answer"> <span>False</span></label>
+<div id="radio_HHRBRBHMTI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HHRBRBHMTI" value=""> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_HHRBRBHMTI" value="answer"> <span>False</span></label>
 </div></li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -600,8 +599,8 @@ Coefficients:
 </div>
 <ol start="4" type="a">
 <li><p>Based on the fitted model returned by <code>lm()</code> above, which level of <code>diet_category</code> is the reference level?</p>
-<div id="radio_HESJSLRYIN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HESJSLRYIN" value="answer"> <span>Fol</span></label><label><input type="radio" autocomplete="off" name="radio_HESJSLRYIN" value=""> <span>Frug</span></label><label><input type="radio" autocomplete="off" name="radio_HESJSLRYIN" value=""> <span>Not enough information to determine this</span></label>
+<div id="radio_YJQQZAULQG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YJQQZAULQG" value="answer"> <span>Fol</span></label><label><input type="radio" autocomplete="off" name="radio_YJQQZAULQG" value=""> <span>Frug</span></label><label><input type="radio" autocomplete="off" name="radio_YJQQZAULQG" value=""> <span>Not enough information to determine this</span></label>
 </div></li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -621,7 +620,7 @@ Coefficients:
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="lab-07_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
@@ -646,7 +645,7 @@ Coefficients:
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="lab-07_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
@@ -689,8 +688,8 @@ Coefficients:
 <h2 data-number="5" class="anchored" data-anchor-id="polynomials"><span class="header-section-number">5</span> Polynomials</h2>
 <ol type="1">
 <li><p>What is the purpose of including polynomial terms in a linear model?</p>
-<div id="radio_YMOYXVOLCO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YMOYXVOLCO" value=""> <span>To improve model interpretability</span></label><label><input type="radio" autocomplete="off" name="radio_YMOYXVOLCO" value="answer"> <span>To model nonlinear relationships</span></label><label><input type="radio" autocomplete="off" name="radio_YMOYXVOLCO" value=""> <span>To reduce overfitting in the model</span></label><label><input type="radio" autocomplete="off" name="radio_YMOYXVOLCO" value=""> <span>To ensure that residuals are normally distributed</span></label>
+<div id="radio_SYDYFTIYJA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SYDYFTIYJA" value=""> <span>To improve model interpretability</span></label><label><input type="radio" autocomplete="off" name="radio_SYDYFTIYJA" value="answer"> <span>To model nonlinear relationships</span></label><label><input type="radio" autocomplete="off" name="radio_SYDYFTIYJA" value=""> <span>To reduce overfitting in the model</span></label><label><input type="radio" autocomplete="off" name="radio_SYDYFTIYJA" value=""> <span>To ensure that residuals are normally distributed</span></label>
 </div></li>
 <li><p>Which of the following is an example of a quadratic polynomial term in a linear model?</p>
 <ol type="a">
@@ -701,8 +700,8 @@ Coefficients:
 </ol>
 <p><input class="webex-solveme nospaces" size="4" data-answer="[&quot;b&quot;]"></p></li>
 <li><p>Why might higher-degree polynomial terms lead to overfitting in a linear model?</p>
-<div id="radio_OGEEYBYVMM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_OGEEYBYVMM" value=""> <span>Higher-degree terms make the model too simple</span></label><label><input type="radio" autocomplete="off" name="radio_OGEEYBYVMM" value="answer"> <span>Higher-degree terms force the model to fit the noise in the data</span></label><label><input type="radio" autocomplete="off" name="radio_OGEEYBYVMM" value=""> <span>Polynomial terms always reduce the model's flexibility</span></label><label><input type="radio" autocomplete="off" name="radio_OGEEYBYVMM" value=""> <span>Polynomial terms make the model biased</span></label>
+<div id="radio_WYUQXYXNIA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WYUQXYXNIA" value=""> <span>Higher-degree terms make the model too simple</span></label><label><input type="radio" autocomplete="off" name="radio_WYUQXYXNIA" value="answer"> <span>Higher-degree terms force the model to fit the noise in the data</span></label><label><input type="radio" autocomplete="off" name="radio_WYUQXYXNIA" value=""> <span>Polynomial terms always reduce the model's flexibility</span></label><label><input type="radio" autocomplete="off" name="radio_WYUQXYXNIA" value=""> <span>Polynomial terms make the model biased</span></label>
 </div></li>
 <li><p>Which of the following models includes both linear and quadratic terms</p>
 <ol type="a">
@@ -747,7 +746,7 @@ a. True or false, these data can be model with linear regression.
 
 
 
-    <div class='webex-radiogroup' id='radio_VJFXJHOZXA'><label><input type="radio" autocomplete="off" name="radio_VJFXJHOZXA" value="answer"></input> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_VJFXJHOZXA" value=""></input> <span>false</span></label></div>
+    <div class='webex-radiogroup' id='radio_ZZEVGVLUOO'><label><input type="radio" autocomplete="off" name="radio_ZZEVGVLUOO" value="answer"></input> <span>True</span></label><label><input type="radio" autocomplete="off" name="radio_ZZEVGVLUOO" value=""></input> <span>false</span></label></div>
 
 
 
@@ -771,7 +770,7 @@ c. If we want to perform linear regression, how should we handle the nonlinearit
 
 
 
-    <div class='webex-radiogroup' id='radio_QVWFDMLJXL'><label><input type="radio" autocomplete="off" name="radio_QVWFDMLJXL" value=""></input> <span>Transform the time variable</span></label><label><input type="radio" autocomplete="off" name="radio_QVWFDMLJXL" value="answer"></input> <span>Expand the input space with a polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_QVWFDMLJXL" value=""></input> <span>We need to fit a model other than linear regression here</span></label></div>
+    <div class='webex-radiogroup' id='radio_VCNBOVMJKL'><label><input type="radio" autocomplete="off" name="radio_VCNBOVMJKL" value=""></input> <span>Transform the time variable</span></label><label><input type="radio" autocomplete="off" name="radio_VCNBOVMJKL" value="answer"></input> <span>Expand the input space with a polynomial</span></label><label><input type="radio" autocomplete="off" name="radio_VCNBOVMJKL" value=""></input> <span>We need to fit a model other than linear regression here</span></label></div>
 
 
 

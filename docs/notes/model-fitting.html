@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.5.56" />
 
-<meta name="author" content="Katie Schuler">
-<meta name="dcterms.date" content="2024-10-22">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
-<title>Model fitting – DataSci for Lang &amp; Mind</title>
+<meta name="author" content="Katie Schuler" />
+<meta name="dcterms.date" content="2024-10-22" />
+
+<title>Model fitting – DataSci for Lang & Mind</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,23 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<!-- htmldependencies:E3FAD763 -->
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -133,22 +119,25 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../include/webex.css">
+<link rel="stylesheet" href="../include/webex.css" />
 </head>
 
-<body class="nav-sidebar docked">
+<body>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn"
+      data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      DataSci for Lang &amp; Mind
-      </li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" role="link"
+        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -162,7 +151,9 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">DataSci for Lang &amp; Mind</a> 
+      <a href="/">
+      DataSci for Lang &amp; Mind
+      </a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -174,19 +165,19 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html#resources" class="sidebar-item-text sidebar-link">
+  <a href="/index.qmd#resources" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../index.html#materials" class="sidebar-item-text sidebar-link">
+            <a href="/index.qmd#materials" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Materials</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -195,25 +186,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html#study-guides" class="sidebar-item-text sidebar-link">
+  <a href="/index.qmd#study-guides" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study guides</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html#problem-sets" class="sidebar-item-text sidebar-link">
+  <a href="/index.qmd#problem-sets" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html#exams" class="sidebar-item-text sidebar-link">
+  <a href="/index.qmd#exams" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exams</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html#lab-exercises" class="sidebar-item-text sidebar-link">
+  <a href="/index.qmd#lab-exercises" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab exercises</span></a>
   </div>
 </li>
@@ -221,31 +212,17 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html#schedule" class="sidebar-item-text sidebar-link">
+  <a href="/index.qmd#schedule" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" ></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#fitting-models-in-r" id="toc-fitting-models-in-r" class="nav-link active" data-scroll-target="#fitting-models-in-r"><span class="header-section-number">1</span> Fitting Models in R</a></li>
-  <li><a href="#goodness-of-fit" id="toc-goodness-of-fit" class="nav-link" data-scroll-target="#goodness-of-fit"><span class="header-section-number">2</span> Goodness-of-fit</a></li>
-  <li><a href="#iterative-optimization" id="toc-iterative-optimization" class="nav-link" data-scroll-target="#iterative-optimization"><span class="header-section-number">3</span> Iterative Optimization</a>
-  <ul class="collapse">
-  <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent"><span class="header-section-number">3.1</span> Gradient descent</a></li>
-  <li><a href="#nearly-identical-to-lm" id="toc-nearly-identical-to-lm" class="nav-link" data-scroll-target="#nearly-identical-to-lm"><span class="header-section-number">3.2</span> Nearly identical to <code>lm()</code></a></li>
-  <li><a href="#local-minimum-problem" id="toc-local-minimum-problem" class="nav-link" data-scroll-target="#local-minimum-problem"><span class="header-section-number">3.3</span> Local minimum problem</a></li>
-  </ul></li>
-  <li><a href="#ordinary-least-squares" id="toc-ordinary-least-squares" class="nav-link" data-scroll-target="#ordinary-least-squares"><span class="header-section-number">4</span> Ordinary Least-Squares</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="model-fitting.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+        <div id="quarto-toc-target"></div>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -280,11 +257,25 @@ window.Quarto = {
 
 </header>
 
-
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fitting-models-in-r" id="toc-fitting-models-in-r"><span class="header-section-number">1</span> Fitting Models in R</a></li>
+  <li><a href="#goodness-of-fit" id="toc-goodness-of-fit"><span class="header-section-number">2</span> Goodness-of-fit</a></li>
+  <li><a href="#iterative-optimization" id="toc-iterative-optimization"><span class="header-section-number">3</span> Iterative Optimization</a>
+  <ul>
+  <li><a href="#gradient-descent" id="toc-gradient-descent"><span class="header-section-number">3.1</span> Gradient descent</a></li>
+  <li><a href="#nearly-identical-to-lm" id="toc-nearly-identical-to-lm"><span class="header-section-number">3.2</span> Nearly identical to <code>lm()</code></a></li>
+  <li><a href="#local-minimum-problem" id="toc-local-minimum-problem"><span class="header-section-number">3.3</span> Local minimum problem</a></li>
+  </ul></li>
+  <li><a href="#ordinary-least-squares" id="toc-ordinary-least-squares"><span class="header-section-number">4</span> Ordinary Least-Squares</a></li>
+  </ul>
+</nav>
 <div class="callout callout-style-default callout-warning callout-titled" title="Under construction">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Under construction
@@ -297,7 +288,7 @@ Under construction
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
@@ -310,21 +301,21 @@ Under construction
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">experience =</span> <span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">69</span>, <span class="dv">89</span>, <span class="dv">99</span>, <span class="dv">109</span>),</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">rt =</span> <span class="fu">c</span>(<span class="dv">124</span>, <span class="dv">95</span>, <span class="dv">71</span>, <span class="dv">45</span>, <span class="dv">18</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </details>
 </div>
 <p>Suppose that we have a set of data and we have specified the model we’d like to fit. The next step is to <strong>fit the model</strong> to the data. That is, to find the best estimate of the free parameters (weights) such that the model describes the data as well as possible.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figure>
+<p><img src="model-fitting_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672" /></p>
 </figure>
 </div>
 </div>
 </div>
 <section id="fitting-models-in-r" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="fitting-models-in-r"><span class="header-section-number">1</span> Fitting Models in R</h2>
+<h2 data-number="1"><span class="header-section-number">1</span> Fitting Models in R</h2>
 <p>We will fit linear models using three common methods. During model specification week, we already started fitting models with <code>lm()</code> and <code>infer</code>. Today we will expand to include the <code>parsnip</code> way.</p>
 <ol type="1">
 <li><p><strong><code>lm()</code></strong>: This is the most basic and widely used function for fitting linear models. It directly estimates model parameters based on the ordinary least-squares method, providing regression outputs such as coefficients, R-squared, etc.</p></li>
@@ -333,8 +324,8 @@ Under construction
 </ol>
 <p>Each method has its strengths: <code>lm()</code> for simplicity, <code>infer</code> for inferential statistics, and <code>parsnip</code> for robust model flexibility across different algorithms. To illustrate, we can fit the data in the figure above all 3 ways.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with lm()</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with lm()</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -344,10 +335,10 @@ Coefficients:
 (Intercept)   experience  
     211.271       -1.695  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with infer</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with infer</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(<span class="at">formula =</span> rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   term       estimate
@@ -355,10 +346,10 @@ Coefficients:
 1 intercept    211.  
 2 experience    -1.69</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with parsnip </span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with parsnip </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">&quot;lm&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>parsnip model object
 
@@ -373,7 +364,7 @@ Coefficients:
 </div>
 </section>
 <section id="goodness-of-fit" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="goodness-of-fit"><span class="header-section-number">2</span> Goodness-of-fit</h2>
+<h2 data-number="2"><span class="header-section-number">2</span> Goodness-of-fit</h2>
 <p>In order to find the best fitting free parameters, we first need to quantify what it means to fit best. <strong>Sum of squared error</strong> (SSE) is one common approach, in which we take the differences between the data and the model fit – 🥸 also called the “error” or “residuals” – square those differences, and then take their sum.</p>
 <p><span class="math inline">\(SSE=\sum_{i=i}^{n} (d_{i} - m_{i})^2\)</span></p>
 <ul>
@@ -388,7 +379,7 @@ Coefficients:
 </ol>
 </section>
 <section id="iterative-optimization" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="iterative-optimization"><span class="header-section-number">3</span> Iterative Optimization</h2>
+<h2 data-number="3"><span class="header-section-number">3</span> Iterative Optimization</h2>
 <p>In <strong>Iterative optimization</strong>, we think of finding the best fitting parameters as a <em>search problem</em> in which we have a <em>parameter space</em> and a <em>cost function</em> (or a “loss” function). To find the best fitting parameter estimates, we search through the space to find the point with the smallest possible cost function.</p>
 <ul>
 <li>We already have a cost function: sum of squared error
@@ -405,14 +396,14 @@ Coefficients:
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="model-fitting_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="model-fitting_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672" /></p>
 </div>
 </div>
 </div>
 <ul>
 <li>If there are two parameters to estimate (two inputs to the model), the error surface will be a bumpy sheet.</li>
 </ul>
-<p><img src="../assests/images/error-surface.png" class="img-fluid"></p>
+<p><img src="../assests/images/error-surface.png" class="img-fluid" /></p>
 <p>To search through the parameter space via iterative optimization, we could use any number of iterative optimization algorithms. Many of them follow the same conceptual process (but differ in precise implementation):</p>
 <ol type="1">
 <li>Start at some point on the error surface (<em>initial seed</em>)</li>
@@ -420,7 +411,7 @@ Coefficients:
 <li>Take a step in some direction that reduces the error</li>
 <li>Repeat steps 2-4 until improvements are very small (less than some very small predefined number).</li>
 </ol>
-<p><img src="../assests/images/gradient-descent.png" class="img-fluid"></p>
+<p><img src="../assests/images/gradient-descent.png" class="img-fluid" /></p>
 <p>If this feels too abstract, we can also understand iterative optimization with a simple metaphor: suppose you were dropped from a plane or helicopter at a random spot in hilly terrain and wanted to find the lowest point. You could solve this with iterative optimization:</p>
 <ol type="1">
 <li>Start at some point in the hilly terrain (<em>inital seed</em>)</li>
@@ -428,32 +419,32 @@ Coefficients:
 <li>Take a small step downhill in that direction.</li>
 <li>Repeat these steps until you reach a spot where all directions around you either ascend or remain flat.</li>
 </ol>
-<p><img src="../assests/images/grad-desc-intuition.jpeg" class="img-fluid"></p>
+<p><img src="../assests/images/grad-desc-intuition.jpeg" class="img-fluid" /></p>
 <section id="gradient-descent" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="gradient-descent"><span class="header-section-number">3.1</span> Gradient descent</h3>
+<h3 data-number="3.1"><span class="header-section-number">3.1</span> Gradient descent</h3>
 <p><strong>Gradient descent</strong> is one such iterative optimization algorithm. We can implement gradient descent in R with the <a href="https://www.rdocumentation.org/packages/optimg/versions/0.1.2/topics/optimg"><code>optimg</code></a> package to find the best fitting parameter estimates for our model.</p>
 <ol type="1">
 <li>First we write our cost function — our own function in R! — which must take a <code>data</code> argument (our data set) and a <code>par</code> parameter (a vector of parameter estimates we want to test) to work with <code>optimg</code>.</li>
 </ol>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="cf">function</span>(data, par) {</span>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="cf">function</span>(data, par) {</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    data <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">prediction =</span> par[<span class="dv">1</span>] <span class="sc">+</span> par[<span class="dv">2</span>] <span class="sc">*</span> experience) <span class="sc">%&gt;%</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">error =</span> prediction <span class="sc">-</span> rt) <span class="sc">%&gt;%</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">squared_error =</span> error<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">with</span>(<span class="fu">sum</span>(squared_error))</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Then we pass our data, cost function, and initial seed paramters to the <code>optimg</code> function to perform gradient descent.</li>
 </ol>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">optimg</span>(</span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">optimg</span>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> data,  <span class="co"># our data</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">par =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="co"># our starting parameters</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fn =</span> SSE,     <span class="co"># our cost function (which receives data and par)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"STGD"</span> <span class="co"># our iterative optimization algorithm </span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">&quot;STGD&quot;</span> <span class="co"># our iterative optimization algorithm </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$par
 [1] 211.26155  -1.69473
@@ -470,7 +461,7 @@ $convergence
 </div>
 <p>We can compare <code>optimg</code>’s estimates to that of <code>lm()</code> to see that they are <em>nearly</em> identical:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data) </span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -483,25 +474,26 @@ Coefficients:
 </div>
 </section>
 <section id="nearly-identical-to-lm" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="nearly-identical-to-lm"><span class="header-section-number">3.2</span> Nearly identical to <code>lm()</code></h3>
+<h3 data-number="3.2"><span class="header-section-number">3.2</span> Nearly identical to <code>lm()</code></h3>
+<p>Note that solving for the best fitting free parameters via iterative optimization gets us an <em>approximate</em> value of the best fitting free parameters. Based on how the algorithm is implemented, we might decide to stop iterating too early (because we are close enough to the point) or even step over minimum point if our step size is too big.</p>
 </section>
 <section id="local-minimum-problem" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="local-minimum-problem"><span class="header-section-number">3.3</span> Local minimum problem</h3>
+<h3 data-number="3.3"><span class="header-section-number">3.3</span> Local minimum problem</h3>
 <p>A potential problem with iterative optimization algorithms is the risk of finding a <em>local minimum</em>. That is, we find a location on the error surface that is a minimum within some local range (so our algorithm stops looking), but we are not at the absolute minimum (also called the <em>global minimum</em>).</p>
 <ul>
 <li>For all linear models, the error surface is shaped like a bowl, so there is <em>no risk</em> of a local minimum. As long as an algorithm can adjust parameters to reduce errors, we will eventually be able to get to <em>approximately</em> the optimal solution. We can see this clearly in the one or two parameter case (but it generalizes to higher dimensions as well).</li>
 </ul>
 <p>Linear v. nonlinear model with one parameter:</p>
-<p><img src="../assests/images/local-v-global-min.png" class="img-fluid"></p>
+<p><img src="../assests/images/local-v-global-min.png" class="img-fluid" /></p>
 <p>Linear model with two parameters:</p>
-<p><img src="../assests/images/grad-desct-linearmodel.png" class="img-fluid"></p>
+<p><img src="../assests/images/grad-desct-linearmodel.png" class="img-fluid" /></p>
 </section>
 </section>
 <section id="ordinary-least-squares" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="ordinary-least-squares"><span class="header-section-number">4</span> Ordinary Least-Squares</h2>
+<h2 data-number="4"><span class="header-section-number">4</span> Ordinary Least-Squares</h2>
 <p>Another way we can find the best fitting free parameters for linear (or linearizable nonlinear) models is to use the Ordinary Least-Squares (OLS) estimate.</p>
 <ul>
-<li>In OLS, the best-fitting free parameters are found by solving a system of equations (using matrix operations/linear algebra) which leads to a closed-form solution.<br>
+<li>In OLS, the best-fitting free parameters are found by solving a system of equations (using matrix operations/linear algebra) which leads to a closed-form solution.<br />
 </li>
 <li>This means that OLS provides <em>exact values</em> of the best-fitting parameters in one step (as long as a few necessary conditions are met).</li>
 <li>We can contrast this with iterative optimization algorithms (like gradient descent) which gradually adjust the model parameters over multiple iterations to minimize the error, often requiring many steps to converge on <em>approximate values</em> of the best-fitting parameters.</li>
@@ -612,7 +604,7 @@ Coefficients:
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Box 1: Summary of OLS solution
@@ -638,13 +630,13 @@ Box 1: Summary of OLS solution
 </div>
 <p>We can demonstrate this with code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a> ols_matrix_way <span class="ot">&lt;-</span> <span class="cf">function</span>(X, Y){</span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a> ols_matrix_way <span class="ot">&lt;-</span> <span class="cf">function</span>(X, Y){</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a> }</span></code></pre></div>
 </div>
 <p>We need to construct X and Y (must be matrices):</p>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(response_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(rt) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>(explanatory_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">int =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(int, experience) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(response_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(rt) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>(explanatory_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">int =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(int, experience) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span></code></pre></div>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -667,7 +659,7 @@ Box 1: Summary of OLS solution
 </div>
 <p>Then we can use our function to generate the OLS solution:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_matrix_way</span>(explanatory_matrix, response_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_matrix_way</span>(explanatory_matrix, response_matrix)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   rt
 int        211.270690
@@ -676,7 +668,7 @@ experience  -1.694828</code></pre>
 </div>
 <p>Which is <strong>exactly the same</strong> as that returned by <code>lm()</code> (because lm is doing this!)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(rt <span class="sc">~</span> experience, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(rt <span class="sc">~</span> experience, <span class="at">data =</span> data)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -690,14 +682,14 @@ Coefficients:
 <p>Importantly, if there are more regressors than data points, then there is no OLS solution. The intuition for the underlying math is that if there are more weights than data points, there are infinatly many solutions, all of which acheive zero error. The linear algebra fans among us might appreciate that the xtx component of our equation is ill-defined in this case.</p>
 <p>Here’a an example. Suppose we have the following dataset</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>), </span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">z =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), </span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>(model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x, <span class="at">data =</span> data2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>(model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x, <span class="at">data =</span> data2))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -707,7 +699,7 @@ Coefficients:
 (Intercept)            x  
     -0.3333       2.5000  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x <span class="sc">+</span> z <span class="sc">+</span> a, <span class="at">data =</span> data2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x <span class="sc">+</span> z <span class="sc">+</span> a, <span class="at">data =</span> data2))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -717,33 +709,14 @@ Coefficients:
 (Intercept)            x            z            a  
     -0.3333       2.5000           NA           NA  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = y ~ 1 + x + z + a, data = data2)
-
-Residuals:
-      1       2       3 
--0.1667  0.3333 -0.1667 
-
-Coefficients: (2 not defined because of singularities)
-            Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept)  -0.3333     0.6236  -0.535   0.6875  
-x             2.5000     0.2887   8.660   0.0732 .
-z                 NA         NA      NA       NA  
-a                 NA         NA      NA       NA  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.4082 on 1 degrees of freedom
-Multiple R-squared:  0.9868,    Adjusted R-squared:  0.9737 
-F-statistic:    75 on 1 and 1 DF,  p-value: 0.07319</code></pre>
-</div>
 </div>
 <p><code>lm()</code> is smart and fits the reduced model it <em>can</em> fit. If we try to solve this the matrix way via our homegrown function, we get an error.</p>
-
-
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar-title">DataSci for Lang &amp; Mind</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-navbar-title">DataSci for Lang &amp; Mind</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/index.htmlSyllabus">Syllabus</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/index.qmd#resourcesResources">Resources</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:quarto-sidebar-section-1">Materials</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/index.qmd#study-guidesStudy-guides">Study guides</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/index.qmd#problem-setsProblem-sets">Problem sets</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/index.qmd#examsExams">Exams</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/index.qmd#lab-exercisesLab-exercises">Lab exercises</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-int-sidebar:/index.qmd#scheduleSchedule">Schedule</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-metatitle">Model fitting – DataSci for Lang &amp; Mind</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-twittercardtitle">Model fitting – DataSci for Lang &amp; Mind</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-ogcardtitle">Model fitting – DataSci for Lang &amp; Mind</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-metasitename">DataSci for Lang &amp; Mind</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-twittercarddesc"></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="quarto-ogcardddesc"></span></p>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -953,7 +926,7 @@ window.onload = function() {
 }
 
 </script>
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1375,7 +1348,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
+</body>
 
-
-
-</body></html>
+</html>

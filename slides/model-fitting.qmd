@@ -36,7 +36,11 @@ data <- tibble(
 ## Announcements
 
 - Final exam scheduled for December 19th at noon
-- If you have a conflict, please let us know by November 1. We can proctor an earlier date. 
+- If you have a conflict, please let us know by Demeber 6. We can proctor an earlier date. 
+
+- Pset 03 solutions to be posted today! 
+
+- Psets 04 and 05 pushed back by one week
 
 
 ## You are `here` {.smaller} 

@@ -6,7 +6,7 @@ date: 2024-10-22
 ---
 
 :::{.callout-warning title="Under construction"}
-More coming for Thursday! 
+Still working on these. More to come Thursday.
 :::
 
 ```{r}
@@ -71,9 +71,9 @@ linear_reg() %>%
 ```
 
 
-## The Basics 
+## Goodness-of-fit
 
-In order to find the best fitting free parameters, we first need to quantify *goodness-of-fit*. Sum of squared error is one common approach, in which we find take the sum of the squares of the differences between the data and the model fit: 
+In order to find the best fitting free parameters, we first need to quantify what it means to fit best. **Sum of squared error** (SSE) is one common approach, in which we take the differences between the data and the model fit -- 🥸 also called the "error" or "residuals" -- square those differences, and then take their sum. 
 
 $SSE=\sum_{i=i}^{n} (d_{i} - m_{i})^2$  
 
@@ -81,20 +81,62 @@ $SSE=\sum_{i=i}^{n} (d_{i} - m_{i})^2$
 - $d_i$ is the $i$-th data point
 - $m_i$ is the model fit for the $i$-th data point 
 
-Given this way of quantifying goodness of fit, our job is to figure out the set of parameter values that minimize the sum of squared error. But how do we do that? In this course, we will consider two ways: 
+Given this way of quantifying goodness-of-fit, our job is to figure out the set of parameter values with the smallest possible sum of squared error. But how do we do that? There are two common approaches: 
 
-1. **Iterative Optimization** - for linear and nonlinear models
-2. **Ordinary Least-Squares** - for linear models
+1. **Iterative Optimization** - works for both linear and nonlinear models
+2. **Ordinary Least-Squares** - works for linear models only
 
 
 ## Iterative Optimization 
 
-We can think of finding the best fitting parameters as a search problem in which we have a *parameter space* and a *cost function* (or a "loss" function). To find the best fitting parameter estimates, we search through the space to find the point that minimizes the cost function. 
+```{r}
+#| echo: false
+
+
+SSE <- function(data, par) {
+    data %>%
+        mutate(prediction = par[1]) %>%
+        mutate(error = prediction - rt) %>%
+        mutate(squared_error = error^2) %>%
+        with(sum(squared_error))
+}
+
+# Generate all combinations
+possible_params <- tibble(
+    param1 = seq(0, 100, by=0.01)
+)
+
+possible_params <- possible_params %>%
+    rowwise() %>%
+    mutate(error = SSE(data, c(param1))) %>%
+    ungroup() 
+
+min_row = possible_params[which.min(possible_params$error), ]
+
+```
+
+In **Iterative optimization**, we think of finding the best fitting parameters as a *search problem* in which we have a *parameter space* and a *cost function* (or a "loss" function). To find the best fitting parameter estimates, we search through the space to find the point with the smallest possible cost function. 
 
 - We already have a cost function: sum of squared error
     - $\sum_{i=i}^{n} (d_{i} - m_{i})^2$ 
-- We can visualize iterative optimization as trying to find the minimum point on an **error surface** 
-- If there is one parameter to estimate (one input to the model), the error surface will be a curvy line. If there are two parameters to estimate (two inputs to the model), the error surface will be a bumpy sheet. 
+- We can visualize iterative optimization by plotting our cost function on the y-axis, and our possible paramter weights on the x-axis (and z-axis, and higher dimensions as the number of inputs goes up). 
+- We call this visualizeation the  **error surface** 
+- If there is one parameter to estimate (one input to the model), the error surface will be a curvy line. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| layout-ncol: 2
+
+ ggplot(possible_params, aes(x = param1, y = error)) +
+ geom_point()  +
+ geom_point(size = 4, color = "red", aes(x = 70.6, y = 6869)) +
+ labs(x = expression(weight[1]), y = "sum of squared error") +
+ theme_classic(base_size = 20)
+```
+
+
+- If there are two parameters to estimate (two inputs to the model), the error surface will be a bumpy sheet. 
 
 ![](/assests/images/error-surface.png)
 
@@ -107,10 +149,20 @@ To search through the parameter space via iterative optimization, we could use a
 
 ![](/assests/images/gradient-descent.png)
 
+If this feels too abstract, we can also understand iterative optimization with a simple metaphor: suppose you were dropped from a plane or helicopter at a random spot in hilly terrain and wanted to find the lowest point. You could solve this with iterative optimization: 
 
-**Gradient descent** is simple iterative optimization algorithm, widely used in machine learning applications. We can implement gradient descent in R with the `optimg` package to find the best fitting parameter estimates. 
+1. Start at some point in the hilly terrain (*inital seed*) 
+2. Look around you to determine the direction in which the ground seems to be sloping downward the most. 
+2. Take a small step downhill in that direction.
+3. Repeat these steps until you reach a spot where all directions around you either ascend or remain flat. 
 
-1. First we write our cost function — a literal function in R — which must take a `data` argument (our data set) and a `par` parameter (a vector of parameter estimates we want to test). 
+![](/assests/images/grad-desc-intuition.jpeg)
+
+### Gradient descent
+
+**Gradient descent** is one such iterative optimization algorithm. We can implement gradient descent in R with the [`optimg`](https://www.rdocumentation.org/packages/optimg/versions/0.1.2/topics/optimg) package to find the best fitting parameter estimates for our model. 
+
+1. First we write our cost function — our own function in R! — which must take a `data` argument (our data set) and a `par` parameter (a vector of parameter estimates we want to test) to work with `optimg`. 
 
 ```{r}
 #| output-location: column
@@ -124,7 +176,7 @@ SSE <- function(data, par) {
 }
 ```
 
-2. Then we pass our data, cost function, and paramters to test to the `optimg` function to perform gradient descent. 
+2. Then we pass our data, cost function, and initial seed paramters to the `optimg` function to perform gradient descent. 
 
 ```{r}
 #| output-location: column
@@ -132,19 +184,38 @@ SSE <- function(data, par) {
 optimg(
     data = data,  # our data
     par = c(0,0), # our starting parameters
-    fn = SSE,     # our cost function
+    fn = SSE,     # our cost function (which receives data and par)
     method = "STGD" # our iterative optimization algorithm 
     )
 ```
 
-We can compare `optimg`'s estimates to that of `lm()` to see that they are nearly identical: 
+We can compare `optimg`'s estimates to that of `lm()` to see that they are *nearly* identical: 
 
 ```{r}
 lm(rt ~ 1 + experience, data = data) 
 ```
 
+### Nearly identical to `lm()`
+
+### Local v global minimum 
 
 
 
 
 ## Ordinary Least-Squares 
+
+```{r}
+data2 <- tibble(
+    y = c(2, 5, 7), 
+    x = c(1, 2, 3), 
+    z = c(2, 4, 6), 
+    a = c(6, 7, 8)
+)
+
+(model1 <- lm(y ~ 1 + x, data = data2))
+
+(model2 <- lm(y ~ 1 + x + z + a, data = data2))
+
+summary(model2)
+
+```

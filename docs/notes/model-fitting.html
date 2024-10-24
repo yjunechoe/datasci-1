@@ -236,8 +236,13 @@ window.Quarto = {
    
   <ul>
   <li><a href="#fitting-models-in-r" id="toc-fitting-models-in-r" class="nav-link active" data-scroll-target="#fitting-models-in-r"><span class="header-section-number">1</span> Fitting Models in R</a></li>
-  <li><a href="#the-basics" id="toc-the-basics" class="nav-link" data-scroll-target="#the-basics"><span class="header-section-number">2</span> The Basics</a></li>
-  <li><a href="#iterative-optimization" id="toc-iterative-optimization" class="nav-link" data-scroll-target="#iterative-optimization"><span class="header-section-number">3</span> Iterative Optimization</a></li>
+  <li><a href="#goodness-of-fit" id="toc-goodness-of-fit" class="nav-link" data-scroll-target="#goodness-of-fit"><span class="header-section-number">2</span> Goodness-of-fit</a></li>
+  <li><a href="#iterative-optimization" id="toc-iterative-optimization" class="nav-link" data-scroll-target="#iterative-optimization"><span class="header-section-number">3</span> Iterative Optimization</a>
+  <ul class="collapse">
+  <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent"><span class="header-section-number">3.1</span> Gradient descent</a></li>
+  <li><a href="#nearly-identical-to-lm" id="toc-nearly-identical-to-lm" class="nav-link" data-scroll-target="#nearly-identical-to-lm"><span class="header-section-number">3.2</span> Nearly identical to <code>lm()</code></a></li>
+  <li><a href="#local-v-global-minimum" id="toc-local-v-global-minimum" class="nav-link" data-scroll-target="#local-v-global-minimum"><span class="header-section-number">3.3</span> Local v global minimum</a></li>
+  </ul></li>
   <li><a href="#ordinary-least-squares" id="toc-ordinary-least-squares" class="nav-link" data-scroll-target="#ordinary-least-squares"><span class="header-section-number">4</span> Ordinary Least-Squares</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="model-fitting.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -286,7 +291,7 @@ Under construction
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>More coming for Thursday!</p>
+<p>Still working on these. More to come Thursday.</p>
 </div>
 </div>
 <div class="cell">
@@ -367,31 +372,45 @@ Coefficients:
 </div>
 </div>
 </section>
-<section id="the-basics" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="the-basics"><span class="header-section-number">2</span> The Basics</h2>
-<p>In order to find the best fitting free parameters, we first need to quantify <em>goodness-of-fit</em>. Sum of squared error is one common approach, in which we find take the sum of the squares of the differences between the data and the model fit:</p>
+<section id="goodness-of-fit" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="goodness-of-fit"><span class="header-section-number">2</span> Goodness-of-fit</h2>
+<p>In order to find the best fitting free parameters, we first need to quantify what it means to fit best. <strong>Sum of squared error</strong> (SSE) is one common approach, in which we take the differences between the data and the model fit – 🥸 also called the “error” or “residuals” – square those differences, and then take their sum.</p>
 <p><span class="math inline">\(SSE=\sum_{i=i}^{n} (d_{i} - m_{i})^2\)</span></p>
 <ul>
 <li><span class="math inline">\(n\)</span> is the number of data points</li>
 <li><span class="math inline">\(d_i\)</span> is the <span class="math inline">\(i\)</span>-th data point</li>
 <li><span class="math inline">\(m_i\)</span> is the model fit for the <span class="math inline">\(i\)</span>-th data point</li>
 </ul>
-<p>Given this way of quantifying goodness of fit, our job is to figure out the set of parameter values that minimize the sum of squared error. But how do we do that? In this course, we will consider two ways:</p>
+<p>Given this way of quantifying goodness-of-fit, our job is to figure out the set of parameter values with the smallest possible sum of squared error. But how do we do that? There are two common approaches:</p>
 <ol type="1">
-<li><strong>Iterative Optimization</strong> - for linear and nonlinear models</li>
-<li><strong>Ordinary Least-Squares</strong> - for linear models</li>
+<li><strong>Iterative Optimization</strong> - works for both linear and nonlinear models</li>
+<li><strong>Ordinary Least-Squares</strong> - works for linear models only</li>
 </ol>
 </section>
 <section id="iterative-optimization" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="iterative-optimization"><span class="header-section-number">3</span> Iterative Optimization</h2>
-<p>We can think of finding the best fitting parameters as a search problem in which we have a <em>parameter space</em> and a <em>cost function</em> (or a “loss” function). To find the best fitting parameter estimates, we search through the space to find the point that minimizes the cost function.</p>
+<p>In <strong>Iterative optimization</strong>, we think of finding the best fitting parameters as a <em>search problem</em> in which we have a <em>parameter space</em> and a <em>cost function</em> (or a “loss” function). To find the best fitting parameter estimates, we search through the space to find the point with the smallest possible cost function.</p>
 <ul>
 <li>We already have a cost function: sum of squared error
 <ul>
 <li><span class="math inline">\(\sum_{i=i}^{n} (d_{i} - m_{i})^2\)</span></li>
 </ul></li>
-<li>We can visualize iterative optimization as trying to find the minimum point on an <strong>error surface</strong></li>
-<li>If there is one parameter to estimate (one input to the model), the error surface will be a curvy line. If there are two parameters to estimate (two inputs to the model), the error surface will be a bumpy sheet.</li>
+<li>We can visualize iterative optimization by plotting our cost function on the y-axis, and our possible paramter weights on the x-axis (and z-axis, and higher dimensions as the number of inputs goes up).</li>
+<li>We call this visualizeation the <strong>error surface</strong></li>
+<li>If there is one parameter to estimate (one input to the model), the error surface will be a curvy line.</li>
+</ul>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="model-fitting_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<ul>
+<li>If there are two parameters to estimate (two inputs to the model), the error surface will be a bumpy sheet.</li>
 </ul>
 <p><img src="../assests/images/error-surface.png" class="img-fluid"></p>
 <p>To search through the parameter space via iterative optimization, we could use any number of iterative optimization algorithms. Many of them follow the same conceptual process (but differ in precise implementation):</p>
@@ -402,9 +421,19 @@ Coefficients:
 <li>Repeat steps 2-4 until improvements are very small (less than some very small predefined number).</li>
 </ol>
 <p><img src="../assests/images/gradient-descent.png" class="img-fluid"></p>
-<p><strong>Gradient descent</strong> is simple iterative optimization algorithm, widely used in machine learning applications. We can implement gradient descent in R with the <code>optimg</code> package to find the best fitting parameter estimates.</p>
+<p>If this feels too abstract, we can also understand iterative optimization with a simple metaphor: suppose you were dropped from a plane or helicopter at a random spot in hilly terrain and wanted to find the lowest point. You could solve this with iterative optimization:</p>
 <ol type="1">
-<li>First we write our cost function — a literal function in R — which must take a <code>data</code> argument (our data set) and a <code>par</code> parameter (a vector of parameter estimates we want to test).</li>
+<li>Start at some point in the hilly terrain (<em>inital seed</em>)</li>
+<li>Look around you to determine the direction in which the ground seems to be sloping downward the most.</li>
+<li>Take a small step downhill in that direction.</li>
+<li>Repeat these steps until you reach a spot where all directions around you either ascend or remain flat.</li>
+</ol>
+<p><img src="../assests/images/grad-desc-intuition.jpeg" class="img-fluid"></p>
+<section id="gradient-descent" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="gradient-descent"><span class="header-section-number">3.1</span> Gradient descent</h3>
+<p><strong>Gradient descent</strong> is one such iterative optimization algorithm. We can implement gradient descent in R with the <a href="https://www.rdocumentation.org/packages/optimg/versions/0.1.2/topics/optimg"><code>optimg</code></a> package to find the best fitting parameter estimates for our model.</p>
+<ol type="1">
+<li>First we write our cost function — our own function in R! — which must take a <code>data</code> argument (our data set) and a <code>par</code> parameter (a vector of parameter estimates we want to test) to work with <code>optimg</code>.</li>
 </ol>
 <div class="cell" data-output-location="column">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>SSE <span class="ot">&lt;-</span> <span class="cf">function</span>(data, par) {</span>
@@ -416,13 +445,13 @@ Coefficients:
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
-<li>Then we pass our data, cost function, and paramters to test to the <code>optimg</code> function to perform gradient descent.</li>
+<li>Then we pass our data, cost function, and initial seed paramters to the <code>optimg</code> function to perform gradient descent.</li>
 </ol>
 <div class="cell" data-output-location="column">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">optimg</span>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> data,  <span class="co"># our data</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">par =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="co"># our starting parameters</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fn =</span> SSE,     <span class="co"># our cost function</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fn =</span> SSE,     <span class="co"># our cost function (which receives data and par)</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"STGD"</span> <span class="co"># our iterative optimization algorithm </span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -439,7 +468,7 @@ $convergence
 [1] 0</code></pre>
 </div>
 </div>
-<p>We can compare <code>optimg</code>’s estimates to that of <code>lm()</code> to see that they are nearly identical:</p>
+<p>We can compare <code>optimg</code>’s estimates to that of <code>lm()</code> to see that they are <em>nearly</em> identical:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -453,8 +482,67 @@ Coefficients:
 </div>
 </div>
 </section>
+<section id="nearly-identical-to-lm" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="nearly-identical-to-lm"><span class="header-section-number">3.2</span> Nearly identical to <code>lm()</code></h3>
+</section>
+<section id="local-v-global-minimum" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="local-v-global-minimum"><span class="header-section-number">3.3</span> Local v global minimum</h3>
+</section>
+</section>
 <section id="ordinary-least-squares" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="ordinary-least-squares"><span class="header-section-number">4</span> Ordinary Least-Squares</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>), </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">z =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>(model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x, <span class="at">data =</span> data2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ 1 + x, data = data2)
+
+Coefficients:
+(Intercept)            x  
+    -0.3333       2.5000  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x <span class="sc">+</span> z <span class="sc">+</span> a, <span class="at">data =</span> data2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ 1 + x + z + a, data = data2)
+
+Coefficients:
+(Intercept)            x            z            a  
+    -0.3333       2.5000           NA           NA  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ 1 + x + z + a, data = data2)
+
+Residuals:
+      1       2       3 
+-0.1667  0.3333 -0.1667 
+
+Coefficients: (2 not defined because of singularities)
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  -0.3333     0.6236  -0.535   0.6875  
+x             2.5000     0.2887   8.660   0.0732 .
+z                 NA         NA      NA       NA  
+a                 NA         NA      NA       NA  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4082 on 1 degrees of freedom
+Multiple R-squared:  0.9868,    Adjusted R-squared:  0.9737 
+F-statistic:    75 on 1 and 1 DF,  p-value: 0.07319</code></pre>
+</div>
+</div>
 
 
 </section>

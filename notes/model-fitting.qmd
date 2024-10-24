@@ -195,14 +195,209 @@ We can compare `optimg`'s estimates to that of `lm()` to see that they are *near
 lm(rt ~ 1 + experience, data = data) 
 ```
 
+
 ### Nearly identical to `lm()`
 
-### Local v global minimum 
+Note that solving for the best fitting free parameters via iterative optimization gets us an *approximate* value of the best fitting free parameters. Based on how the algorithm is implemented, we might decide to stop iterating too early (because we are close enough to the point) or even step over minimum point if our step size is too big. 
+
+
+
+### Local minimum problem 
+
+A potential problem with iterative optimization algorithms is the risk of finding a *local minimum*. That is, we find a location on the error surface that is a minimum within some local range (so our algorithm stops looking), but we are not at the absolute minimum (also called the *global minimum*). 
+
+
+
+- For all linear models, the error surface is shaped like a bowl, so there is *no risk* of a local minimum. As long as an algorithm can adjust parameters to reduce errors, we will eventually be able to get to *approximately* the optimal solution.  We can see this clearly in the one or two parameter case (but it generalizes to higher dimensions as well). 
+
+Linear v. nonlinear model with one parameter: 
+
+![](/assests/images/local-v-global-min.png)
+
+Linear model with two parameters: 
+
+![](/assests/images/grad-desct-linearmodel.png)
 
 
 
 
 ## Ordinary Least-Squares 
+
+Another way we can find the best fitting free parameters for linear (or linearizable nonlinear) models is to use the Ordinary Least-Squares (OLS) estimate. 
+
+- In OLS, the best-fitting free parameters are found by solving a system of equations (using matrix operations/linear algebra) which leads to a closed-form solution.  
+- This means that OLS provides *exact values* of the best-fitting parameters in one step (as long as a few necessary conditions are met). 
+- We can contrast this with iterative optimization algorithms  (like gradient descent) which gradually adjust the model parameters over multiple iterations to minimize the error, often requiring many steps to converge on *approximate values* of the best-fitting parameters. 
+
+In OLS, the goal is to model the relationship between input variables and the output variable ($y$) as a linear combination. We express this very generally in our favorite equation, where the output ($y$) is a weighted sum of inputs ($x_i$).  
+
+- $y=\sum_{i=1}^{n}w_ix_i$ 
+
+Recall that this general expression has many 🥸 aliases. That is, the **linear model equation** can be expressed in many ways, but *they are all this same thing*: 
+
+1. in **high school algebra**: $y=ax+b$. 
+2. in **machine learning**: $y = w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n$ 
+3. in **statistics**: $y = β_0 + β_1x_1 + β_2x_2 + ... + β_nx_n + ε$
+4. in **matrix** notation: $y = Xw + ε$
+
+The matrix notation is what allows us to appreciate that we can solve for the best fitting free parameters with linear algebra. Let's work this out for our data set predicting `rt ~ 1 + experience`. We can express in matrix notation:
+
+$$
+\begin{aligned}
+    \mathbf{y} = \mathbf{X} \mathbf{w} + \mathbf{\epsilon}
+\end{aligned}
+$$
+
+Where:
+
+- $\mathbf{y}$ is the output vector (`rt`).
+- $\mathbf{X}$ is the input matrix (`experience` with an intercept).
+- $\mathbf{w}$ is the weight vector (parameter estimates including the intercept).
+- $\boldsymbol{\epsilon}$ is the vector of errors (residuals).
+
+Because our data set is small, we can expand these to help you picture this visually a little better: 
+
+1. **Input Matrix** $\mathbf{X}$ (intercept and `experience`):
+
+$$
+\begin{aligned}
+   \mathbf{X} = \begin{bmatrix}
+   1 & 49 \\
+   1 & 69 \\
+   1 & 89 \\
+   1 & 99 \\
+   1 & 109
+   \end{bmatrix}
+\end{aligned}
+$$
+
+2. **Output Vector**, $\mathbf{y}$ (`rt`):
+
+$$
+\begin{aligned}
+   \mathbf{y} = \begin{bmatrix}
+   124 \\
+   95 \\
+   71 \\
+   45 \\
+   18
+   \end{bmatrix}
+\end{aligned}
+$$
+
+3. **Weight Vector**, $\mathbf{w}$ (Unknown coefficients including intercept):
+
+$$
+\begin{aligned}
+   \mathbf{w} = \begin{bmatrix}
+   w_1 \\  % Intercept
+   w_2   % Weight for experience
+   \end{bmatrix}
+\end{aligned}
+$$
+
+Putting it all together, the linear model equation becomes, where there is a vector of errors (residuals), $\mathbf{\epsilon}$. 
+
+$$
+\begin{aligned}
+    \begin{bmatrix}
+    124 \\
+    95 \\
+    71 \\
+    45 \\
+    18
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 & 49 \\
+    1 & 69 \\
+    1 & 89 \\
+    1 & 99 \\
+    1 & 109
+    \end{bmatrix}
+    \begin{bmatrix}
+    w_1 \\
+    w_2
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        \epsilon_1 \\
+        \epsilon_2 \\
+        \epsilon_3 \\
+        \epsilon_4 \\
+        \epsilon_5 \\
+    \end{bmatrix}
+\end{aligned}
+$$
+
+It turns out that we can solve for the weight vector directly via the following equation: 
+
+$$
+\begin{align}
+\mathbf{w} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
+\end{align}
+$$
+
+At this stage, we can take the mathematicians' word for it that this provides an *exact* solution to the best fitting parameter estimates. 
+
+
+::: {.callout-tip}
+## Box 1: Summary of OLS solution
+
+This is the end of the math we will uncover about the OLS in this course. However, those of you who have taken linear algebra may appreciate the following abridged summary of how we arrive at the closed form solution by minimizing the sum of squared errors. (If you have not taken linear alegebra, you can safely skip this box. It's not on the exam!).
+
+$$
+\begin{align}
+\mathbf{w} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
+\end{align}
+$$
+
+To derive this we (in brief): 
+
+1. **Set Up the Linear Model**: Start with the matrix equation $\mathbf{y} = \mathbf{X} \mathbf{w} + \mathbf{\epsilon}$.
+2. **Define Residuals**: Use $\mathbf{\epsilon} = \mathbf{y} - \mathbf{X} \mathbf{w}$ to express the errors.
+3. **Minimize SSE**: Expand and differentiate the sum of squared errors, setting the derivative to zero.
+4. **Derive Normal Equation**: Arrive at the normal equation $\mathbf{X}^\top \mathbf{X} \mathbf{w} = \mathbf{X}^\top \mathbf{y}$.
+5. **Compute Weights**: Solve for $\mathbf{w}$ using the closed-form solution.
+
+This process provides the *exact* weights that best fit the linear model to the data. 
+
+:::
+
+We can demonstrate this with code: 
+
+
+```{r}
+ ols_matrix_way <- function(X, Y){
+  solve(t(X) %*% X) %*% t(X) %*% Y
+ }
+```
+
+We need to construct X and Y (must be matrices): 
+
+```{r}
+#| layout-ncol: 2
+(response_matrix <- data %>% select(rt) %>% as.matrix())
+(explanatory_matrix <- data %>% mutate(int = 1) %>% select(int, experience) %>% as.matrix())
+```
+
+
+Then we can use our function to generate the OLS solution: 
+```{r}
+ols_matrix_way(explanatory_matrix, response_matrix)
+```
+
+
+Which is **exactly the same** as that returned by `lm()` (because lm is doing this!)
+
+```{r}
+lm(rt ~ experience, data = data)
+```
+
+
+Importantly, if there are more regressors than data points, then there is no OLS solution. The intuition for the underlying math is that if there are more weights than data points, there are infinatly many solutions, all of which acheive zero error. The linear algebra fans among us might appreciate that the xtx component of our equation is ill-defined in this case. 
+
+Here'a an example. Suppose we have the following dataset 
 
 ```{r}
 data2 <- tibble(
@@ -216,6 +411,6 @@ data2 <- tibble(
 
 (model2 <- lm(y ~ 1 + x + z + a, data = data2))
 
-summary(model2)
-
 ```
+
+`lm()` is smart and fits the reduced model it *can* fit. If we try to solve this the matrix way via our homegrown function, we get an error. 

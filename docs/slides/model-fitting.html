@@ -966,22 +966,303 @@ $convergence
 </div>
 </div>
 </section>
+<section id="gradient-descent-v.-lm" class="slide level2">
+<h2>Gradient descent v. <code>lm()</code></h2>
+<p>We can compare <code>optimg</code>’s estimates to that of <code>lm()</code> to see that they are <em>nearly</em> identical:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">lm</span>(rt <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> experience, <span class="at">data =</span> data) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rt ~ 1 + experience, data = data)
+
+Coefficients:
+(Intercept)   experience  
+    211.271       -1.695  </code></pre>
+</div>
+</div>
+</section>
+<section id="local-minumim-problem" class="slide level2 smaller">
+<h2>Local minumim problem</h2>
+<p>A potential problem with iterative optimization algorithms is the risk of finding a <em>local minimum</em>.</p>
+
+<img data-src="../assests/images/gradient-descent.png" class="r-stretch"></section>
+<section id="local-minimum-is-only-relevant-for-nonlinear-models" class="slide level2 smaller">
+<h2>Local minimum is only relevant for nonlinear models</h2>
+<p>Only nonlinear models have this potential problem. Even it higher dimensions.</p>
+
+<img data-src="../assests/images/local-v-global-min.png" class="r-stretch"></section>
+<section id="linear-models-do-not-have-this-problem" class="slide level2 smaller">
+<h2>Linear models do not have this problem</h2>
+<p>For all linear models, we can think of the error surface is being shaped like a bowl, so there is <em>no risk</em> of a local minimum.</p>
+
+<img data-src="../assests/images/grad-desct-linearmodel.png" class="r-stretch"></section></section>
+<section>
+<section id="ordinary-least-squares-ols" class="title-slide slide level1 center">
+<h1>Ordinary least-squares (OLS)</h1>
+
+</section>
 <section id="ordinary-least-squares-solution" class="slide level2 smaller">
 <h2>Ordinary least squares solution</h2>
-<p><span class="math inline">\(y = w_0 + w_1x_1\)</span></p>
-<div class="fragment">
-<p>We have a system of equations:</p>
+<p>Another way we can find the best fitting free parameters for linear (or linearizable nonlinear) models is to use the Ordinary Least-Squares (OLS) estimate.</p>
 <ul>
-<li class="fragment"><span class="math inline">\(124 = w_01 + w_149\)</span></li>
-<li class="fragment"><span class="math inline">\(95 = w_01 + w_169\)</span></li>
-<li class="fragment">…</li>
-<li class="fragment"><span class="math inline">\(18 = w_01 + w_1109\)</span></li>
+<li class="fragment">In OLS, the best-fitting free parameters are found by solving a system of equations (using matrix operations/linear algebra) which leads to a closed-form solution.<br>
+</li>
+<li class="fragment">This means that OLS provides <em>exact values</em> of the best-fitting parameters in one step (as long as a few necessary conditions are met).</li>
 </ul>
+</section>
+<section id="ols-v.-iterative-optimization" class="slide level2 smaller">
+<h2>OLS v. iterative optimization</h2>
+<ul>
+<li class="fragment">We can contrast this with iterative optimization algorithms (like gradient descent) which gradually adjust the model parameters over multiple iterations to minimize the error, often requiring many steps to converge on <em>approximate values</em> of the best-fitting parameters.</li>
+</ul>
+</section>
+<section id="ols-intuition" class="slide level2">
+<h2>OLS intuition</h2>
+<p>In OLS, the goal is to model the relationship between input variables and the output variable (<span class="math inline">\(y\)</span>) as a linear combination. We express this very generally in our favorite equation, where the output (<span class="math inline">\(y\)</span>) is a weighted sum of inputs (<span class="math inline">\(x_i\)</span>).</p>
+<ul>
+<li class="fragment"><span class="math inline">\(y=\sum_{i=1}^{n}w_ix_i\)</span></li>
+</ul>
+</section>
+<section id="ols-intuition-1" class="slide level2 smaller">
+<h2>OLS intuition</h2>
+<p>Recall that this general expression has many 🥸 aliases. That is, the <strong>linear model equation</strong> can be expressed in many ways, but <em>they are all this same thing</em>:</p>
+<ol type="1">
+<li class="fragment">in <strong>high school algebra</strong>: <span class="math inline">\(y=ax+b\)</span>.</li>
+<li class="fragment">in <strong>machine learning</strong>: <span class="math inline">\(y = w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n\)</span></li>
+<li class="fragment">in <strong>statistics</strong>: <span class="math inline">\(y = β_0 + β_1x_1 + β_2x_2 + ... + β_nx_n + ε\)</span></li>
+<li class="fragment">in <strong>matrix</strong> notation: <span class="math inline">\(y = Xw + ε\)</span></li>
+</ol>
+</section>
+<section id="ols-on-example-dataset-15" class="slide level2 smaller">
+<h2>OLS on example dataset 1/5</h2>
+<p>The matrix notation is what allows us to appreciate that we can solve for the best fitting free parameters with linear algebra.</p>
+</section>
+<section id="ols-on-example-dataset-25" class="slide level2 smaller">
+<h2>OLS on example dataset 2/5</h2>
+<p>We can express in matrix notation:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    \mathbf{y} = \mathbf{X} \mathbf{w} + \mathbf{\epsilon}
+\end{aligned}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(\mathbf{y}\)</span> is the output vector (<code>rt</code>).</li>
+<li class="fragment"><span class="math inline">\(\mathbf{X}\)</span> is the input matrix (<code>experience</code> with an intercept).</li>
+<li class="fragment"><span class="math inline">\(\mathbf{w}\)</span> is the weight vector (parameter estimates including the intercept).</li>
+<li class="fragment"><span class="math inline">\(\boldsymbol{\epsilon}\)</span> is the vector of errors (residuals).</li>
+</ul>
+</section>
+<section id="ols-on-example-dataset-25-1" class="slide level2">
+<h2>OLS on example dataset 2/5</h2>
+<p>Because our data set is small, we can expand these to help you picture this visually a little better:</p>
+<ol type="1">
+<li class="fragment"><strong>Input Matrix</strong> <span class="math inline">\(\mathbf{X}\)</span> (intercept and <code>experience</code>):</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+   \mathbf{X} = \begin{bmatrix}
+   1 &amp; 49 \\
+   1 &amp; 69 \\
+   1 &amp; 89 \\
+   1 &amp; 99 \\
+   1 &amp; 109
+   \end{bmatrix}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="ols-on-example-dataset-35" class="slide level2">
+<h2>OLS on example dataset 3/5</h2>
+<ol start="2" type="1">
+<li class="fragment"><strong>Output Vector</strong>, <span class="math inline">\(\mathbf{y}\)</span> (<code>rt</code>):</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+   \mathbf{y} = \begin{bmatrix}
+   124 \\
+   95 \\
+   71 \\
+   45 \\
+   18
+   \end{bmatrix}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="ols-on-example-dataset-45" class="slide level2">
+<h2>OLS on example dataset 4/5</h2>
+<ol start="3" type="1">
+<li class="fragment"><strong>Weight Vector</strong>, <span class="math inline">\(\mathbf{w}\)</span> (Unknown coefficients including intercept):</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+   \mathbf{w} = \begin{bmatrix}
+   w_1 \\  % Intercept
+   w_2   % Weight for experience
+   \end{bmatrix}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="ols-on-example-datset-55" class="slide level2">
+<h2>OLS on example datset 5/5</h2>
+<p>Putting it all together, the linear model equation becomes, where there is a vector of errors (residuals), <span class="math inline">\(\mathbf{\epsilon}\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+    \begin{bmatrix}
+    124 \\
+    95 \\
+    71 \\
+    45 \\
+    18
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 &amp; 49 \\
+    1 &amp; 69 \\
+    1 &amp; 89 \\
+    1 &amp; 99 \\
+    1 &amp; 109
+    \end{bmatrix}
+    \begin{bmatrix}
+    w_1 \\
+    w_2
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        \epsilon_1 \\
+        \epsilon_2 \\
+        \epsilon_3 \\
+        \epsilon_4 \\
+        \epsilon_5 \\
+    \end{bmatrix}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="ols-with-r-example-14" class="slide level2">
+<h2>OLS with R example 1/4</h2>
+<p>At this stage, we can take the mathematicians’ word for it that this provides an <em>exact</em> solution to the best fitting parameter estimates.</p>
+<p>We can demonstrate this with code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a> ols_matrix_way <span class="ot">&lt;-</span> <span class="cf">function</span>(X, Y){</span>
+<span id="cb23-2"><a></a>  <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y</span>
+<span id="cb23-3"><a></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="fragment">
-<p>We can express them as a matrix: <span class="math inline">\(Y = Xw + \epsilon\)</span></p>
+</section>
+<section id="ols-with-r-example-24" class="slide level2">
+<h2>OLS with R example 2/4</h2>
+<p>We need to construct X and Y (must be matrices):</p>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>(response_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(rt) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span>
+<span id="cb24-2"><a></a>(explanatory_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">int =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(int, experience) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code>      rt
+[1,] 124
+[2,]  95
+[3,]  71
+[4,]  45
+[5,]  18</code></pre>
 </div>
-<div class="fragment">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code>     int experience
+[1,]   1         49
+[2,]   1         69
+[3,]   1         89
+[4,]   1         99
+[5,]   1        109</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="ols-with-r-example-34" class="slide level2">
+<h2>OLS with R example 3/4</h2>
+<p>Then we can use our function to generate the OLS solution:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">ols_matrix_way</span>(explanatory_matrix, response_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   rt
+int        211.270690
+experience  -1.694828</code></pre>
+</div>
+</div>
+</section>
+<section id="ols-with-r-example-44" class="slide level2">
+<h2>OLS with R example 4/4</h2>
+<p>Which is <strong>exactly the same</strong> as that returned by <code>lm()</code> (because lm is doing this!)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">lm</span>(rt <span class="sc">~</span> experience, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rt ~ experience, data = data)
+
+Coefficients:
+(Intercept)   experience  
+    211.271       -1.695  </code></pre>
+</div>
+</div>
+</section>
+<section id="constraints-on-ols" class="slide level2">
+<h2>Constraints on OLS</h2>
+<ul>
+<li class="fragment">Importantly, if there are more regressors than data points, then there is no OLS solution. The intuition for the underlying math is that if there are more weights than data points, there are infinatly many solutions, all of which acheive zero error.</li>
+</ul>
+</section>
+<section id="constraints-on-ols-1" class="slide level2">
+<h2>Constraints on OLS</h2>
+<p>We can fit if there are fewer inputs than datapoints</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>data2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb31-2"><a></a>    <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>), </span>
+<span id="cb31-3"><a></a>    <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </span>
+<span id="cb31-4"><a></a>    <span class="at">z =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), </span>
+<span id="cb31-5"><a></a>    <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
+<span id="cb31-6"><a></a>)</span>
+<span id="cb31-7"><a></a></span>
+<span id="cb31-8"><a></a>(model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x, <span class="at">data =</span> data2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ 1 + x, data = data2)
+
+Coefficients:
+(Intercept)            x  
+    -0.3333       2.5000  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>(model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x <span class="sc">+</span> z <span class="sc">+</span> a, <span class="at">data =</span> data2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ 1 + x + z + a, data = data2)
+
+Coefficients:
+(Intercept)            x            z            a  
+    -0.3333       2.5000           NA           NA  </code></pre>
+</div>
+</div>
+</section>
+<section id="constraints-on-ols-2" class="slide level2">
+<h2>Constraints on OLS</h2>
+<p>But not if there are more inputs than datapoints in our model</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>(model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x <span class="sc">+</span> z <span class="sc">+</span> a, <span class="at">data =</span> data2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ 1 + x + z + a, data = data2)
+
+Coefficients:
+(Intercept)            x            z            a  
+    -0.3333       2.5000           NA           NA  </code></pre>
+</div>
+</div>
+<p><code>lm()</code> is smart and fits the reduced model it <em>can</em> fit. If we try to solve this the matrix way via our homegrown function, we get an error.</p>
+</section>
+<section id="lets-try-it" class="slide level2">
+<h2>Let’s try it!!</h2>
+</section>
+<section id="extra-slides" class="slide level2">
+<h2>Extra slides</h2>
 <p>And solve with linear algebra: <span class="math inline">\(w = (X^TX)^{-1}X^TY\)</span></p>
 <!-- \[
 \begin{bmatrix}
@@ -1006,19 +1287,18 @@ w_0\\
 w_1\\
 \end{bmatrix} 
 \] -->
-</div>
 </section>
 <section id="ordinary-least-squares-solution-in-r" class="slide level2 smaller">
 <h2>Ordinary least squares solution in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a> ols_matrix_way <span class="ot">&lt;-</span> <span class="cf">function</span>(X, Y){</span>
-<span id="cb21-2"><a></a>  <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y</span>
-<span id="cb21-3"><a></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a> ols_matrix_way <span class="ot">&lt;-</span> <span class="cf">function</span>(X, Y){</span>
+<span id="cb37-2"><a></a>  <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y</span>
+<span id="cb37-3"><a></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>We need to construct X and Y (must be matrices):</p>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>(response_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(rt) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span>
-<span id="cb22-2"><a></a>(explanatory_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">int =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(int, experience) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>(response_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(rt) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span>
+<span id="cb38-2"><a></a>(explanatory_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">int =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(int, experience) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -1043,7 +1323,7 @@ w_1\\
 <div class="fragment">
 <p>Then we can use our function to generate the OLS solution:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">ols_matrix_way</span>(explanatory_matrix, response_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">ols_matrix_way</span>(explanatory_matrix, response_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   rt
 int        211.270690
@@ -1051,7 +1331,7 @@ experience  -1.694828</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">lm</span>(rt <span class="sc">~</span> experience, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">lm</span>(rt <span class="sc">~</span> experience, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1103,7 +1383,7 @@ ggplot(data, aes(x = x, y = y)) +
 ```
 
 ::: {.cell-output-display}
-![](model-fitting_files/figure-revealjs/unnamed-chunk-26-1.png){width=960}
+![](model-fitting_files/figure-revealjs/unnamed-chunk-33-1.png){width=960}
 :::
 :::
 
@@ -1124,7 +1404,7 @@ How would you draw a "best fit" line?
 
 ::: {.cell}
 ::: {.cell-output-display}
-![](model-fitting_files/figure-revealjs/unnamed-chunk-27-1.png){width=960}
+![](model-fitting_files/figure-revealjs/unnamed-chunk-34-1.png){width=960}
 :::
 :::
 
@@ -1138,11 +1418,11 @@ Which line fits best?  How can you tell?
 
 ::: {.cell layout-nrow="3" layout-ncol="2"}
 ::: {.cell-output-display}
-![](model-fitting_files/figure-revealjs/unnamed-chunk-28-1.png){width=960}
+![](model-fitting_files/figure-revealjs/unnamed-chunk-35-1.png){width=960}
 :::
 
 ::: {.cell-output-display}
-![](model-fitting_files/figure-revealjs/unnamed-chunk-28-2.png){width=960}
+![](model-fitting_files/figure-revealjs/unnamed-chunk-35-2.png){width=960}
 :::
 :::
 
@@ -1161,11 +1441,11 @@ We can measure how close the model is to the data
 
 ::: {.cell layout-ncol="2"}
 ::: {.cell-output-display}
-![](model-fitting_files/figure-revealjs/unnamed-chunk-30-1.png){width=960}
+![](model-fitting_files/figure-revealjs/unnamed-chunk-37-1.png){width=960}
 :::
 
 ::: {.cell-output-display}
-![](model-fitting_files/figure-revealjs/unnamed-chunk-30-2.png){width=960}
+![](model-fitting_files/figure-revealjs/unnamed-chunk-37-2.png){width=960}
 :::
 :::
 
@@ -1181,11 +1461,11 @@ We can measure how close the model is to the data
 
 ::: {.cell layout-nrow="2" layout-ncol="2"}
 ::: {.cell-output-display}
-![](model-fitting_files/figure-revealjs/unnamed-chunk-31-1.png){width=960}
+![](model-fitting_files/figure-revealjs/unnamed-chunk-38-1.png){width=960}
 :::
 
 ::: {.cell-output-display}
-![](model-fitting_files/figure-revealjs/unnamed-chunk-31-2.png){width=960}
+![](model-fitting_files/figure-revealjs/unnamed-chunk-38-2.png){width=960}
 :::
 
 ::: {.cell-output-display}

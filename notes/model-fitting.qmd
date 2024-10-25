@@ -6,7 +6,7 @@ date: 2024-10-22
 ---
 
 :::{.callout-warning title="Under construction"}
-Still working on these. More to come Thursday.
+Still working on these
 :::
 
 ```{r}
@@ -333,9 +333,9 @@ $$
 It turns out that we can solve for the weight vector directly via the following equation: 
 
 $$
-\begin{align}
+\begin{aligned}
 \mathbf{w} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
-\end{align}
+\end{aligned}
 $$
 
 At this stage, we can take the mathematicians' word for it that this provides an *exact* solution to the best fitting parameter estimates. 
@@ -347,9 +347,9 @@ At this stage, we can take the mathematicians' word for it that this provides an
 This is the end of the math we will uncover about the OLS in this course. However, those of you who have taken linear algebra may appreciate the following abridged summary of how we arrive at the closed form solution by minimizing the sum of squared errors. (If you have not taken linear alegebra, you can safely skip this box. It's not on the exam!).
 
 $$
-\begin{align}
+\begin{aligned}
 \mathbf{w} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
-\end{align}
+\end{aligned}
 $$
 
 To derive this we (in brief): 

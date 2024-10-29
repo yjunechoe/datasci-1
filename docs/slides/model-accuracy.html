@@ -418,7 +418,6 @@ Katie Schuler
 <ul>
 <li>Hello, world!</li>
 <li>R basics</li>
-<li>Data importing</li>
 <li>Data visualization</li>
 <li>Data wrangling</li>
 </ul>
@@ -440,7 +439,6 @@ Katie Schuler
 <div>
 <ul>
 <li>Classification</li>
-<li>Feature engineering (preprocessing)</li>
 <li>Inference for regression</li>
 <li>Mixed-effect models</li>
 </ul>
@@ -546,16 +544,21 @@ $ CorrectLexdec                   &lt;int&gt; 27, 30, 30, 30, 26, 28, 30, 28, 25
 <li class="fragment"><span class="math inline">\(R^2\)</span> quantifies the percentage of <strong>variance</strong> in the response variable that is explained by the model.</li>
 </ul>
 </section>
-<section id="variance" class="slide level2 smaller">
-<h2>Variance</h2>
-<p><span class="math inline">\(\frac{\sum_{i=1}^n (y_i - m_i)^2}{n-1}\)</span></p>
-<ul>
-<li class="fragment">We take the <strong>sum of squares</strong></li>
-<li class="fragment">square the residuals (<span class="math inline">\(i^{th}\)</span> data point minus the <span class="math inline">\(i^{th}\)</span> model value)</li>
-<li class="fragment">then divide by the number of cases, <span class="math inline">\(n\)</span>, minus 1.</li>
+<section id="coefficient-of-determination-r2" class="slide level2 smaller">
+<h2>Coefficient of determination, <span class="math inline">\(R^2\)</span></h2>
+
+<img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><ul>
+<li class="fragment">How much error (variation) is left over in the simplest possible model, <code>RTlexdec ~ 1</code>? This is our <strong>reference model</strong> and represents the <strong>total variance</strong>.</li>
 </ul>
 </section>
-<section id="coefficient-of-determination-r2" class="slide level2 smaller">
+<section id="coefficient-of-determination-r2-1" class="slide level2 smaller">
+<h2>Coefficient of determination, <span class="math inline">\(R^2\)</span></h2>
+
+<img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><ul>
+<li class="fragment">How much error (variation) is left over in our specified model, <code>RTlexdec ~ 1 + WrittenFrequency</code>?</li>
+</ul>
+</section>
+<section id="coefficient-of-determination-r2-2" class="slide level2 smaller">
 <h2>Coefficient of determination, <span class="math inline">\(R^2\)</span></h2>
 <div>
 
@@ -563,22 +566,43 @@ $ CorrectLexdec                   &lt;int&gt; 27, 30, 30, 30, 26, 28, 30, 28, 25
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-5-2.png" width="960"></p>
+<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-7-2.png" width="960"></p>
 </div>
 </div>
 </div>
-<p>. . . <span class="math inline">\(R^2=100\times(1-\frac{unexplained \; variance}{total \; variance})\)</span></p>
 <div class="fragment">
 <p><span class="math inline">\(R^2=100\times(1-\frac{\sum_{i=1}^n (y_i - m_i)^2}{\sum_{i=1}^n (y_i - \overline{y})^2})\)</span></p>
 </div>
 <div class="fragment">
 <p><span class="math inline">\(R^2=100\times(1-\frac{SSE_{model}}{SSE_{reference}})\)</span></p>
 </div>
+<div class="fragment">
+<p><span class="math inline">\(R^2=100\times(1-\frac{unexplained \; variance}{total \; variance})\)</span></p>
+</div>
 </section>
-<section id="coefficient-of-determination-r2-1" class="slide level2 smaller">
+<section id="coefficient-of-determination-r2-3" class="slide level2 smaller">
+<h2>Coefficient of determination, <span class="math inline">\(R^2\)</span></h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-8-2.png" width="960"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>$R^2=100(1-) = 100 = 0.4081037 $</p>
+</div>
+</section>
+<section id="coefficient-of-determination-r2-4" class="slide level2 smaller">
 <h2>Coefficient of determination, <span class="math inline">\(R^2\)</span></h2>
 <p><span class="math inline">\(R^2=100\times(1-\frac{SSE_{model}}{SSE_{reference}})\)</span></p>
 <div class="fragment">
@@ -617,26 +641,144 @@ F-statistic: 12.41 on 1 and 18 DF,  p-value: 0.00243</code></pre>
 </div>
 </div>
 </section>
-<section id="r2-overestimates-model-accuracy" class="slide level2 smaller">
+<section>
+<section id="what-is-adjusted-r2" class="title-slide slide level1 center">
+<h1>What is adjusted <span class="math inline">\(R^2\)</span>?</h1>
+
+</section>
+<section id="r2-overestimates-model-accuracy" class="slide level2">
+<h2><span class="math inline">\(R^2\)</span> overestimates model accuracy</h2>
+<p>One thing we can ask is how well the model describes our specific sample of data. But the question we actually want to answer is <em>how well does the model we fit describe the population we are interested in</em>.</p>
+<ul>
+<li class="fragment">The problem is that we usually only have access to the sample we’ve collected and <span class="math inline">\(R^2\)</span> tends to <strong>overestimate</strong> the accuracy of the model on the population. In other words, the <span class="math inline">\(R^2\)</span> of the model we fit on our sample will be larger than the <span class="math inline">\(R^2\)</span> of the model fit to the population.</li>
+<li class="fragment">Further, the population is (usually) unknown to us. To quantify the <strong>true accuracy</strong> of a fitted model – that is, how well the model describes the population, not the sample we collected – we can use a technique called <strong>cross-validation</strong>.</li>
+</ul>
+</section>
+<section id="r2-overestimates-model-accuracy-1" class="slide level2 smaller">
 <h2><span class="math inline">\(R^2\)</span> overestimates model accuracy</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:67%;">
+<div class="cell">
+<div class="cell-output-display">
 <div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-8-2.png" width="960"></p>
+<figure>
+<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:33%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Population</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>True</td>
+<td>high</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fitted</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="r2-overestimates-model-accuracy-2" class="slide level2 smaller">
+<h2><span class="math inline">\(R^2\)</span> overestimates model accuracy</h2>
+<div class="columns">
+<div class="column" style="width:67%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Population</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>True</td>
+<td>high</td>
+<td>high</td>
+</tr>
+<tr class="even">
+<td>Fitted</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="r2-overestimates-model-accuracy-3" class="slide level2 smaller">
+<h2><span class="math inline">\(R^2\)</span> overestimates model accuracy</h2>
+<div class="columns">
+<div class="column" style="width:67%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Population</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>True</td>
+<td>high</td>
+<td>high</td>
+</tr>
+<tr class="even">
+<td>Fitted</td>
+<td>low</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="r2-overestimates-model-accuracy-4" class="slide level2 smaller">
+<h2><span class="math inline">\(R^2\)</span> overestimates model accuracy</h2>
+<div class="columns">
+<div class="column" style="width:67%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="model-accuracy_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -658,10 +800,10 @@ F-statistic: 12.41 on 1 and 18 DF,  p-value: 0.00243</code></pre>
 </tr>
 </tbody>
 </table>
+</div></div>
 <ul>
 <li class="fragment">Accuracy of the fitted model on the sample <code>overestimates true accuracy</code> of fitted model.</li>
 </ul>
-</div></div>
 </section>
 <section id="overfitting" class="slide level2 smaller">
 <h2>Overfitting</h2>
@@ -671,6 +813,12 @@ F-statistic: 12.41 on 1 and 18 DF,  p-value: 0.00243</code></pre>
 <li class="fragment">Fitting the sample data too well means we fit not only the signal but also the noise in the data.</li>
 <li class="fragment">An overfit model will perform really well on the data it has been trained on (the sample), but would predict new, unseen values poorly.</li>
 <li class="fragment">Our goal is to find the <code>optimal fitted model</code> – the one that gets as close to the true model as possible without overfitting.</li>
+</ul>
+</section>
+<section id="overfitting-exercise" class="slide level2">
+<h2>Overfitting exercise</h2>
+<ul>
+<li class="fragment">Let’s use the swim records data to demonstrate that <span class="math inline">\(R^2\)</span> increases as we add more parameters.</li>
 </ul>
 </section>
 <section id="cross-validation-justificaiton" class="slide level2 smaller">
@@ -747,13 +895,16 @@ F-statistic: 12.41 on 1 and 18 DF,  p-value: 0.00243</code></pre>
 <section id="leave-one-out-cross-validation-11" class="slide level2 smaller">
 <h2>Leave-one-out cross-validation</h2>
 
+<img data-src="../assests/images/loo1.png" class="r-stretch quarto-figure-center"><p class="caption">Figure borrowed from Kendrick Kay</p></section>
+<section id="section" class="slide level2">
+<h2></h2>
 
-<img data-src="../assests/images/loo1.png" class="r-stretch quarto-figure-center"><p class="caption">Figure borrowed from Kendrick Kay</p><div class="quarto-auto-generated-content">
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://kathrynschuler.com/datasci/">https://kathrynschuler.com/datasci</a></p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

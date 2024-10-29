@@ -51,7 +51,6 @@ data2 <- tibble(
 ::: {.nonincremental}
 - Hello, world!
 - R basics
-- Data importing
 - Data visualization
 - Data wrangling 
 :::
@@ -76,7 +75,6 @@ data2 <- tibble(
 ::: {.nonincremental}
 
 - Classification
-- Feature engineering (preprocessing) 
 - Inference for regression
 - Mixed-effect models
 ::: 
@@ -111,8 +109,7 @@ young_nouns_sample <- young_nouns %>% slice_sample(n = 20)
 
 ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
     geom_point() +
-    geom_smooth(method = "lm", formula = "y ~ x", se = FALSE) +
-    labs(caption = "sample of 20 participants")
+    geom_smooth(method = "lm", formula = "y ~ x", se = FALSE) 
 ```
 
 ::: 
@@ -150,21 +147,11 @@ ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
 
 - $R^2$ quantifies the percentage of **variance** in the response variable that is explained by the model.
 
-## Variance {.smaller}
-
-$\frac{\sum_{i=1}^n (y_i - m_i)^2}{n-1}$
-
-- We take the **sum of squares**
-- square the residuals ($i^{th}$ data point minus the $i^{th}$ model value)
-- then divide by the number of cases, $n$, minus 1. 
-
-
-
 ## Coefficient of determination, $R^2$ {.smaller}
 
+
 ```{r}
-#| echo: false 
-#| layout-ncol: 2
+#| echo: false
 
 ref_model = lm(RTlexdec ~ 1, data = young_nouns_sample)
 model = lm(RTlexdec ~ 1 + WrittenFrequency, data = young_nouns_sample)
@@ -182,8 +169,42 @@ SSE <- function(data, par) {
 
 sse_ref <- SSE(data = young_nouns_sample, par = c(6.447, 0))
 sse_model <- SSE(data = young_nouns_sample, par = c(6.59064, -0.02874))
+ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
+    geom_point() +
+    geom_smooth(method = "lm", formula = "y ~ x", se = FALSE) + 
+        geom_segment(aes(xend = WrittenFrequency, yend = model)) +
+    labs(title = "Unexplained variance (SSE model)", caption = sse_model)
+```
+
+- How much error (variation) is left over in the simplest possible model, `RTlexdec ~ 1`? This is our **reference model** and represents the **total variance**. 
 
 
+## Coefficient of determination, $R^2$ {.smaller}
+
+
+```{r}
+#| echo: false 
+
+
+
+ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
+    geom_point() +
+    geom_smooth(method = "lm", formula = "y ~ 1", se = FALSE) +
+    geom_segment(aes(xend = WrittenFrequency, yend = ref_model)) +
+    labs(title = "Total variance (SSE reference)", caption = sse_ref)
+
+
+
+```
+
+- How much error (variation) is left over in our specified model, `RTlexdec ~ 1 + WrittenFrequency`? 
+
+## Coefficient of determination, $R^2$ {.smaller}
+
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
 ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
     geom_point() +
     geom_smooth(method = "lm", formula = "y ~ 1", se = FALSE) +
@@ -196,11 +217,8 @@ ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
         geom_segment(aes(xend = WrittenFrequency, yend = model)) +
     labs(title = "Unexplained variance", subtitle = "SSE for our model", caption = sse_model)
 
-
 ```
 
-. . . 
-$R^2=100\times(1-\frac{unexplained \; variance}{total \; variance})$
 
 . . . 
 
@@ -210,6 +228,35 @@ $R^2=100\times(1-\frac{\sum_{i=1}^n (y_i - m_i)^2}{\sum_{i=1}^n (y_i - \overline
 
 
 $R^2=100\times(1-\frac{SSE_{model}}{SSE_{reference}})$
+
+. . . 
+
+$R^2=100\times(1-\frac{unexplained \; variance}{total \; variance})$
+
+## Coefficient of determination, $R^2$ {.smaller}
+
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
+    geom_point() +
+    geom_smooth(method = "lm", formula = "y ~ 1", se = FALSE) +
+    geom_segment(aes(xend = WrittenFrequency, yend = ref_model)) +
+    labs(title = "Total variance", subtitle = "SSE for the 'reference' model", caption = sse_ref)
+
+ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
+    geom_point() +
+    geom_smooth(method = "lm", formula = "y ~ x", se = FALSE) + 
+        geom_segment(aes(xend = WrittenFrequency, yend = model)) +
+    labs(title = "Unexplained variance", subtitle = "SSE for our model", caption = sse_model)
+
+```
+
+
+. . . 
+
+$R^2=100\times(1-\frac{\sum_{i=1}^n (y_i - m_i)^2}{\sum_{i=1}^n (y_i - \overline{y})^2}) = 100 \times{1 - \frac{0.11475}{0.19387}} = 0.4081037 $
 
 ## Coefficient of determination, $R^2$ {.smaller}
 
@@ -231,14 +278,71 @@ $R^2=100\times(1-\frac{SSE_{model}}{SSE_{reference}})$
 summary(model)
 ```
 
+# What is adjusted $R^2$? 
+
+## $R^2$ overestimates model accuracy
+
+One thing we can ask is how well the model describes our specific sample of data. But the question we actually want to answer is *how well does the model we fit describe the population we are interested in*. 
+
+- The problem is that we usually only have access to the sample we've collected and $R^2$ tends to **overestimate** the accuracy of the model on the population. In other words, the $R^2$ of the model we fit on our sample will be larger than the $R^2$ of the model fit to the population. 
+- Further, the population is (usually) unknown to us. To quantify the **true accuracy** of a fitted model -- that is, how well the model describes the population, not the sample we collected -- we can use a technique called **cross-validation**.  
+
 ## $R^2$ overestimates model accuracy {.smaller}
 
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="67%"}
+
+
 ```{r}
 #| echo: false
-#| layout-nrow: 2
+
+
+# tmp <- lm(RTlexdec ~ WrittenFrequency + LengthInLetters, data = young_nouns)
+# tms <- lm(RTlexdec ~ WrittenFrequency + LengthInLetters, data = young_nouns_sample)
+# fmp <- lm(RTlexdec ~ WrittenFrequency, data = young_nouns)
+# fms <- lm(RTlexdec ~ WrittenFrequency, data = young_nouns_sample)
+
+# tmp 
+# tms
+# fmp
+# fms
+
+# young_nouns <- young_nouns %>% spread_predictions(tmp, tms, fmp, fms)
+ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
+    #geom_point(color = "blue", size = 4) +
+    geom_point(data = young_nouns, alpha = 0.25) +
+    geom_smooth(data = young_nouns, method = "lm", 
+        formula = "y ~ x", se = FALSE, color = "black", linewidth = 2  )  +
+        labs(title = "True model")
+
+
+
+
+```
+
+::: 
+::: {.column width="33%"}
+
+| | Population | Sample |
+| --- | --- | --- | 
+| True  | high |  |
+| Fitted |  |  |  
+
+
+:::
+::::
+
+## $R^2$ overestimates model accuracy {.smaller}
+
+
+:::: {.columns}
+::: {.column width="67%"}
+
+
+```{r}
+#| echo: false
+
 
 # tmp <- lm(RTlexdec ~ WrittenFrequency + LengthInLetters, data = young_nouns)
 # tms <- lm(RTlexdec ~ WrittenFrequency + LengthInLetters, data = young_nouns_sample)
@@ -258,18 +362,100 @@ ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
         formula = "y ~ x", se = FALSE, color = "black", linewidth = 2  )  +
         labs(title = "True model")
 
+
+```
+
+::: 
+::: {.column width="33%"}
+
+| | Population | Sample |
+| --- | --- | --- | 
+| True  | high | high |
+| Fitted |  |  |  
+
+
+
+
+:::
+::::
+
+## $R^2$ overestimates model accuracy {.smaller}
+
+
+:::: {.columns}
+::: {.column width="67%"}
+
+
+```{r}
+#| echo: false
+
+
+# tmp <- lm(RTlexdec ~ WrittenFrequency + LengthInLetters, data = young_nouns)
+# tms <- lm(RTlexdec ~ WrittenFrequency + LengthInLetters, data = young_nouns_sample)
+# fmp <- lm(RTlexdec ~ WrittenFrequency, data = young_nouns)
+# fms <- lm(RTlexdec ~ WrittenFrequency, data = young_nouns_sample)
+
+# tmp 
+# tms
+# fmp
+# fms
+
+# young_nouns <- young_nouns %>% spread_predictions(tmp, tms, fmp, fms)
 ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
-    geom_point(color = "blue", size = 4) +
+    #geom_point(color = "blue", size = 4) +
     geom_smooth(method = "lm", formula = "y ~ x", 
-        se = FALSE, linewidth = 2) + 
-    geom_point(data = young_nouns, alpha = 0.25)  +
-    labs(title = "Fitted model")
+        se = FALSE, linewidth = 2) +
+    geom_point(data = young_nouns, alpha = 0.25) +
+    geom_smooth(data = young_nouns, method = "lm", 
+        formula = "y ~ x", se = FALSE, color = "black", linewidth = 2  )  +
+        labs(title = "True model")
+
+
 
 
 ```
 
 ::: 
-::: {.column width="50%"}
+::: {.column width="33%"}
+
+| | Population | Sample |
+| --- | --- | --- | 
+| True  | high | high |
+| Fitted | low |  |  
+
+ 
+
+
+
+
+:::
+::::
+
+## $R^2$ overestimates model accuracy {.smaller}
+
+
+:::: {.columns}
+::: {.column width="67%"}
+
+
+```{r}
+#| echo: false
+
+
+ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
+    geom_point(color = "blue", size = 4) +
+    geom_smooth(method = "lm", formula = "y ~ x", 
+        se = FALSE, linewidth = 2) +
+    geom_point(data = young_nouns, alpha = 0.25) +
+    geom_smooth(data = young_nouns, method = "lm", 
+        formula = "y ~ x", se = FALSE, color = "black", linewidth = 2  )  +
+        labs(title = "True model")
+
+
+```
+
+::: 
+::: {.column width="33%"}
 
 | | Population | Sample |
 | --- | --- | --- | 
@@ -278,10 +464,17 @@ ggplot(young_nouns_sample, aes(y = RTlexdec, x = WrittenFrequency)) +
 
 
 
-- Accuracy of the fitted model on the sample `overestimates true accuracy` of fitted model.
+
 
 :::
 ::::
+
+ 
+
+
+
+- Accuracy of the fitted model on the sample `overestimates true accuracy` of fitted model.
+
 
 
 
@@ -294,6 +487,9 @@ You have the freedom to fit your sample data better and better (you can add more
 - An overfit model will perform really well on the data it has been trained on (the sample), but would predict new, unseen values poorly. 
 - Our goal is to find the `optimal fitted model` -- the one that gets as close to the true model as possible without overfitting. 
 
+## Overfitting exercise 
+
+- Let's use the swim records data to demonstrate that $R^2$ increases as we add more parameters. 
 
 ## Cross-validation justificaiton {.smaller}
 
@@ -372,4 +568,4 @@ There are many ways to do cross-validation — reflecting that there are many wa
 ![Figure borrowed from Kendrick Kay](/assests/images/loo1.png)
 
 
-
+## 

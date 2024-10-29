@@ -26,8 +26,8 @@ There are 6 problem sets, due to Gradescope by noon on the following Mondays. Yo
 - [Problem set 1 due Sep 9](psets/pset-01.qmd), [solutions](https://colab.research.google.com/drive/1nj3NLzLEb7ugXH0gssJwkd36_YFeMoCC?usp=sharing)
 - [Problem set 2 due Sep 23](psets/pset-02.qmd), [solutions](https://colab.research.google.com/drive/19rSMc6UTUC8E_2-iWXQNEpOjIYQ4prui?usp=sharing)
 - [Problem set 3 due ~~Oct 14~~ Oct 21](psets/pset-03.qmd) 
-- Problem set 4 due ~~Oct 28~~ Nov 4
-- Problem set 5 due Nov ~~11~~ 18
+- [Problem set 4 due ~~Oct 28~~ Nov 4](psets/pset-04.qmd)
+- Problem set 5 due ~~Nov 11~~ Nov 18
 - Problem set 6 due Dec 9 
 
 <!-- 
@@ -44,7 +44,7 @@ There are 2 midterm exams, taken in class on the following dates. Exams cannot b
 
 - [Exam 1 in class Tuesday Oct 1](exams/exam-01.qmd), [solutions](exams/exam-01-solutions.pdf)
 - Exam 2 in class Thursday Nov 21 
-- Final exam (optional) TBD 
+- Final exam (optional) Dec 19
 
 ## Lab exercises
 

@@ -13,7 +13,7 @@ Study guides include weekly study guides and additional resources from each week
 - [Week 7: Model specification](notes/model-specification.qmd) ([slides](slides/model-specification.qmd), [demo](https://colab.research.google.com/drive/1Tf-0HLrVwvXzbUpBSNQyhjLSvBVzQYCk?usp=sharing))
 - [Week 8: Applied model specification](notes/model-specification-applied.qmd) ([slides](slides/model-specification-applied.qmd), [demo](https://colab.research.google.com/drive/1057npPxqL_uICzotn1nVABDcTwCU6pLG?usp=drive_link))
 - [Week 9: Model fitting](notes/model-fitting.qmd) ([slides](slides/model-fitting.qmd), [demo](https://colab.research.google.com/drive/10LCVBpec_f3MEbGpIF-Qz_JtGRBFwUaJ?usp=drive_link))
-- [Week 10: Model accuracy](notes/model-accuracy.qmd) (slides, [demo](https://colab.research.google.com/drive/1z8sCbtfCmvlfKB8ICTXGBCUURNuf8muM?usp=drive_link))
+- [Week 10: Model accuracy](notes/model-accuracy.qmd) ([slides](slices/model-accuracy.qmd), [demo](https://colab.research.google.com/drive/1z8sCbtfCmvlfKB8ICTXGBCUURNuf8muM?usp=drive_link))
 - Week 11: Model reliability (slides, [demo](https://colab.research.google.com/drive/1pKCCQivt85v6GOiMO6_8BzpECZijNdBS?usp=drive_link))
 - Week 12: Classification (slides, [demo](https://colab.research.google.com/drive/1qkcfUtXBjhZLP8QFK5ezRuf2jPygPxFm?usp=drive_link))
 - Week 13: Exam 2 review
@@ -57,7 +57,7 @@ Lab exercises are intended for practice and are not graded.
 - [Lab 5 on Sep 26 or 27](labs/lab-05.qmd)
 - [Lab 6 on Oct 10 or 11](labs/lab-06.qmd)
 - [Lab 7 on Oct 17 or 18](labs/lab-07.qmd)
-- [Lab 8 on Oct 24 or 2](labs/lab-08.qmd)5
+- [Lab 8 on Oct 24 or 25](labs/lab-08.qmd)
 - Lab 9 on Nov 1 or 2
 - Lab 10 on Nov 8 or 9
 - Lab 11 on Dec 5 or 6

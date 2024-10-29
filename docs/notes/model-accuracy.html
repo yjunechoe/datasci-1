@@ -202,7 +202,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#model-accuracy-basics" id="toc-model-accuracy-basics" class="nav-link active" data-scroll-target="#model-accuracy-basics"><span class="header-section-number">1</span> Model accuracy basics</a></li>
-  <li><a href="#coefficient-of-determination" id="toc-coefficient-of-determination" class="nav-link" data-scroll-target="#coefficient-of-determination"><span class="header-section-number">2</span> Coefficient of determination</a></li>
+  <li><a href="#coefficient-of-determination-r2" id="toc-coefficient-of-determination-r2" class="nav-link" data-scroll-target="#coefficient-of-determination-r2"><span class="header-section-number">2</span> Coefficient of determination, <span class="math inline">\(R^2\)</span></a></li>
   <li><a href="#r2-overestimates-model-accuracy" id="toc-r2-overestimates-model-accuracy" class="nav-link" data-scroll-target="#r2-overestimates-model-accuracy"><span class="header-section-number">3</span> <span class="math inline">\(R^2\)</span> overestimates model accuracy</a></li>
   <li><a href="#overfitting" id="toc-overfitting" class="nav-link" data-scroll-target="#overfitting"><span class="header-section-number">4</span> Overfitting</a></li>
   <li><a href="#model-complexity" id="toc-model-complexity" class="nav-link" data-scroll-target="#model-complexity"><span class="header-section-number">5</span> Model complexity</a></li>
@@ -264,31 +264,32 @@ Under Construction
 <p>We’ve selected a model (model selection) and fit a model to a set of data (model fitting). One question we might want to ask next is how well does this model describe the data (<strong>model accuracy</strong>)?</p>
 <ul>
 <li>We can visualize our data and the model fit to get a sense of how accurate the model is. But we also want a way to quantify model accuracy – some metric by which to determine whether a model is useful, or how it compares to other models.</li>
-<li>Last week we learned about one metric of model “goodness”, <strong>squared error</strong>. We could certainly quantify our model accuracy with squared error, but it would be difficult to interpret since it depends on the units of the data.</li>
+<li>Last week we learned about one metric of model “goodness”, <strong>Sum of Squared Error (SSE)</strong>. We could certainly quantify our model accuracy with SSE, but it would be difficult to interpret since it depends on the units of the data.</li>
 <li>Today we’ll learn about another metric, <span class="math inline">\(R^2\)</span> which is easier to interpret and independent of units. <span class="math inline">\(R^2\)</span> quantifies the percentage of variance in our response variable that is explained by our model.</li>
 </ul>
 </section>
-<section id="coefficient-of-determination" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="coefficient-of-determination"><span class="header-section-number">2</span> Coefficient of determination</h2>
-<p>The coefficient of determination, <span class="math inline">\(R^2\)</span> quantifies the percentage of <strong>variance</strong> in the response variable that is explained by the model.</p>
-<p>The equation for variance:</p>
+<section id="coefficient-of-determination-r2" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="coefficient-of-determination-r2"><span class="header-section-number">2</span> Coefficient of determination, <span class="math inline">\(R^2\)</span></h2>
+<p>The coefficient of determination, <span class="math inline">\(R^2\)</span>, quantifies the proportion of <strong>variance</strong> in the response variable, <span class="math inline">\(y\)</span>, that is explained by the model. Since you’ve already learned about <strong>Sum of Squared Error (SSE)</strong> as a way to quantify how well a model fits the data, you already have the tools to understand <span class="math inline">\(R^2\)</span>.</p>
+<p>To obain <span class="math inline">\(R^2\)</span> for a model, we compare the SSE of our model with the SEE of the simplest possible model: <code>y ~ 1</code> (the mean of the observed <span class="math inline">\(y\)</span> values). We call this simple model the <strong>reference model</strong> in the <span class="math inline">\(R^2\)</span> equation.</p>
+<p>The equation for <span class="math inline">\(R^2\)</span> is:</p>
 <ul>
-<li><span class="math inline">\(\frac{\sum_{i=1}^n (y_i - m_i)^2}{n-1}\)</span></li>
-<li>We take the <strong>sum of squares</strong>: square the residuals (<span class="math inline">\(i^{th}\)</span> data point minus the <span class="math inline">\(i^{th}\)</span> model value), then divide by the number of cases, <span class="math inline">\(n\)</span>, minus 1.</li>
-<li>Notice this is the same equation as standard deviation, we just haven’t done the squaring part, yet.</li>
+<li><span class="math inline">\(R^2=100\times(1-\frac{\sum_{i=1}^n (y_i - m_i)^2}{\sum_{i=1}^n (y_i - \overline{y})^2})\)</span></li>
 </ul>
-<p>The equation for <span class="math inline">\(R^2\)</span> is then:</p>
+<p>Which is the same as saying:</p>
+<ul>
+<li><span class="math inline">\(R^2=100\times(1-\frac{SSE_{model}}{SSE_{reference}})\)</span></li>
+</ul>
+<p>Sometimes you will also see it expressed like this:</p>
 <ul>
 <li><span class="math inline">\(R^2=100\times(1-\frac{unexplained \; variance}{total \; variance})\)</span></li>
-<li>or <span class="math inline">\(R^2=100\times(1-\frac{\sum_{i=1}^n (y_i - m_i)^2}{\sum_{i=1}^n (y_i - \overline{y})^2})\)</span></li>
 </ul>
-<p>Let’s unpack this equation:</p>
+<p>Which helps us appreciate what the equation is doing in terms of SSE:</p>
 <ul>
-<li>The <span class="math inline">\(total \; variance\)</span> (denominator) is the sum of squares of the deviations of the data points from their mean: <span class="math inline">\(\sum_{i=1}^n (y_i - \overline{y})^2\)</span>. In words, take each y value and subtract it from the mean y value, square it, then add them all up.</li>
-<li>The <span class="math inline">\(unexplained \; variance\)</span> (numerator) is the sum of squares of the deviations of the model value from the data (residuals): <span class="math inline">\(\sum_{i=1}^n (y_i - m_i)^2\)</span>. In words, take each y value and subtract it from the model value (the model’s prediction) for that data point, square it, then add them all up.</li>
-<li>Note that we do not include the denominator of the variance equation, <span class="math inline">\(n-1\)</span>, since the two would cancel each other out in the full <span class="math inline">\(R^2\)</span> equation.</li>
+<li>The <span class="math inline">\(total \; variance\)</span> (denominator) is quantified as the sum of squared error in which we substract the mean from the data (the simplest model’s prediction): <span class="math inline">\(\sum_{i=1}^n (y_i - \overline{y})^2\)</span>. In words, take each y value and subtract it from the mean y value, square it, then add them all up.</li>
+<li>The <span class="math inline">\(unexplained \; variance\)</span> (numerator) is quantified as the sum of squared error in which we subtract the model value from the data (residuals): <span class="math inline">\(\sum_{i=1}^n (y_i - m_i)^2\)</span>. In words, take each y value and subtract it from the model value (the model’s prediction) for that data point, square it, then add them all up.</li>
 </ul>
-<p>We subtract the proportion <span class="math inline">\(\frac{unexplained \; variance}{total \; variance}\)</span> from 1 to get the proportion of variance that <em>is</em> explained, and then we multiply by 100 to turn it into the percent of variance explained.</p>
+<p>We then subtract the proportion <span class="math inline">\(\frac{unexplained \; variance}{total \; variance}\)</span> from 1 to get the proportion of variance that <em>is</em> explained, and then we multiply by 100 to turn it into the percent of variance explained.</p>
 <ul>
 <li><strong>There is an upper bound of 100%</strong>: the situation where the model explains all the variance (it matches the data exactly)</li>
 <li><strong>There is technically no lower bound</strong>, since models can be arbitrarily bad. <strong>0%</strong> indicates the model explains none of the variance (it predicts the mean of the data but nothing else)</li>
@@ -299,10 +300,9 @@ Under Construction
 <p>One thing we can ask is how well the model describes our specific sample of data. But the question we actually want to answer is <em>how well does the model we fit describe the population we are interested in</em>.</p>
 <ul>
 <li>The problem is that we usually only have access to the sample we’ve collected and <span class="math inline">\(R^2\)</span> tends to <strong>overestimate</strong> the accuracy of the model on the population. In other words, the <span class="math inline">\(R^2\)</span> of the model we fit on our sample will be larger than the <span class="math inline">\(R^2\)</span> of the model fit to the population.</li>
-<li>Further, the population is (usually) unknown to us. To quantify the <strong>true accuracy</strong> of a fitted model – that is, how well the model describes the population, not the sample we collected – we can use a technique called <strong>cross-validation</strong>.<br>
-</li>
-<li>Before we learn about cross-validation, let’s first try to gain further conceptual understanding of <em>why</em> <span class="math inline">\(R^2\)</span> tends to overestimate model accuracy.</li>
+<li>Further, the population is (usually) unknown to us. To quantify the <strong>true accuracy</strong> of a fitted model – that is, how well the model describes the population, not the sample we collected – we can use a technique called <strong>cross-validation</strong>.</li>
 </ul>
+<p>Before we learn about cross-validation, let’s first try to gain further conceptual understanding of <em>why</em> <span class="math inline">\(R^2\)</span> tends to overestimate model accuracy.</p>
 </section>
 <section id="overfitting" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="overfitting"><span class="header-section-number">4</span> Overfitting</h2>

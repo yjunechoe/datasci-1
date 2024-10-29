@@ -12,32 +12,36 @@ date: 2023-10-29
 We've selected a model (model selection) and fit a model to a set of data (model fitting). One question we might want to ask next is how well does this model describe the data (**model accuracy**)? 
 
 - We can visualize our data and the model fit to get a sense of how accurate the model is. But we also want a way to quantify model accuracy -- some metric by which to determine whether a model is useful, or how it compares to other models. 
-- Last week we learned about one metric of model "goodness", **squared error**. We could certainly quantify our model accuracy with squared error, but it would be difficult to interpret since it depends on the units of the data. 
+- Last week we learned about one metric of model "goodness", **Sum of Squared Error (SSE)**. We could certainly quantify our model accuracy with SSE, but it would be difficult to interpret since it depends on the units of the data. 
 - Today we'll learn about another metric, $R^2$ which is easier to interpret and independent of units. $R^2$ quantifies the percentage of variance in our response variable that is explained by our model. 
 
 
-## Coefficient of determination
+## Coefficient of determination, $R^2$
 
-The coefficient of determination, $R^2$ quantifies the percentage of **variance** in the response variable that is explained by the model.
+The coefficient of determination, $R^2$, quantifies the proportion of **variance** in the response variable, $y$, that is explained by the model.  Since you've already learned about **Sum of Squared Error (SSE)** as a way to quantify how well a model fits the data, you already have the tools to understand $R^2$. 
 
-The equation for variance: 
+To obain $R^2$ for a model, we compare the SSE of our model with the SEE of the simplest possible model: `y ~ 1` (the mean of the observed $y$ values). We call this simple model the **reference model** in the $R^2$ equation. 
 
-- $\frac{\sum_{i=1}^n (y_i - m_i)^2}{n-1}$
-- We take the **sum of squares**: square the residuals ($i^{th}$ data point minus the $i^{th}$ model value), then divide by the number of cases, $n$, minus 1. 
-- Notice this is the same equation as standard deviation, we just haven't done the squaring part, yet. 
+The equation for $R^2$ is: 
 
-The equation for $R^2$ is then: 
+- $R^2=100\times(1-\frac{\sum_{i=1}^n (y_i - m_i)^2}{\sum_{i=1}^n (y_i - \overline{y})^2})$
+
+Which is the same as saying: 
+
+- $R^2=100\times(1-\frac{SSE_{model}}{SSE_{reference}})$
+
+
+Sometimes you will also see it expressed like this: 
 
 - $R^2=100\times(1-\frac{unexplained \; variance}{total \; variance})$
-- or $R^2=100\times(1-\frac{\sum_{i=1}^n (y_i - m_i)^2}{\sum_{i=1}^n (y_i - \overline{y})^2})$
 
-Let's unpack this equation: 
 
-- The $total \; variance$ (denominator) is the sum of squares of the deviations of the data points from their mean: $\sum_{i=1}^n (y_i - \overline{y})^2$. In words, take each y value and subtract it from the mean y value, square it, then add them all up.
-- The $unexplained \; variance$ (numerator) is the sum of squares of the deviations of the model value from the data (residuals): $\sum_{i=1}^n (y_i - m_i)^2$. In words, take each y value and subtract it from the model value (the model's prediction) for that data point, square it, then add them all up.
-- Note that we do not include the denominator of the variance equation, $n-1$, since the two would cancel each other out in the full $R^2$ equation. 
+Which helps us appreciate what the equation is doing in terms of SSE: 
 
-We subtract the proportion $\frac{unexplained \; variance}{total \; variance}$ from 1 to get the proportion of variance that *is* explained, and then we multiply by 100 to turn it into the percent of variance explained.  
+- The $total \; variance$ (denominator) is quantified as the sum of squared error in which we substract the mean from the data (the simplest model's prediction): $\sum_{i=1}^n (y_i - \overline{y})^2$. In words, take each y value and subtract it from the mean y value, square it, then add them all up.
+- The $unexplained \; variance$ (numerator) is quantified as the sum of squared error in which we subtract the model value from the data (residuals): $\sum_{i=1}^n (y_i - m_i)^2$. In words, take each y value and subtract it from the model value (the model's prediction) for that data point, square it, then add them all up.
+
+We then subtract the proportion $\frac{unexplained \; variance}{total \; variance}$ from 1 to get the proportion of variance that *is* explained, and then we multiply by 100 to turn it into the percent of variance explained.  
 
 - **There is an upper bound of 100%**: the situation where the model explains all the variance (it matches the data exactly)
 - **There is technically no lower bound**, since models can be arbitrarily bad. **0%** indicates the model explains none of the variance (it predicts the mean of the data but nothing else)
@@ -48,7 +52,8 @@ One thing we can ask is how well the model describes our specific sample of data
 
 - The problem is that we usually only have access to the sample we've collected and $R^2$ tends to **overestimate** the accuracy of the model on the population. In other words, the $R^2$ of the model we fit on our sample will be larger than the $R^2$ of the model fit to the population. 
 - Further, the population is (usually) unknown to us. To quantify the **true accuracy** of a fitted model -- that is, how well the model describes the population, not the sample we collected -- we can use a technique called **cross-validation**.  
-- Before we learn about cross-validation, let's first try to gain further conceptual understanding of *why* $R^2$ tends to overestimate model accuracy. 
+
+Before we learn about cross-validation, let's first try to gain further conceptual understanding of *why* $R^2$ tends to overestimate model accuracy. 
 
 ## Overfitting
 

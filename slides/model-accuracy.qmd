@@ -568,4 +568,91 @@ There are many ways to do cross-validation — reflecting that there are many wa
 ![Figure borrowed from Kendrick Kay](/assests/images/loo1.png)
 
 
-## 
+# Thursday 
+
+## Other methods 
+
+There are other ways to evaluate models beyond cross-validaiton. We'll mention a few more: 
+
+1. *F-test*
+2. **AIC (Akaike Information Criterion)**
+3. **BIC (Bayesian Information Criterion)**
+
+## F-test  {.smaller}
+
+- One common way is using an **F-test** to determine whether a more complex model produces a significantly better fit than a simpler one. 
+- This approach only applies for *nested models*, which just means that one model is a simpler version of another more complex one. 
+- We will return to this in the demo. 
+
+## AIC and BIC {.smaller}
+
+- You may also encounter **AIC (Akaike Information Criterion)** and **BIC (Bayesian Information Criterion)**. 
+- These are parametric approaches that attempt to compare different models and find the optimal fit (helping you avoid overfitting and excessively complex models).  
+
+## AIC and BIC, what's the difference? {.smaller}
+
+- In general AIC considers how well the model fits the data, the number of parameters, and the sample size (there is a penalty for more complex models); BIC is similar but has a stronger penalty for complex models (so will inherently favor simpler models). 
+
+## What we'll demo: 
+
+- **We'll focus on cross-validation** in this class, because it makes fewer assumptions than metrics like AIC/BIC and is simpler to understand conceptually. But we'll also show you the **F-test** approach, since it's widely used in the sciences. 
+
+## F-test (via `anova()`)
+
+The F-test is closely related to $R^2$. When comparing a simpler model to a more complex one, the **change in $R^2$** (often expressed as $\Delta R^2$) can be evalutated using an F-test to see if adding predictors significantly improves model fit. 
+
+## F-test and R^2 {.smaller}
+
+- For $R^2$, when we compared $SSE_{model}$ (the sum of squared error of our model) to $SSE_{reference}$ (the sum of squared error of the intercept-only model), we noted that $SSE_{reference}$ is always going to be greater than $SSE_{model}$. 
+- But what we actually want to know is whether it is *significantly* greater. 
+
+## Equation for F (in terms of $R^2$) {.smaller}
+
+Let $R^2_{simple}$ be the $R^2$ of the simpler model and $R^2_{complex}$ be the $R^2$ of the more complex model. The change in $R^2$ (also called $\Delta R^2$) is: 
+
+- $\Delta R^2 = R^2_{complex} - R^2_{simple}$
+
+We can then compute the F-statistic to determine if $\Delta R^2$ is significant. 
+
+- $F = \frac{\Delta R^2 / p }{(1-R^2_{complex}/(n-k-1))}$
+
+Where: 
+
+- $p$ is the number of additional predictors in the complex model 
+- $n$ is the total sample size 
+- $k$ is the number of predictors in the complex model 
+
+## Understanding the F equation {.smaller}
+
+$F = \frac{\Delta R^2 / p }{(1-R^2_{complex}/(n-k-1))}$
+
+
+We can understand the numerator and denominator of this equation in the following way: 
+
+- The numerator represents the increase in *explained variance* per additional predictor. 
+- The denominator represents the remaining *unexplained variance*, adjusted for sample size and the complexity of the model. 
+
+## F-test demo {.smaller}
+
+In R, we can perform this model comparison via and F-test via a call to `anova()`:
+
+```{r}
+model_int <- lm(RTlexdec ~ 1, english)
+model_freq <- lm(RTlexdec ~ WrittenFrequency, english)
+model_freqage <- lm(RTlexdec ~ WrittenFrequency + AgeSubject, english)
+model_freqagelength <- lm(RTlexdec ~ WrittenFrequency + AgeSubject + LengthInLetters, english)
+
+anova(model_int, model_freq, model_freqage, model_freqagelength)
+```
+
+## F-test interpretation {.smaller}
+
+If the F-statistic is large, it suggests that the additional predictors in the complex model significantly improve model fit. 
+
+To help you decide, `anova()` returns a p-value. You can understand this p-value as asking: **how likely it is to observe this value of F if we randomly added this many predictors to our model?**
+
+## Back to model selection {.smaller}
+
+- Building models is itself an iterative process: we can use model accuracy obtained via cross-validation to determine which model to select (as a way to find the elusive optimal model fit).  
+
+- Beyond model accuracy, there are other practical things one might want to consider when selecting a model, such as ease of interpretation and availability of resources (the data you can collect, the computing power you have, etc.)

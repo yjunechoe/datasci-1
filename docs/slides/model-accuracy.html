@@ -895,9 +895,123 @@ F-statistic: 12.41 on 1 and 18 DF,  p-value: 0.00243</code></pre>
 <section id="leave-one-out-cross-validation-11" class="slide level2 smaller">
 <h2>Leave-one-out cross-validation</h2>
 
-<img data-src="../assests/images/loo1.png" class="r-stretch quarto-figure-center"><p class="caption">Figure borrowed from Kendrick Kay</p></section>
-<section id="section" class="slide level2">
-<h2></h2>
+<img data-src="../assests/images/loo1.png" class="r-stretch quarto-figure-center"><p class="caption">Figure borrowed from Kendrick Kay</p></section></section>
+<section>
+<section id="thursday" class="title-slide slide level1 center">
+<h1>Thursday</h1>
+
+</section>
+<section id="other-methods" class="slide level2">
+<h2>Other methods</h2>
+<p>There are other ways to evaluate models beyond cross-validaiton. We’ll mention a few more:</p>
+<ol type="1">
+<li class="fragment"><em>F-test</em></li>
+<li class="fragment"><strong>AIC (Akaike Information Criterion)</strong></li>
+<li class="fragment"><strong>BIC (Bayesian Information Criterion)</strong></li>
+</ol>
+</section>
+<section id="f-test" class="slide level2 smaller">
+<h2>F-test</h2>
+<ul>
+<li class="fragment">One common way is using an <strong>F-test</strong> to determine whether a more complex model produces a significantly better fit than a simpler one.</li>
+<li class="fragment">This approach only applies for <em>nested models</em>, which just means that one model is a simpler version of another more complex one.</li>
+<li class="fragment">We will return to this in the demo.</li>
+</ul>
+</section>
+<section id="aic-and-bic" class="slide level2 smaller">
+<h2>AIC and BIC</h2>
+<ul>
+<li class="fragment">You may also encounter <strong>AIC (Akaike Information Criterion)</strong> and <strong>BIC (Bayesian Information Criterion)</strong>.</li>
+<li class="fragment">These are parametric approaches that attempt to compare different models and find the optimal fit (helping you avoid overfitting and excessively complex models).</li>
+</ul>
+</section>
+<section id="aic-and-bic-whats-the-difference" class="slide level2 smaller">
+<h2>AIC and BIC, what’s the difference?</h2>
+<ul>
+<li class="fragment">In general AIC considers how well the model fits the data, the number of parameters, and the sample size (there is a penalty for more complex models); BIC is similar but has a stronger penalty for complex models (so will inherently favor simpler models).</li>
+</ul>
+</section>
+<section id="what-well-demo" class="slide level2">
+<h2>What we’ll demo:</h2>
+<ul>
+<li class="fragment"><strong>We’ll focus on cross-validation</strong> in this class, because it makes fewer assumptions than metrics like AIC/BIC and is simpler to understand conceptually. But we’ll also show you the <strong>F-test</strong> approach, since it’s widely used in the sciences.</li>
+</ul>
+</section>
+<section id="f-test-via-anova" class="slide level2">
+<h2>F-test (via <code>anova()</code>)</h2>
+<p>The F-test is closely related to <span class="math inline">\(R^2\)</span>. When comparing a simpler model to a more complex one, the <strong>change in <span class="math inline">\(R^2\)</span></strong> (often expressed as <span class="math inline">\(\Delta R^2\)</span>) can be evalutated using an F-test to see if adding predictors significantly improves model fit.</p>
+</section>
+<section id="f-test-and-r2" class="slide level2 smaller">
+<h2>F-test and R^2</h2>
+<ul>
+<li class="fragment">For <span class="math inline">\(R^2\)</span>, when we compared <span class="math inline">\(SSE_{model}\)</span> (the sum of squared error of our model) to <span class="math inline">\(SSE_{reference}\)</span> (the sum of squared error of the intercept-only model), we noted that <span class="math inline">\(SSE_{reference}\)</span> is always going to be greater than <span class="math inline">\(SSE_{model}\)</span>.</li>
+<li class="fragment">But what we actually want to know is whether it is <em>significantly</em> greater.</li>
+</ul>
+</section>
+<section id="equation-for-f-in-terms-of-r2" class="slide level2 smaller">
+<h2>Equation for F (in terms of <span class="math inline">\(R^2\)</span>)</h2>
+<p>Let <span class="math inline">\(R^2_{simple}\)</span> be the <span class="math inline">\(R^2\)</span> of the simpler model and <span class="math inline">\(R^2_{complex}\)</span> be the <span class="math inline">\(R^2\)</span> of the more complex model. The change in <span class="math inline">\(R^2\)</span> (also called <span class="math inline">\(\Delta R^2\)</span>) is:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(\Delta R^2 = R^2_{complex} - R^2_{simple}\)</span></li>
+</ul>
+<p>We can then compute the F-statistic to determine if <span class="math inline">\(\Delta R^2\)</span> is significant.</p>
+<ul>
+<li class="fragment"><span class="math inline">\(F = \frac{\Delta R^2 / p }{(1-R^2_{complex}/(n-k-1))}\)</span></li>
+</ul>
+<p>Where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(p\)</span> is the number of additional predictors in the complex model</li>
+<li class="fragment"><span class="math inline">\(n\)</span> is the total sample size</li>
+<li class="fragment"><span class="math inline">\(k\)</span> is the number of predictors in the complex model</li>
+</ul>
+</section>
+<section id="understanding-the-f-equation" class="slide level2 smaller">
+<h2>Understanding the F equation</h2>
+<p><span class="math inline">\(F = \frac{\Delta R^2 / p }{(1-R^2_{complex}/(n-k-1))}\)</span></p>
+<p>We can understand the numerator and denominator of this equation in the following way:</p>
+<ul>
+<li class="fragment">The numerator represents the increase in <em>explained variance</em> per additional predictor.</li>
+<li class="fragment">The denominator represents the remaining <em>unexplained variance</em>, adjusted for sample size and the complexity of the model.</li>
+</ul>
+</section>
+<section id="f-test-demo" class="slide level2 smaller">
+<h2>F-test demo</h2>
+<p>In R, we can perform this model comparison via and F-test via a call to <code>anova()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>model_int <span class="ot">&lt;-</span> <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> <span class="dv">1</span>, english)</span>
+<span id="cb7-2"><a></a>model_freq <span class="ot">&lt;-</span> <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> WrittenFrequency, english)</span>
+<span id="cb7-3"><a></a>model_freqage <span class="ot">&lt;-</span> <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> WrittenFrequency <span class="sc">+</span> AgeSubject, english)</span>
+<span id="cb7-4"><a></a>model_freqagelength <span class="ot">&lt;-</span> <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> WrittenFrequency <span class="sc">+</span> AgeSubject <span class="sc">+</span> LengthInLetters, english)</span>
+<span id="cb7-5"><a></a></span>
+<span id="cb7-6"><a></a><span class="fu">anova</span>(model_int, model_freq, model_freqage, model_freqagelength)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: RTlexdec ~ 1
+Model 2: RTlexdec ~ WrittenFrequency
+Model 3: RTlexdec ~ WrittenFrequency + AgeSubject
+Model 4: RTlexdec ~ WrittenFrequency + AgeSubject + LengthInLetters
+  Res.Df     RSS Df Sum of Sq         F  Pr(&gt;F)    
+1   4567 112.456                                   
+2   4566  91.194  1    21.261 2772.1326 &lt; 2e-16 ***
+3   4565  35.053  1    56.141 7319.9087 &lt; 2e-16 ***
+4   4564  35.004  1     0.049    6.3563 0.01173 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="f-test-interpretation" class="slide level2 smaller">
+<h2>F-test interpretation</h2>
+<p>If the F-statistic is large, it suggests that the additional predictors in the complex model significantly improve model fit.</p>
+<p>To help you decide, <code>anova()</code> returns a p-value. You can understand this p-value as asking: <strong>how likely it is to observe this value of F if we randomly added this many predictors to our model?</strong></p>
+</section>
+<section id="back-to-model-selection" class="slide level2 smaller">
+<h2>Back to model selection</h2>
+<ul>
+<li class="fragment"><p>Building models is itself an iterative process: we can use model accuracy obtained via cross-validation to determine which model to select (as a way to find the elusive optimal model fit).</p></li>
+<li class="fragment"><p>Beyond model accuracy, there are other practical things one might want to consider when selecting a model, such as ease of interpretation and availability of resources (the data you can collect, the computing power you have, etc.)</p></li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

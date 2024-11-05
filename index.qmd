@@ -8,9 +8,9 @@ format:
     pdf: default
 ---
 
-::: {.callout-note title="Announcements"}
+::: {.callout-warning title="Announcements"}
 
-- Final exam is Dec 19 at noon
+- No class or lab this week! (Election day and teaching team @ conference)
 
 :::
 

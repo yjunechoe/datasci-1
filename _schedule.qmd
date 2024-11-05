@@ -12,8 +12,8 @@
 | 8 | Oct 14 | [Applied model specification](notes/model-specification-applied.qmd) | [Lab 7](labs/lab-07.qmd) | | 
 | 9 | Oct 21 | [Model fitting](notes/model-fitting.qmd) | [Lab 8](labs/lab-08.qmd) | [Problem set 3](psets/pset-03.qmd)  | 
 | 10 | Oct 28 | [Model accuracy](notes/model-accuracy.qmd) | [Lab 9](labs/lab-09.qmd) |  |
-| 11 | Nov 4 | Model reliability | Lab 10 | [Problem set 4](psets/pset-04.qmd)  |
-| 12 | Nov 11 | Classification |  Lab 11 | | 
+| 11 | Nov 4 | **Election day & conference (no class)** | No lab | [Problem set 4](psets/pset-04.qmd)  |
+| 12 | Nov 11 | Model reliability (Tue)<br>Classification (Thu) |  Lab 10 | | 
 | 13 | Nov 18 | Exam 2 review (Tue)<br>Exam 2 (Thu) |  |  Problem set 5    | 
 | 14 | Nov 25 |**Thanksgiving break (no class)**  |   |
 | 15 | Dec 2 | Multilevel models |  Lab is Pset 6 support |  |

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Katie Schuler">
-<meta name="dcterms.date" content="2023-10-24">
+<meta name="dcterms.date" content="2024-11-12">
 
 <title>Model reliability – DataSci for Lang &amp; Mind</title>
 <style>
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -168,8 +202,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="model-reliability.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#basic-idea" id="toc-basic-idea" class="nav-link active" data-scroll-target="#basic-idea"><span class="header-section-number">1</span> Basic idea</a></li>
+  <li><a href="#calculating-reliability" id="toc-calculating-reliability" class="nav-link" data-scroll-target="#calculating-reliability"><span class="header-section-number">2</span> Calculating reliability</a></li>
+  <li><a href="#correlated-errors" id="toc-correlated-errors" class="nav-link" data-scroll-target="#correlated-errors"><span class="header-section-number">3</span> Correlated errors</a></li>
+  <li><a href="#accuracy-v.-reliability" id="toc-accuracy-v.-reliability" class="nav-link" data-scroll-target="#accuracy-v.-reliability"><span class="header-section-number">4</span> Accuracy v. Reliability</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="model-reliability.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -192,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 24, 2023</p>
+      <p class="date">November 12, 2024</p>
     </div>
   </div>
   
@@ -217,8 +260,237 @@ Under Construction
 
 </div>
 </div>
+<section id="basic-idea" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="basic-idea"><span class="header-section-number">1</span> Basic idea</h2>
+<p>Imagine you’ve just fit a model to some data, and now you have values for its parameters. But how sure can we be about those parameter values? Well, this uncertainty has to do with the difference between the data you sampled and the larger population it represents. We’re not really interested in the model parameters that just fit your sample—our real goal is to find parameters that would best describe the entire population from which that sample came.</p>
+<p>Recall from Sampling Distribution week that, for any statistic computed on a sample from a population there’s some sampling error. We add error bars to show the range of values we’d expect our statistic to take on if we took new samples from the population. In previous weeks we were working with single summary statistics like the mean, but these same principles apply to models: model parameters estimated from a sample will also vary because of sampling error. By putting error bars on these parameters, we indicate how these estimates might change with different samples.</p>
+<p>Model reliability, then, is about how stable those parameter estimates are in the face of sampling error. And the more data we collect, the more reliable our estimates become, reducing uncertainty in our model’s parameters.</p>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_n10, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"sample size = 10"</span>) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> <span class="st">"y ~ x"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_n200, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"sample size = 200"</span>) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> <span class="st">"y ~ x"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    model_n10 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> data_n10)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_n10)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>model_n200 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> data_n200)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_n200)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="model-reliability_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="model-reliability_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code>
+Call:
+lm(formula = y ~ x, data = data_n10)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.8557 -0.6285 -0.0113  0.6370  1.5624 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)   1.7548     0.3740   4.692  0.00156 **
+x             0.7333     0.2862   2.562  0.03352 * 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.138 on 8 degrees of freedom
+Multiple R-squared:  0.4508,    Adjusted R-squared:  0.3821 
+F-statistic: 6.566 on 1 and 8 DF,  p-value: 0.03352</code></pre>
+</div>
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code>
+Call:
+lm(formula = y ~ x, data = data_n200)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.6565 -0.6757  0.0689  0.6032  3.0019 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.91308    0.07233  26.448  &lt; 2e-16 ***
+x            0.50704    0.07236   7.007 3.72e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.021 on 198 degrees of freedom
+Multiple R-squared:  0.1987,    Adjusted R-squared:  0.1947 
+F-statistic:  49.1 on 1 and 198 DF,  p-value: 3.724e-11</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-reliability" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="calculating-reliability"><span class="header-section-number">2</span> Calculating reliability</h2>
+<p>To calculate error bars on our model parameter estimates, we can use bootstrapping, a nonparametric approach that makes minimal assumptions and uses the data itself to construct a sampling distribution. You already know how to do this: we used bootstrapping earlier when we explored sampling distributions! Here’s a reminder of the process: we generate many “bootstrap” samples by resampling our original data (with replacement). Then, we fit our model to each of these samples and observe the distribution of parameter estimates across them. This distribution provides a way to assess the variability in parameter estimates if we were to draw different samples from the population.</p>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the observed fit </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>observed_fit <span class="ot">&lt;-</span> data_n200 <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(y <span class="sc">~</span> x) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>() </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># constructe the sampling distribution </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>boot_fits <span class="ot">&lt;-</span> data_n200 <span class="sc">%&gt;%</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(y <span class="sc">~</span> x) <span class="sc">%&gt;%</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>() </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># get the confidence interval </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> boot_fits <span class="sc">%&gt;%</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_confidence_interval</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">point_estimate =</span> observed_fit, <span class="co"># from above</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">level =</span> <span class="fl">0.95</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the sitribution and ci </span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>boot_fits <span class="sc">%&gt;%</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">shade_ci</span>(<span class="at">endpoints =</span> ci) </span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="model-reliability_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code># A tibble: 2 × 3
+  term      lower_ci upper_ci
+  &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+1 intercept    1.76     2.05 
+2 x            0.359    0.649</code></pre>
+</div>
+</div>
+</div>
+<p>When we fit a model using lm() in R, for example, the summary output already provides us with standard errors (S.E.) for each parameter. These standard errors are based on a parametric approach, where we assume that the residuals (errors) follow a normal distribution. Parametric methods like this can work well for large, normally distributed data, providing standard error estimates directly from the model. Bootstrapping, in contrast, doesn’t assume normality and is more flexible for small or non-normal data, allowing us to approximate error distributions without relying on these assumptions.</p>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the observed fit </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>observed_fit <span class="ot">&lt;-</span> data_n200 <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(y <span class="sc">~</span> x) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>() </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># constructe the sampling distribution </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>boot_fits <span class="ot">&lt;-</span> data_n200 <span class="sc">%&gt;%</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">specify</span>(y <span class="sc">~</span> x) <span class="sc">%&gt;%</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fit</span>() </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># get the confidence interval </span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> boot_fits <span class="sc">%&gt;%</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_confidence_interval</span>(</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">point_estimate =</span> observed_fit, <span class="co"># from above</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">level =</span> <span class="fl">0.95</span>, </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"se"</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize the sitribution and ci </span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>boot_fits <span class="sc">%&gt;%</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">shade_ci</span>(<span class="at">endpoints =</span> ci) </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>ci</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_n200)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="model-reliability_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code># A tibble: 2 × 3
+  term      lower_ci upper_ci
+  &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+1 intercept    1.77     2.05 
+2 x            0.368    0.646</code></pre>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code>
+Call:
+lm(formula = y ~ x, data = data_n200)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.6565 -0.6757  0.0689  0.6032  3.0019 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.91308    0.07233  26.448  &lt; 2e-16 ***
+x            0.50704    0.07236   7.007 3.72e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.021 on 198 degrees of freedom
+Multiple R-squared:  0.1987,    Adjusted R-squared:  0.1947 
+F-statistic:  49.1 on 1 and 198 DF,  p-value: 3.724e-11</code></pre>
+</div>
+</div>
+</div>
+<p>What if we want to understand not just individual parameters but also a combined metric or the overall function described by our mode? Bootstrapping can be used here well: we compute whatever quantity we care about for each bootstrap sample, then examine how that quantity varies across all iterations.</p>
+<p>There are other methods resampling techniques beyond bootstrapping that you might hear about in the context of model reliability, like <strong>jackknifing</strong> and <strong>split-half analysis</strong>. Jackknifing is faster but generally less accurate and flexible: we leave out one observation at a time and calculate our estimates on the remaining data. Split-half analysis - where we split the data and analyze each half separately — gives a rough sense of sampling error. However, unless computation is a limiting factor, bootstrapping is usually preferred because it offers a balance of accuracy and adaptability.</p>
+</section>
+<section id="correlated-errors" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="correlated-errors"><span class="header-section-number">3</span> Correlated errors</h2>
+<p>When a model has multiple parameters, the errors in their estimates may be correlated. This happens because, in models with more than one parameter, sampling error isn’t just a single value; it’s part of a multidimensional distribution. So, putting separate error bars on individual parameters can miss the bigger picture, especially when parameters interact.</p>
+<p>Imagine a simple case with a linear regression model with two correlated predictors (a child’s age and height, for example). If these predictors are highly correlated, then increasing the weight of one can often be offset by decreasing the weight of the other. This results in a kind of “trade-off” between the weights, where an error in one weight often corresponds to an opposite error in the other. When we look at how these weights vary across samples, we might see a negative correlation in the errors between the two weights.</p>
+<p>We can use a simple function <code>check_model()</code> that is part of the <code>easystats</code> package to check our model for correlated errors. <code>check_model()</code> returns a number of important checks of model assumptions. Colinearity checks for correlated errors and returns a VIF (Variance Inflation Factor):</p>
+<ul>
+<li>VIF = 1: no correlation with other predictors</li>
+<li>VIF &gt; 1 and &lt; 5: Moderate correlation with other predictors (acceptable)</li>
+<li>VIF &gt; 5: Correlation with other predictors is problematic (high multicolinearity)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code># Attaching packages: easystats 0.7.3
+✔ bayestestR  0.15.0   ✔ correlation 0.8.6 
+✔ datawizard  0.13.0   ✔ effectsize  0.8.9 
+✔ insight     0.20.5   ✔ modelbased  0.8.9 
+✔ performance 0.12.4   ✔ parameters  0.23.0
+✔ report      0.5.9    ✔ see         0.9.0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>galton_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> father <span class="sc">+</span> mother, <span class="at">data =</span> Galton)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(galton_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="model-reliability_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>For highly correlated regressors, these individual weights may have low reliability, meaning their exact values can fluctuate. However, the model as a whole may still be reliable. Even if the individual weights vary, the combined model output (a weighted sum of the predictors) can remain stable across different samples.</p>
+</section>
+<section id="accuracy-v.-reliability" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="accuracy-v.-reliability"><span class="header-section-number">4</span> Accuracy v. Reliability</h2>
+<p>Model acuracy and model reliability are closely related concepts in model building, but they aren’t the same. Accuracy refers to how close a model’s predictions are to the true values we want to predict. Reliability, on the other hand, is about the model’s stability—how consistent the model’s parameters and outputs are when new data is sampled.</p>
+<p>Let’s break down the difference with four scenarios:</p>
+<ol type="1">
+<li><strong>Reliable and accurate</strong>: The model is both close to the true model and stable across different samples. This is the ideal case, indicating we have enough data to produce both a precise and consistent model fit.</li>
+<li><strong>Reliable but inaccurate</strong>: The model parameters are stable across samples, meaning it’s reliable, but it’s far from the true model. This could happen if our model is structurally limited or misses some aspect of the data, even if we have plenty of data for stable estimates.</li>
+<li><strong>Unreliable but accurate</strong>: This situation is unlikely. Without enough data, the model’s predictions will fluctuate widely from sample to sample, making it hard to consistently approximate the true model. So, without reliability, achieving accuracy is improbable.</li>
+<li><strong>Unreliable and inaccurate</strong>: Here, the model’s estimates are unstable and far from the true model. This could be due to either insufficient data or an inappropriate model choice that doesn’t match the data’s structure. With limited data, it’s hard to tell which factor is to blame.</li>
+</ol>
+<p>In short, accuracy tells us how correct a model is, while reliability tells us how consistently it performs across samples. Both qualities are essential but address different aspects of model quality.</p>
+<p><img src="../assests/images/accuracy-reliability.png" class="img-fluid"></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>

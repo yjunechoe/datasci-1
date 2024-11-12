@@ -14,7 +14,7 @@ Study guides include weekly study guides and additional resources from each week
 - [Week 8: Applied model specification](notes/model-specification-applied.qmd) ([slides](slides/model-specification-applied.qmd), [demo](https://colab.research.google.com/drive/1057npPxqL_uICzotn1nVABDcTwCU6pLG?usp=drive_link))
 - [Week 9: Model fitting](notes/model-fitting.qmd) ([slides](slides/model-fitting.qmd), [demo](https://colab.research.google.com/drive/10LCVBpec_f3MEbGpIF-Qz_JtGRBFwUaJ?usp=drive_link))
 - [Week 10: Model accuracy](notes/model-accuracy.qmd) ([slides](slides/model-accuracy.qmd), [demo](https://colab.research.google.com/drive/1z8sCbtfCmvlfKB8ICTXGBCUURNuf8muM?usp=drive_link))
-- Week 11: Model reliability (slides, [demo](https://colab.research.google.com/drive/1pKCCQivt85v6GOiMO6_8BzpECZijNdBS?usp=drive_link))
+- [Week 11: Model reliability](notes/model-reliability.qmd) ([slides](slides/model-reliability.qmd), [demo](https://colab.research.google.com/drive/1pKCCQivt85v6GOiMO6_8BzpECZijNdBS?usp=drive_link))
 - Week 12: Classification (slides, [demo](https://colab.research.google.com/drive/1qkcfUtXBjhZLP8QFK5ezRuf2jPygPxFm?usp=drive_link))
 - Week 13: Exam 2 review
 - WeeK 15: Multilevel Models (slides, [demo](https://colab.research.google.com/drive/1qVMAPeGZ5q5IKboKIgHi4RG0H7KFo7VW?usp=drive_link))

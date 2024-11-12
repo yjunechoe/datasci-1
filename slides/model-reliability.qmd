@@ -2,7 +2,7 @@
 title: "Model Reliability"
 subtitle: "Data Science for Studying Language and the Mind"
 author: Katie Schuler
-date: 11-07-2023
+date: 11-12-2024
 echo: true
 format: 
     revealjs:

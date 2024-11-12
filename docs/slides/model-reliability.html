@@ -405,6 +405,14 @@ Katie Schuler
 
   <p class="date">2023-11-07</p>
 </section>
+<section id="announcements" class="slide level2 smaller">
+<h2>Announcements</h2>
+<ul>
+<li class="fragment">No pset 05 (due to off week!); pset 06 will have a few extra challenge questions in case you want them</li>
+<li class="fragment">pset 04 solutions posted tomorrow morning! (turn it in if you haven’t!)</li>
+<li class="fragment">Practice exam 02 posted by Friday at midnight!</li>
+</ul>
+</section>
 <section id="you-are-here" class="slide level2 smaller">
 <h2>You are <code>here</code></h2>
 <div class="columns">
@@ -414,7 +422,6 @@ Katie Schuler
 <ul>
 <li>Hello, world!</li>
 <li>R basics</li>
-<li>Data importing</li>
 <li>Data visualization</li>
 <li>Data wrangling</li>
 </ul>
@@ -436,7 +443,6 @@ Katie Schuler
 <div>
 <ul>
 <li>Classification</li>
-<li>Feature engineering (preprocessing)</li>
 <li>Inference for regression</li>
 <li>Mixed-effect models</li>
 </ul>
@@ -751,8 +757,44 @@ Katie Schuler
 </div>
 </div></div>
 </section>
-<section id="section-5" class="slide level2">
-<h2></h2>
+<section id="accuracy-v.-reliability" class="slide level2">
+<h2>Accuracy v. Reliability</h2>
+<p>Model acuracy and model reliability are closely related concepts in model building, but they aren’t the same.</p>
+<ul>
+<li class="fragment"><strong>Accuracy</strong> refers to how close a model’s predictions are to the true values we want to predict.</li>
+<li class="fragment"><strong>Reliability</strong>, is about the model’s stability—how consistent the model’s parameters and outputs are when new data is sampled.</li>
+</ul>
+</section>
+<section id="accuracy-v.-reliability-1" class="slide level2 smaller">
+<h2>Accuracy v. Reliability</h2>
+
+<img data-src="../assests/images/accuracy-reliability.png" class="r-stretch"><ol type="1">
+<li class="fragment"><strong>Reliable and accurate</strong>: The model is both close to the true model and stable across different samples. This is the ideal case, indicating we have enough data to produce both a precise and consistent model fit.</li>
+</ol>
+</section>
+<section id="accuracy-v.-reliability-2" class="slide level2 smaller">
+<h2>Accuracy v. Reliability</h2>
+
+<img data-src="../assests/images/accuracy-reliability.png" class="r-stretch"><ol start="2" type="1">
+<li class="fragment"><strong>Reliable but inaccurate</strong>: The model parameters are stable across samples, meaning it’s reliable, but it’s far from the true model. This could happen if our model is structurally limited or misses some aspect of the data, even if we have plenty of data for stable estimates.</li>
+</ol>
+</section>
+<section id="accuracy-v.-reliability-3" class="slide level2 smaller">
+<h2>Accuracy v. Reliability</h2>
+
+<img data-src="../assests/images/accuracy-reliability.png" class="r-stretch"><ol start="3" type="1">
+<li class="fragment"><strong>Unreliable but accurate</strong>: This situation is unlikely. Without enough data, the model’s predictions will fluctuate widely from sample to sample, making it hard to consistently approximate the true model. So, without reliability, achieving accuracy is improbable.</li>
+</ol>
+</section>
+<section id="accuracy-v.-reliability-4" class="slide level2 smaller">
+<h2>Accuracy v. Reliability</h2>
+
+<img data-src="../assests/images/accuracy-reliability.png" class="r-stretch"><ol start="4" type="1">
+<li class="fragment"><strong>Unreliable and inaccurate</strong>: Here, the model’s estimates are unstable and far from the true model. This could be due to either insufficient data or an inappropriate model choice that doesn’t match the data’s structure. With limited data, it’s hard to tell which factor is to blame.</li>
+</ol>
+</section>
+<section id="accuracy-v.-reliability-5" class="slide level2 smaller">
+<h2>Accuracy v. Reliability</h2>
 
 
 <img data-src="../assests/images/accuracy-reliability.png" class="r-stretch"><div class="quarto-auto-generated-content">

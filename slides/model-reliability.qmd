@@ -26,6 +26,12 @@ theme_update(plot.title = element_text(hjust = 0.5))
 
 ```
 
+## Announcements {.smaller}
+
+- No pset 05 (due to off week!); pset 06 will have a few extra challenge questions in case you want them
+- pset 04 solutions posted tomorrow morning! (turn it in if you haven't!)
+- Practice exam 02 posted by Friday at midnight!
+
 ## You are `here` {.smaller} 
 
 :::: {.columns}
@@ -36,7 +42,6 @@ theme_update(plot.title = element_text(hjust = 0.5))
 ::: {.nonincremental}
 - Hello, world!
 - R basics
-- Data importing
 - Data visualization
 - Data wrangling 
 :::
@@ -49,7 +54,7 @@ theme_update(plot.title = element_text(hjust = 0.5))
 - Sampling distribution
 - Hypothesis testing
 - Model specification
-- Model fitting 
+- Model fitting
 - Model accuracy
 - `Model reliability`
 :::
@@ -61,7 +66,6 @@ theme_update(plot.title = element_text(hjust = 0.5))
 ::: {.nonincremental}
 
 - Classification
-- Feature engineering (preprocessing) 
 - Inference for regression
 - Mixed-effect models
 ::: 
@@ -582,6 +586,39 @@ bootstrapped_fits %>%
 ::: 
 ::::  
 
-## 
+
+## Accuracy v. Reliability
+
+Model acuracy and model reliability are closely related concepts in model building, but they aren’t the same. 
+
+- **Accuracy** refers to how close a model’s predictions are to the true values we want to predict. 
+- **Reliability**, is about the model’s stability—how consistent the model’s parameters and outputs are when new data is sampled.
+
+## Accuracy v. Reliability {.smaller}
+
+![](/assests/images/accuracy-reliability.png)
+
+
+1. **Reliable and accurate**: The model is both close to the true model and stable across different samples. This is the ideal case, indicating we have enough data to produce both a precise and consistent model fit.
+
+## Accuracy v. Reliability {.smaller}
+
+![](/assests/images/accuracy-reliability.png)
+
+2. **Reliable but inaccurate**: The model parameters are stable across samples, meaning it’s reliable, but it’s far from the true model. This could happen if our model is structurally limited or misses some aspect of the data, even if we have plenty of data for stable estimates.
+
+## Accuracy v. Reliability {.smaller}
+
+![](/assests/images/accuracy-reliability.png)
+
+3. **Unreliable but accurate**: This situation is unlikely. Without enough data, the model’s predictions will fluctuate widely from sample to sample, making it hard to consistently approximate the true model. So, without reliability, achieving accuracy is improbable.
+
+## Accuracy v. Reliability {.smaller}
+
+![](/assests/images/accuracy-reliability.png)
+
+4. **Unreliable and inaccurate**: Here, the model’s estimates are unstable and far from the true model. This could be due to either insufficient data or an inappropriate model choice that doesn’t match the data’s structure. With limited data, it’s hard to tell which factor is to blame.
+
+## Accuracy v. Reliability {.smaller}
 
 ![](/assests/images/accuracy-reliability.png)

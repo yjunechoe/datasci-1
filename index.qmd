@@ -8,10 +8,9 @@ format:
     pdf: default
 ---
 
-::: {.callout-warning title="Announcements"}
-
-- No class or lab this week! (Election day and teaching team @ conference)
-
+::: {.callout-note title="Announcements"}
+- No Wesley lab on THurs Nov 14! Brittany's still on!
+- Exam 2 next Thursday! Nov 21!
 :::
 
 Welcome to Data Science for Studying Language & the Mind! The Fall 2024 course information and materials are below. Course materials from previous semesters are archived [here](archive.qmd).

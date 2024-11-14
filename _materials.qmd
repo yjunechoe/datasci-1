@@ -15,7 +15,7 @@ Study guides include weekly study guides and additional resources from each week
 - [Week 9: Model fitting](notes/model-fitting.qmd) ([slides](slides/model-fitting.qmd), [demo](https://colab.research.google.com/drive/10LCVBpec_f3MEbGpIF-Qz_JtGRBFwUaJ?usp=drive_link))
 - [Week 10: Model accuracy](notes/model-accuracy.qmd) ([slides](slides/model-accuracy.qmd), [demo](https://colab.research.google.com/drive/1z8sCbtfCmvlfKB8ICTXGBCUURNuf8muM?usp=drive_link))
 - [Week 11: Model reliability](notes/model-reliability.qmd) ([slides](slides/model-reliability.qmd), [demo](https://colab.research.google.com/drive/1pKCCQivt85v6GOiMO6_8BzpECZijNdBS?usp=drive_link))
-- Week 12: Classification (slides, [demo](https://colab.research.google.com/drive/1qkcfUtXBjhZLP8QFK5ezRuf2jPygPxFm?usp=drive_link))
+- [Week 12: Classification](https://docs.google.com/presentation/d/1y6AdgBK51n_8XAVVnaMXy10Qi-OVWeOlVy86fn_rT90/edit?usp=sharing) ([slides](https://docs.google.com/presentation/d/1y6AdgBK51n_8XAVVnaMXy10Qi-OVWeOlVy86fn_rT90/edit?usp=sharing), [demo](https://colab.research.google.com/drive/1qkcfUtXBjhZLP8QFK5ezRuf2jPygPxFm?usp=drive_link))
 - Week 13: Exam 2 review
 - WeeK 15: Multilevel Models (slides, [demo](https://colab.research.google.com/drive/1qVMAPeGZ5q5IKboKIgHi4RG0H7KFo7VW?usp=drive_link))
 
@@ -27,7 +27,7 @@ There are 6 problem sets, due to Gradescope by noon on the following Mondays. Yo
 - [Problem set 2 due Sep 23](psets/pset-02.qmd), [solutions](https://colab.research.google.com/drive/19rSMc6UTUC8E_2-iWXQNEpOjIYQ4prui?usp=sharing)
 - [Problem set 3 due ~~Oct 14~~ Oct 21](psets/pset-03.qmd), [solutions](https://colab.research.google.com/drive/1XHjv1ReqSKH8BXzja-N8-XL8OXrFosn-?usp=sharing)
 - [Problem set 4 due ~~Oct 28~~ Nov 4](psets/pset-04.qmd)
-- Problem set 5 due ~~Nov 11~~ Nov 18
+- ~~Problem set 5 due Nov 18~~ (cancelled due to missed week)
 - Problem set 6 due Dec 9 
 
 <!-- 
@@ -59,7 +59,7 @@ Lab exercises are intended for practice and are not graded.
 - [Lab 7 on Oct 17 or 18](labs/lab-07.qmd)
 - [Lab 8 on Oct 24 or 25](labs/lab-08.qmd)
 - [Lab 9 on Nov 1 or 2](labs/lab-09.qmd)
-- Lab 10 on Nov 16 or 17
+- [Lab 10 on Nov 14 or 15](labs/lab-10.qmd)
 
 <!-- ## Practice exercises 
 

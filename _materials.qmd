@@ -16,7 +16,7 @@ Study guides include weekly study guides and additional resources from each week
 - [Week 10: Model accuracy](notes/model-accuracy.qmd) ([slides](slides/model-accuracy.qmd), [demo](https://colab.research.google.com/drive/1z8sCbtfCmvlfKB8ICTXGBCUURNuf8muM?usp=drive_link))
 - [Week 11: Model reliability](notes/model-reliability.qmd) ([slides](slides/model-reliability.qmd), [demo](https://colab.research.google.com/drive/1pKCCQivt85v6GOiMO6_8BzpECZijNdBS?usp=drive_link))
 - [Week 12: Classification](https://docs.google.com/presentation/d/1y6AdgBK51n_8XAVVnaMXy10Qi-OVWeOlVy86fn_rT90/edit?usp=sharing) ([slides](https://docs.google.com/presentation/d/1y6AdgBK51n_8XAVVnaMXy10Qi-OVWeOlVy86fn_rT90/edit?usp=sharing), [demo](https://colab.research.google.com/drive/1qkcfUtXBjhZLP8QFK5ezRuf2jPygPxFm?usp=drive_link))
-- Week 13: Exam 2 review
+- Week 13: Exam 2 review [practice exam](/exams/exam-02-practice.qmd)
 - WeeK 15: Multilevel Models (slides, [demo](https://colab.research.google.com/drive/1qVMAPeGZ5q5IKboKIgHi4RG0H7KFo7VW?usp=drive_link))
 
 ## Problem sets

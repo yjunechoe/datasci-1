@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 </head>
@@ -204,35 +233,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Additional study materials</strong></p>
-<ul>
-<li>To be posted in week 12</li>
-</ul>
+<p><strong>Be able to do the lab questions and practice exam 02 questions, and you should be in great shape!!</strong></p>
 <p>The second exam will test the following learning objectives, divided into the following topic areas. For each topic area, you should be able to do the list that follows. You can think of this as a studying checklist!</p>
 <ol type="1">
 <li><strong>Model specification</strong>
 <ul>
-<li></li>
+<li>Explain the different types of models and identify appropriate scenarios for selecting each.</li>
+<li>Specify a model conceptually by selecting appropriate terms based on the data.</li>
+<li>Write the model as an equation (functional form), including the appropriate terms.</li>
+<li>Implement the model computationally in R (e.g.&nbsp;y ~ 1 + x).</li>
+<li>Identify the aliases of the linear model equation and understand how they represented a weighted sum of inputs.</li>
+<li>Explain the notions of overfitting and model complexity</li>
+</ul></li>
+<li><strong>Applied model specification</strong>
+<ul>
+<li>Given a set of data (and a visualization of the these data):</li>
+<li>Be able to write the functional form of the model as an equation and in R.</li>
+<li>Read the output of the lm function in R and determine which weight corresponds to each term in the model.</li>
+<li>Determine which model is being represented by the line plotted in a graph (when given the model as an equation or R specification)</li>
+<li>Explain the two common approaches to linearlizaing nonlinear models and understand how they make the problem linear.</li>
 </ul></li>
 <li><strong>Model fitting</strong>
 <ul>
-<li>TBA</li>
+<li>Compare and contrast the three methods for fitting a linear model: using the lm function, iterative optimization, and the matrix approach, highlighting their differences and advantages. Interpret the output of the lm function or optim function in R, understanding what is returned and how it was acheived. Understand that the goal of model fitting is to identify the best fitting estimates of the free parameters (weights).</li>
 </ul></li>
 <li><strong>Model accuracy</strong>
 <ul>
-<li>TBA</li>
+<li>Explain the concept of model accuracy and its important in evaluting model peformance.</li>
+<li>Identify the components of the coefficient of determination (<span class="math inline">\(R^2\)</span>) and how it quantifies model accuracy.</li>
+<li>Descibe overfitting and the consequences it has</li>
+<li>Compare simple and complex models, donsidering their inmpact on model accuracy and interpretability.</li>
+<li>Apply cross-valiadation techniques to assess model accuracy and prevent overfitting.</li>
+<li>Given R code from a cross validation with ‘tidymodels’, understand what model is being validated, how, and what the returned tibble from <code>collect_metrics()</code> is showing.</li>
 </ul></li>
 <li><strong>Model reliability</strong>
 <ul>
-<li>TBA</li>
+<li>Explain the concept of model reliability and its role in assessing the stability of parameter estimates across different samples.</li>
+<li>Describe how bootstrapping can be used to estimate the reliability of model parameters and construct confidence intervals.</li>
+<li>Identify the differences between model reliability and model accuracy.</li>
+<li>Explain how sample size affects model reliability</li>
+<li>Identify the reliability estimates in the <code>summary()</code> of lm().</li>
 </ul></li>
 <li><strong>Classification</strong>
 <ul>
-<li>TBA</li>
-</ul></li>
-<li><strong>Inference</strong>
-<ul>
-<li>TBA</li>
+<li>Understand the concept of classification and how it is used to predict categorical outcomes</li>
+<li>Explain the logistic function and it’s role in transforming linear output into a probability.</li>
+<li>Identify the three components required for fitting a model using glm().</li>
+<li>Fit a glm in R to perform logistic regression and interpret the output (with <code>glm</code>), with <code>infer</code>, and with <code>parsnip</code>.</li>
+<li>Understand that we can apply all of our model building steps to classification by making the simple change to glm during specification.</li>
 </ul></li>
 </ol>
 

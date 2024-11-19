@@ -5,8 +5,6 @@ author:
 date: 2024-11-12
 ---
 
-::: {.callout-warning title="Under Construction"}
-:::
 
 ```{r}
 #| echo: false

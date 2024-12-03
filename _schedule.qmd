@@ -16,6 +16,6 @@
 | 12 | Nov 11 | [Model reliability (Tue)](notes/model-reliability.qmd)<br>[Classification (Thu)](https://docs.google.com/presentation/d/1y6AdgBK51n_8XAVVnaMXy10Qi-OVWeOlVy86fn_rT90/edit?usp=sharing) |  [Lab 10](labs/lab-10.qmd) | | 
 | 13 | Nov 18 | [Exam 2 review (Tue)](https://app.sli.do/event/cxU1dzVyvnxR3gtzH3LT6g/live/questions)<br>Exam 2 (Thu) |  | ~~Problem set 5~~    | 
 | 14 | Nov 25 |**Thanksgiving break (no class)**  |   |
-| 15 | Dec 2 | Multilevel models |  Lab is Pset 6 support |  |
+| 15 | Dec 2 | [Model extrapolation (Tue)](https://colab.research.google.com/drive/1muawzmVzjpCZgWaUlDE07cdHBhsLa1Fg?usp=sharing)<br>Multilevel models |  Lab is Pset 6 support |  |
 | 16 | Dec 9 | Last day of classes (no class) |   | Problem set 6 |
 | 17 | Dec 19 | Final exam at noon (optional) | 
